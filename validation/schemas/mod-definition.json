@@ -1,0 +1,301 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://selphira.github.io/BigWorldSetup-NG/validation/mod-description-schema.json",
+  "title": "BigWorldSetup NextGen Mod Description",
+  "description": "Schema for validating BigWorldSetup NextGen mod description files",
+  "type": "object",
+  "required": ["name", "version", "tp2", "games", "category", "components", "translations"],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Mod name",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "description": "Mod version",
+      "pattern": "^[A-Za-z0-9._\\- ]{1,30}$"
+    },
+    "flags": {
+      "type": "array",
+      "description": "Mod flags",
+      "items": {
+        "$ref": "#/definitions/flagEnum"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "homepage": {
+          "type": "string",
+          "format": "uri"
+        },
+        "download": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": false
+    },
+    "file": {
+      "type": "object",
+      "required": ["filename", "size"],
+      "properties": {
+        "filename": {
+          "type": "string",
+          "pattern": "^[^/\\\\:*?\"<>|]+\\.(zip|rar|7z|tar|exe\\.gz|tgz)$"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "description": "SHA256 hash of the download file"
+        },
+        "md5": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{32}$",
+          "description": "MD5 hash of the download file"
+        }
+      },
+      "additionalProperties": false
+    },
+    "games": {
+      "type": "array",
+      "description": "List of supported games",
+      "items": {
+        "$ref": "#/definitions/gameEnum"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "tp2": {
+      "type": "string",
+      "description": "TP2 filename",
+      "pattern": "^[a-zA-Z0-9_-]+$"
+    },
+    "languages": {
+      "type": "object",
+      "description": "Map of language codes to WeiDU indices. Use 'all' for universal mods.",
+      "patternProperties": {
+        "^([a-z]{2}_[A-Z]{2}|all)$": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    },
+    "category": {
+      "$ref": "#/definitions/categoryEnum",
+      "description": "Mod category"
+    },
+    "components": {
+      "type": "object",
+      "description": "Mod components definitions",
+      "minProperties": 1,
+      "patternProperties": {
+        "^[a-zA-Z0-9_-]+$": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/standardComponent"
+            },
+            {
+              "$ref": "#/definitions/mucComponent"
+            },
+            {
+              "$ref": "#/definitions/subComponent"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "translations": {
+      "type": "object",
+      "description": "Translations per language",
+      "minProperties": 1,
+      "patternProperties": {
+        "^[a-z]{2}_[A-Z]{2}$": {
+          "$ref": "#/definitions/languageTranslations"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "definitions": {
+    "categoryEnum": {
+      "type": "string",
+      "enum": ["patch", "fix", "quest", "npc", "kit", "item", "spell", "tweak", "graphics", "audio", "ui", "rule", "convenience", "gameplay", "other"]
+    },
+    "gameEnum": {
+      "type": "string",
+      "enum": ["bg1", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"]
+    },
+    "flagEnum": {
+      "type": "string",
+      "enum": ["required"]
+    },
+    "standardComponent": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "std"
+        },
+        "games": {
+          "type": "array",
+          "description": "Override supported games for this component",
+          "items": {
+            "$ref": "#/definitions/gameEnum"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "category": {
+          "$ref": "#/definitions/categoryEnum",
+          "description": "Override category for this component"
+        },
+        "flags": {
+          "type": "array",
+          "description": "Component flags",
+          "items": {
+            "$ref": "#/definitions/flagEnum"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "mucComponent": {
+      "type": "object",
+      "required": ["type", "components"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "muc"
+        },
+        "components": {
+          "type": "array",
+          "description": "List of mutually exclusive component IDs",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          },
+          "minItems": 2,
+          "uniqueItems": true
+        },
+        "games": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/gameEnum"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "category": {
+          "$ref": "#/definitions/categoryEnum",
+          "description": "Override category for this component"
+        },
+        "flags": {
+          "type": "array",
+          "description": "Component flags",
+          "items": {
+            "$ref": "#/definitions/flagEnum"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "subComponent": {
+      "type": "object",
+      "required": ["type", "prompts"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "sub"
+        },
+        "prompts": {
+          "type": "object",
+          "description": "Prompts for user input",
+          "minProperties": 1,
+          "patternProperties": {
+            "^[0-9]+$": {
+              "type": "object",
+              "required": ["options"],
+              "properties": {
+                "options": {
+                  "type": "array",
+                  "description": "Available options for this prompt",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[0-9]+$"
+                  },
+                  "minItems": 2,
+                  "uniqueItems": true
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "games": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/gameEnum"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "category": {
+          "$ref": "#/definitions/categoryEnum",
+          "description": "Override category for this component"
+        },
+        "flags": {
+          "type": "array",
+          "description": "Component flags",
+          "items": {
+            "$ref": "#/definitions/flagEnum"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "languageTranslations": {
+      "type": "object",
+      "required": ["components"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Mod description",
+          "minLength": 1
+        },
+        "components": {
+          "type": "object",
+          "description": "Component name translations",
+          "minProperties": 1,
+          "patternProperties": {
+            "^[a-zA-Z0-9_.-]+$": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
