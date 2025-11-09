@@ -233,6 +233,8 @@ class MainWindow(QMainWindow):
         self.page_order.append(page_id)
         self.stack.addWidget(page)
 
+        page.navigation_changed.connect(self._on_page_navigation_changed)
+
         logger.debug(f"Page registered: {page_id}")
 
     def show_page(self, page_id: str) -> bool:
@@ -383,6 +385,15 @@ class MainWindow(QMainWindow):
     # ========================================
     # EVENT HANDLERS
     # ========================================
+
+    def _on_page_navigation_changed(self) -> None:
+        """Handle navigation state change from current page.
+
+        Called when page state changes that affect navigation buttons
+        (e.g., validation state, game selection).
+        """
+        self._update_navigation_buttons()
+        logger.debug("Navigation buttons updated from page signal")
 
     def _on_previous_clicked(self) -> None:
         """Handle previous button click."""
