@@ -38,8 +38,8 @@ class MainWindow(QMainWindow):
     BUTTON_WIDTH = 150
 
     # Style Constants
-    HEADER_BG_COLOR = "#252525"
-    FOOTER_BG_COLOR = "#1a1a1a"
+    HEADER_BG_COLOR = "#2a2a2a"
+    FOOTER_BG_COLOR = "#2a2a2a"
     STEP_TEXT_COLOR = "#888888"
 
     def __init__(self, state_manager: StateManager) -> None:
@@ -450,5 +450,10 @@ class MainWindow(QMainWindow):
             event: Close event
         """
         logger.info("Application closing, saving state")
+
+        if self.current_page_id:
+            page = self.pages[self.current_page_id]
+            page.save_data()
+
         self.state_manager.save_state()
         super().closeEvent(event)
