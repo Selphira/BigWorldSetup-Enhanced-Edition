@@ -376,7 +376,7 @@ class MainWindow(QMainWindow):
 
         # Notify all pages
         for page in self.pages.values():
-            page.update_ui_language(code)
+            page.retranslate_ui()
 
         logger.info(f"UI language updated: {code}")
 

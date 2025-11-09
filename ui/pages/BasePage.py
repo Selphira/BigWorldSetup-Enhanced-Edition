@@ -253,13 +253,10 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
         """
         logger.debug(f"Page hidden: {self.get_page_id()}")
 
-    def update_ui_language(self, code: str) -> None:
+    def retranslate_ui(self) -> None:
         """Called when application language changes.
 
         Override to update translatable UI elements.
-
-        Args:
-            code: New language code (e.g., 'en_US', 'fr_FR')
         """
         pass
 
