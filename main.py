@@ -3,7 +3,7 @@ import sys
 from PySide6.QtWidgets import QApplication
 
 from core.StateManager import StateManager
-from ui.main_window import MainWindow
+from ui.MainWindow import MainWindow
 from ui.pages.InstallationType import InstallationTypePage
 
 import logging
@@ -20,7 +20,6 @@ def main():
     state = StateManager()
 
     app.setStyle("Fusion")
-
     window = MainWindow(state)
     window.register_page(InstallationTypePage(state))
     window.show_page('installation_type')
