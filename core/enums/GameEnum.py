@@ -14,12 +14,12 @@ class GameEnum(Enum):
         {
             "sequences": [
                 {
-                    "label_key": "installation.bgee_source_folder",
+                    "game_folder": "bgee",
                     "required_files": ["chitin.key", "Baldur.exe"],
                     "lua_checks": {"engine_mode": 0}
                 },
                 {
-                    "label_key": "installation.bg2ee_target_folder",
+                    "game_folder": "bg2ee",
                     "required_files": ["chitin.key", "Baldur.exe"],
                     "lua_checks": {"engine_mode": 1}
                 }
