@@ -14,7 +14,7 @@ class GameEnum(Enum):
         {
             "sequences": [
                 {
-                    "game_folder": "bgee",
+                    "game_folder": "sod",
                     "required_files": ["chitin.key", "Baldur.exe"],
                     "lua_checks": {"engine_mode": 0}
                 },
@@ -34,6 +34,18 @@ class GameEnum(Enum):
         {
             "sequences": [{
                 "required_files": ["chitin.key", "Baldur.exe"],
+                "lua_checks": {"engine_mode": 0}
+            }]
+        }
+    )
+
+    SOD = (
+        "sod",
+        "Baldur's Gate: Siege of Dragonspear",
+        1,
+        {
+            "sequences": [{
+                "required_files": ["chitin.key", "Baldur.exe", "sod-dlc.zip"],
                 "lua_checks": {"engine_mode": 0}
             }]
         }
