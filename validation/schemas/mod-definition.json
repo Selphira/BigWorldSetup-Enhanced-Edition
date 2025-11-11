@@ -4,7 +4,7 @@
   "title": "BigWorldSetup NextGen Mod Description",
   "description": "Schema for validating BigWorldSetup NextGen mod description files",
   "type": "object",
-  "required": ["name", "version", "tp2", "games", "category", "components", "translations"],
+  "required": ["name", "version", "tp2", "games", "categories", "components", "translations", "links", "authors", "safe"],
   "additionalProperties": false,
   "properties": {
     "name": {
@@ -46,7 +46,7 @@
       "properties": {
         "filename": {
           "type": "string",
-          "pattern": "^[^/\\\\:*?\"<>|]+\\.(zip|rar|7z|tar|exe\\.gz|tgz)$"
+          "pattern": "^[^/\\\\:*?\"<>|]+\\.(zip|rar|7z|exe|tar\\.gz|tgz)$"
         },
         "size": {
           "type": "integer",
@@ -77,7 +77,7 @@
     "tp2": {
       "type": "string",
       "description": "TP2 filename",
-      "pattern": "^[a-zA-Z0-9_-]+$"
+      "pattern": "^[a-zA-Z0-9_\\-!#']*$"
     },
     "languages": {
       "type": "object",
@@ -91,9 +91,28 @@
       "additionalProperties": false,
       "minProperties": 1
     },
-    "category": {
-      "$ref": "#/definitions/categoryEnum",
-      "description": "Mod category"
+    "categories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/categoryEnum"
+      },
+      "description": "Mod categories",
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Mod authors",
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "safe": {
+      "type": "integer",
+      "enum": [0, 1, 2]
     },
     "components": {
       "type": "object",
@@ -131,11 +150,14 @@
   "definitions": {
     "categoryEnum": {
       "type": "string",
-      "enum": ["patch", "fix", "quest", "npc", "kit", "item", "spell", "tweak", "graphics", "audio", "ui", "rule", "convenience", "gameplay", "other"]
+      "enum": [
+        "patch", "util", "conv", "ui", "cosm", "portrait", "quest", "npc", "npc1d", "npcx", "smith", "spell",
+        "item", "kit", "gameplay", "tactic", "party"
+      ]
     },
     "gameEnum": {
       "type": "string",
-      "enum": ["bg1", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"]
+      "enum": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "pst", "pstee", "iwd", "iwd2", "iwdee"]
     },
     "flagEnum": {
       "type": "string",
@@ -147,7 +169,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "const": "std"
+          "enum": ["std", "dwn"]
         },
         "games": {
           "type": "array",
@@ -189,7 +211,7 @@
             "type": "string",
             "pattern": "^[0-9]+$"
           },
-          "minItems": 2,
+          "minItems": 1,
           "uniqueItems": true
         },
         "games": {
@@ -238,9 +260,9 @@
                   "description": "Available options for this prompt",
                   "items": {
                     "type": "string",
-                    "pattern": "^[0-9]+$"
+                    "pattern": "^[0-9a-zA-Z]+$"
                   },
-                  "minItems": 2,
+                  "minItems": 1,
                   "uniqueItems": true
                 }
               },
@@ -275,7 +297,6 @@
     },
     "languageTranslations": {
       "type": "object",
-      "required": ["components"],
       "properties": {
         "description": {
           "type": "string",
