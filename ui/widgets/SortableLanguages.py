@@ -196,18 +196,23 @@ class SortableLanguages(QFrame):
             event: Drag event
         """
         pos = event.position().toPoint()
-        insert_index = self._get_insert_index(pos)
+        dragged = event.source()
+
+        if not isinstance(dragged, SortableIcon):
+            return
+
+        next_index = self._get_next_index(pos)
 
         # Calculate indicator X position
         if self.layout.count() == 0:
             x = self.INDICATOR_MARGIN
-        elif insert_index >= self.layout.count():
+        elif next_index >= self.layout.count():
             # After last widget
             last_widget = self.layout.itemAt(self.layout.count() - 1).widget()
             x = last_widget.x() + last_widget.width() + self.SPACING
         else:
             # Before widget at insert_index
-            widget = self.layout.itemAt(insert_index).widget()
+            widget = self.layout.itemAt(next_index).widget()
             x = widget.x() - self.INDICATOR_WIDTH
 
         self.drop_indicator.move(x, self.INDICATOR_MARGIN)
@@ -230,7 +235,7 @@ class SortableLanguages(QFrame):
 
         # Get old and new positions
         old_index = self.layout.indexOf(dragged)
-        insert_index = self._get_insert_index(pos)
+        insert_index = self._get_insert_index(dragged, pos)
 
         # Reinsert widget
         self.layout.removeWidget(dragged)
@@ -245,18 +250,44 @@ class SortableLanguages(QFrame):
             self.order_changed.emit(new_order)
             logger.debug(f"Icon order changed: {new_order}")
 
-    def _get_insert_index(self, pos: QPoint) -> int:
+    def _get_insert_index(self, dragged: SortableIcon, pos) -> int:
+        """Calculate insertion index based on mouse position.
+
+        Args:
+            dragged: Dragged item
+            pos: Mouse position
+
+        Returns:
+            Index where dragged item should be inserted
+        """
+        old_index = self.layout.indexOf(dragged)
+        new_index = self.layout.count()
+
+        for i in range(self.layout.count()):
+            widget = self.layout.itemAt(i).widget()
+            if widget and pos.x() < widget.x() + widget.width() // 2:
+                new_index = i
+                break
+
+        # Correction directionnelle
+        if new_index > old_index:
+            new_index -= 1
+
+        return new_index
+
+    def _get_next_index(self, pos: QPoint) -> int:
         """Calculate insertion index based on mouse position.
 
         Args:
             pos: Mouse position
 
         Returns:
-            Index where dragged item should be inserted
+            Index where drop indicator should be inserted
         """
         for i in range(self.layout.count()):
             widget = self.layout.itemAt(i).widget()
             if widget and pos.x() < widget.x() + widget.width() // 2:
+                print(f"{i} :: {widget} - {pos.x()} < {widget.x()} + {widget.width()}")
                 return i
         return self.layout.count()
 
