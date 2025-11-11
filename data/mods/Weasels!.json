@@ -1,0 +1,42 @@
+{
+  "name": "Weasels!",
+  "version": "3.4",
+  "links": {
+    "homepage": "https://downloads.weaselmods.net/download/weasels/",
+    "download": "https://downloads.weaselmods.net/download/weasels/?wpdmdl=141"
+  },
+  "file": {
+    "filename": "Weasels%21 v3.4.zip",
+    "size": 1635402,
+    "sha256": "0db38134ddab5df5b8d41c541fe557dc79912b7fd9fb89c9077ba2e800901a1c"
+  },
+  "games": ["bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["spell"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 5
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Weasels! Because the IE games needed more weasels!"
+      },
+      "description": "The BG saga is notorious for its lack of weasel-specific items! Lava couldn't let this oversight go unpunished, so we've put it right.|This mod introduces 5 weasel-themed items and 6 new spells (1 for wizards and bards, 2 for bards, 2 divine and 1 for mages and clerics) available when you create your character and/or in-game."
+    },
+    "fr_FR": {
+      "description": "C'est bien connu, la saga BG manque d'objets spécifiques aux belettes ! Lava ne pouvait pas laisser ce forfait impuni et y a remédié.|Ce mod ajoute donc 5 objets et 6 nouveaux sorts (1 pour magiciens et bardes, 2 pour bardes, 2 divins et 1 pour mages et clercs) disponibles dès la création de votre personnage et/ou dans le jeu.",
+      "components": {
+        "0": "Des Belettes ! Parce que les jeux IE avaient besoin de plus de belettes !"
+      }
+    },
+    "zh_CN": {
+      "description": "众所周知，博德之门系列缺少专门为雪貂设计的物品！Lava不会让这种疏忽不受惩罚，并为此提供了补救措施。|这个模组因此添加了5件物品和6个新法术（法师和吟游诗人各1个，吟游诗人2个，神术系2个，法师和牧师各1个），这些物品和法术在您创建角色时和/或在游戏中即可获得。"
+    }
+  },
+  "tp2": "weasels!",
+  "safe": 2,
+  "authors": ["Lava Del'Vortel"]
+}

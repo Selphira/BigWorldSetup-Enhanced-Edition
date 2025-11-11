@@ -1,0 +1,59 @@
+{
+  "name": "Trials of the Luremaster for Baldur's Gate",
+  "version": "4.2",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/1251-trials-of-the-luremaster-for-baldurs-gate/",
+    "download": "https://github.com/Argent77/A7-TotLM-BG2EE/releases/download/v4.2/win-A7-TotLM-BG2EE-v4.2.zip"
+  },
+  "file": {
+    "filename": "win-A7-TotLM-BG2EE-v4.2.zip",
+    "size": 95169822,
+    "sha256": "95ef6343790fa91bde7f21bb2ede489e4be6d12babf7421246edd0a39217ad69"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"},
+    "20": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["30", "31", "32", "33"]},
+    "40": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Trials of the Luremaster for Baldur's Gate",
+        "20": "Rebalance weapons and equipment",
+        "choice_0": "Reduce experience from monsters and quests",
+        "30": "Reduce by 25 percent",
+        "31": "Reduce by 50 percent",
+        "32": "Reduce by 75 percent",
+        "33": "Grant no experience",
+        "40": "Allow to trade with Hobart before starting the adventure"
+      },
+      "description": "This mod makes the Icewind Dale expansion « Trial of the Luremaster » available to BG2:EE (2.0 or higher), Siege of Dragonspear and EET (Enhanced Edition Trilogy). The quest starts by talking to the halfling Hobart Stubbletoes, who can be found either in the Umar Hills Inn (SoA), Amkethran Inn (ToB) or in the southeastern area of the Coalition Camp (SoD). In the course of the adventure you have the opportunity to explore a haunted castle, test your mettle in challenging combat and lift an ancient curse."
+    },
+    "fr_FR": {
+      "description": "Ce mod permet de jouer l'extension de Icewind Dale « Les Épreuves du Maître des Leurres » dans BG2:EE (version 2.0 ou supérieure), Siege of Dragonspear et EET (Enhanced Edition Trilogy). Pour initier la quête, parlez au petit-homme Hobart Piévelu, que vous trouverez soit dans l'auberge des Collines d'Umar (SoA), d'Amkethran (ToB) ou au sud est du Camp de la Coalition (SoD). Au cours de l'aventure, vous aurez l'opportunité d'explorer un château hanté, de tester votre courage et de faire vos preuves dans des combats difficiles et de lever une ancienne malédiction.",
+      "components": {
+        "0": "Les Epreuves du Maitre des Leurres pour BG2:EE",
+        "20": "Reequilibrer les armes et l'equipement",
+        "choice_0": "Reduire les points d'experience des monstres et des quetes.",
+        "30": "Reduction de 25 pour cent",
+        "31": "Reduction 50 pour cent",
+        "32": "Reduction 75 pour cent",
+        "33": "Ne gagner aucun point d'experience",
+        "40": "Permettre l'acces au magasin d'Hobart avant de commencer l'aventure."
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组允许你在博德之门2：增强版（2.0或更高版本）、龙矛围攻和EET (Enhanced Edition Trilogy)中游玩冰风谷的扩展包“大师的试炼”。要开始任务，与霍巴特·皮耶维尔交谈，你可以在乌马尔山丘旅店（安姆阴影）、阿姆肯瑟兰（巴尔王座）或联盟营地的东南部找到他。在冒险过程中，你将有机会探索一座鬼魂出没的城堡，测试你的勇气，在艰难的战斗中证明自己，并解除一个古老的诅咒。"
+    }
+  },
+  "tp2": "a7-totlm-bg2ee",
+  "safe": 2,
+  "authors": ["Argent77"]
+}

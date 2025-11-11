@@ -1,0 +1,45 @@
+{
+  "name": "Improved HaerDalis Swords",
+  "version": "3.1.0",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/804-improved-haerdalis-swords/",
+    "download": "https://github.com/Spellhold-Studios/HaerDalis-Swords/releases/download/v3.1.0/improved-haerdalis-swords-v3.1.0.zip"
+  },
+  "file": {
+    "filename": "improved-haerdalis-swords-v3.1.0.zip",
+    "size": 4240069,
+    "sha256": "8831c4ec2ff1afc70b198aefea42bde629f8efc6c5e23883b3c0af3aa422dad2"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["spell"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "ru_RU": 1,
+    "de_DE": 2,
+    "fr_FR": 4
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mini-mod upgrades Haer'Dalis swords in Underdark.",
+      "components": {
+        "0": "Improved Haer'Dalis' swords (special for Kania)"
+      }
+    },
+    "ru_RU": {"components": {"0": "Improved Haer'Dalis' swords (special for Kania)"}},
+    "fr_FR": {
+      "description": "Ce mini mod permet d'améliorer les épées d'Haer'Dalis en Ombreterre.",
+      "components": {
+        "0": "Epees ameliorees d'Haer'Dalis"
+      }
+    },
+    "zh_CN": {
+      "description": "这个迷你模组可以提升海尔达利在幽暗地域的剑。"
+    }
+  },
+  "tp2": "swordap",
+  "safe": 2,
+  "authors": ["Badgert", "Kania Blade"]
+}

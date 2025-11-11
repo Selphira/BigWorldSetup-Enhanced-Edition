@@ -1,0 +1,45 @@
+{
+  "name": "Alternatives",
+  "version": "15",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/mods/quests/alternatives/",
+    "download": "https://github.com/Gibberlings3/Alternatives/releases/download/v15/Alternatives_v15.zip"
+  },
+  "file": {
+    "filename": "Alternatives_v15.zip",
+    "size": 7439553,
+    "sha256": "e85cc75d0a2c48f552f8be899cb102551d7461969979289979dad80ba413617b"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "ru_RU": 1,
+    "fr_FR": 2,
+    "de_DE": 3
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Alternatives"
+      },
+      "description": "This mod offers two new options to the traditional choice of helping the Shadow Thieves or Valen's mistress. The player can opt for a group to which the paladins won't even object. The 2nd option is to ignore these 3 paths and set sail for Maztica."
+    },
+    "ru_RU": {"components": {"0": "Alternatives"}},
+    "fr_FR": {
+      "description": "Ce mod offre deux nouvelles possibilités au traditionnel choix d'aider les Voleurs de l'Ombre ou la maîtresse de Valen. Le PJ pourra ainsi opter pour un groupe pour lequel les paladins n'émettront même aucune objection. La 2ème possibilité consiste à ignorer ces 3 voies et à prendre la mer pour Maztica.",
+      "components": {
+        "0": "Alternatives"
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组为传统的帮助影贼或瓦伦主人的选择提供了两个新的可能性。玩家因此可以选择一个连圣武士都不会提出异议的阵营。第二种可能性是忽略这三条路，前往马兹提卡。"
+    }
+  },
+  "tp2": "alternatives",
+  "safe": 2,
+  "authors": ["berelinde", "jastey"]
+}

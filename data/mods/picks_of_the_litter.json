@@ -1,0 +1,38 @@
+{
+  "name": "Plasmocat's \"Picks of the Litter\" Portrait Pack",
+  "version": "4",
+  "links": {
+    "homepage": "https://github.com/Gibberlings3/Plasmocats_Picks_of_the_Litter_Portrait_Pack",
+    "download": "https://github.com/Gibberlings3/Plasmocats_Picks_of_the_Litter_Portrait_Pack/releases/download/v4/picks_of_the_litter-v4.exe"
+  },
+  "file": {
+    "filename": "picks_of_the_litter-v4.exe",
+    "size": 13270647,
+    "sha256": "d75257b529d4223cab903ca1d9c23ebe9fec2291d4991c479c07cb5b30a1e1ce"
+  },
+  "games": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwd", "iwd2", "iwdee"],
+  "categories": ["portrait"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod offre des portraits additionnels pour le joueur (pas pour les PNJ) et regroupe les favoris de Plasmocat, dont beaucoup ont été commandés pour divers mods et d'autres qui ne sont que des portraits qu'elle voulait faire à partir des photos de modèles qu'elle jugeait intéressants.",
+      "components": {
+        "0": "Pack de portraits \"Creme de la creme\" par Plasmocat"
+      }
+    },
+    "en_US": {
+      "description": "This mod offers additional portraits for the player (not for NPCs) and groups together Plasmocat's favorites, many of which were commissioned for various mods and others which are simply portraits she wanted to make from photos of models she found interesting."
+    },
+    "zh_CN": {
+      "description": "此模组为玩家提供额外的头像（非NPC头像），并汇集了Plasmocat的精选头像，其中许多是为各种模组定制的，另一些则是她根据自己认为有趣的照片制作的模特头像。"
+    }
+  },
+  "tp2": "picks_of_the_litter",
+  "safe": 2,
+  "authors": ["Plasmocat", "cmorgan"]
+}

@@ -1,0 +1,54 @@
+{
+  "name": "Improved Shamanic Dance",
+  "version": "4.5",
+  "links": {
+    "homepage": "https://github.com/Argent77/A7-ImprovedShamanicDance",
+    "download": "https://github.com/Argent77/A7-ImprovedShamanicDance/releases/download/v4.5/win-A7-ImprovedShamanicDance-v4.5.zip"
+  },
+  "file": {
+    "filename": "win-A7-ImprovedShamanicDance-v4.5.zip",
+    "size": 1463463,
+    "sha256": "4b0bbbe639eaa697b20a8471a79faefa4190b12f87b7068756036a562992db81"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"},
+    "10": {"type": "std"},
+    "20": {"type": "std"},
+    "30": {"type": "std"},
+    "40": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "One of the most important features of the Shaman class is the Shamanic Dance, which allows the Shaman to summon allied spirits indefinitely to fight at his side. However, in the original version, the Shaman is practically disabled while dancing. This mod improves on this ability by allowing the Shaman to move at reduced speed while dancing, albeit with a few constraints. Shamanic Dance can be enhanced by several optional components. The last component scatters a few shamanic items around the game.",
+      "components": {
+        "0": "Improved Shamanic Dance",
+        "10": "Expanded Shamanic Dance for high level characters",
+        "20": "New spell \"Shamanic Pact\"",
+        "30": "Apply Shamanic Dance improvements to Shaman kits",
+        "40": "Add shaman-specific items"
+      }
+    },
+    "fr_FR": {
+      "description": "L'un des traits les plus importants de la classe du chaman est la Danse chamanique qui permet au chaman d'invoquer indéfiniment des esprits alliés pour se battre à ses côtés. Cependant, dans la version originale, le chaman se trouve pratiquement désactivé pendant qu'il danse.|Ce mod améliore cette capacité en permettant au chaman de se déplacer à vitesse réduite pendant la danse avec en contrepartie quelques contraintes. La Danse chamanique peut être améliorée par plusieurs composants optionnels. Le dernier composant disperse quelques objets chamaniques dans le jeu.",
+      "components": {
+        "0": "Danse Chamanique amelioree",
+        "10": "Danse Chamanique etendue pour les personnages de haut niveau",
+        "20": "Ajouter le sort \"Pacte chamanique\"",
+        "30": "Appliquer la Danse shamanique amelioree a tous les profils de Shaman",
+        "40": "Objets specifiques aux Shamans"
+      }
+    },
+    "zh_CN": {
+      "description": "萨满职业最重要的特征之一是萨满之舞，它允许萨满无限地召唤盟友之灵来并肩作战。然而，在原始版本中，萨满在跳舞时实际上处于瘫痪状态。|这个模组通过允许萨满在跳舞时以减速移动来改进这个能力，但有一些限制。萨满之舞可以通过几个可选组件来增强。最后一个组件在游戏中散布了一些萨满物品。"
+    }
+  },
+  "tp2": "a7#improvedshamanicdance",
+  "safe": 2,
+  "authors": ["Argent77"]
+}

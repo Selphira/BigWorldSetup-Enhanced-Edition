@@ -1,0 +1,48 @@
+{
+  "name": "Plasmocat's BG NPC Portraits in BG2 Style",
+  "version": "5",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/files/file/872-plasmocats-bg-npc-portraits-in-bg2-style/",
+    "download": "https://github.com/Gibberlings3/Plasmocats_BG_NPC_Portraits_in_BG2_Style/releases/download/v5/plasmobg1bg2-v5.exe"
+  },
+  "file": {
+    "filename": "plasmobg1bg2-v5.exe",
+    "size": 10555694,
+    "sha256": "1bfde863001df55f5ad2e3d9315e2895f1e2735de807f50b5d888ae5695da33d"
+  },
+  "games": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwd", "iwd2", "iwdee"],
+  "categories": ["portrait"],
+  "components": {
+    "1000": {"type": "std"},
+    "1001": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["1002", "1003"]},
+    "choice_1": {"type": "muc", "components": ["1004", "1005"]}
+  },
+  "languages": {
+    "fr_FR": 3
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod remplace les portraits des PNJ de Baldur's Gate par des portraits que Plasmocat a modifié pour les rendre plus ressemblant à ceux de BG2. Un composant permet de les installer comme portraits de joueur sur n'importe quel jeu Infinity Engine (sauf PsT et PsT:EE).",
+      "components": {
+        "1000": "Rendre tous les portraits utilisable par le PJ",
+        "1001": "Portraits des PNJ de BG au style BG2 par Plasmocat",
+        "choice_0": "Portraits de Plasmocat : Choix du portrait pour Imoen",
+        "1002": "Portraits de Plasmocat : Imoen #1 avec couleurs de BG2 et un jabot",
+        "1003": "Portraits de Plasmocat : Imoen #2 avec couleurs de BG (rose, avec collier)",
+        "choice_1": "Portraits de Plasmocat : Choix du portrait pour Xzar",
+        "1004": "Portraits de Plasmocat : Xzar #1 avec couleurs de BG2 (rouge)",
+        "1005": "Portraits de Plasmocat : Xzar #2 avec couleurs de BG (vert)"
+      }
+    },
+    "en_US": {
+      "description": "This mod replaces the NPC portraits from Baldur's Gate with portraits that Plasmocat has modified to make them look more like those from BG2. A component allows you to install them as player portraits on any Infinity Engine game (except PsT and PsT:EE)."
+    },
+    "zh_CN": {
+      "description": "此模组将《博德之门》中NPC的头像替换为Plasmocat修改过的头像，使其更接近《博德之门2》的风格。其中一个组件允许将这些头像作为玩家头像安装到任何无限引擎游戏（PsT和PsT:EE除外）。"
+    }
+  },
+  "tp2": "plasmobg1bg2",
+  "safe": 2,
+  "authors": ["Plasmocat", "cmorgan"]
+}

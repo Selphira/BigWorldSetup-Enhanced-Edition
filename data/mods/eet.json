@@ -1,0 +1,44 @@
+{
+  "name": "Enhanced Edition Trilogy",
+  "version": "14.1",
+  "links": {
+    "homepage": "https://github.com/Gibberlings3/EET",
+    "download": "https://github.com/Gibberlings3/EET/archive/refs/heads/master.zip"
+  },
+  "file": {
+    "filename": "EET-master.zip",
+    "size": 215019616,
+    "sha256": "8b9f1fc391d8513a721dd61626fbec3cc3deca4d6178d4c7b039c773022d1343"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet"],
+  "categories": ["conv"],
+  "components": {
+    "0": {"type": "std"},
+    "100": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 3
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Enhanced Edition Trilogy"
+      },
+      "description": "The equivalent of Enhanced Edition Trilogy but can be installed on Android."
+    },
+    "fr_FR": {
+      "description": "L'équivalent de Enhanced Edition Trilogy mais qui peut s'installer sur Android.",
+      "components": {
+        "0": "EET core (importation de ressource)",
+        "100": "Create desktop shortcut"
+      }
+    },
+    "zh_CN": {
+      "description": "Enhanced Edition Trilogy的安卓版本。"
+    }
+  },
+  "tp2": "eet",
+  "safe": 2,
+  "authors": ["K4thos"]
+}

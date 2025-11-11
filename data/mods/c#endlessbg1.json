@@ -1,0 +1,70 @@
+{
+  "name": "Endless BG1 Mod",
+  "version": "20.1",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/files/file/1019-endless-bg1/",
+    "download": "https://github.com/Gibberlings3/EndlessBG1/releases/download/v20.1/endless-bg1-mod-20.1.zip"
+  },
+  "file": {
+    "filename": "endless-bg1-mod-20.1.zip",
+    "size": 5101217,
+    "sha256": "282f2a7fd0a11108524aad96b4932bd6e55d32ed9d66c743acf121cf0ec09a45"
+  },
+  "games": ["bgt", "bgee", "sod", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["8", "9"]},
+    "10": {"type": "std"},
+    "11": {"type": "std"},
+    "12": {"type": "std"},
+    "13": {"type": "std"},
+    "14": {"type": "std"},
+    "15": {"type": "std"},
+    "16": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 4
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Pour les jeux EE, le principal but de ce mod est de donner la possibilité au joueur de rester dans le monde de BG1 après avoir vaincu Sarevok. Pour reprendre la progression (ou la fin) originale du jeu, il faut parler au Duc Belt à l'intérieur du palais.|Dans EET, il donne aussi la possibilité de passer SoD et de commencer directement BG2 (notez que certains mods pour BG2 s'attendent à ce que les événements de SoD se soient produits).|Dans BGT, le composant principal du mod ajoute quelques éloges pour le PJ dans les dialogues avec le Duc Belt et supprime certains éléments faisant référence à Sarevok après sa mort.|Des composants optionnels donnent plus de prestige au PJ et préparent les événements de SoD dans toutes les installations.",
+      "components": {
+        "0": "Endless BG1 : Composant principal (requis)",
+        "1": "Plus de prestige pour le Heros de la Porte de Baldur (avec la residence du personnage principal dans le palais)",
+        "2": "Court hommage au Heros",
+        "3": "Les objets uniques de Sarevok",
+        "4": "L'epee de Sarevok",
+        "5": "Imoen et la duchesse Jannath (Imoen reside dans le palais)",
+        "6": "Le duc Eltan se trouve au palais",
+        "7": "Le Poing Enflamme arrive apres la bataille finale",
+        "choice_0": "Elminster fait une apparition",
+        "8": "Version de Jastey",
+        "9": "Textes de BG1 restaures",
+        "10": "Arrivee des premiers refugies a la Porte de Baldur",
+        "11": "Le tresorier Ophyllis se trouve dans le donjon du palais",
+        "12": "Commentaires de Denkod dans la guilde des voleurs au sujet de la mort de Sarevok",
+        "13": "Sauter le labyrinthe des voleurs apres la mort de Sarevok",
+        "14": "Le donjon de Korlaz se trouve dans BG1",
+        "15": "Fenster le soigneur du palais se trouve dans le palais",
+        "16": "Le Capitaine Corwin se trouve dans le palais"
+      }
+    },
+    "en_US": {
+      "description": "For EE games, the main purpose of this mod is to allow players to remain in the BG1 world after defeating Sarevok. To resume the game's original progression (or ending), you need to talk to Duke Belt inside the palace.|In EET, it also gives the option of skipping SoD and starting BG2 directly (note that some mods for BG2 expect SoD events to have occurred).|In BGT, the main mod component adds some praise for the player in dialogs with Duke Belt and removes some references to Sarevok after his death.|Optional components give the player more prestige and prepare for SoD events in all installations."
+    },
+    "zh_CN": {
+      "description": "对于EE游戏，此模组的主要目的是让玩家在击败沙洛佛克后，能够继续留在博德之门1的世界中。要恢复（或结束）游戏的原始进程，必须在宫殿内与贝尔特公爵交谈。|在EET中，它还提供了跳过龙矛围攻并直接开始博德之门2的可能性（请注意，一些博德之门2的模组期望龙矛围攻的事件已经发生）。|在BGT中，模组的主要组件在与贝尔特公爵的对话中为玩家角色增加了一些赞誉，并在沙洛佛克死后移除了一些与沙洛佛克相关的元素。|可选组件为玩家角色带来更多名誉，并在所有安装中为龙矛围攻的事件做准备。"
+    }
+  },
+  "tp2": "c#endlessbg1",
+  "safe": 2,
+  "authors": ["jastey"]
+}

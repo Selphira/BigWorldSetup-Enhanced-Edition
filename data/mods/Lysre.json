@@ -1,0 +1,33 @@
+{
+  "name": "Lysre, la dragonne de poche",
+  "version": "1.2",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=25036",
+    "download": "https://drive.google.com/drive/folders/1th1e5fmZQDAqQI7tSPH5lKyi_rXiZ4ps"
+  },
+  "games": ["bg2", "bgt"],
+  "categories": ["npc"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod propose une nouvelle PNJ un peu spéciale : Lyzre, dragonne noire juvénile et Disciple de Tiamat de son état (profil d'ensorceleur). Malgré sa taille de 60 cm, Lysre vous toise de haut, avec mépris, comme si vous n'étiez qu'une salissure sur ses écailles. C'est une dragonne noire, fière, arrogante, cupide. Pour elle, vous et vos proches n'êtes que de vulgaires et méprisables \"bipèdes\", des \"puces\" dont elle doit supporter la présence. Elle ne vous supporte que pour assouvir sa quête de vengeance et se montre rarement agréable. En fait, ses propos ne sont qu'injures et mépris, et nul ne semble trouver grace a ses yeux. Elles dispose d'objets personnels, de quelques interactions avec les PNJ, et d'une quête (encore en version bêta) consistant à créer un temple de Tiamat.|FOR 8, DEX 21, CON 8, INT 17, SAG 12, CHA 16.",
+      "components": {
+        "0": "Lysre MOD PNJ Pour Baldur's Gate 2"
+      }
+    },
+    "en_US": {
+      "description": "This mod features a new, rather special NPC: Lyzre, a juvenile black dragoness and Tiamat's disciple (spellcaster profile). Despite her height of 60 cm, Lysre looks down on you with contempt, as if you were a smudge on her scales. She's a black dragoness, proud, arrogant and greedy. To her, you and those close to you are nothing more than vulgar, contemptible \"bipeds\", \"fleas\" whose presence she has to put up with. She puts up with you only to satisfy her quest for revenge, and is rarely pleasant. In fact, her words are nothing but insults and contempt, and no one seems to find favor in her eyes. She has personal items, a few interactions with NPCs, and a quest (still in beta) to create a temple of Tiamat.|STR 8, DEX 21, CON 8, INT 17, WIS 12, CHA 16."
+    },
+    "zh_CN": {
+      "description": "此模组提供了一个有点特别的NPC：莉兹尔（Lyzre），一条年轻的黑龙，同时也是提亚玛特（Tiamat）的追随者（术士职业档案）。尽管只有60厘米高，莉兹尔却带着蔑视俯视着你，仿佛你只是她鳞片上的一块污垢。这是一条骄傲、傲慢、贪婪的黑龙。对她来说，你和你的亲人只不过是卑鄙可鄙的“两足生物”，是她必须忍受存在的“跳蚤”。她容忍你只是为了满足她的复仇欲望，并且很少表现出友好。事实上，她的话只是侮辱和蔑视，似乎没有人能赢得她的青睐。她拥有个人物品，与一些NPC有互动，还有一个仍在测试版的任务，即建造一座提亚玛特的神殿。|力量8，敏捷21，体质8，智力17，智慧12，魅力16。"
+    }
+  },
+  "tp2": "lysre",
+  "safe": 2,
+  "authors": ["Klare"]
+}

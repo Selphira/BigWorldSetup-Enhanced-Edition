@@ -1,0 +1,79 @@
+{
+  "name": "Ascalon's Questpack",
+  "version": "6.3",
+  "links": {
+    "homepage": "https://www.baldurs-gate.de/index.php?resources/ascalons-questpack.4/",
+    "download": "https://github.com/Gitjas/Ascalons_Questpack/releases/download/v6.3/ascalons-questpack-6.3.zip"
+  },
+  "file": {
+    "filename": "ascalons-questpack-6.3.zip",
+    "size": 23222768,
+    "sha256": "c0519735a9bde44e02857e21fc89d1c55fbe9e17552da8816ed009c0fa2a2ca5"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["2", "3"]},
+    "4": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["5", "6"]},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "9": {"type": "std"},
+    "choice_2": {"type": "muc", "components": ["10", "11"]},
+    "12": {"type": "std"}
+  },
+  "languages": {
+    "de_DE": 0,
+    "en_US": 1,
+    "ru_RU": 2,
+    "fr_FR": 4
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Un travail bien paye",
+        "1": "Un festin pour les gnolls",
+        "2": "A la recherche de Ricochet",
+        "3": "A la recherche de Perwell",
+        "4": "Quete qui utilise une hutte pres de Thalantyr a Haute Haie",
+        "5": "Quete qui utilise une maison a Beregost",
+        "6": "Le grand Carlini",
+        "7": "Elevage de grouilleux",
+        "8": "Les groupes",
+        "9": "Les Serpents d'Abbathor",
+        "10": "Un petit-homme parmi les sans-yeux"
+      },
+      "description": "Also called \"Abbathor's Serpents Part 1 and Other Stories\", this mod brings together several of Ascalon's ideas for adding quests or side stories that run parallel to the story of Bhaal's child in BG and BGII: 10 quests of different sizes. Some are humorous, others a little more tragic. Some are riddles, others are combat-related. Some require diplomatic skills, others can only be solved by certain races or classes."
+    },
+    "ru_RU": {"components": {"0": "Un travail bien paye", "1": "Un festin pour les gnolls", "2": "A la recherche de Ricochet", "3": "A la recherche de Perwell", "4": "Quete qui utilise une hutte pres de Thalantyr a Haute Haie", "5": "Quete qui utilise une maison a Beregost", "6": "Le grand Carlini", "7": "Elevage de grouilleux", "8": "Les groupes", "9": "Les Serpents d'Abbathor", "10": "Un petit-homme parmi les sans-yeux"}},
+    "fr_FR": {
+      "description": "Aussi appelé \"Les Serpents d'Abbathor 1ere partie et d'autres histoires\", ce mod regroupe plusieurs idées d'Ascalon pour ajouter des quêtes ou histoires secondaires qui se déroulent parallèlement à l'histoire de l'enfant de Bhaal dans BG et BGII : 10 quêtes de tailles différentes. Certaines sont humoristiques, d'autres sont un peu plus tragiques. Certaines sont des énigmes, d'autres sont liées au combat. Certaines exigent des compétences diplomatiques, d'autres ne peuvent être résolues que par certaines races ou classes.",
+      "components": {
+        "0": "Un travail bien paye",
+        "1": "Un festin pour les gnolls",
+        "choice_0": "A la recherche de Ricochet",
+        "2": "Version originale : Ugh et Ricochet se trouvent a l'interieur de la grotte.",
+        "3": "Alternative pour la compatibilite : Ugh et Ricochet se trouvent a l'exterieur de la grotte.",
+        "4": "A la recherche de Perwell",
+        "choice_1": "Des loups et des hommes",
+        "5": "La quete utilise une hutte pres de Thalantyr a Haute-Haie.",
+        "6": "La quete utilise une maison a Beregost.",
+        "7": "Le magnifique Karlini",
+        "8": "Elevage de grouilleux",
+        "9": "Les groupies",
+        "choice_2": "Les Serpents d'Abbathor",
+        "10": "Version originale",
+        "11": "Version amelioree : la quete peut etre achevee dans BG1.",
+        "12": "Un petit-homme parmi les sans-yeux"
+      }
+    },
+    "zh_CN": {
+      "description": "也被称为“阿巴索尔的蛇 第一部分和其他故事”，这个模组汇集了Ascalon的几个想法，用于添加在博德之门和博德之门II中与巴尔之子故事并行进行的支线任务或故事：10个不同大小的任务。有些是幽默的，有些则有点悲剧性。有些是谜题，有些与战斗有关。有些需要外交技巧，有些只能通过特定的种族或职业来解决。"
+    }
+  },
+  "tp2": "ac_quest",
+  "safe": 2,
+  "authors": ["Ascalon", "White Agnus", "jastey"]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Protagonist can die",
+  "version": "0.93",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/28910-protagonist-can-die/page/2/#comment-280191",
+    "download": "https://github.com/Endarire/Protagonist-Can-Die-Mod-for-EET/releases/download/0.93/Protagonist.Can.Die.v0.93.zip"
+  },
+  "file": {
+    "filename": "Protagonist.Can.Die.v0.93.zip",
+    "size": 977119,
+    "sha256": "c7ded7eefbbe39314ed9b869bb29f13451f57a379ccff9dc889885f62ed6a04b"
+  },
+  "games": ["bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0,
+    "en_US": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Habituellement le jeu se termine lorsque le protagoniste meurt. Ce mini-mod empêche ce fonctionnement, la fin du jeu ne se produira pas tant qu'un membre du groupe est encore en vie. Dans le cas contraire, le protagoniste pourra être ressuscité par le groupe.",
+      "components": {
+        "0": "Protagonist can die"
+      }
+    },
+    "en_US": {
+      "description": "Usually, the game ends when the protagonist dies. This mini-mod prevents this from happening, so the game won't end as long as a member of the party is still alive. Otherwise, the protagonist can be resurrected by the party."
+    },
+    "zh_CN": {
+      "description": "通常，当主角死亡时游戏就会结束。这个小模组会阻止这种行为，只要队伍中还有一名成员存活，游戏就不会结束。否则，主角可以被队伍复活。"
+    }
+  },
+  "tp2": "protagonist_can_die",
+  "safe": 2,
+  "authors": ["Blash2"]
+}

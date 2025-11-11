@@ -1,0 +1,60 @@
+{
+  "name": "Thrown Hammers",
+  "version": "6.1.2",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/34099-thrown-hammers/",
+    "download": "https://github.com/Sampsca/ThrownHammers/releases/download/v6.1.2/thrown-hammers-v6.1.2.zip"
+  },
+  "file": {
+    "filename": "thrown-hammers-v6.1.2.zip",
+    "size": 4972665,
+    "sha256": "14ebfa88535da1d87ec5033995a0c9a552b0a86f072c7d264077eedab7118626"
+  },
+  "games": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwd", "iwd2", "iwdee"],
+  "categories": ["spell"],
+  "components": {
+    "0": {"type": "std"},
+    "15": {"type": "std"},
+    "25": {"type": "std"},
+    "35": {"type": "std"},
+    "50": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "de_DE": 1,
+    "fr_FR": 2,
+    "es_ES": 3,
+    "it_IT": 4,
+    "ru_RU": 5
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds animations to thrown hammers (which previously appeared as axes). It also adds a modification to the spirit hammer spell, as well as normal, magic and some unique throwing hammers.",
+      "components": {
+        "0": "Thrown Hammers",
+        "15": "Thrown Spiritual Hammers",
+        "25": "Normal throwing hammers",
+        "35": "+1 throwing weapons",
+        "50": "Additional magic items"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute des animations aux marteaux lancés (qui apparaissaient auparavant comme des haches). Il ajoute également une modification au sort marteau spirituel, ainsi que des marteaux de jet normaux, magiques et certains uniques.",
+      "components": {
+        "0": "Marteaux de jet",
+        "15": "Marteaux spirituels de jet",
+        "25": "Marteau de jet standard",
+        "35": "Armes de jet +1",
+        "50": "Objets magiques supplementaires"
+      }
+    },
+    "it_IT": {"components": {"0": "Martelli da Lancio", "15": "Martelli Spirituali da lancio", "25": "Martello da lancio normale", "35": "+1 alle armi da lancio", "50": "Oggetti magici aggiuntivi"}},
+    "ru_RU": {"components": {"0": "Thrown Hammers", "15": "Thrown Spiritual Hammers", "25": "Normal throwing hammers", "35": "+1 throwing weapons", "50": "Additional magic items"}},
+    "zh_CN": {
+      "description": "此模组为投掷锤添加了动画（它们之前显示为斧头）。它还修改了“精神之锤”法术，以及普通、魔法和一些独特的飞锤。"
+    }
+  },
+  "tp2": "hammers",
+  "safe": 2,
+  "authors": ["Sam", "Miloch", "K4thos"]
+}

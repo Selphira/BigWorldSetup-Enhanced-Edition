@@ -1,0 +1,86 @@
+{
+  "name": "Derats Mods Tweaker",
+  "version": "3.2",
+  "links": {
+    "homepage": "https://github.com/Deratiseur/Mods_Tweaker",
+    "download": "https://github.com/Deratiseur/Mods_Tweaker/releases/download/v3.2/win-Derats_Mods_Tweaker-v3.2.zip"
+  },
+  "file": {
+    "filename": "win-Derats_Mods_Tweaker-v3.2.zip",
+    "size": 3143510,
+    "sha256": "245c3fbf59382bccc7c57c7cbdbe3d9abab344573d8c82c43a8e5f00ad5a380f"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "22": {"type": "std"},
+    "23": {"type": "std"},
+    "19": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "12": {"type": "std"},
+    "17": {"type": "std"},
+    "8": {"type": "std"},
+    "20": {"type": "std"},
+    "9": {"type": "std"},
+    "18": {"type": "std"},
+    "10": {"type": "std"},
+    "13": {"type": "std"},
+    "11": {"type": "std"},
+    "15": {"type": "std"},
+    "16": {"type": "std"},
+    "14": {"type": "std"},
+    "21": {"type": "std"},
+    "24": {"type": "std"},
+    "25": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod permet revisite légèrement de vieux mods en leur donnant plus de cohérence. Tous les composants sont optionnels et les mods doivent être installés avant celui-ci. On retrouve notamment : Horace, Chiara NPC, Moddie the vixen, Ninafer, Thael NPC, Tomoyo and the Underground City, Sub-zero, Banana! NPC Mod, Yikari, Mawgul NPC, Umbra of Torto, Jamella's Diablo2 Item Store, Lion Warrior kit, The Tortured Soul Quest.",
+      "components": {
+        "1": "Donner au pnj Horace les immunites d'un squelette",
+        "2": "Deplacer le pnj Horace dans le cimetiere d'Athktla",
+        "3": "Donner au pnj Chiara de forme humaine les immunites d'un vampire et fixer sa race sur vampire",
+        "4": "Donner au pnj Moddie un portrait adequat",
+        "5": "Transformer le pnj Moddie en compagnon animal (qui vous suit comme un 7eme compagnon)",
+        "22": "Donner au pnj Baenwuld (mod The Tortured Soul Quest) un portrait",
+        "23": "Accorder le Baenwuld recrutable avec sa version invocable",
+        "19": "Liberer Baenwuld de son esclavage rapporte de l'xp",
+        "6": "Donner au pnj Ninafer un portrait alternatif",
+        "7": "Faire du pnj Ninafer une tueuse de magicien/mage (elle garde son equipement familial)",
+        "12": "Faire du pnj Thael un Bretteur/Mage",
+        "17": "Faire du pnj Tomoyo Sakagaki un kensaï (mod Tomoyo and the underground city)",
+        "8": "Donner au pnj Sub-Zero des caracteristiques decentes",
+        "20": "Donner au pnj Banana des caracteristiques decentes",
+        "9": "Donner au pnj Yikari un peu de charisme supplementaire quand il retrouve la parole",
+        "18": "Retarder l'arrivée du pnj Mawgul.",
+        "10": "Retarder l'arrivee de l'anneau de Umbra of T.R.O.W",
+        "13": "Les demons majeurs convocables dans Umbra of T.R.O.W droppent leur coeur",
+        "11": "Permettre a un autre marchand de ventre les objets de Jamella's Diablo2 Item Store (de facon illimitee)",
+        "15": "Permettre a un marchand dans TOB de vendre tous les objets trouvables par le Coffre chercheur de l'Interplan",
+        "16": "Un marchand concurrent vend le livre \"Les secrets de l'Interplan",
+        "14": "Rendre la metamorphe du kit de Guerrier lion semi-permanente (comme les metamorphes modifiees par Tweak_Anthology ou SCS)",
+        "21": "Faire que le kit de Mutant de gelee ne change plus le sexe en androgyne",
+        "24": "Rendre l'amulette du mod d'anniversaire du forum Sigil beaucoup plus facile d'utilisation",
+        "25": "Rendre l'amulette du mod d'anniversaire du forum Sigil vraiment illimitee"
+      }
+    },
+    "en_US": {
+      "description": "This mod slightly revisits old mods, giving them more coherence. All components are optional and mods must be installed before this one. Mods include: Horace, Chiara NPC, Moddie the vixen, Ninafer, Thael NPC, Tomoyo and the Underground City, Sub-zero, Banana! NPC Mod, Yikari, Mawgul NPC, Umbra of Torto, Jamella's Diablo2 Item Store, Lion Warrior kit, The Tortured Soul Quest."
+    },
+    "zh_CN": {
+      "description": "此模组通过赋予它们更多的一致性，略微重新审视了一些旧模组。所有组件都是可选的，并且这些模组必须在此模组之前安装。主要包括：Horace，Chiara NPC，Moddie the vixen，Ninafer，Thael NPC，Tomoyo and the Underground City，Sub-zero，Banana! NPC Mod，Yikari，Mawgul NPC，Umbra of Torto，Jamella's Diablo2 Item Store，Lion Warrior kit，The Tortured Soul Quest。"
+    }
+  },
+  "tp2": "derats_mods_tweaker",
+  "safe": 2,
+  "authors": ["Deratiseur"]
+}

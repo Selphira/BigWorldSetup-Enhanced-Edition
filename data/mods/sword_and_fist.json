@@ -1,0 +1,63 @@
+{
+  "name": "Sword and Fist",
+  "version": "12",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/files/file/890-sword-and-fist/",
+    "download": "https://github.com/Gibberlings3/sword_and_fist/releases/download/v12/sword_and_fist-v12.exe"
+  },
+  "file": {
+    "filename": "sword_and_fist-v12.exe",
+    "size": 2249183,
+    "sha256": "28a30a3514ce463e71087ee7917c155384d7b0ed073e9d3851ce50a7adbe818b"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "1": {"type": "std"},
+    "30": {"type": "std"},
+    "31": {"type": "std"},
+    "32": {"type": "std"},
+    "33": {"type": "std"},
+    "34": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "de_DE": 1,
+    "es_ES": 3,
+    "fr_FR": 4,
+    "it_IT": 5,
+    "ru_RU": 6
+  },
+  "translations": {
+    "en_US": {
+      "description": "Originally intended as part of a larger project, \"Lands of Intrigue\", this mod revises the monk class to bring it closer to its paper version in AD&D 3rd, but also adds fighter kits:|- Occultist Champion: evil cross between a fighter and a wizard, and notorious for casting curses.|- Duelist: a quick-witted, intelligent fighter who disdains heavy armor in favor of a better command of dodging, reflexes and combat in general.|- Fist of Order: a brutal, evil fighter who is nonetheless effective and loyal.|- Black Knight: a fighter with a background and skills opposed to those of the paladin.|- Magelame: a fighter who has learned to cast profane magic spells in armor.",
+      "components": {
+        "1": "Monk Remix",
+        "30": "Install Hexblade fighter kit",
+        "31": "Install Duelist fighter kit",
+        "32": "Install Fist of Order fighter kit",
+        "33": "Install Blackguard fighter kit",
+        "34": "Install Duskblade fighter kit"
+      }
+    },
+    "fr_FR": {
+      "description": "À l'origine devant faire partie d'un projet plus vaste, \"Lands of Intrigue\", ce mod propose une révision de la classe de moine afin de la rapprocher de sa version papier de AD&D 3ème du nom, mais rajoute aussi des kits de guerrier :|- Champion occultiste : croisement maléfique entre un guerrier et un magicien et spécialiste notoire dans le lancement de malédictions.|- Duelliste : guerrier vif et intelligent dédaignant les armures lourdes pour une meilleure maîtrise de l'esquive, des réflexes et du combat en général.|- Poing de l'Ordre : guerrier brutal et maléfique, mais néanmoins efficace et loyal.|- Chevalier noir : un combattant avec un background et des aptitudes opposées à celles du paladin.|- Magelame : guerrier qui a appris à lancer des sorts de magie profane en armure.",
+      "components": {
+        "1": "Revision des Moines",
+        "30": "Installer le kit de guerrier : Champion Occultiste",
+        "31": "Installer le kit de guerrier : Duelliste",
+        "32": "Installer le kit de guerrier : Poing de l'Ordre",
+        "33": "Installer le kit de guerrier : Chevalier Noir",
+        "34": "Installer le kit de guerrier : Magelame (by ronin69hof, ronin69hof@gmail.com)"
+      }
+    },
+    "it_IT": {"components": {"1": "Monk Remix", "30": "Installa kit del guerriero 'Lama Maledetta'", "31": "Installa kit del guerriero 'Duellante'", "32": "Installa kit del guerriero 'Pugno dell'Ordine'", "33": "Installa kit del guerriero 'Guardia Nera'", "34": "Installa kit del guerriero 'Lama Crepuscolare' (by ronin69hof, ronin69hof@gmail.com)"}},
+    "ru_RU": {"components": {"1": "Monk Remix", "30": "Install Hexblade fighter kit", "31": "Install Duelist fighter kit", "32": "Install Fist of Order fighter kit", "33": "Install Blackguard fighter kit", "34": "Install Duskblade fighter kit (by ronin69hof, ronin69hof@gmail.com"}},
+    "zh_CN": {
+      "description": "最初是作为更庞大的项目“阴谋之地”的一部分，这个模组对武僧职业进行了修订，使其更接近其AD&D第三版桌面游戏的版本，但还增加了战士宗派：|- 黑暗冠军：战士和法师之间的邪恶混合体，是施展诅咒的著名专家。|- 决斗者：敏捷而聪明的战士，鄙视重型盔甲，以更好地掌握闪避、反射和战斗技巧。|- 秩序之拳：野蛮而邪恶的战士，但同样高效且忠诚。|- 黑暗卫士：一个与圣武士背景和能力相反的战士。|- 法刃：学会了在盔甲中施展凡间法术的战士。"
+    }
+  },
+  "tp2": "sword_and_fist",
+  "safe": 2,
+  "authors": ["Andyr", "CamDawg", "NiGHTMARE"]
+}

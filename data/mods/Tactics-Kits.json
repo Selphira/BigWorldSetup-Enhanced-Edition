@@ -1,0 +1,40 @@
+{
+  "name": "Tactics kits",
+  "version": "1",
+  "links": {
+    "homepage": "https://weidu.org/tactics.html",
+    "download": "https://github.com/Plutonium-X/KIT_Tactics_kits/archive/refs/tags/V1_EE.zip"
+  },
+  "file": {
+    "filename": "KIT_Tactics_kits-1_EE.zip",
+    "size": 1274307,
+    "sha256": "c3020671f6e01f4eb2ba1a8bf8137c56e6f70aefecb04284001e7f3e402d8005"
+  },
+  "games": ["bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Certains kits de Tactics sont obsolètes avec les dernières versions de EE, ce mod les proposent à nouveau et en français. Il s'agit de l'Archer (de la classe Guerrier) et de l'Anti-Paladin.",
+      "components": {
+        "0": "archer generique",
+        "1": "anti-paladin"
+      }
+    },
+    "en_US": {
+      "description": "Some Tactics kits are obsolete with the latest versions of EE, so this mod offers them again in French. These are the Archer (from the Fighter class) and the Anti-Paladin."
+    },
+    "zh_CN": {
+      "description": "在最新的EE版本中，Tactics模组的一些宗派已经过时，此模组重新提供了这些宗派的法语版本。它们分别是（战士职业的）弓箭手和反圣武士。"
+    }
+  },
+  "tp2": "tactics-kits",
+  "safe": 2,
+  "authors": ["Wes Weimer"]
+}

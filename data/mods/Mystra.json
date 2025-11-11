@@ -1,0 +1,38 @@
+{
+  "name": "Prêtre de Mystra",
+  "version": "2.1",
+  "links": {
+    "homepage": "https://akadis.baldursgateworld.fr/Mystra/Mystra.html",
+    "download": "https://github.com/Plutonium-X/KIT_Mystra/releases/download/v2.1/win-Mystra.zip"
+  },
+  "file": {
+    "filename": "win-Mystra.zip",
+    "size": 1281943,
+    "sha256": "4e437ce9a9f835f33e6df10c2bafe769cb0cc8951fff73687128ebbe1ffbab88"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod ajoute un nouveau kit de clerc : le Prêtre de Mystra. Il gagne 1% de résistance à la magie par niveau, il a accès à Déviation de sorts à partir du niveau 10 et à la Lame noire du désastre à partir du niveau 20.",
+      "components": {
+        "0": "Installation du Kit"
+      }
+    },
+    "en_US": {
+      "description": "This mod adds a new cleric kit: the Priest of Mystra. He gains 1% magic resistance per level, has access to Spell Deflection from level 10 and Black Blade of Disaster from level 20."
+    },
+    "zh_CN": {
+      "description": "此模组添加了一个新的牧师宗派：密斯特拉牧师。他每升一级获得1%的法术抗性，10级时可获得法术偏转能力，20级时可获得灾难黑刃。"
+    }
+  },
+  "tp2": "mystra",
+  "safe": 2,
+  "authors": ["Zakinster"]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Assassinations",
+  "version": "19",
+  "links": {
+    "homepage": "https://www.pocketplane.net/assassinations/",
+    "download": "https://github.com/Pocket-Plane-Group/Assassinations/archive/refs/heads/master.zip"
+  },
+  "file": {
+    "filename": "Assassinations-master.zip",
+    "size": 8673242,
+    "sha256": "da3ced59beaf6734d6088080f045ab636ffdd0815a4dcec4b43dd317ac0d0345"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "ru_RU": 1,
+    "es_ES": 2,
+    "de_DE": 3,
+    "it_IT": 4,
+    "fr_FR": 6
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Assassinations mod for Baldur's Gate II"
+      },
+      "description": "Want to bring out the darkest side of your murder god's child? This mod is for you! With a dozen new quests designed to test your skills as a cold-blooded killer, you'll have everything you need to satisfy your most sinister sneak attack urges... You'll also have the option, for male characters, of romancing Lynn, a thief who will commission you to carry out your missions..."
+    },
+    "ru_RU": {"components": {"0": "Assassinations mod for Baldur's Gate II"}},
+    "it_IT": {"components": {"0": "Assassinations mod per Baldur's Gate II"}},
+    "fr_FR": {
+      "description": "Envie de faire rejaillir la partie la plus sombre de votre âme d'enfant de dieu du meurtre ? Ce mod est fait pour vous ! Avec une dizaine de nouvelles quêtes visant à éprouver vos capacités de tueur froid, vous aurez de quoi assouvir vos pulsions d'attaque sournoise les plus sinistres... Vous aurez également la possibilité, pour les personnages masculins, de romancer Lynn, une voleuse qui vous mandatera lors de vos missions...",
+      "components": {
+        "0": "Mod Assassinations pour Baldur's Gate II"
+      }
+    },
+    "zh_CN": {
+      "description": "想要唤醒你这位谋杀之神子灵魂中最黑暗的一面吗？这个模组就是为你准备的！通过大约十个旨在考验你冷酷杀手能力的新任务，你将足以满足你最阴险的偷袭冲动……男性角色还将有机会与 Lynn 发展恋情，她是一名盗贼，会在你执行任务时委托你……"
+    }
+  },
+  "tp2": "assassinations",
+  "safe": 2,
+  "authors": ["Kulyok", "jastey"]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Au bonheur du tireur",
+  "version": "7",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?f=749&p=506162#p506162",
+    "download": "https://github.com/Deratiseur/Archery/releases/download/v7/win-Derats_Archery-v7.zip"
+  },
+  "file": {
+    "filename": "win-Derats_Archery-v7.zip",
+    "size": 2159676,
+    "sha256": "cf7f0310607624095e98ae45ed97397e2be9e8a913bc2abea59af1f6352c683f"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["smith"],
+  "components": {
+    "0": {"type": "std"},
+    "3": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "C'est un marchand sur la promenade de Waukyne qui vend tout ce qui sert à tuer à distance (arc, arbalète, fronde, fléchettes, dagues de jet, haches de jet, et un bon paquet de munitions variées venant de BG2 et IWD)",
+      "components": {
+        "0": "Magasin de projectiles en tout genre",
+        "3": "Rendre illimite le stock de munitions du magasin"
+      }
+    },
+    "en_US": {
+      "description": "He's a merchant on the Waukeen's Promenade who sells anything used for killing at a distance (bow, crossbow, slingshot, darts, throwing daggers, throwing axes, and a good deal of assorted ammunition from BG2 and IWD)."
+    },
+    "zh_CN": {
+      "description": "这是渥金商场上的一个商人，他出售所有用于远程杀戮的物品（弓、弩、投石索、飞镖、投掷匕首、投掷斧，以及大量来自博德之门2和冰风谷的各式弹药）。"
+    }
+  },
+  "tp2": "derats_archery",
+  "safe": 2,
+  "authors": ["Deratiseur"]
+}

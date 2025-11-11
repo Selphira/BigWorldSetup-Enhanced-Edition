@@ -1,0 +1,39 @@
+{
+  "name": "Chantelame",
+  "version": "7.2",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=24080",
+    "download": "https://github.com/Plutonium-X/KIT_Chantelame/releases/download/v7.2/win-Px_Chantelame-v7.2.zip"
+  },
+  "file": {
+    "filename": "win-Px_Chantelame-v7.2.zip",
+    "size": 1893588,
+    "sha256": "f6a56c2f9255eb1ae22c149ae21be8ffa38579eef5a87bde38d1cbd7c7ffe018"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1,
+    "en_US": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Le Chantelame est un elfe guerrier/mage qui possède des techniques de combat particulières.",
+      "components": {
+        "0": "Chantelame"
+      }
+    },
+    "en_US": {
+      "description": "The bladesinger is a warrior/mage elf with special fighting techniques.",
+      "components": {
+        "0": "Bladesinger"
+      }
+    }
+  },
+  "tp2": "",
+  "safe": 2,
+  "authors": ["Misdrha'al Hymmet"]
+}

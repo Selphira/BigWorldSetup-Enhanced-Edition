@@ -1,0 +1,38 @@
+{
+  "name": "Chevalier de la Lumière (paladin)",
+  "version": "1.03",
+  "links": {
+    "homepage": "http://athkatla.cob-bg.pl/viewtopic.php?t=3486&sid=473c7240dfe94ad896e7ad10dffebce6",
+    "download": "https://github.com/Plutonium-X/KIT_Lumiere/releases/download/v1.03/win-Rycerz.zip"
+  },
+  "file": {
+    "filename": "win-Rycerz.zip",
+    "size": 1289777,
+    "sha256": "a2ffafd89bed8dfc6e9baa84b05ebe91076c42463c11cfd5086b4786b8dff08d"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod installe le profil de paladin Chevalier de la Lumière. Il peut atteindre la grande maîtrise avec les épées longues et les épées bâtardes. Il possède des compétences martiales supérieures aux paladins au détriment de sa capacité à lancer des sorts. Il gagne également de puissants effets passifs au fil des niveaux : immunité à la peur au niveau 10, protection contre le mal au niveau 15 etc",
+      "components": {
+        "0": "(nouvelle specialisation) Chevalier de la lumière"
+      }
+    },
+    "en_US": {
+      "description": "This mod installation features the Knight of Light paladin profile. He can achieve great mastery with longswords and bastard swords. He has superior martial skills to paladins at the expense of his ability to cast spells. He also gains powerful passive effects with level: immunity to fear at level 10, protection against evil at level 15, etc."
+    },
+    "zh_CN": {
+      "description": "此模组安装了“圣光骑士”圣武士的配置。他可以精通长剑和手半剑。他拥有比普通圣武士更强的战斗技巧，但代价是施法能力有所削弱。随着等级提升，他还能获得强大的被动效果：10级时获得恐惧免疫，15级时获得邪恶防护等。"
+    }
+  },
+  "tp2": "rycerz",
+  "safe": 2,
+  "authors": ["Alvarez"]
+}

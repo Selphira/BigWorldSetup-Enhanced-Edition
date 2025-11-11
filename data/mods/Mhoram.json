@@ -1,0 +1,38 @@
+{
+  "name": "Mhoram le Skalde",
+  "version": "2.5",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/769-mhoram-npc-v23/",
+    "download": "https://github.com/Plutonium-X/1D_NPC_Mhoram/releases/download/v2.5/win-Mhoram-v2.5.zip"
+  },
+  "file": {
+    "filename": "win-Mhoram-v2.5.zip",
+    "size": 2252395,
+    "sha256": "4b18d4e2e3d456634f659a9b9f9559c88e62c8d3bd6c6c4347eec318036a029a"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc1d"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mini-mod ajoute un scalde elfe, poète du grand Nord disposant d'une quête optionnelle dans le quartier du Pont.|FOR 16, DEX 18, CON 15, INT 10, SAG 14, CHA 16.",
+      "components": {
+        "0": "PNJ Mhoram"
+      }
+    },
+    "en_US": {
+      "description": "This mini-mod adds an elven skald, a poet of the far north with an optional quest in the Bridge district.|STR 16, DEX 18, CON 15, INT 10, WIS 14, CHA 16."
+    },
+    "zh_CN": {
+      "description": "这个迷你模组添加了一个北地诗人，一个来自大北地的精灵诗人，在桥区有一个可选的任务。|力量 16，敏捷 18，体质 15，智力 10，智慧 14，魅力 16。"
+    }
+  },
+  "tp2": "mhoram",
+  "safe": 2,
+  "authors": ["aimainahikari"]
+}

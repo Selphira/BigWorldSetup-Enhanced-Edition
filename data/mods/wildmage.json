@@ -1,0 +1,59 @@
+{
+  "name": "Wild Mage Additions",
+  "version": "2.4",
+  "links": {
+    "homepage": "https://github.com/BGforgeNet/bg2-wildmage?tab=readme-ov-file#new-wild-magic-spells",
+    "download": "https://github.com/BGforgeNet/bg2-wildmage/releases/download/v2.4/wild-mage-additions-v2.4.zip"
+  },
+  "file": {
+    "filename": "wild-mage-additions-v2.4.zip",
+    "size": 3987095,
+    "sha256": "3d0c1f4e9a4870dfc6a9a142d5791200e3e9f558f16f6296de4213d7133fbbbb"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["kit", "spell"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]},
+    "2": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["3", "4"]},
+    "5": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 2
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds an entropist profile, the Spellweaver, who combines the talents of a sorcerer and a mage, benefiting from the sorcerer's spontaneity of incantation, without being penalized by the restriction on the number of spells memorized. He is, however, limited by the number of spells that can be cast in 24 hours, and by his speed of progression. To this end, the mod adds 27 new spells (3 for each level), and the whole thing looks like a lot of fun.",
+      "components": {
+        "choice_0": "New Wild Magic Spells",
+        "0": "Ironman",
+        "1": "Haughty pansy",
+        "2": "Retain Rhialto's items",
+        "choice_1": "Spellshaper Kit",
+        "3": "Original avatar",
+        "4": "Changed avatar",
+        "5": "Misc spell modifications"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute un profil d'entropiste, le Tisseur de sorts, qui combine les talents d'un sorcier et d'un mage, bénéficiant de la spontanéité d'incantation du sorcier, sans être pénalisé par la restriction du nombre de sorts mémorisés. Il est en revanche limité par le nombre de sorts pouvant être lancés en 24h, et par sa vitesse de progression. À cet effet, le mod ajoute 27 nouveaux sorts (3 pour chaque niveau), et le tout à l'air bien fun.",
+      "components": {
+        "choice_0": "Nouveaux Sorts de Magie Entropique",
+        "0": "Rhialto vous trouvera n'importe ou",
+        "1": "Emplacement fixe de Rhialto dans BG1",
+        "2": "Conserver les objets de Rhialto",
+        "choice_1": "Kit de tisseur de sorts",
+        "3": "Avatar original",
+        "4": "Avatar alternatif",
+        "5": "Diverses Modifications de Sorts"
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组添加了一个狂乱法师职业，即“织法者”，它结合了术士和法师的才能，拥有术士的即时施法能力，且不受记忆法术数量限制的惩罚。然而，他受到24小时内可施放法术数量和升级速度的限制。为此，该模组添加了27个新法术（每个等级3个），而且这一切看起来都很有趣。"
+    }
+  },
+  "tp2": "wildmage",
+  "safe": 2,
+  "authors": ["Magus"]
+}

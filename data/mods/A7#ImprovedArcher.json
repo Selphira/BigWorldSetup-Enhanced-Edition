@@ -1,0 +1,51 @@
+{
+  "name": "Improved Archer Kit",
+  "version": "v4.4",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/58012-improved-archer-kit/",
+    "download": "https://github.com/Argent77/A7-ImprovedArcher/releases/download/v4.4/win-A7-ImprovedArcher-v4.4.zip"
+  },
+  "file": {
+    "filename": "win-A7-ImprovedArcher-v4.4.zip",
+    "size": 3729401,
+    "sha256": "6cab5ea1e50b7f7defdff0980eff72ccbee133b8ffe3c75c3e225f22ed084f2f"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"},
+    "10": {"type": "std"},
+    "20": {"type": "std"},
+    "30": {"type": "std"},
+    "100": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "The original Archer profile doesn't match the level progression very well. While it appears very powerful at the very start of the game, it becomes much less useful later on, compared with other ranger profiles. This mod strives to rebalance it so that low-level archers do not outperform other classes, while allowing high-level archers to stand comparison with other ranger profiles. Additional components add archer-inspired profiles for fighters, paladins and thieves, or add a set of powerful bows and ammunition to the game.",
+      "components": {
+        "0": "Improved Archer Kit",
+        "100": "Add +4 arrows, bolts and two powerful bows to the game"
+      }
+    },
+    "fr_FR": {
+      "description": "Le profil Archer d'origine ne s'accorde pas très bien à la progression de niveaux. S'il apparaît très puissant au tout début du jeu, il devient plus tard beaucoup moins utile, comparativement aux autres profils de rôdeur.|Ce mod s'efforce de le rééquilibrer afin que les archers de bas niveau ne surpassent pas les autres classes, tout en permettant aux archers de haut niveau de soutenir la comparaison avec les autres profils de rôdeur. Il ajuste la puissance globale de l'archer et le dote de quelques compétences et aptitudes utiles.|Des composants supplémentaires ajoutent des profils inspirés de l'archer pour les guerriers, les paladins et les voleurs, ou ajoutent dans le jeu un ensemble d'arcs et de munitions puissants.",
+      "components": {
+        "0": "Profil d'Archer ameliore",
+        "10": "Ajouter le profil de guerrier : Tireur d'elite",
+        "20": "Ajouter le profil de paladin : Chevalier archer",
+        "30": "Ajouter le profil de voleur : Tireur de precision",
+        "100": "Ajouter des fleches et des carreaux +4, et des arcs puissants et dans le jeu"
+      }
+    },
+    "zh_CN": {
+      "description": "原始的弓箭手职业与等级成长不太匹配。如果它在游戏初期显得非常强大，那么后期相比其他游侠职业就会变得用处不大。|这个模组努力重新平衡它，使得低等级的弓箭手不会超越其他职业，同时允许高等级的弓箭手与其他游侠职业相媲美。它调整了弓箭手的整体强度，并赋予其一些有用的技能和能力。|额外的组件为战士、圣武士和盗贼添加了受弓箭手启发的职业，或者在游戏中添加了一套强大的弓和弹药。"
+    }
+  },
+  "tp2": "a7#improvedarcher",
+  "safe": 2,
+  "authors": ["Argent77"]
+}

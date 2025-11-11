@@ -1,0 +1,46 @@
+{
+  "name": "Kurosaï le combineur",
+  "version": "7.1",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=34425",
+    "download": "https://github.com/Deratiseur/Combino/releases/download/v7.1/win-Derats_Combino-v7.1.zip"
+  },
+  "file": {
+    "filename": "win-Derats_Combino-v7.1.zip",
+    "size": 1588781,
+    "sha256": "2c7a717d842a64a8dd83c44f92a9adf7beb9d20868c7c9f7407ea22e82a8c60e"
+  },
+  "games": ["bg2ee", "eet"],
+  "categories": ["smith"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Kurosaï est un pnj qui peut moyennant moult pièces d'or combiner trois objets +x en un objet +x+1. Cela marche pour presque tous les objets +x, des armes aux armures en passant par les bijoux. Il peut ainsi combiner les objets jusqu'à +6. Il apparaît à Francmarché après que les Daos soient partis. Plus tard dans le jeu il se déplacera à Saradush, et il disparaîtra avec la destruction de la ville.",
+      "components": {
+        "0": "Kurosai le combineur",
+        "1": "Les recettes coutent moins cheres mais necessitent des gemmes rares.",
+        "2": "Kuroisai apparait aussi a Amkethran (cheat)",
+        "3": "Kuroisai apparait aussi au Festival de Nashkel",
+        "4": "Un exemplaire +1 de chaque objet dans SOA"
+      }
+    },
+    "en_US": {
+      "description": "Kurosai is a pnj who, for a lot of gold, can combine three +x items into one +x+1 item. This works for almost all '+x' items, from weapons to armour to jewellery. He can thus combine items up to +6. He appears in Trademeet after the Daos have left. Later in the game he will move to Saradush, and disappear with the destruction of the town."
+    },
+    "zh_CN": {
+      "description": "Kurosaï是一个NPC，花费大量金币后，可以将三个+1物品合成为一个+2物品。这几乎适用于所有+1物品，从武器、护甲到珠宝都可以。他可以将物品一直合成到+6。在道离开后，他会出现在商贸集会。游戏后期，他会移动到萨拉都什，并在城市被摧毁时消失。"
+    }
+  },
+  "tp2": "derats_combino",
+  "safe": 2,
+  "authors": ["Deratiseur"]
+}

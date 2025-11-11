@@ -1,0 +1,42 @@
+{
+  "name": "Secret of Bone Hill (EET)",
+  "version": "v34",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/1076-the-secret-of-bonehill/",
+    "download": "https://github.com/RoxanneSHS/BoneHill/archive/refs/tags/v34.zip"
+  },
+  "file": {
+    "filename": "BoneHill-34.zip",
+    "size": 175975027,
+    "sha256": "6465100ec640cd287412572cc157da68282caebf36fc9ee429b2a96704a41499"
+  },
+  "games": ["bgee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 5
+  },
+  "translations": {
+    "en_US": {
+      "description": "EET-compatible version of mod Secret of Bone Hill.",
+      "components": {
+        "0": "Secret of BoneHill (EET)"
+      }
+    },
+    "fr_FR": {
+      "description": "Portage du mod Secret of Bone Hill sur EET.",
+      "components": {
+        "0": "Secret of BoneHill (necessite EET)"
+      }
+    },
+    "zh_CN": {
+      "description": "将Secret of Bone Hill模组移植至EET平台。"
+    }
+  },
+  "tp2": "bonehilleet",
+  "safe": 2,
+  "authors": ["Sir BillyBob", "Erebusant"]
+}

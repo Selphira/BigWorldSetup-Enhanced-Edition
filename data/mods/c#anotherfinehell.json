@@ -1,0 +1,42 @@
+{
+  "name": "Another Fine Hell for SoD",
+  "version": "Alpha_230919",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/files/file/1034-another-fine-hell/",
+    "download": "https://github.com/Gibberlings3/Another_Fine_Hell/releases/download/vAlpha_230919/another-fine-hell-for-sod-alpha_230919.zip"
+  },
+  "file": {
+    "filename": "another-fine-hell-for-sod-alpha_230919.zip",
+    "size": 4926206,
+    "sha256": "23b457a67684d20ff61f6af3a7ea735583a44ce9d7b81d45a560c64499a1f323"
+  },
+  "games": ["bgee", "sod", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod introduit une nouvelle raison pour laquelle le PJ tombe en disgrace à la fin de SoD et doit quitter la ville.",
+      "components": {
+        "0": "Another Fine Hell ( Un autre genre d'enfer ) - Fin optionnelle pour le Final de SoD et BGII",
+        "1": "Get the Hells Out( Mettre l'enfer a la porte ) - Option de quete et contenu etendu pour BGII",
+        "2": "Le coffre du PC et d'Imoen dans le Palais devraient garder leur contenu."
+      }
+    },
+    "en_US": {
+      "description": "This mod introduces a new reason why the PJ falls into disgrace at the end of SoD and has to leave town."
+    },
+    "zh_CN": {
+      "description": "这个模组为 PJ 在 SoD 结尾时失宠并必须离开城市提供了一个新的原因。"
+    }
+  },
+  "tp2": "c#anotherfinehell",
+  "safe": 2,
+  "authors": ["jastey"]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Dark Tidings",
+  "version": "2.5",
+  "links": {
+    "homepage": "https://baldurs-gate.de/index.php?resources/dark-tidings.65/",
+    "download": "https://github.com/AciferBG/Dark-Tidings/releases/download/v2.8/Dark_Tidings_v2.8.zip"
+  },
+  "file": {
+    "filename": "Dark_Tidings_v2.8.zip",
+    "size": 104170545,
+    "sha256": "7d9736514457171a614dab83e9c164fe7fff3da1f71ac011f9804dc2911d4bd4"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 1,
+    "fr_FR": 2
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Dark Tidings"
+      },
+      "description": "For thousands of years, the magical beacon of the lighthouse on Irphong has guided sailors through the Asavir Channel... Until now... Rumors have long circulated that the island is a haven for pirates, that the surrounding area is a refuge for terrible dragon turtles, and that the shallows are home to krakens.||Well! There's only one way to uncover the mystery of the Irphong lighthouse and the origin of the darkness that reigns now that its beacon has gone out: Sail to Irphong.|The adventure begins in Athkatla’s Docks District, in the tavern Sea's Bounty."
+    },
+    "fr_FR": {
+      "description": "Depuis des milliers d'années, la flamme magique du phare de l'île d'Irphong guide les marins qui empruntent le canal d'Asavir... Jusqu'à aujourd'hui... La lueur du phare s'est subitement évanouie.|Depuis longtemps, des légendes circulent, l'île serait un repaire de pirates, ses alentours serviraient  de refuge aux terribles tortues-dragons et ses hauts fonds abriteraient des krakens.||Et bien ! Il n'y a qu'un seul moyen de découvrir les secrets du phare d'Irphong et l'origine de l'obscurité qui règne à présent que sa balise s'est éteinte, prendre la mer et mettre le cap vers l'île d'Irphong.|L'aventure commence sur les quais d'Athkatla, à la taverne de la Bonté Marine.",
+      "components": {
+        "0": "Dark Tidings"
+      }
+    },
+    "zh_CN": {
+      "description": "数千年来，伊冯岛灯塔的魔法火焰指引着穿越阿萨维尔运河的水手……直到今天……灯塔的光芒突然消失了。||长期以来，各种传说流传，该岛是海盗的巢穴，其周边海域是可怕的龙龟的避难所，而其浅海则栖息着克拉肯。||那么！要发现伊冯灯塔的秘密以及如今其信标熄灭后笼罩此地的黑暗的起源，只有一个办法，那就是扬帆起航，驶向伊冯岛。||冒险始于阿斯卡特拉的码头，在“海洋之善”旅店开始。"
+    }
+  },
+  "tp2": "tidings",
+  "safe": 2,
+  "authors": ["Acifer"]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Subrace MOD for Enhanced Edition Games",
+  "version": "0.3.1_dark0dave",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/32267-subrace-mod/",
+    "download": "https://github.com/dark0dave/Subrace-mod/archive/refs/heads/main.zip"
+  },
+  "file": {
+    "filename": "Subrace-mod-main.zip",
+    "size": 1517882,
+    "sha256": "03b8d09cd617d69ff7e2e5405ab41eb36a734b59046675d15ef7ade56bfdf1b2"
+  },
+  "games": ["bgee"],
+  "categories": ["gameplay"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["100", "200"]}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Voici un mod qui propose des sous-races pour les personnages.",
+      "components": {
+        "choice_0": "Mod Subrace ( sous-race ) pour Baldur's Gate Enhanced Edition (BG1, BG:SoD, BG2, EET)",
+        "100": "Change les couleurs de la sous-race (Cheveux et Peau)",
+        "200": "Ne pas changer les couleurs de la sous-race (Cheveux et Peau)"
+      }
+    },
+    "en_US": {
+      "description": "Here's a mod that offers subraces for characters."
+    },
+    "zh_CN": {
+      "description": "这是一个为角色提供亚种族的模组。"
+    }
+  },
+  "tp2": "subrace",
+  "safe": 2,
+  "authors": ["Corsymyr"]
+}

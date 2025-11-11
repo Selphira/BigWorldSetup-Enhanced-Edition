@@ -1,0 +1,42 @@
+{
+  "name": "I Shall Never Forget",
+  "version": "6.3",
+  "links": {
+    "homepage": "https://downloads.weaselmods.net/download/i-shall-never-forget/",
+    "download": "https://downloads.weaselmods.net/download/i-shall-never-forget/?wpdmdl=77"
+  },
+  "file": {
+    "filename": "I Shall Never Forget v6.3.zip",
+    "size": 25025891,
+    "sha256": "b7576fab3ed1ba384321b5263adb021afc0a56eb4458cc80d760e573577be088"
+  },
+  "games": ["bg2", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 2
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Colours of Infinity: I Shall Never Forget"
+      },
+      "description": "ISNF is a quest mod from the Colours of Infinity mod series. This Baldur's Gate 2 mod allows you to work with Orion - a mage who has lost the sense of his life. Either help him regain what he lost or let him die without the faintest ray of hope.|This may be an excellent way to earn the money you need to advance in the game. The quest starts in the Government District."
+    },
+    "fr_FR": {
+      "description": "ISNF est un mod de quête de la série Colours of Infinity. Ce mod vous donne la possibilité d'aider Orion, un mage d'Athkatla, Orion, qui a sombré dans le désespoir après la mort de sa femme. A vous de voir si vous l'aiderez jusqu'au bout ou l'abandonnerez en route... Ce mod est aussi un moyen alternatif de réunir la somme pour Gaelan Bayle. La quête commence dans le quartier du Gouvernement.",
+      "components": {
+        "0": "Colours of Infinity: I Shall Never Forget"
+      }
+    },
+    "zh_CN": {
+      "description": "ISNF是“无限色彩”系列任务模组。此模组让你有机会帮助奥里昂，一位来自阿斯卡特拉的法师，他在妻子去世后陷入了绝望。由你来决定是否会帮助他到底，还是在半途放弃……此模组也是为盖兰·贝尔筹集资金的另一种方式。任务在行政区开始。"
+    }
+  },
+  "tp2": "isnf",
+  "safe": 2,
+  "authors": ["Lava Del'Vortel"]
+}

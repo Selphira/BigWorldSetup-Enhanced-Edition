@@ -1,0 +1,46 @@
+{
+  "name": "Alcool",
+  "version": "0.14",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=24079",
+    "download": "https://github.com/The-Gate-Project/Alcool/releases/download/v0.14/alcool-v0.14.zip"
+  },
+  "file": {
+    "filename": "alcool-v0.14.zip",
+    "size": 3304996,
+    "sha256": "f32dd64b3036c16ab6bdd70852970463bced3f14fe2efdb6841626c3d9ccb9f0"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0,
+    "en_US": 1,
+    "es_ES": 2,
+    "ru_RU": 3,
+    "de_DE": 4
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod d'expansion ajoute un dialogue à l'initiative de Korgan pour passer une soirée dans une taverne avant de partir pour Spellhold.",
+      "components": {
+        "0": "Sorties dans les tavernes"
+      }
+    },
+    "en_US": {
+      "description": "This expansion mod adds a dialog at Korgan's initiative to spend an evening in a tavern before leaving for Spellhold.",
+      "components": {
+        "0": "A Night out in the Taverns"
+      }
+    },
+    "ru_RU": {"components": {"0": "A Night out in the Taverns"}},
+    "zh_CN": {
+      "description": "这个扩展模组为寇根添加了一段对话，让他可以在前往幽狱之前在酒馆里过一夜。"
+    }
+  },
+  "tp2": "alcool",
+  "safe": 2,
+  "authors": ["Mathrim Cauthon"]
+}

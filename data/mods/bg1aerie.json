@@ -1,0 +1,40 @@
+{
+  "name": "Aerie in BG:EE",
+  "version": "2.5",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/38824/aerie-in-bg-ee-v1-1/p1",
+    "download": "https://github.com/The-Gate-Project/AerieBG1/releases/download/v2.5/aerie-in-bgee-2.5.zip"
+  },
+  "file": {
+    "filename": "aerie-in-bgee-2.5.zip",
+    "size": 14238571,
+    "sha256": "f3bb12a127cbc5315b383e9220289ed1ae107c8dbc6ea94c340de410f02c742b"
+  },
+  "games": ["bgee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "5000": {"type": "std"},
+    "5001": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce petit mod fait apparaître Aerie dans BG1. Si vous la connaissez déjà de BG2, vous savez déjà où vous avez le plus de chances de la trouver. Sinon... eh bien, c'est à la foire de Nashkel (dans BG2, elle dit que le cirque avait l'habitude d'y aller...). Elle n'est pas recrutable, mais vous pourrez effectuer de petites quêtes pour elle, à l'issue desquelles elle s'installera dans la tente de Benta et fournira ses services (temple et magasin).",
+      "components": {
+        "5000": "Aerie dans BG: EE",
+        "5001": "Installer une version plus éclaircie du portrait d'Aerie ? (Modifie aussi son portrait dans BG2 avec EET)."
+      }
+    },
+    "en_US": {
+      "description": "This little mod brings Aerie into BG1. If you already know her from BG2, you already know where you're most likely to find her. If not... well, it's at the Nashkel Fair (in BG2, she says the circus used to go there...). She can't be recruited, but you can carry out small quests for her, at the end of which she'll move into Benta's tent and provide her services (temple and store)."
+    },
+    "zh_CN": {
+      "description": "这个小模组让艾黎出现在博德之门1中。如果你已经在博德之门2中认识她，你就已经知道最有可能在哪里找到她了。否则……嗯，就在那西凯的集市里（在博德之门2中，她说马戏团过去常去那里……）。她不能被招募，但你可以为她完成一些小任务，之后她会搬到班塔的帐篷里，并提供她的服务（神殿和商店）。"
+    }
+  },
+  "tp2": "bg1aerie",
+  "safe": 2,
+  "authors": ["Insomniator"]
+}

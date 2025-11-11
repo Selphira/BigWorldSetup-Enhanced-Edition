@@ -1,0 +1,43 @@
+{
+  "name": "lefreut's Enhanced UI (SoD skin)",
+  "version": "4.9.1",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/30827-ui-lefreuts-enhanced-ui-bgee-sod-bg2ee-and-eet/",
+    "download": "https://github.com/r-e-d/LeUI-SoD/releases/download/v4.9.1/lefreuts-enhanced-ui-sod-skin-4.9.1.zip"
+  },
+  "file": {
+    "filename": "lefreuts-enhanced-ui-sod-skin-4.9.1.zip",
+    "size": 22075724,
+    "sha256": "5348d3697a9e24ee3c7544070d1e13e8908dbe168ba389806aa32cb7d50494f0"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet"],
+  "categories": ["ui"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "lefreut's Enhanced UI (SoD skin) - Core component",
+        "1": "lefreut's Enhanced UI (SoD skin) - BG2 vanilla bams for spells",
+        "2": "lefreut's Enhanced UI (SoD skin) - BG2 vanilla fonts for descriptions"
+      },
+      "description": "This mod lets you play the entire EE saga with the same interface. This is the SoD interface, which has been improved by a number of ergonomic modifications."
+    },
+    "fr_FR": {
+      "description": "Ce mod permet de jouer toute la saga des jeux EE avec la même interface. Il s'agit de celle de SoD passablement améliorée par un certain nombre de modifications d'ergonomie."
+    },
+    "zh_CN": {
+      "description": "这个模组允许你使用相同的界面游玩整个EE游戏系列。这个界面是龙矛围攻经过大量人体工程学改进后的版本。"
+    }
+  },
+  "tp2": "leui-sod",
+  "safe": 2,
+  "authors": ["lefreut"]
+}

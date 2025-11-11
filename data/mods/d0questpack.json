@@ -1,0 +1,112 @@
+{
+  "name": "Ding0's Quest Pack",
+  "version": "3.5",
+  "links": {
+    "homepage": "https://www.pocketplane.net/quest-pack/",
+    "download": "http://mods.pocketplane.net/questpack-v35-win.zip"
+  },
+  "file": {
+    "filename": "questpack-v35-win.zip",
+    "size": 21707615,
+    "sha256": "5c149eae88e343e0ff08a19d2a8d3d3980056c70da81168f3fb18521aa99db00"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest", "tactic"],
+  "components": {
+    "0": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["1", "2", "3"]},
+    "choice_1": {"type": "muc", "components": ["4", "401"]},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "9": {"type": "std"},
+    "10": {"type": "std"},
+    "choice_2": {"type": "muc", "components": ["11", "12"]},
+    "13": {"type": "std"},
+    "14": {"type": "std"},
+    "15": {"type": "std"},
+    "16": {"type": "std"},
+    "17": {"type": "std"},
+    "18": {"type": "std"},
+    "19": {"type": "std"},
+    "20": {"type": "std"},
+    "21": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "it_IT": 4,
+    "fr_FR": 3
+  },
+  "translations": {
+    "en_US": {
+      "description": "This SimDing0 mod not only adds a multitude of small quests, but also modifies the AI of certain monsters, adding certain abilities (for example, mummies can now cast a kind of stun blast on you... gnark). You'll also be able to make other choices in existing quests, such as betraying Edwin, or even Renal Bloodscalp himself... at your peril.",
+      "components": {
+        "0": "General AI Improvements",
+        "choice_0": "Creature & Area Improvements",
+        "1": "All Creature & Area Improvements",
+        "2": "All Creature Improvements",
+        "3": "Boss Improvements Only",
+        "choice_1": "Miscellaneous Enhancements",
+        "4": "With Additional Random Encounters",
+        "401": "Without Additional Random Encounters",
+        "5": "Additional Shadow Thieves Content (warning: reported not working)",
+        "6": "Alternative Harper/Xzar Plot",
+        "7": "Extended Reynald Sequence",
+        "8": "Intrigue In The Copper Coronet",
+        "9": "Rahul Kanakia's Potion Quest",
+        "10": "Revised Hell Trials",
+        "choice_2": "Improved Oasis II",
+        "11": "IO2 Dialogue & Combat Enhancement",
+        "12": "IO2 Dialogue Enhancement Only",
+        "13": "Saving Sanik In Brynnlaw",
+        "14": "Burglary Of The Bookkeeper",
+        "15": "New Fate For The Dryads' Acorns",
+        "16": "The Tragedy Of Besamen",
+        "17": "Further Slaver Involvement",
+        "18": "Sending The Solamnic Knights Home",
+        "19": "Nazariel The Lich",
+        "20": "Reward Negotiation",
+        "21": "Infernal Thievery"
+      }
+    },
+    "it_IT": {"components": {"0": "Miglioramenti di IA Generali", "choice_0": "Miglioramenti Creature & Aree", "1": "Miglioramenti a tutte le Creature e Aree", "2": "Miglioramenti a tutte le Creature", "3": "Miglioramento Nemici Principali", "choice_1": "Miglioramenti Vari", "4": "With Additional Random Encounters", "401": "Without Additional Random Encounters", "5": "Contenuto Addizionale Ladri Tenebrosi", "6": "Svolgimento Alternativo Arpisti/Xzar", "7": "Sequenza Estesa di Reynald", "8": "Intrigo al Diadema di Rame", "9": "Missione della Pozione di Rahul Kanakia", "10": "Prove dell'Inferno Riviste", "choice_2": "Oasis II Migliorata", "11": "IO2 Dialogo & Combattimento Migliorati", "12": "IO2 Solo Dialogo Migliorato", "13": "Salvataggio di Sanik a Brynnlaw", "14": "Furto dal Libraio", "15": "Nuovo Fato per le Ghiande delle Driadi", "16": "La Tragedia di Besamen", "17": "Ulteriore Coinvolgimento con Schiavisti", "18": "Mandare a Casa i Cavalieri di Solamnia", "19": "Nazariel il Lich", "20": "Negoziazione Ricompense", "21": "Furto Infernale"}},
+    "fr_FR": {
+      "description": "Ce mod de SimDing0 ajoute une multitude de petites quêtes, mais modifie également l'IA de certains monstres, leur rajoutant également certaines capacités (par exemple, les momies peuvent désormais lancer une sorte de souffle étourdissant sur vous... gnark). Vous aurez également la possibilité d'effectuer d'autres choix lors de quêtes déjà existantes, comme trahir Edwin, voire Renal Bloodscalp lui-même... à vos risques et périls.",
+      "components": {
+        "0": "Amelioration generales de l'IA",
+        "choice_0": "Ameliorations des creatures et des zones",
+        "1": "Ameliorations de toutes les creatures et de toutes les zones",
+        "2": "Ameliorations de toutes les creatures",
+        "3": "Ameliorations des boss uniquement",
+        "choice_1": "Ameliorations diverses",
+        "4": "Avec des rencontres aleatoires supplementaires",
+        "401": "Sans rencontres aleatoires supplementaires",
+        "5": "Contenu additionnel concernant les Voleurs de l'Ombre",
+        "6": "Intrigue alternative Menestrels/Xzar",
+        "7": "Extension de la rencontre avec Reynald",
+        "8": "Intrigue dans la Couronne de Cuivre",
+        "9": "Quete de la potion de Rahul Kanakia",
+        "10": "Epreuves des enfers revisees",
+        "choice_2": "Amelioration de l'Oasis II",
+        "11": "AO2 Renforcement des dialogues et des combats",
+        "12": "AO2 Renforcement des dialogues uniquement",
+        "13": "Fuite de Brynnlaw",
+        "14": "Chapardage chez le comptable",
+        "15": "Nouveau destin pour les glands des Dryades",
+        "16": "La tragedie de Besamen",
+        "17": "Implication des esclavagistes plus poussee",
+        "18": "Renvoi des Chevaliers Solamniques chez eux",
+        "19": "Nazariel la liche",
+        "20": "Negociation des recompenses",
+        "21": "Voler l'infernal"
+      }
+    },
+    "zh_CN": {
+      "description": "SimDing0的这个模组添加了大量的支线任务，同时也修改了某些怪物的AI，并为他们增加了一些能力（例如，木乃伊现在可以对你们施放一种令人眩晕的气息……呃）。在现有的任务中，你也将有其他选择的机会，比如背叛艾德温，甚至背叛瑞纳·血鳞……一切风险自负。"
+    }
+  },
+  "tp2": "d0questpack",
+  "safe": 2,
+  "authors": ["SimDing0", "Wisp"]
+}

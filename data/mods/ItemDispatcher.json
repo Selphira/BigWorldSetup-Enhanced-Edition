@@ -1,0 +1,32 @@
+{
+  "name": "ItemDispatcher",
+  "version": "0.8-beta",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=34631",
+    "download": "https://github.com/Selphira/ItemDispatcher/releases/download/0.8b-beta/win-ItemDispatcher-v0.8-Beta.zip"
+  },
+  "file": {
+    "filename": "win-ItemDispatcher-v0.8-Beta.zip",
+    "size": 1334017,
+    "sha256": "2688e294d932bd374bd7d9b674b16147899c5d3a298dce0ac69ce7d88f04150c"
+  },
+  "games": ["bgee", "bg2ee","eet"],
+  "categories": ["util"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "ItemDispatcher est un mod pour Baldur's Gate 2 conçu pour permettre la distribution d'objets de manière flexible et personnalisée. Grâce à ce mod, vous pouvez spécifier des cibles, des types d'objets et des conditions précises pour la distribution, assurant un gameplay dynamique et adapté à vos besoins.",
+      "components": {
+        "0": "Distribution des objets"
+      }
+    }
+  },
+  "tp2": "ItemDispatcher",
+  "safe": 2,
+  "authors": ["Selphira"]
+}

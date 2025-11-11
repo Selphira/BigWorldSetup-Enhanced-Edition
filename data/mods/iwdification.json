@@ -1,0 +1,83 @@
+{
+  "name": "IWDification",
+  "version": "11",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/mods/spells/iwdification/",
+    "download": "https://github.com/Gibberlings3/iwdification/releases/download/v11/iwdification-v11.exe"
+  },
+  "file": {
+    "filename": "iwdification-v11.exe",
+    "size": 43292159,
+    "sha256": "d33df198b3bf8ae392ac27fbd9e31b16a33498da191d85a622bf69249e99df9b"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "eet", "tutu"],
+  "categories": ["spell"],
+  "components": {
+    "10": {"type": "std"},
+    "20": {"type": "std"},
+    "30": {"type": "std"},
+    "40": {"type": "std"},
+    "50": {"type": "std"},
+    "60": {"type": "std"},
+    "70": {"type": "std"},
+    "71": {"type": "std"},
+    "80": {"type": "std"},
+    "90": {"type": "std"},
+    "100": {"type": "std"},
+    "130": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["140", "141"]},
+    "150": {"type": "std"},
+    "160": {"type": "std"},
+    "170": {"type": "std"},
+    "180": {"type": "std"},
+    "190": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod imports some Icewind Dale elements into the Baldur's Gate game series, including around 70 profane and divine spells, bard songs, two-handed axes... Note that this mod is useless if you decide to install Sword Coast Stratagems.",
+      "components": {
+        "10": "Icewind Dale Casting Graphics (Andyr)",
+        "20": "Commoners Use Drab Colors",
+        "30": "IWD Arcane Spell Pack",
+        "40": "IWD Divine Spell Pack",
+        "50": "IWD Bard Song",
+        "60": "Two Handed Axe Item Pack"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod importe certains éléments de Icewind Dale dans la série de jeux Baldur's Gate, dont environ 70 sortilèges profanes et divins, les chanson du barde, les haches à deux mains... N'hésitez pas à lire son readme pour plus de détails.|Notez que ce mod est inutile si vous décidez d'installer Sword Coast Stratagems.",
+      "components": {
+        "10": "Incantation des sorts style Icewind Dale (Andyr)",
+        "20": "Couleurs ternes pour les habits des roturiers",
+        "30": "Pack de sortileges profanes d'IWD",
+        "40": "Pack de sortileges divins d'IWD",
+        "50": "Chanson du barde d'IWD",
+        "60": "Pack de haches a deux mains",
+        "70": "Mises a jour de classes IWD : Druide : Utiliser la metamorphose et la progression de sorts d'IWD",
+        "71": "Mises a jour de classes IWD : Druide : Permettre aux elfes d'etre druide",
+        "80": "Icones de portrait additionnelles",
+        "90": "Extension de Metamorphose",
+        "100": "Mises a jour de classes IWD : Paladin : Capacités et compétences d'IWD",
+        "130": "Utiliser les animations de degats d'IWD",
+        "choice_0": "Equipement des ennemis aleatoire",
+        "140": "Ajouter des objets \"de maitre\"",
+        "141": "Ne pas ajouter d'objets \"de maitre\"",
+        "150": "Mises a jour de classes IWD : Barde : Utiliser la progression de sorts d'IWD",
+        "160": "Mises a jour de classes IWD : Paladin : Utiliser la progression de sorts d'IWD",
+        "170": "Mises a jour de classes IWD : Rodeur : Utiliser la progression de sorts d'IWD",
+        "180": "Mises a jour de classes IWD : Barde : Chansons de barde selectionnables pour les Bouffons et les Scaldes",
+        "190": "Augmentation des dégâts des lances"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组将《冰风谷》中的某些元素导入到《博德之门》系列游戏中，包括大约70个世俗和神圣的法术、吟游诗人的歌曲、双手斧等。请务必阅读其readme文件以获取更多详细信息。|请注意，如果您决定安装Sword Coast Stratagems，则此模组是多余的。"
+    }
+  },
+  "tp2": "iwdification",
+  "safe": 2,
+  "authors": ["CamDawg", "DavidW"]
+}

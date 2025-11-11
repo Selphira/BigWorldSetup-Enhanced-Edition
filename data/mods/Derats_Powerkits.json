@@ -1,0 +1,92 @@
+{
+  "name": "CrossClass Powerkits",
+  "version": "5.1",
+  "links": {
+    "homepage": "https://github.com/Deratiseur/CrossClass",
+    "download": "https://github.com/Deratiseur/CrossClass/releases/download/v5.1.0/win-Derats_Powerkits-v5.1.zip"
+  },
+  "file": {
+    "filename": "win-Derats_Powerkits-v5.1.zip",
+    "size": 1492796,
+    "sha256": "b4532c347707a1ea4b7ef9156aa76e5b1b10cc0b18501b6883cea6808ee4585e"
+  },
+  "games": ["bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "99": {"type": "std"},
+    "109": {"type": "std"},
+    "179": {"type": "std"},
+    "199": {"type": "std"},
+    "129": {"type": "std"},
+    "139": {"type": "std"},
+    "119": {"type": "std"},
+    "269": {"type": "std"},
+    "59": {"type": "std"},
+    "69": {"type": "std"},
+    "39": {"type": "std"},
+    "209": {"type": "std"},
+    "239": {"type": "std"},
+    "19": {"type": "std"},
+    "29": {"type": "std"},
+    "149": {"type": "std"},
+    "189": {"type": "std"},
+    "219": {"type": "std"},
+    "289": {"type": "std"},
+    "49": {"type": "std"},
+    "229": {"type": "std"},
+    "249": {"type": "std"},
+    "159": {"type": "std"},
+    "169": {"type": "std"},
+    "79": {"type": "std"},
+    "89": {"type": "std"},
+    "259": {"type": "std"},
+    "279": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Des combinaisons de kits vanilla pour des résultats détonants.|Quelques exemples : Kensai disciple du dragon, Clerc bretteur, Ensorceleur moine...",
+      "components": {
+        "99": "Kensai disciple du dragon",
+        "109": "Defenseur barbare",
+        "179": "Traqueur chasseur de primes",
+        "199": "Traqueur assassin",
+        "129": "Archer inquisiteur",
+        "139": "Cavalier chasseur de morts-vivants",
+        "119": "Clerc bretteur",
+        "269": "Metamorphe berserker",
+        "59": "Moine assassin",
+        "69": "Moine tueur de magicien",
+        "39": "Moine Maitre-Shi",
+        "209": "Moine inquisiteur",
+        "239": "Moine de la lune noire traqueur",
+        "19": "Voleur metamorphe",
+        "29": "Voleur Tyreen",
+        "149": "Voleur Tempuseen",
+        "189": "Voleur kensai",
+        "219": "Voleur maitre-lames",
+        "289": "Barde chaman",
+        "49": "Scalde totemique",
+        "229": "Maitre lame lathandrien",
+        "249": "Invocateur talotien",
+        "159": "Ensorceleur entropiste",
+        "169": "Ensorceleur moine",
+        "79": "Chaman belluaire",
+        "89": "Chaman justicier",
+        "259": "Chaman archer",
+        "279": "Chaman skalde"
+      }
+    },
+    "en_US": {
+      "description": "Vanilla kit combinations for cheated results.|Some examples: Dragon Disciple Kensai, Swashbuckler Cleric, Monk sorcerer..."
+    },
+    "zh_CN": {
+      "description": "原版宗派的组合，带来惊人的效果。|一些例子：龙脉术士剑圣，游荡剑客牧师，武僧术士……"
+    }
+  },
+  "tp2": "derats_powerkits",
+  "safe": 2,
+  "authors": ["Deratiseur"]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Sentrizeal's Alternate Avatar Pack",
+  "version": "1.4",
+  "links": {
+    "homepage": "http://www.sentrizeal.com/pst_7.htm",
+    "download": "Manual"
+  },
+  "file": {
+    "filename": "SentrizealAvatarPack.zip",
+    "size": 9824986,
+    "sha256": "9b4fc30354bbde977fb27f7eeaf5e1a4409067e2c323d6b002c9e4a49198cfc8"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwd", "iwd2", "iwdee"],
+  "categories": ["cosm"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Sentrizeal's Wizard 4 Missing Animation Fix",
+        "1": "Sentrizeal's Elven Ranger Avatar (Female)",
+        "2": "Sentrizeal's Elven Ranger Avatar (Male)",
+        "3": "Sentrizeal's Elven Ranger Weapon Fix",
+        "4": "Sentrizeal's Human Gladiator Avatar (Female)",
+        "5": "Sentrizeal's Human Gladiator Avatar (Male)",
+        "6": "Sentrizeal's Human Mercenary Avatar (Female)",
+        "7": "Sentrizeal's Human Mercenary Avatar (Male)"
+      },
+      "description": "This collection of mods corrects some creature animations: it corrects the archmage's dress animation files, which were missing two-handed weapon animations. Modifies the in-game appearance of elven rangers (male or female), adding a cape when wearing leather armor. It modifies the appearance of female fighters wearing chain mail and leather fighters (who now wear pants). A component for fighters in plate armor is under development."
+    },
+    "fr_FR": {
+      "description": "Cette collection de mods permet de corriger certaines animations de créature.|Il corrige les fichiers de l'animation de la robe de l'archimage à laquelle manquaient des animations d'armes à deux mains. Il modifie l'apparence dans le jeu des rôdeurs elfes (homme ou femme) en leur ajoutant une cape lorsqu'ils portent une armure de cuir. Il modifie l'apparence des guerrières portant une cote de mailles, des guerriers en cuir (qui portent désormais des pantalons). Un composant pour les guerriers en armure de plates est en développement."
+    },
+    "zh_CN": {
+      "description": "这个模组合集修正了一些生物的动画。|它修复了法师长袍的动画文件，该文件缺少双手武器的动画。它修改了游戏中精灵游侠（男性或女性）的外观，当他们穿着皮甲时会添加一件斗篷。它修改了穿着锁子甲的女战士和穿着皮甲的战士（现在他们穿裤子）的外观。一个针对板甲战士的组件正在开发中。"
+    }
+  },
+  "tp2": "sentrizeal_aa_pack",
+  "safe": 2,
+  "authors": ["Sentrizeal"]
+}

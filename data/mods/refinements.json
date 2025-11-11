@@ -1,0 +1,115 @@
+{
+  "name": "Refinements",
+  "version": "4.36",
+  "links": {
+    "homepage": "https://github.com/UnearthedArcana/refinements",
+    "download": "https://github.com/UnearthedArcana/refinements/archive/refs/tags/4.36.zip"
+  },
+  "file": {
+    "filename": "refinements-4.36.zip",
+    "size": 10566532,
+    "sha256": "a431fdf55e38e24ad47530d895a6063b7502c42a4b6e3bbcca1976456a2cba3d"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["10", "11"]},
+    "101": {"type": "std"},
+    "102": {"type": "std"},
+    "103": {"type": "std"},
+    "104": {"type": "std"},
+    "105": {"type": "std"},
+    "106": {"type": "std"},
+    "107": {"type": "std"},
+    "108": {"type": "std"},
+    "109": {"type": "std"},
+    "110": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["20", "21", "22"]},
+    "choice_2": {"type": "muc", "components": ["30", "31"]},
+    "40": {"type": "std"},
+    "50": {"type": "std"},
+    "choice_3": {"type": "muc", "components": ["70", "71", "72", "73", "74", "75"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod was designed to bring various improvements to BG2 rules. Among the components: a profile (Sword Angel); a rebalancing of shapeshifters in a more reasonable way than Ease-of-Use Mod Collection; armor refinement with weight consideration, failure on profane spells and thief skills; and finally completely remodeled HLAs to make them more unique to each class and profile.",
+      "components": {
+        "choice_0": "Revised High Level Abilities",
+        "10": "Install revised HLAs for all classes",
+        "11": "Choose which classes get revised HLAs by selecting the individual components below",
+        "101": "Fighter HLAs",
+        "102": "Barbarian HLAs",
+        "103": "Ranger HLAs",
+        "104": "Paladin HLAs",
+        "105": "Cleric HLAs",
+        "106": "Druid HLAs",
+        "107": "Monk HLAs",
+        "108": "Wizard HLAs",
+        "109": "Bard HLAs",
+        "110": "Thief HLAs",
+        "choice_1": "\"SwashImoen\"",
+        "20": "\"SwashImoen\", full revision (suggested)",
+        "21": "\"SwashImoen\", kit change only (undocumented)",
+        "22": "\"SwashImoen\", points in Detect Illusions rather than Set Traps",
+        "choice_2": "Shapeshifting tweak",
+        "30": "Heal on shifting back to human, instead of when shifting to animal",
+        "choice_3": "Shapeshifting fix",
+        "31": "Heal on shifting to animal (by Borsook) - included in BG2 Fixpack",
+        "40": "Universal lesser mage robes",
+        "50": "Sword Angel - New Fighter Kit",
+        "choice_4": "Revised Armors & Shields",
+        "70": "Update the descriptions only in YOUR_LANGUAGE",
+        "71": "Update the descriptions in YOUR_LANGUAGE or, if missing, in English",
+        "72": "No description update at all",
+        "choice_5": "Revised Armors & Shields.",
+        "73": "Update the descriptions",
+        "74": "No description update at all",
+        "75": "Update the descriptions, no penalties to movement rate"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod a été conçu pour apporter diverses améliorations aux règles de BG2. Parmi les composants : un profil (Sword Angel) ; un rééquilibrage des métamorphes de façon plus raisonnable que celle de Ease-of-Use Mod Collection ; le raffinement des armures avec la prise en compte du poids, l'échec sur les sorts profanes et les compétences de voleur ; et enfin des HLAs entièrement remodelées pour les rendre plus uniques à chaque classe et profil.",
+      "components": {
+        "choice_0": "Capacites de haut niveau (HLA) modifiees",
+        "10": "Installer les HLA modifiees pour toutes les classes",
+        "11": "Choisir quelles classes obtiennent les HLA modifiees",
+        "101": "HLAs de guerrier",
+        "102": "HLAs de barbare",
+        "103": "HLAs de rodeur",
+        "104": "HLAs de paladin",
+        "105": "HLAs de clerc",
+        "106": "HLAs de druide",
+        "107": "HLAs de moine",
+        "108": "HLAs de magicien",
+        "109": "HLAs de barde",
+        "110": "HLAs de voleur",
+        "choice_1": "\"SwashImoen : Imoen modifiee en bretteuse mage\"",
+        "20": "\"SwashImoen : Imoen modifiee en bretteuse mage\", changements complets (recommande)",
+        "21": "\"SwashImoen : Imoen modifiee en bretteuse mage\", modification du kit uniquement (aucune documentation)",
+        "22": "\"SwashImoen : Imoen modifiee en bretteuse mage\", points en Detection des illusions plutot que Pose de pieges.",
+        "choice_2": "Correction des bugs sur les metamorphoses",
+        "30": "Guerison lors du retour a la forme humaine (par defaut)",
+        "31": "Guerison lors de la transformation en animal (par Borsook)",
+        "40": "Robes de bas niveau universelles",
+        "50": "Angelame : Nouveau kit de guerrier",
+        "choice_3": "Armures et boucliers modifies",
+        "70": "Mise a jour des descriptions uniquement en francais",
+        "71": "Mise a jour des descriptions en francais ou, en cas d'absence, en anglais",
+        "72": "Pas du tout de mise a jour des descriptions",
+        "73": "Mettre a jour les descriptions",
+        "74": "Pas du tout de mise a jour des descriptions",
+        "75": "Mise a jour des descriptions, pas de penalite de deplacement"
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组旨在为博德之门2的规则带来各种改进。其中包括：一个专长（剑天使）；对变形者更合理的再平衡，比Ease-of-Use Mod Collection更合理；完善盔甲系统，考虑重量、对世俗法术的失败率和盗贼技能；以及完全重塑的HLA，使每个职业和专长更具独特性。"
+    }
+  },
+  "tp2": "refinements",
+  "safe": 2,
+  "authors": ["T.G.Maestro", "Subtledoctor", "the bigg"]
+}

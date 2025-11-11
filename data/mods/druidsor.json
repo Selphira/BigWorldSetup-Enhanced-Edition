@@ -1,0 +1,45 @@
+{
+  "name": "Geomantic Sorcerer Kit",
+  "version": "9",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/mods/kits/geomantic/",
+    "download": "https://github.com/Gibberlings3/Geomantic_Sorcerer/releases/download/v9/druidsor-v9.exe"
+  },
+  "file": {
+    "filename": "druidsor-v9.exe",
+    "size": 7340517,
+    "sha256": "6a82cc698d393955dfba06f13fc7bccc7995c8b52a7c719437726561400507c7"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod is largely inspired by the Druidic Sorcerer Kit and is loosely adapted from the 3rd edition D&D prestige class: the Geomancer. The profile combines the sorcerer's spells and casting methods, with druidic spells, abilities and characteristics. In addition, he uses his own spells and HLA. The mod also features options for selecting specific portraits for the Geomancer, as for the shapeshifters he'll be using: bear, cat, dog, leopard, moose, panther, rat, snake and wolf.",
+      "components": {
+        "0": "Geomantic Sorcerer Kit",
+        "1": "Portraits for Druidic Shapeshifting (DO NOT INSTALL THIS IF YOU ARE GOING TO GIVE THE KIT TO A NPC)"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod s'inspire largement du Druidic Sorcerer Kit et est librement adapté de la classe de prestige de la 3ème édition D&D : le Géomancien. Le profil combine les sorts et méthodes d'incantation du sorcier, avec des sorts, capacités et caractéristiques druidiques. De plus, il utilise ses propres sorts et HLA. Le mod dispose également d'options permettant de sélectionner des portraits spécifiques pour le Géomancien, comme pour les métamorphoses dont il se servira : ours, chat, chien, léopard, orignal, panthère, rat, serpent et loup.",
+      "components": {
+        "0": "Geomantic Sorcerer Kit",
+        "1": "Portraits pour la metamorphose druidique (NE PAS INSTALLER SI VOUS COMPTEZ DONNER CE KIT A UN PNJ)"
+      }
+    },
+    "zh_CN": {
+      "description": "该模组的设计理念主要借鉴Druidic Sorcerer Kit模组，并自由借鉴了D&D第三版规则中的“地脉术士”进阶职业。该职业档案融合了术士的法术位施法机制与德鲁伊的自然神术、职业能力及属性特质，同时拥有独立的全新法术体系和高等级能力。模组还提供地脉术士专属肖像选择功能，以及多种变身形态选项：熊、猫、狗、豹、麋鹿、黑豹、鼠、蛇与狼。"
+    }
+  },
+  "tp2": "druidsor",
+  "safe": 2,
+  "authors": ["Caedwyr", "CamDawg"]
+}

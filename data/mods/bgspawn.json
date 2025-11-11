@@ -1,0 +1,59 @@
+{
+  "name": "BGSpawn System",
+  "version": "1.3.4",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/39639-release-bgspawn-version-111/",
+    "download": "https://github.com/Spellhold-Studios/BGSpawn/releases/download/1.3.4/bgspawn-system-1.3.4.zip"
+  },
+  "file": {
+    "filename": "bgspawn-system-1.3.4.zip",
+    "size": 8471404,
+    "sha256": "d6577af7c7b66e48a1ae1f492e386bae70dd23a86c02974ca090c2851cede838"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["tactic"],
+  "components": {
+    "1000": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["2100", "2200", "2300", "2400"]},
+    "choice_1": {"type": "muc", "components": ["3100", "3200", "3300", "3400", "3500", "3600", "3700", "3800"]},
+    "4000": {"type": "std"},
+    "5000": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 3
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod offers an alternative way of managing the random appearance of creatures in areas on the Swordside. It replaces random (but fixed area-by-area) creatures with a completely new system based on level and number of party members. You can choose the interval between creature appearances. As an option, you can also install a new creature, the Vampiric Wolf Lord (taken from the Ulcaster Wolf from Sword Coast Stratagems), among these random creatures."
+    },
+    "fr_FR": {
+      "description": "Ce mod propose une gestion alternative de l'apparition aléatoire des créatures dans les zones de la Côté des Épées. Il remplace les créatures aléatoires (mais figées zone par zone) par un système complètement nouveau basé sur le niveau et le nombre de membres du groupe. Vous pouvez choisir l'intervalle entre les apparitions de créatures. En option, vous pouvez aussi installer une nouvelle créature, le Seigneur Loup vampirique (repris du Loup d'Ulcaster de Sword Coast Stratagems), parmi ces créatures aléatoires.",
+      "components": {
+        "1000": "Systeme BGSpawn base sur le niveau et le nombre de membres du groupe",
+        "choice_0": "Choisissez l'intervalle entre les apparitions de creatures",
+        "2100": "Intervalle de reapparition = 8 heures (regles standard AD&D)",
+        "2200": "Intervalle de reapparition = 24 heures",
+        "2300": "Intervalle de reapparition = 10 jours",
+        "2400": "Intervalle de reapparition = 50 jours (en fin de compte, aucune chance de reapparition)",
+        "choice_1": "Diminuer le taux d'apparition des creatures (100% par défaut)",
+        "3100": "15%",
+        "3200": "25%",
+        "3300": "33%",
+        "3400": "50%",
+        "3500": "66%",
+        "3600": "75%",
+        "3700": "85%",
+        "3800": "100%",
+        "4000": "Seigneur Loup Vampirique (inspire par le Loup d'Ulcaster de DavidW)",
+        "5000": "Rencontres aleatoires de BGSpawn entre les zones"
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组为剑湾地区的随机生物生成提供了替代方案。它将区域固定的随机生物替换为一个全新的、基于等级和队伍人数的系统。你可以选择生物出现的时间间隔。作为可选功能，你还可以在这些随机生物中安装一个新的生物——吸血狼领主（取自Sword Coast Stratagems中的乌尔卡斯狼）。"
+    }
+  },
+  "tp2": "bgspawn",
+  "safe": 2,
+  "authors": ["Melkor Morgoth75"]
+}

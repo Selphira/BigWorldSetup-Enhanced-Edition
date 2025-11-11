@@ -1,0 +1,38 @@
+{
+  "name": "Xardas l'archimage nécromancien",
+  "version": "2",
+  "links": {
+    "homepage": "https://github.com/Plutonium-X/1D_NPC_Xardas",
+    "download": "https://github.com/Plutonium-X/1D_NPC_Xardas/releases/download/v2/win-Xardas.zip"
+  },
+  "file": {
+    "filename": "win-Xardas.zip",
+    "size": 1523808,
+    "sha256": "42ef02a1787f871586c1e27da0db3866aecaeaca92c2962386dfd641273884d3"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc1d"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod ajoute Mag Xardas le nécromancien à l'entrée du donjon de'Arnise. Il est équipé d'un anneau d'archimage.|FOR 12, DEX 18, CON 14, INT 20, SAG 19, CHA 17.",
+      "components": {
+        "0": "NPC Xardas"
+      }
+    },
+    "en_US": {
+      "description": "This mod adds Mag Xardas the necromancer at the entrance to the Arnise dungeon. He is equipped with an archmage's ring.|STR 12, DEX 18, CON 14, INT 20, WIS 19, CHA 17."
+    },
+    "zh_CN": {
+      "description": "<french>Ce mod ajoute Mag Xardas le nécromancien à l'entrée du donjon de'Arnise. Il est équipé d'un anneau d'archimage.|FOR 12, DEX 18, CON 14, INT 20, SAG 19, CHA 17.</french>\n此模组在德阿尼斯堡入口处添加了死灵法师玛格·萨达斯。他装备着一个大法师戒指。|力量 12，敏捷 18，体质 14，智力 20，智慧 19，魅力 17。"
+    }
+  },
+  "tp2": "xardas",
+  "safe": 2,
+  "authors": ["BOSS"]
+}

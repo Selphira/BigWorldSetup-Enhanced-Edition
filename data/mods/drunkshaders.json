@@ -1,0 +1,87 @@
+{
+  "name": "drunktiefling's shaders",
+  "version": "0.3.5",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/87794/mod-sharpening-filter-bgee1-3-like-look-and-more-via-shaders/p1",
+    "download": "https://github.com/dtiefling/dshaders/releases/download/v0.3.5/win-drunkshaders-0.3.5.zip"
+  },
+  "file": {
+    "filename": "win-drunkshaders-0.3.5.zip",
+    "size": 1921919,
+    "sha256": "86c66e146549e08333179f7b44f7947cde87110285d693b4f446615f9a590628"
+  },
+  "games": ["bgee", "bg2ee", "eet", "pstee", "iwdee"],
+  "categories": ["cosm"],
+  "components": {
+    "1000": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["1105", "1125"]},
+    "choice_1": {"type": "muc", "components": ["1205", "1215", "1225"]},
+    "choice_2": {"type": "muc", "components": ["1304", "1314", "1305", "1315"]},
+    "choice_3": {"type": "muc", "components": ["1405", "1415", "1425", "1435", "1445", "1455", "1465", "1475"]},
+    "choice_4": {"type": "muc", "components": ["1505", "1515"]},
+    "choice_5": {"type": "muc", "components": ["1605", "1615", "1625", "1635", "1645", "1655", "1665", "1675"]},
+    "choice_6": {"type": "muc", "components": ["1705"]},
+    "choice_7": {"type": "muc", "components": ["1805"]},
+    "choice_8": {"type": "muc", "components": ["9005"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod vise à utiliser des opérations de couleur plus cohérentes, des filtres d'accentuation et de mise à l'échelle alternatifs via les fichiers de shaders introduits dans BG(2)EE.",
+      "components": {
+        "1000": "Shaders ajustables codés par un tieffelin ivre [Composant principal]",
+        "choice_0": "Filtre de mise à l'échelle",
+        "1105": "Utiliser l'interpolation Catmull-Rom uniquement pour les sprites",
+        "1125": "Utiliser l'interpolation Catmull-Rom dans tous les shaders",
+        "choice_1": "Modifications des contours via shaders",
+        "1205": "Désactiver les contours des sprites pour les sprites non sélectionnés",
+        "1215": "Désactiver les contours des sprites pour les sprites non sélectionnés, les rendre plus fins pour les sprites sélectionnés",
+        "1225": "Désactiver les contours des sprites pour tous les sprites",
+        "choice_2": "Ajustements de couleurs",
+        "1304": "Appliquer des ajustements modérés (gamma +2 %, contraste +10 %, luminosité +5 %), uniquement pour les sprites",
+        "1314": "Appliquer des ajustements modérés (gamma +2 %, contraste +10 %, luminosité +5 %), pour tous les shaders",
+        "1305": "Appliquer des ajustements intenses (gamma +2 %, contraste +20 %, luminosité +10 %), uniquement pour les sprites",
+        "1315": "Appliquer des ajustements intenses (gamma +2 %, contraste +20 %, luminosité +10 %), pour tous les shaders",
+        "choice_3": "Netteté / flou",
+        "1405": "Renforcer légèrement (+0,25), uniquement pour les sprites",
+        "1415": "Renforcer légèrement (+0,25), pour tous les shaders",
+        "1425": "Renforcer davantage (+0,50), uniquement pour les sprites",
+        "1435": "Renforcer davantage (+0,50), pour tous les shaders",
+        "1445": "Flouter légèrement (-0,25 de netteté), uniquement pour les sprites",
+        "1455": "Flouter légèrement (-0,25 de netteté), pour tous les shaders",
+        "1465": "Flouter davantage (-0,50  de netteté), uniquement pour les sprites",
+        "1475": "Flouter davantage (-0,50 de netteté), pour tous les shaders",
+        "choice_4": "Corrections de police",
+        "1505": "Réduire le gamma uniquement pour le shader des polices (réglé à 0,8)",
+        "1515": "Réduire le gamma pour le shader des polices (réglé à 0,8) + utiliser un hack basé sur la couleur pour réduire le gamma des polices dans certaines interfaces (Dragonspear UI++, Infinity UI++)",
+        "choice_5": "Changement de teinte",
+        "1605": "Rendre les couleurs plus chaudes (teinte +3,0°), uniquement pour les sprites",
+        "1615": "Rendre les couleurs plus chaudes (teinte +3,0°), pour tous les shaders",
+        "1625": "Rendre les couleurs nettement plus chaudes (teinte +5,0°), uniquement pour les sprites",
+        "1635": "Rendre les couleurs nettement plus chaudes (teinte +5,0°), pour tous les shaders",
+        "1645": "Rendre les couleurs plus froides (teinte -3,0°), uniquement pour les sprites",
+        "1655": "Rendre les couleurs plus froides (teinte -3,0°), pour tous les shaders",
+        "1665": "Rendre les couleurs nettement plus froides (teinte -5,0°), uniquement pour les sprites",
+        "1675": "Rendre les couleurs nettement plus froides (teinte -5,0°), pour tous les shaders",
+        "choice_6": "Gamma de sélection",
+        "1705": "Rendre les cercles de sélection des sprites plus fins et rendre la mise en évidence des objets sélectionnés plus transparente",
+        "choice_7": "Modifier les paramètres anti-glitch",
+        "1805": "[Expérimental] Désactiver les méthodes anti-glitch (rend l'interpolation avancée plus cohérente à l'intérieur des objets et des animations, mais provoque des glitches visibles en forme de lignes sur les bords de leurs tuiles)",
+        "choice_8": "Optimisation GLSL",
+        "9005": "Traiter les shaders avec l'optimiseur GLSL [ATTENTION : l'édition manuelle ne sera plus possible après cette étape]"
+      }
+    },
+    "en_US": {
+      "description": "This mod aims to use more consistent color operations, alternative sharpening and scaling filters via the shader files introduced in BG(2)EE."
+    },
+    "zh_CN": {
+      "description": "此模组旨在通过在 BG(2)EE 中引入的着色器文件，使用更统一的色彩操作、替代的锐化和缩放滤镜。"
+    }
+  },
+  "tp2": "drunkshaders",
+  "safe": 2,
+  "authors": ["Drunktiefling"]
+}

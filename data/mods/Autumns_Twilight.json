@@ -1,0 +1,40 @@
+{
+  "name": "Autumn's Twilight for BGII",
+  "version": "1.2.2",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/38791-bg2-autumns-twilight-bg2at/",
+    "download": "https://github.com/evancauteren/bg2-autumns-twilight-mod/releases/download/v1.2.2/bg2-autumns-twilight-mod-1_2_2.zip"
+  },
+  "file": {
+    "filename": "bg2-autumns-twilight-mod-1_2_2.zip",
+    "size": 744059061,
+    "sha256": "32c904add6690d34a411c780dcfb7e373b58e1c87657ee600f038704fd286fbe"
+  },
+  "games": ["bg2ee", "eet"],
+  "categories": ["spell", "npc"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 5
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod très complet ajoute de nouveaux personnages recrutables (dont Dusk NPC for BGII), des quêtes, des nouveaux objets, des marchands, des donjons etc",
+      "components": {
+        "0": "Autumn's Twilight MOD",
+        "1": "Difficulte des ennemis : Difficile"
+      }
+    },
+    "en_US": {
+      "description": "This comprehensive mod adds new recruitable characters (including Dusk NPC for BGII), quests, new items, merchants, dungeons and more."
+    },
+    "zh_CN": {
+      "description": "这个非常全面的模组添加了新的可招募角色（包括Dusk NPC for BGII）、任务、新物品、商人、地牢等。"
+    }
+  },
+  "tp2": "autumns_twilight",
+  "safe": 2,
+  "authors": ["Pol Rupes"]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Stutter Debug Tool",
+  "version": "4.1",
+  "links": {
+    "homepage": "https://github.com/Spellhold-Studios/Stutter-Debug-Tool",
+    "download": "https://github.com/Spellhold-Studios/Stutter-Debug-Tool/releases/download/v4.1/stutterdebug-4.1.zip"
+  },
+  "file": {
+    "filename": "stutterdebug-4.1.zip",
+    "size": 7374348,
+    "sha256": "811fb46a5fbc2ab436a2e3504ce1bf8fd5147a44d77b81e3addc16c1b751b54a"
+  },
+  "games": ["bg", "tutu", "bg2", "bgt", "bgee", "bg2ee", "eet", "iwd", "iwd2", "iwdee", "pstee", "sod", "pst"],
+  "categories": ["util"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["1", "2"]}
+  },
+  "languages": {
+    "en_US": 1,
+    "fr_FR": 2
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "choice_0": "Stutter Debug Tool",
+        "1": "Patching all scripts except NoAction() blocks - chose this when installing the first time (Installation could take a while!)",
+        "2": "Patching all scripts and scriptblocks - this will take a while!"
+      },
+      "description": "The Stutter Debug Tool is designed to help debug malfunctioning scripts in the game. For example, if an NPC \"stutters\", i.e. takes only a few steps and constantly interrupts any action, or if the NPC's PID (player-initiated dialog) is repeatedly displayed, or if the game suffers a slowdown that could be caused by a script running in a loop."
+    },
+    "fr_FR": {
+      "description": "Le Stutter Debug Tool est destiné à aider à déboguer les dysfonctionnements des scripts dans le jeu. Par exemple, si un PNJ \"bégaie\", c'est-à-dire qu'il ne fait que quelques pas et interrompt constamment toute action, ou si le PID (dialogue initié par le joueur) du PNJ s'affiche de manière répétée.|De même, si le jeu subit un ralentissement qui pourrait être causé par un script qui tourne en boucle.",
+      "components": {
+        "choice_0": "Stutter Debug Tool",
+        "1": "Patching de tous les scripts a l'exception des blocs NoAction() - choisissez cette option lors de la premiere installation (l'installation peut prendre un certain temps !)",
+        "2": "Patching de tous les scripts et blocs de scripts - cela prendra un certain temps!"
+      }
+    },
+    "zh_CN": {
+      "description": "Stutter Debug Tool 旨在帮助调试游戏中的脚本故障。例如，如果一个 NPC“卡顿”，即他只走几步就不断中断所有行动，或者该 NPC 的 PID（玩家发起的对话）不断重复显示。同样，如果游戏出现卡顿，可能是由于某个脚本在循环运行。"
+    }
+  },
+  "tp2": "stutterdebug",
+  "safe": 2,
+  "authors": ["Spellhold-Studios"]
+}

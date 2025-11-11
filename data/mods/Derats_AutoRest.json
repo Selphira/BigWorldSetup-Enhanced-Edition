@@ -1,0 +1,57 @@
+{
+  "name": "Derat's Auto Rest",
+  "version": "8",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=33320",
+    "download": "https://github.com/Deratiseur/AutoRest/releases/download/v8.0/win-Derats_AutoRest-v8.zip"
+  },
+  "file": {
+    "filename": "win-Derats_AutoRest-v8.zip",
+    "size": 1280989,
+    "sha256": "afe491e7e8495e03465e046e475e550fcbccd6cc66252935733de237669d3420"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "eet", "iwdee", "pstee"],
+  "categories": ["gameplay"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["11", "12", "13"]},
+    "choice_1": {"type": "muc", "components": ["21", "22", "23", "24", "25", "26", "27", "28"]},
+    "choice_2": {"type": "muc", "components": ["31", "32", "33", "34"]}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce petit mod bien pratique permet de simuler un repos sans avoir besoin de dormir 8 h. Vous pouvez bien évidemment choisir la qualité du repos. Désormais, il peut aussi rendre les pj immortels.",
+      "components": {
+        "choice_0": "Comment le repos est-il simule ?",
+        "11": "En appuyant sur la touche D",
+        "12": "Automatique apres chaque combat",
+        "13": "Automatique apres chaque combat + en appuyant sur la touche D",
+        "choice_1": "Choisissez la puissance du repos",
+        "21": "tous les sorts rendus + 3D8 pvs rendus",
+        "22": "tous les sorts rendus + 3D8 pvs rendus + dissipation 100%",
+        "23": "tous les sorts rendus + Guerison",
+        "24": "tous les sorts rendus + Guerison + dissipation 100%",
+        "25": "tous les sorts rendus + Restauration majeure",
+        "26": "tous les sorts rendus + Restauration majeure + dissipation 100%",
+        "27": "tous les sorts rendus + Resurrection + Restauration majeure",
+        "28": "tous les sorts rendus + Resurrection + Restauration majeure + dissipation 100%",
+        "choice_2": "Les joueurs ne peuvent pas mourir",
+        "31": "Points de vie minimum fixes a 1",
+        "32": "Points de vie minimum fixes a 1 + Mort simulee",
+        "33": "Points de vie minimum fixes a 1 + Immunite a toutes les formes de mort",
+        "34": "Points de vie minimum fixes a 1 + Mort simulee + Immunite a toutes les formes de mort"
+      }
+    },
+    "en_US": {
+      "description": "This handy little mod lets you simulate rest without having to sleep for 8 hours. You can, of course, choose the quality of your rest. Now it can also make pjs immortal."
+    },
+    "zh_CN": {
+      "description": "这个非常实用的小型模组允许模拟休息，而无需睡满8小时。您当然可以选择休息的质量。如今，它还可以让玩家角色变得不朽。"
+    }
+  },
+  "tp2": "derats_autorest",
+  "safe": 2,
+  "authors": ["Deratiseur"]
+}

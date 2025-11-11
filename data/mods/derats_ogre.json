@@ -1,0 +1,38 @@
+{
+  "name": "L'ogre et le gnome, une histoire de bleu",
+  "version": "5",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=28812",
+    "download": "https://github.com/Deratiseur/Ogre/releases/download/v5/win-Derats_Ogre-Version_5.zip"
+  },
+  "file": {
+    "filename": "win-Derats_Ogre-Version_5.zip",
+    "size": 2952039,
+    "sha256": "c1668e3a18fac448e2042be8c48bcffd333f195c40b9f2839a2133e7333af20a"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc1d"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce petit module vous fera rencontrer deux protagonistes inhabituels : l'un est un ogre PNJ que vous pourrez enrôler (pour l'instant il est muet s'il est engagé) et l'autre un marchand gnome. Pour trouvez l'un et l'autre, posez vous les questions : où pourrait se cacher un ogre qui ne souhaite pas être vu et où pourrait se trouver un marchand ?|FOR 19, DEX 7, CON 18, INT 6, SAG 8, CHA 6.",
+      "components": {
+        "0": "L'ogre et le gnome, une histoire de bleu"
+      }
+    },
+    "en_US": {
+      "description": "This little module will introduce you to two unusual protagonists: one is an NPC ogre whom you can enlist (for the moment he's mute if hired) and the other a gnome merchant. To find one or the other, ask yourself the following questions: where could an ogre be hiding who doesn't want to be seen, and where could a merchant be?|STR 19, DEX 7, CON 18, INT 6, WIS 8, CHA 6."
+    },
+    "zh_CN": {
+      "description": "这个小型模组将让你遇到两个不寻常的主角：一个是可以招募的食人魔NPC（目前如果被招募，他是哑的），另一个是侏儒商人。要找到他们，不妨问自己一个问题：一个不想被看到的食人魔可能藏在哪里，而商人又可能在哪里？|力量 19, 敏捷 7, 体质 18, 智力 6, 智慧 8, 魅力 6。|"
+    }
+  },
+  "tp2": "derats_ogre",
+  "safe": 2,
+  "authors": ["Deratiseur"]
+}

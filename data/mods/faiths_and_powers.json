@@ -1,0 +1,75 @@
+{
+  "name": "Faiths and Powers",
+  "version": "0.91.4",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/30792-unearthed-arcana-presents-faiths-powers-gods-of-the-realms/",
+    "download": "https://github.com/UnearthedArcana/Faiths_and_Powers/archive/refs/tags/0.91.4.zip"
+  },
+  "file": {
+    "filename": "Faiths_and_Powers-0.91.4.zip",
+    "size": 73758995,
+    "sha256": "1f7453626d8f252dbfd83a094e09b01f1bc16450223750f2c1fdafe3c6fba237"
+  },
+  "games": ["bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit", "gameplay"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["12", "13"]},
+    "15": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["21", "22", "23", "24", "25"]},
+    "30": {"type": "std"},
+    "31": {"type": "std"},
+    "33": {"type": "std"},
+    "choice_2": {"type": "muc", "components": ["35", "36"]},
+    "45": {"type": "std"},
+    "70": {"type": "std"},
+    "75": {"type": "std"},
+    "80": {"type": "std"},
+    "91": {"type": "std"},
+    "92": {"type": "std"},
+    "95": {"type": "std"},
+    "99": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Héritier du projet abandonné Faiths of Faerûn, ce mod ajoute plusieurs dizaines de profils de prêtres, druides, rôdeurs et paladins, de nouvelles combinaisons de classes, de nouveaux sorts, un système de sphères divines en option pour différencier l'accès aux sorts des différents profils et divinités, et des restrictions optionnelles d'armures et d'armes spécifiques aux profils.",
+      "components": {
+        "choice_0": "Table revisee des sorts de Clerc",
+        "12": "Table des sorts de Faiths & powers",
+        "13": "Table debridee",
+        "15": "Les Druides utilisent la table des sorts et la progression d'XP des Clercs",
+        "choice_1": "Choisir un systeme de spheres",
+        "21": "oFnP : le systeme de spheres original de Faiths & Powers",
+        "22": "AD&D/DR : inspire par le PnP et Divine Remix",
+        "23": "Vanilla : listes de sorts traditionnelles, les kits peuvent traverser la division clerc/druide",
+        "24": "VPlus : tout le monde a les sorts de base et les kits ont un acces focus sur deux spheres",
+        "25": "nuFnp (Nouveau FnP) : un nouveau système de spheres (moins de spheres, plus equilibre globalement, plus proche du PnP)",
+        "30": "Donner l'option de lancer les sorts comme les Ensorceleurs (ne pas installer si l'utilisation du lancer 5E est prevue)",
+        "31": "Installer les kits de clerc",
+        "33": "Installer les kits de druide",
+        "choice_2": "Installer les kits de paladin",
+        "35": "...pour Tyr, Torm, Helm, Ilmater, Kelemvor, Sune",
+        "36": "...pour ceux ci-dessus, PLUS les divinites Neutres/Mauvaises/demi-humaines",
+        "45": "Revision de la table de sorts des paladins",
+        "70": "Ajouter des parchemins de sorts pour les pretres",
+        "75": "Modifier l'utilisabilite des armes et armures pour les pretres",
+        "80": "Appliquer le systeme de spheres (REQUIS pour que le systeme de spheres fonctionne)",
+        "91": "Druides multiclasses",
+        "92": "Chamans multiclasses",
+        "95": "Kits de clerc multiclasses (installer apres les autres mods de kits !!)",
+        "99": "Appliquer les kits multiclasses de FnP aux PNJ"
+      }
+    },
+    "en_US": {
+      "description": "Heir to the abandoned Faiths of Faerûn project, this mod adds dozens of priest, druid, lurker and paladin profiles, new class combinations, new spells, an optional divine sphere system to differentiate access to spells for different profiles and deities, and optional profile-specific armor and weapon restrictions."
+    },
+    "zh_CN": {
+      "description": "这个模组是《费伦信仰》这个被放弃项目的继承者，它增加了数十名牧师、德鲁伊、游侠和圣武士的配置，新的职业组合，新法术，一个可选的神术领域系统，用于区分不同配置和神祇的法术获取权限，以及针对配置的特定盔甲和武器的可选限制。"
+    }
+  },
+  "tp2": "faiths_and_powers",
+  "safe": 2,
+  "authors": ["Subtledoctor", "Grammarsalad"]
+}

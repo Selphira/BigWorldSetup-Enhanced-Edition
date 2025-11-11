@@ -1,0 +1,40 @@
+{
+  "name": "Isra NPC for BGII",
+  "version": "3.1",
+  "links": {
+    "homepage": "https://www.shsforums.net/files/file/1070-isra-bg2-pc/",
+    "download": "https://github.com/11jo/Isra-NPC-BG2/archive/refs/heads/master.zip"
+  },
+  "file": {
+    "filename": "Isra-NPC-BG2-master.zip",
+    "size": 11103209,
+    "sha256": "8edd240d392eee757324f70e976fc3598c02838425513069f9839d475baa62f8"
+  },
+  "games": ["bg2", "tutu", "bgt", "bg2ee", "eet"],
+  "categories": ["npc"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Isra est une paladine, suivante de Sunie Cheveux-de-flamme, que vous pouvez rencontrer dans l'Antre des Sept Vaux sur la Promenade de Waukyne. Vous devrez accomplir quelques quêtes pour pouvoir la recruter - soignez votre réputation pour pouvoir en bénéficier (14 et plus). Isra romancera les PJ bons disposant d'un charisme supérieur à 13, sans restriction de race, de classe ou de sexe. Elle n'intégrera d'ailleurs pas votre groupe si votre PJ est d'alignement mauvais.",
+      "components": {
+        "0": "Isra pour BGII",
+        "1": "Contenu Isra CrossMod"
+      }
+    },
+    "en_US": {
+      "description": "Isra is a paladin, following Sunie Firehair, whom you can meet in the Den of the Seven Vales on the Waukeen's Promenade. You'll need to complete a few quests before she can be recruited - make sure your reputation is at least 14. Isra will romanticize good charname with charisma above 13, regardless of race, class or gender. And she won't join your party if charname is of the evil alignment."
+    },
+    "zh_CN": {
+      "description": "Isra是一位圣武士，淑娜火焰之发的女追随者，你可以在渥金商场的七谷洞穴中遇到她。你需要完成一些任务才能招募她——请保持良好的声誉（14或以上）。Isra会与魅力值高于13的善良主角发展恋情，不限种族、职业或性别。此外，如果你的主角是邪恶阵营，她不会加入你的队伍。"
+    }
+  },
+  "tp2": "isra_bg2",
+  "safe": 2,
+  "authors": ["Rhaella", "Freddy_Gwendo"]
+}

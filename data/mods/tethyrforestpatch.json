@@ -1,0 +1,41 @@
+{
+  "name": "Tethyr Forest Patch",
+  "version": "3b",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/855-tethyr-forest-patch-version-3b-112609/",
+    "download": "http://www.shsforums.net/files/download/855-tethyr-forest-patch-version-3b-112609/"
+  },
+  "file": {
+    "filename": "Tethyr_Forest_Patch_3b.7z",
+    "size": 558616,
+    "sha256": "33af711df8635622e43754f37a17c9ee3e6d7386dc50d10735ff5973ff5dab56"
+  },
+  "games": ["bg2", "bgt", "eet"],
+  "categories": ["patch"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "de_DE": 1,
+    "es_ES": 2,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "description": "The cave in the Forest of Tethyr is modified by the Check the Bodies mod. The Tortured Souls-BP and Tashia NPC mods also use the original cave in terms of quests and scripts. This mod therefore creates a new entrance to the cave, available when playing with all mods without using the console.",
+      "components": {
+        "0": "Tethyr Forest Patch"
+      }
+    },
+    "fr_FR": {
+      "description": "La grotte de la forêt de Téthyr est modifiée par le mod Check the Bodies. Les mods Tortured Souls-BP et Tashia NPC utilisent également la grotte originale en termes de quêtes et de scripts. Ce mod crée donc une nouvelle entrée dans la grotte, disponible lorsque vous jouez avec tous les mods sans utiliser la console."
+    },
+    "zh_CN": {
+      "description": "泰斯尔森林的洞穴被模组Check the Bodies修改了。模组Tortured Souls-BP和Tashia NPC在任务和脚本方面也使用了原始洞穴。因此，此模组在洞穴中创建了一个新入口，当你不使用控制台游玩所有模组时，该入口可用。"
+    }
+  },
+  "tp2": "tethyrforestpatch",
+  "safe": 2,
+  "authors": ["Hoppy", "White Agnus"]
+}

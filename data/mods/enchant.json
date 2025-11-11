@@ -1,0 +1,47 @@
+{
+  "name": "Enchant the Missile Launchers",
+  "version": "1",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/58374/enchant-the-missile-launchers-ranged-weapon-tweak/p1",
+    "download": "https://forums.beamdog.com/uploads/editor/hc/n0q8dnnbhnsc.zip"
+  },
+  "file": {
+    "filename": "n0q8dnnbhnsc.zip",
+    "size": 17899,
+    "sha256": "3b68510079187d6d4f30a9db2a2a87374f422223900e69b36730858d45bd5de7"
+  },
+  "games": ["bgee", "bg2ee", "sod", "iwdee", "eet"],
+  "categories": ["spell"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "5": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod uses the projectile caster's enchantment value, not the projectile's, to determine which type of target to hit, unless the projectile is more powerful than the caster. An optional component allows the use of arrow quivers, with limited capacity, which recharge after each rest.",
+      "components": {
+        "0": "Enchant the Missile Launchers",
+        "1": "Ammunition Recovery",
+        "2": "Custom Ammunition: Eldoth (BG:EE)",
+        "3": "Custom Ammunition: Jan (BGII:EE)",
+        "5": "Fix Fuller's Quest Bolts (BG:EE)"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod utilise la valeur de l'enchantement du lanceur de projectiles, et non pas celui des projectiles, pour savoir quel type de cible toucher, sauf si le projectile est plus puissant que le lanceur. Un composant optionnel permet d'utiliser des carquois de flèches, à capacité limitée, qui se rechargent après chaque repos."
+    },
+    "zh_CN": {
+      "description": "此模组使用投射物的施法者附魔值，而非投射物本身的附魔值，来判断命中何种类型的目标，除非投射物比施法者更强大。一个可选组件允许使用容量有限的箭袋，每次休息后可以重新装填。"
+    }
+  },
+  "tp2": "enchant",
+  "safe": 2,
+  "authors": ["Dee"]
+}

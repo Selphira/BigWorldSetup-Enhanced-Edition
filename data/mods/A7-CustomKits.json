@@ -1,0 +1,46 @@
+{
+  "name": "Custom Kits: Spellsword",
+  "version": "1.6",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/45487-custom-kits-the-spellsword/",
+    "download": "http://www.shsforums.net/files/download/913-custom-kits-the-spellsword/"
+  },
+  "file": {
+    "filename": "A7-CustomKits-v1.6.zip",
+    "size": 3245290,
+    "sha256": "87aa30452ad262d6101169c3689e11ad082f65081f86efd334ff5f8970be7735"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 2
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "choice_0": "Spellsword Kit",
+        "0": "Nerfed version",
+        "1": "Original version"
+      },
+      "description": "This mod adds a fighter kit: the Magelame, who can summon a spirit sword to fight alongside him for one turn. At high level, he can also clone himself for a short period, rather like a Simulacrum."
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute un kit de guerrier : le Magelame, qui peut invoquer une épée spirituelle qui combat à ses côtés pendant un tour. À haut niveau, il peut également se cloner pendant une petite période, un peu comme un Simulacre.",
+      "components": {
+        "choice_0": "Kit de Magelame",
+        "0": "Version affaiblie",
+        "1": "Version originale"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组增加了一个战士宗派：剑刃法师，他可以召唤一把精神之剑，在战斗中与他并肩作战一回合。在高等级时，他还可以在短时间内分身，有点类似一个幻象体。"
+    }
+  },
+  "tp2": "a7-customkits",
+  "safe": 2,
+  "authors": ["Argent77"]
+}

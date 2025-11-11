@@ -1,0 +1,42 @@
+{
+  "name": "Tsujatha le nécromacien",
+  "version": "15",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=20092",
+    "download": "https://github.com/Plutonium-X/NPC_Tsujatha/archive/refs/tags/v15_EET.zip"
+  },
+  "file": {
+    "filename": "NPC_Tsujatha-15_EET.zip",
+    "size": 18014681,
+    "sha256": "55cdf37d500d686f2b1e10333ff8d043b093ed0a35a287dd82ce43b94d77fa25"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 3
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Tsujatha (BG2:SoA NPC) created by Sillara of the Tamari"
+      },
+      "description": "This mod adds a fictional character, Tsujatha Melalor, an elven necromancer neutral evil from the kingdom of Gilalion, located on a plane other than Toril. His psychology is particularly well-developed, not least because of his personal quest (his ambition and his father's betrayal have made him an outcast in his kingdom). The romance is long and the interactions numerous, enough to delight those looking for an alternative to the ever-present Anomen. Please note that although Tsujatha is a character of bad alignment (but can be redeemed), he will only romanticize female human, elf and half-elf characters of good alignment. You'll find him in the Planar Sphere. Get there as soon as you can, as there are plenty of banters.|STR 17, DEX 12, CON 12, INT 19, WIS 16, CHA 14."
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute un personnage romançable, Tsujatha Melalor, nécromancien elfe neutre mauvais du royaume de Gilalion, situé sur un autre plan que Toril. Sa psychologie est particulièrement étoffée, cela entre autres de par sa quête personnelle (son ambition et la trahison de son père en ont fait un paria dans son royaume). La romance est longue et les interactions fort nombreuses, de quoi ravir ceux qui souhaitent une alternative au sempiternel Anomen. Attention, même si Tsujatha est un personnage d'alignement mauvais (mais pouvant obtenir une rédemption), il ne romancera que les personnages féminins humains, elfes et demi-elfes d'alignement bon. Vous le trouverez dans la Sphère planaire. Allez-y dès que possible car les banters sont nombreux.|FOR 17, DEX 12, CON 12, INT 19, SAG 16, CHA 14.",
+      "components": {
+        "0": "Tsujatha (PNJ pour BG2:SoA) cree par 'Sillara of the Tamari'"
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组添加了一个可恋爱角色，苏贾塔·梅拉洛，一个来自吉拉利昂王国的中立邪恶精灵死灵法师，该王国位于托瑞尔之外的另一个位面。他的心理描写非常丰富，这尤其得益于他的个人任务（他的野心和父亲的背叛使他成为自己王国中的弃儿）。恋爱线很长，互动也非常多，足以让那些希望永远不要和阿诺门在一起的人感到高兴。注意，即使苏贾塔是一个邪恶阵营的角色（但可以获得救赎），他也只会与善良阵营的女性人类、精灵和半精灵角色恋爱。你可以在位面球找到他。尽快去，因为闲聊对话很多。|力量17，敏捷12，体质12，智力19，智慧16，魅力14。"
+    }
+  },
+  "tp2": "tsujatha",
+  "safe": 2,
+  "authors": ["Sillara", "CoM_Solaufein"]
+}

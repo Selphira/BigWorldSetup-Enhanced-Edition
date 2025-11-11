@@ -1,0 +1,40 @@
+{
+  "name": "Tashia NPC",
+  "version": "2.06a",
+  "links": {
+    "homepage": "https://github.com/Plutonium-X/NPC_Tashia",
+    "download": "https://github.com/Plutonium-X/NPC_Tashia/archive/refs/tags/2.06a.zip"
+  },
+  "file": {
+    "filename": "NPC_Tashia-2.06a.zip",
+    "size": 3636929,
+    "sha256": "332c3d1b5b73dcf53d9d45db80c4f0a9a00bcb52d6095c55e45d82e02e9dcd21"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod ajoute un nouveau PNJ, une jeune elfe ensorceleuse neutre bonne issue du grand nord, sortie tout droit de l'Épine dorsale du monde, avec une romance possible avec un PJ masculin. De plus, cette romance continue dans ToB. Il y a 3 épilogues différents pour cette romance à la fin de Throne of Bhaal, suivant le choix que l'on effectue.|FOR 11, DEX 19, CON 15, INT 15, SAG 14, CHA 12.",
+      "components": {
+        "0": "Tashia, personnage additionnel (avec ToB)",
+        "1": "Tashia, personnage additionnel (sans ToB)"
+      }
+    },
+    "en_US": {
+      "description": "This mod adds a new NPC, a young elven sorceress neutral good from the far north, straight out of the Spine of the World, with a possible romance with a male NPC. What's more, this romance continues in ToB. There are 3 different epilogues for this romance at the end of Throne of Bhaal, depending on the choice you make.|STR 11, DEX 19, CON 15, INT 15, WIS 14, CHA 12."
+    },
+    "zh_CN": {
+      "description": "此模组添加了一个新的非玩家角色：一位来自北境的年轻中立善良精灵术士，她直接来自世界脊，并且可能与男性玩家角色发展恋情。此外，这段恋情在《巴尔王座》中继续。在《巴尔王座》的结尾，这段恋情有三个不同的结局，取决于你的选择。|力量 11，敏捷 19，体质 15，智力 15，智慧 14，魅力 12。"
+    }
+  },
+  "tp2": "tashia",
+  "safe": 2,
+  "authors": ["Arian", "Michael Lyashenko", "Bri", "Lord Ernie"]
+}

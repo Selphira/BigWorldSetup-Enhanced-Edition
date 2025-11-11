@@ -1,0 +1,41 @@
+{
+  "name": "Charlatan",
+  "version": "2.7",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/68297/bard-kit-charlatan-iwdee-eet-bgee-bg2ee/",
+    "download": "https://github.com/Raduziel/Charlatan-Kit/archive/master.zip"
+  },
+  "file": {
+    "filename": "Charlatan-Kit-master.zip",
+    "size": 926207,
+    "sha256": "c8f426e07d074839608b7beac5f67b7926d7ed88aab41bd369979420670b3e61"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod vous permet d'installer un nouveau profil de barde spécialisé dans la manipulation et la duperie.|Dans BG:EE et EET, un composant optionnel permet de l'attribuer à Eldoth.",
+      "components": {
+        "0": "Installer le profil de Charlatan pour Bardes",
+        "1": "Eldoth, le Charlatan."
+      }
+    },
+    "en_US": {
+      "description": "In BG:EE and EET, an optional component allows you to assign it to Eldoth."
+    },
+    "zh_CN": {
+      "description": "这个模组允许你安装一个新的吟游诗人职业，专精于操纵和欺骗。|在博德之门：增强版和增强版三部曲中，一个可选组件允许将其分配给亚多士。"
+    }
+  },
+  "tp2": "charlatan",
+  "safe": 2,
+  "authors": ["Raduziel"]
+}

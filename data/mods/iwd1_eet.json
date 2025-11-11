@@ -1,0 +1,40 @@
+{
+  "name": "IWD1_EET",
+  "version": "1.1",
+  "links": {
+    "homepage": "https://github.com/The-Gate-Project/IWD1_EET",
+    "download": "https://github.com/The-Gate-Project/IWD1_EET/archive/refs/heads/main.zip"
+  },
+  "file": {
+    "filename": "IWD1_EET-main.zip",
+    "size": 1356735205,
+    "sha256": "a62f4107a84d6f273c73bd2edfb23e090c418229b11b86835d8b415c0ed392d3"
+  },
+  "games": ["bgee", "bg2ee", "eet"],
+  "categories": ["conv"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 3
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Cette conversion permet de jouer à IWD1 et IWD2 depuis Enhanced Edition Trilogy.",
+      "components": {
+        "0": "Utiliser <CHARNAME> à la place de <GABBER> etc.",
+        "1": "Icewind Dale: Heart of Winter dans Baldur's Gate Enhanced Edition Trilogy"
+      }
+    },
+    "en_US": {
+      "description": "This conversion allows you to play IWD1 and IWD2 from Enhanced Edition Trilogy."
+    },
+    "zh_CN": {
+      "description": "此转换允许通过 Enhanced Edition Trilogy 来玩《冰风谷1》和《冰风谷2》。"
+    }
+  },
+  "tp2": "iwd1_eet",
+  "safe": 2,
+  "authors": ["tipun"]
+}

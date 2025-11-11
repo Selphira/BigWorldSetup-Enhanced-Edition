@@ -1,0 +1,39 @@
+{
+  "name": "Baldur's Gate Graphical Overhaul",
+  "version": "3.5",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/27768-baldurs-gate-graphics-overhaul-for-eet/",
+    "download": "https://github.com/Spellhold-Studios/Baldurs-Gate-Graphical-Overhaul/releases/download/v3.5/baldurs-gate-graphical-overhaul-v3.5.zip"
+  },
+  "file": {
+    "filename": "baldurs-gate-graphical-overhaul-v3.5.zip",
+    "size": 1386261605,
+    "sha256": "e35f3d79aa327f9150aa9a0ed010a21d4b515e966d5f6689778656bd3aad38e6"
+  },
+  "games": ["tutu", "bgt", "bg2", "sod", "bgee", "bg2ee", "eet"],
+  "categories": ["cosm"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "BGGO for EET, BGT, BGEE, BG2EE, ToB and Tutu"
+      },
+      "description": "This huge mod adds missing night areas in all main areas except Baldur's Gate and adds missing night minimaps in all main areas. It also corrects graphical flaws in the game's various maps (windows that display at night and not during the day - or vice versa, badly adjusted doors, flaws in night images, etc.). It gives all wall braziers their missing flames. Finally, almost all the ugly blue and purple spots have been removed from the streets. It was created in collaboration with Overhaul Studios."
+    },
+    "fr_FR": {
+      "description": "Ce mod énorme ajoute les zones nocturnes qui manquent dans toutes les zones principales sauf Baldur's Gate et ajoute les minimaps nocturnes manquantes dans toutes les zones principales. Il corrige également des défauts graphiques dans les différentes cartes du jeu (fenêtres qui s'affichent la nuit et pas le jour - ou vice versa, porte mal ajustée, défaut dans les images de nuit, etc.). Il donne à tous les braseros muraux leurs flammes manquantes. Enfin, presque toutes les vilaines taches bleues et violettes ont été supprimées des rues. Il a été réalisé en collaboration avec Overhaul Studios."
+    },
+    "zh_CN": {
+      "description": "这个巨大的模组为所有主要区域（博德之门除外）添加了缺失的夜间区域，并为所有主要区域添加了缺失的夜间小地图。它还修正了游戏不同地图中的图形缺陷（夜晚显示而白天不显示的窗户——或反之，未对齐的门，夜间图像缺陷等）。它为所有壁炉台添加了缺失的火焰。最后，街道上几乎所有难看的蓝色和紫色污渍都被清除了。该模组与Overhaul Studios合作制作。"
+    }
+  },
+  "tp2": "bggo",
+  "safe": 2,
+  "authors": ["Yovaneth", "White Agnus", "Weigo"]
+}

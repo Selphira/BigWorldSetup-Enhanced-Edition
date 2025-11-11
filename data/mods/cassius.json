@@ -1,0 +1,38 @@
+{
+  "name": "Cassius le skalde",
+  "version": "1.6",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?p=231482",
+    "download": "https://github.com/Plutonium-X/1D_NPC_Cassius/archive/refs/tags/v1.6.zip"
+  },
+  "file": {
+    "filename": "1D_NPC_Cassius-1.6.zip",
+    "size": 2955246,
+    "sha256": "8a70eff409daa561408dcf33938b4be60a35ebe5f09658f873b2d7b239ce8816"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc1d"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 4
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Cassius est un barde scalde humain et mystérieux qui ne dit pas grand-chose sur son passé. Ce que l'on sait, c'est qu'il a beaucoup voyagé depuis La Porte de Baldur, Eauprofonde, le Calimshan et d'autres endroits sans jamais rester trop longtemps. Il est toujours à la recherche d'aventures pour pouvoir raconter les grandes histoires qu'ils ont rencontrées. Il s'est récemment arrêté en Amn pour recueillir des informations sur les grandes histoires des aventuriers qui y passent. La rumeur veut qu'il soit un agent des Ménestrels.|FOR 16, DEX 17, CON 13, INT 16, SAG 9, CHA 15.",
+      "components": {
+        "0": "Mod PNJ Cassius (necessite Throne of Bhaal)"
+      }
+    },
+    "en_US": {
+      "description": "Cassius is a mysterious, human scalde bard who doesn't reveal much about his past. What we do know is that he has traveled extensively from Baldur's Gate, Waterdeep, Calimshan and other places without ever staying too long. He's always looking for adventures to tell the great stories they've encountered. He recently stopped off in Amn to gather information on the great stories of the adventurers who pass through there. Rumor has it that he is an agent of the Harpers.|STR 16, DEX 17, CON 13, INT 16, WIS 9, CHA 15."
+    },
+    "zh_CN": {
+      "description": "Cassius是一个神秘而寡言的人类北地诗人。他很少谈论自己的过去。我们所知道的是，他从博德之门、深水城、卡林珊等地旅行了很远，但从未在任何地方停留太久。他总是在寻找冒险，以便讲述他遇到的大故事。他最近在安姆停留，收集关于在那里冒险的冒险者的故事。传闻他是一名吟游诗人的特工。力量16，敏捷17，体质13，智力16，智慧9，魅力15。"
+    }
+  },
+  "tp2": "cassius",
+  "safe": 2,
+  "authors": ["Gabrielle"]
+}

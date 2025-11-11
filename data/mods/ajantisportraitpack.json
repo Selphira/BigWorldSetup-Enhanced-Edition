@@ -1,0 +1,49 @@
+{
+  "name": "Ajantis Portrait Pack",
+  "version": "5",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/files/file/994-ajantis-portrait-pack/",
+    "download": "https://www.gibberlings3.net/files/file/994-ajantis-portrait-pack/?do=download"
+  },
+  "file": {
+    "filename": "ajantis-portrait-pack-5.zip",
+    "size": 5001915,
+    "sha256": "bc79ad246b21b63ff1fa90a0f104cfbba40c1c80c8969be8deb4b45ecbbca443"
+  },
+  "games": ["bg", "bg2", "bg2ee", "eet"],
+  "categories": ["portrait"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"]}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Le mod ajoute de nouveaux portraits pour Ajantis réalisés par des membres de la communauté.",
+      "components": {
+        "choice_0": "Installer un portrait personnalise pour Ajantis",
+        "10": "Portrait 1  par Amaurea : Heath Ledger est Ajantis (version initiale)",
+        "11": "Portrait 2  par Amaurea : Heath Ledger est Ajantis (version finale)",
+        "12": "Portrait 3  par berelinde (portrait cheveux courts)",
+        "13": "Portrait 4  par berelinde (portrait cheveux longs)",
+        "14": "Portrait 5  par Azguz aka Azze",
+        "15": "Portrait 6  par wonnimchunha",
+        "16": "Portrait 7  par Senka (portrait par defaut, moins age)",
+        "17": "Portrait 8  par Catlepha (portrait de face)",
+        "18": "Portrait 9  par Catlepha (portrait de profil)",
+        "19": "Portrait 10 par Casul",
+        "20": "Portrait 11 par Miloch (portrait par defaut avec tunique rouge)"
+      }
+    },
+    "en_US": {
+      "description": "The mod adds new portraits of Ajantis created by members of the community."
+    },
+    "zh_CN": {
+      "description": "该模组为阿詹提斯添加了由社区成员创作的新肖像。"
+    }
+  },
+  "tp2": "ajantisportraitpack",
+  "safe": 2,
+  "authors": ["jastey"]
+}

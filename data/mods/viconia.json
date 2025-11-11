@@ -1,0 +1,44 @@
+{
+  "name": "Viconia Friendship",
+  "version": "4.5",
+  "links": {
+    "homepage": "https://github.com/Spellhold-Studios/Viconia-Friendship",
+    "download": "https://github.com/Spellhold-Studios/Viconia-Friendship/releases/download/v4.5/Viconia-Friendship-v4.5.zip"
+  },
+  "file": {
+    "filename": "Viconia-Friendship-v4.5.zip",
+    "size": 2891915,
+    "sha256": "e448bcfd34fb21a883a89363a842e7979f7a279130190d3205c444b10c5b9c98"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "ru_RU": 2
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds a series of dialogs for any male or female PJ who has repelled Viconia. It tries to give something to sink your teeth into for anyone not interested in romance. But keep in mind that Viconia isn't an easy person to talk to, let alone befriend. She has a mind of her own, and even if she agrees to travel with you, she may not wish to become your confidante.",
+      "components": {
+        "0": "Viconia Friendship"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute une série de dialogues pour tout PJ homme ou femme qui a repoussé Viconia. Il essaye de donner quelque chose à se mettre sous la dent pour quiconque n'est pas intéressé par une romance. Mais gardez en tête que Viconia n'est pas une personne à l'abord facile, sans même parler d'amitié. Elle n'en fait qu'à sa tête, et même si elle accepte de voyager avec vous, elle pourrait ne pas souhaiter devenir votre confidente.",
+      "components": {
+        "0": "Viconia Friendship"
+      }
+    },
+    "ru_RU": {"components": {"0": "Viconia Friendship"}},
+    "zh_CN": {
+      "description": "此模组为所有拒绝过维康妮亚的男性或女性玩家角色添加了一系列对话。对于那些不感兴趣于浪漫关系的玩家，他试图提供一些别的内容。但要记住，维康妮亚可不是个容易接近的人，更别提友谊了。她我行我素，即使同意与你同行，也可能不愿成为你的知己。"
+    }
+  },
+  "tp2": "viconia",
+  "safe": 2,
+  "authors": ["K'aeloree", "Lava Del'Vortel"]
+}

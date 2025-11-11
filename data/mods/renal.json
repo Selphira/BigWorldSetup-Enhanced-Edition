@@ -1,0 +1,38 @@
+{
+  "name": "Sir Renal",
+  "version": "2.6",
+  "links": {
+    "homepage": "https://github.com/The-Gate-Project/Sir_Renal",
+    "download": "https://github.com/The-Gate-Project/Sir_Renal/releases/download/v2.6/sir-renal-2.6.zip"
+  },
+  "file": {
+    "filename": "sir-renal-2.6.zip",
+    "size": 3288737,
+    "sha256": "955d7a1bf07c9d7268b6f25a17993359bd37ee195bb4b817718207641a15be15"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["smith"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 4
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod ajout un marchand, Sir Renal, chargé de négocier les transactions effectuées par l'Ordre du Cœur radieux. Outre les services classiques d'un temple, il possède plusieurs objets utiles pour combattre les forces du mal. Vous le trouverez dans le quartier général de l'Ordre.",
+      "components": {
+        "0": "Sire Renal"
+      }
+    },
+    "en_US": {
+      "description": "This mod adds a merchant, Sir Renal, responsible for negotiating transactions carried out by the Order of the Radiant Heart. In addition to the usual temple services, he possesses a number of useful items for fighting the forces of evil. You'll find him in the Order's headquarters."
+    },
+    "zh_CN": {
+      "description": "此模组添加了一个名为罗诺尔爵士的商人，负责处理最高贵的光辉之心骑士团的交易。除了神殿的常规服务外，他还拥有一些对抗邪恶势力的有用物品。你可以在骑士团的总部找到他。"
+    }
+  },
+  "tp2": "renal",
+  "safe": 2,
+  "authors": ["Eslizon"]
+}

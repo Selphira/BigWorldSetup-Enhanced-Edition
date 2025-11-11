@@ -1,0 +1,40 @@
+{
+  "name": "Minor NPC Portraits for BGEE",
+  "version": "1.5",
+  "links": {
+    "homepage": "https://github.com/smeagolheart/MinorNPCPortraitsforBGEE",
+    "download": "https://github.com/smeagolheart/MinorNPCPortraitsforBGEE/archive/refs/heads/master.zip"
+  },
+  "file": {
+    "filename": "MinorNPCPortraitsforBGEE-master.zip",
+    "size": 69332175,
+    "sha256": "b508f6c30003530913c0a113f9f6406401b8341ecd6290597be7e596b6cecdd2"
+  },
+  "games": ["bgee", "eet"],
+  "categories": ["portrait"],
+  "components": {
+    "0": {"type": "std"},
+    "100": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "À l'instar des mods Gerri's NPC Portraits Pack et Ajantis BG1 Expansion Modification, ce mod donne un portrait à chaque NPC concerné par un dialogue dans BG:EE et SoD.",
+      "components": {
+        "0": "Portraits de PNJ mineurs pour BGEE",
+        "100": "Les PNJ sans portrait reçoivent des portraits aléatoires"
+      }
+    },
+    "en_US": {
+      "description": "Like Gerri's NPC Portraits Pack and Ajantis BG1 Expansion Modification, this mod gives a portrait to each NPC involved in a dialog in BG:EE and SoD."
+    },
+    "zh_CN": {
+      "description": "与模组Gerri's NPC Portraits Pack和Ajantis BG1 Expansion Modification类似，此模组为BG:EE和SoD中每个参与对话的NPC都提供了一个肖像。"
+    }
+  },
+  "tp2": "minornpcportraitsforbgee",
+  "safe": 2,
+  "authors": ["Smeagolheart", "bob_veng"]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "The Enhanced Edition Fixpack (BGEE)",
+  "version": "Alpha 3",
+  "links": {
+    "homepage": "https://github.com/Gibberlings3/EE_Fixpack",
+    "download": "https://github.com/Gibberlings3/EE_Fixpack/releases/download/Alpha_3/eefixpack-Alpha_3.exe"
+  },
+  "file": {
+    "filename": "eefixpack-Alpha_3.exe",
+    "size": 131260816,
+    "sha256": "d595f5b43da09002fb2533128d3968dcc846241984673a565d3d76a33dc3aa58"
+  },
+  "games": ["bgee", "bg2ee", "eet", "iwdee", "pstee"],
+  "categories": ["patch"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 3
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Core Fixes",
+        "1": "Beta Core Fixes",
+        "2": "Game Text Update"
+      },
+      "description": "The EE Fixpack is a Weidu compilation of fixes for the enhanced editions of Baldur's Gate, Baldur's Gate II, Icewind Dale, and Planescape: Torment. This collaborative effort, which includes the work of modders from several different communities, is intended to resolve issues that remain in these games after the current official patch."
+    },
+    "fr_FR": {
+      "description": "Le EE Fixpack est une compilation WeiDU de corrections pour les éditions améliorées de Baldur's Gate, Baldur's Gate II, Icewind Dale, et Planescape : Torment. Cet effort de collaboration, qui comprend le travail de moddeurs de plusieurs communautés différentes, est destiné à résoudre les problèmes qui subsistent dans ces jeux après le patch officiel actuel.",
+      "components": {
+        "0": "Correctifs principaux",
+        "1": "Correctifs en version BETA",
+        "2": "Correctifs des textes"
+      }
+    },
+    "zh_CN": {
+      "description": "EE Fixpack 是一个 WeiDU 修正包，用于解决博德之门、博德之门II、冰风谷和异度风景：苦难的增强版中存在的问题。这项合作努力汇集了来自不同社区模组制作者的工作，旨在解决这些游戏在当前官方补丁后仍然存在的问题。"
+    }
+  },
+  "tp2": "eefixpack",
+  "safe": 2,
+  "authors": ["CamDawg", "Luke", "Argent77", "DavidW"]
+}

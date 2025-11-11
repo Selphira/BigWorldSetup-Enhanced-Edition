@@ -1,0 +1,40 @@
+{
+  "name": "Framed",
+  "version": "1.14",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/files/file/1025-framed/",
+    "download": "https://github.com/Gibberlings3/framed/releases/download/v1.14/framed-v1.14.zip"
+  },
+  "file": {
+    "filename": "framed-v1.14.zip",
+    "size": 4190732,
+    "sha256": "5387b6bf5efd0cea77a3bad7031451a96aa15ac4930f3c847f147f6215971ff4"
+  },
+  "games": ["bgee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod fournit 2 versions différentes du chapitre 6. Retourner à Château-Suif devient une quête secondaire sans impliquer le Trône de Fer. Si vous allez à Château-Suif avant d'enquêter dans le quartier général du Trône de Fer, Eltan vous confira une autre mission à accomplir au chapitre 6.|Pour expérimenter le mod, un ordre de mission devra être obtenu auprès de \"Bentley\" (Auberge de Brasamical) ou de \"La Balafre\" (lors de la rencontre initiale uniquement et seulement si le PC admet avoir nettoyé les mines de Nashkel) au cours du chapitre 5.",
+      "components": {
+        "choice_0": "Framed ou Piege : Propose plusieurs versions du chapitre 6",
+        "0": "Utilisez des voix personnalisees pour les films des nouveaux chapitres",
+        "1": "Ignorer les voix personnalisees pour les films des nouveaux chapitres"
+      }
+    },
+    "en_US": {
+      "description": "This mod provides 2 different versions of chapter 6. Returning to Candlekeep becomes a secondary quest without involving the Iron Throne. If you go to Candlekeep before investigating the Iron Throne headquarters, Eltan will give you another mission to complete in chapter 6.|To experience the mod, a mission order will have to be obtained from \"Bentley\" (Friendly Arm Inn) or \"La Balafre\" (during the initial encounter only and only if the PC admits to having cleared the Nashkel mines) during chapter 5."
+    },
+    "zh_CN": {
+      "description": "此模组提供了两个不同的第6章版本。返回烛堡成为一个不涉及铁王座的主线任务。如果您在调查铁王座总部之前前往烛堡，艾尔坦会在第6章交给您另一个任务。|要体验此模组，必须在第5章期间从“友善之臂旅店”的“本特利”或“疤脸”（仅在初次相遇时，且仅当角色承认清理过那西凯矿场）那里获得任务顺序。"
+    }
+  },
+  "tp2": "framed",
+  "safe": 2,
+  "authors": ["Lauriel"]
+}

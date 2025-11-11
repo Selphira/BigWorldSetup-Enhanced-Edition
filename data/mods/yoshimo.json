@@ -1,0 +1,43 @@
+{
+  "name": "Yoshimo Friendship",
+  "version": "5.0",
+  "links": {
+    "homepage": "https://github.com/Spellhold-Studios/Yoshimo-Friendship",
+    "download": "https://github.com/Spellhold-Studios/Yoshimo-Friendship/releases/download/v5.0/yoshimo-friendship-v5.0.zip"
+  },
+  "file": {
+    "filename": "yoshimo-friendship-v5.0.zip",
+    "size": 4898848,
+    "sha256": "3819af3346cac731cc70b5609828001e635e0262854ed624fd678fc02e456c6d"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 2,
+    "zh_CN": 3
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds a series of dialogs with Yoshimo, our favorite charming scoundrel who we meet in the Irenicus dungeon at the start of the game. Spanning the time he spends in the group, Yoshimo Friendship develops the humorous thief, expanding his backstory and offering the player a fresh perspective on the character.",
+      "components": {
+        "0": "Yoshimo Friendship Mod for BGII: SoA"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute une série de dialogues avec Yoshimo, notre charmante canaille préférée que l'on rencontre dans le donjon d'Irenicus au début du jeu. Couvrant le temps qu'il passe dans le groupe, Yoshimo Friendship développe le voleur plein d'humour en accroissant son histoire et en offrant au joueur un point de vue neuf sur le personnage.",
+      "components": {
+        "0": "Yoshimo Friendship Mod for BGII: SoA"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组添加了一系列与善最的对话，这位是我们游戏初期在艾瑞尼卡斯地牢中遇到的迷人混蛋。覆盖了他在队伍中的时光，善最友谊模组通过丰富他的故事，并为玩家提供一个看待这个角色的全新视角，来塑造这位充满幽默感的盗贼。"
+    }
+  },
+  "tp2": "yoshimo",
+  "safe": 2,
+  "authors": ["Shadowhawke", "Lava Del'Vortel"]
+}

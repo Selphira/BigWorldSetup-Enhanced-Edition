@@ -1,0 +1,40 @@
+{
+  "name": "DGItems",
+  "version": "2.0",
+  "links": {
+    "homepage": "https://github.com/The-Gate-Project/DGItems",
+    "download": "https://github.com/The-Gate-Project/DGItems/releases/download/v2.0/dgitems-2.0.zip"
+  },
+  "file": {
+    "filename": "dgitems-2.0.zip",
+    "size": 4917774,
+    "sha256": "7a5433c7cc5d04dc379b74a440d274b9e0a93a97a9aa6a85fdea5b0fc69baf0c"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["spell"],
+  "components": {
+    "0": {"type": "std"},
+    "1000": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Voici un mod qui, en échange de quelques pièces d'or, vous donnera des objets, munitions, armes et armures pour vos jeux BG2ToB et BG2EE, dont un set d'armure très efficace et un puissant cimeterre.",
+      "components": {
+        "0": "Mod DGItems pour BG2ToB / BGT ou BG2EE / EET",
+        "1000": "Deplacer certains items surpuissant dans ToB (Dans le magasin de Zodesak a Amkethran)"
+      }
+    },
+    "en_US": {
+      "description": "Here's a mod that, in exchange for a few gold coins, will give you items, ammunition, weapons and armor for your BG2ToB and BG2EE games, including a very effective armor set and a powerful scimitar."
+    },
+    "zh_CN": {
+      "description": "这是一个模组，只需花费少量金币，就能为您的博德之门2：巴尔王座和博德之门2：增强版游戏提供物品、弹药、武器和护甲，其中包括一套非常有效的护甲和一把强大的弯刀。"
+    }
+  },
+  "tp2": "dgitems",
+  "safe": 2,
+  "authors": ["Daniel Goodrich"]
+}

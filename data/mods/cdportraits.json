@@ -1,0 +1,63 @@
+{
+  "name": "Continuous NPC Portraits",
+  "version": "3",
+  "links": {
+    "homepage": "https://github.com/Gibberlings3/Continuous_NPC_Portraits",
+    "download": "https://github.com/Gibberlings3/Continuous_NPC_Portraits/releases/download/v3/cdportraits-v3.exe"
+  },
+  "file": {
+    "filename": "cdportraits-v3.exe",
+    "size": 5603583,
+    "sha256": "bfdd9a70accba2cef265c3c39000c63d75b190205c4990d30259e79d9cac1868"
+  },
+  "games": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet"],
+  "categories": ["portrait"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["10", "11"]},
+    "choice_1": {"type": "muc", "components": ["20", "21", "22", "23", "24"]},
+    "choice_2": {"type": "muc", "components": ["30", "31"]},
+    "choice_3": {"type": "muc", "components": ["40", "41"]},
+    "choice_4": {"type": "muc", "components": ["50", "51", "52", "53", "54"]}
+  },
+  "languages": {
+    "fr_FR": 1,
+    "all": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Edwin, Imoen, Jaheira, Minsc et Viconia ont des portraits différents dans BG et BG2 ; Imoen et Viconia ont même un troisième portrait dans Siege of Dragonspear. Ce mod permet de choisir d'utiliser n'importe lequel de ces portraits dans n'importe quel jeu. Vous pouvez ainsi utiliser le portrait d'Imoen de BG dans BG2, celui de Viconia de SoD dans BG...",
+      "components": {
+        "choice_0": "Edwin",
+        "10": "Utiliser le portrait de BG",
+        "11": "Utiliser le portrait de BG2",
+        "choice_1": "Imoen",
+        "20": "Utiliser le portrait de BG",
+        "21": "Utiliser le portrait de BG2",
+        "22": "Utiliser le portrait de SoD",
+        "23": "Utiliser le portrait alternatif de Lava pour SoD",
+        "24": "Remplacer seulement le portrait dans SoD par le portrait alternatif de Lava",
+        "choice_2": "Jaheira",
+        "30": "Utiliser le portrait de BG",
+        "31": "Utiliser le portrait de BG2",
+        "choice_3": "Minsc",
+        "40": "Utiliser le portrait de BG",
+        "41": "Utiliser le portrait de BG2",
+        "choice_4": "Viconia",
+        "50": "Utiliser le portrait de BG",
+        "51": "Utiliser le portrait de BG2",
+        "52": "Utiliser le portrait de SoD",
+        "53": "Utiliser le portrait alternatif de Lava pour SoD",
+        "54": "Remplacer seulement le portrait dans SoD par le portrait alternatif de Lava"
+      }
+    },
+    "en_US": {
+      "description": "Edwin, Imoen, Jaheira, Minsc and Viconia have different portraits in BG and BG2; Imoen and Viconia even have a third portrait in Siege of Dragonspear. This mod lets you choose to use any of these portraits in any game. So you can use Imoen's portrait from BG in BG2, Viconia's from SoD in BG..."
+    },
+    "zh_CN": {
+      "description": "艾德温、爱蒙、贾希拉、明斯克和维康妮亚在博德之门和博德之门2中有不同的肖像；爱蒙和维康妮亚甚至在龙矛围攻中还有第三个肖像。此模组允许您在任何游戏中使用这些肖像中的任何一个。这样，您就可以在博德之门2中使用博德之门中爱蒙的肖像，在博德之门中使用龙矛围攻中维康妮亚的肖像……"
+    }
+  },
+  "tp2": "cdportraits",
+  "safe": 2,
+  "authors": ["CamDawg"]
+}

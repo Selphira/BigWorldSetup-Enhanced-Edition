@@ -1,0 +1,42 @@
+{
+  "name": "Monk Overhaul",
+  "version": "1.3",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/33618/mod-monk-overhaul/p1",
+    "download": "https://github.com/Plutonium-X/KIT_Moine_Rev/archive/refs/tags/v1.2_FR.zip"
+  },
+  "file": {
+    "filename": "KIT_Moine_Rev-1.2_FR.zip",
+    "size": 1702824,
+    "sha256": "bdf1473da6bd957527cac5454402da3cef7c222cd07e9d2e73e20c08eddfd2dd"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["1", "2"]}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Vous avez aimé le composant `Capacités de haut niveau du moine` du mod Oversight ? Alors, ce mod est pour vous.|Il reprend son contenu et le rend compatible avec les jeux EE. Il remplace la table des capacités de haut niveau des moines (qui était celle des guerriers) par une autre inspirée de celles utilisées par Balthazar dans ToB : Coup d'ombre, Frappe du tigre, Poing draconique, Plus vite que la lumière, Échanger les résistances, Position solaire, Position lunaire, Position d'ombre, Pieds du vent et Second souffle.",
+      "components": {
+        "0": "Capacites de haut niveau du moine par Kish",
+        "choice_0": "Revision du poing du moine (necessite EE)",
+        "1": "3:+1 9:+2 12:+3 15:+4 25:+5",
+        "2": "5:+1 10:+2 15:+3 20:+4 25:+5"
+      }
+    },
+    "en_US": {
+      "description": "Did you like the `High-level monk abilities` component of the Oversight mod? Then this mod is for you: it takes its content and makes it compatible with EE games. It replaces the monk's table of high-level abilities (which was that of fighters) with one inspired by those used by Balthazar in ToB: Shadowless Kick, Tiger Strike, Dracon Fist, Faster Than The Eye, Flip Resistances, Solar Stance, Lunar Stance, Shadow Stance, Feet of the Wind and Second Wind."
+    },
+    "zh_CN": {
+      "description": "你喜欢模组 Oversight 中的“武僧高级能力”组件吗？那么，这个模组就是为你准备的。|它继承了该组件的内容，并使其与增强版游戏兼容。它用另一个受ToB中Balthazar使用的表格启发的表格，替换了武僧的高级能力表格（该表格原本是战士的表格）：暗影打击、虎爪击、龙拳、快如闪电、交换抗性、日曜姿态、月曜姿态、影曜姿态、风步和第二次呼吸。"
+    }
+  },
+  "tp2": "mnkoverhaul",
+  "safe": 2,
+  "authors": ["Kish", "Prismo"]
+}

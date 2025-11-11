@@ -1,0 +1,81 @@
+{
+  "name": "IWD Item Pack",
+  "version": "1.3",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/46557-iwd-item-pack-for-bg2/",
+    "download": "https://github.com/The-Gate-Project/IWD_Item-Pack/releases/download/v1.3/iwd-item-pack-1.3.zip"
+  },
+  "file": {
+    "filename": "iwd-item-pack-1.3.zip",
+    "size": 3332863,
+    "sha256": "7426a46972cfd8f9b6fc5956012e763b75e5042aff8fe0cb25bd61752e1fcea6"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["spell"],
+  "components": {
+    "100": {"type": "std"},
+    "1": {"type": "std"},
+    "6": {"type": "std"},
+    "11": {"type": "std"},
+    "19": {"type": "std"},
+    "24": {"type": "std"},
+    "29": {"type": "std"},
+    "35": {"type": "std"},
+    "40": {"type": "std"},
+    "45": {"type": "std"},
+    "51": {"type": "std"},
+    "56": {"type": "std"},
+    "61": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 4,
+    "ru_RU": 2,
+    "it_IT": 3
+  },
+  "translations": {
+    "en_US": {
+      "description": "For those still on the quest for new items in BG2, this mini-mod adds 12 items from IWD and IWD2 to the wares of the Copper Coronet's bonus merchant, Joluv. Each item can be installed separately. Beware, some are really unbalanced (grosbill).",
+      "components": {
+        "0": "Black Wolf Talisman",
+        "1": "Chain of Drakkas' Fury",
+        "2": "House of Despana Insignia",
+        "3": "Kegsplitter of Shaengarne Ford",
+        "4": "Kresselack's Full Plate Mail",
+        "5": "Mantle of the Coming Storm",
+        "6": "SkullFlail",
+        "7": "Spear of White Ash",
+        "8": "Twelve Paces",
+        "9": "Belib's Everlasting Torch",
+        "10": "Binding Sash of the Black Raven",
+        "11": "Young Ned's Knucky"
+      }
+    },
+    "fr_FR": {
+      "description": "Pour celles et ceux qui sont toujours en quête de nouveaux objets dans BG2, ce mini-mod ajoute 12 objets provenant d'IWD et IWD2 parmi les marchandises du marchand bonus de la Couronne de Cuivre, Joluv. Chaque objet peut être installé séparément. Attention, certains sont vraiment déséquilibrés (grosbill).",
+      "components": {
+        "100": "12 nouveaux objets dans le magasin de Joluv",
+        "1": "Talisman du Loup Noir",
+        "6": "Chaine de Fureur de Drakkas",
+        "11": "Insigne de la Maison Despana",
+        "19": "Brise-Barriques du Shaengarne",
+        "24": "Harnois plain de Kresselack",
+        "29": "Manteau de la Tempete Prochaine",
+        "35": "Fleau aux Trois Cranes",
+        "40": "Epieu de Frene Blanc",
+        "45": "Douze Pas",
+        "51": "Torche eternelle de Belib",
+        "56": "Ceinture liante du Corbeau Noir",
+        "61": "Amulette du jeune Ned"
+      }
+    },
+    "ru_RU": {"components": {"0": "Black Wolf Talisman", "1": "Chain of Drakkas' Fury", "2": "House of Despana Insignia", "3": "Kegsplitter of Shaengarne Ford", "4": "Kresselack's Full Plate Mail", "5": "Mantle of the Coming Storm", "6": "SkullFlail", "7": "Spear of White Ash", "8": "Twelve Paces", "9": "Belib's Everlasting Torch", "10": "Binding Sash of the Black Raven", "11": "Young Ned's Knucky"}},
+    "it_IT": {"components": {"0": "Talismano del Lupo Nero", "1": "Catena della Furia di Drakkas", "2": "Insegne della Casata Despana", "3": "Spaccabarili del Guado Shaengarne", "4": "Corazza di piastre completa di Kresselack", "5": "Manto della Tempesta Incombente", "6": "Mazzafrusto del Teschio", "7": "Lancia della Cenere Bianca", "8": "Dodici Passi", "9": "Torcia Eterna di Belib", "10": "Fascia Avvolgente del Corvo Nero", "11": "Knucky del Giovane Ned"}},
+    "zh_CN": {
+      "description": "对于那些仍在《博德之门2》中寻找新物品的玩家，这个小模组在铜冠旅店的额外商人乔卢夫的商品中添加了12件来自《冰风谷》和《冰风谷2》的物品。每件物品都可以单独安装。注意，有些物品非常不平衡（强力物品）。"
+    }
+  },
+  "tp2": "iwditempack",
+  "safe": 2,
+  "authors": ["Malek Deneith"]
+}

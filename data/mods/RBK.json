@@ -1,0 +1,38 @@
+{
+  "name": "Riskbreaker Kit",
+  "version": "8",
+  "links": {
+    "homepage": "https://github.com/Plutonium-X/KIT_Riskbreaker",
+    "download": "https://github.com/Plutonium-X/KIT_Riskbreaker/archive/refs/heads/main.zip"
+  },
+  "file": {
+    "filename": "KIT_Riskbreaker-main.zip",
+    "size": 2055472,
+    "sha256": "df486559cf07f5790d90405c9b0e2510225c781efae4dd90bcc1438a692aa4d9"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Un combattant agile, maître de la vitesse. Léger et libre de ses mouvements, il peut se hâter pour frapper avec une rapidité fulgurante tout en ralentissant ses ennemis. Cependant, ce guerrier sacrifie toute armure et protection lourde pour conserver sa mobilité exceptionnelle.",
+      "components": {
+        "0": "Kit de Briserisque"
+      }
+    },
+    "en_US": {
+      "description": "An agile fighter, master of speed. Light and free in his movements, he can rush to strike with lightning speed while slowing down his enemies. However, this fighter sacrifices all armor and heavy protection to retain his exceptional mobility."
+    },
+    "zh_CN": {
+      "description": "一个敏捷的战士，速度的大师。他身轻如燕，行动自由，可以加速自身以闪电般的速度攻击，同时减缓敌人的速度。然而，这位战士为了保持其非凡的机动性，牺牲了所有重型盔甲和防护。"
+    }
+  },
+  "tp2": "rbk",
+  "safe": 2,
+  "authors": ["Sikret"]
+}

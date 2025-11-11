@@ -1,0 +1,45 @@
+{
+  "name": "Vault",
+  "version": "V8.1",
+  "links": {
+    "homepage": "https://github.com/RoxanneSHS/VaultEE",
+    "download": "https://github.com/RoxanneSHS/VaultEE/archive/V8.1.zip"
+  },
+  "file": {
+    "filename": "VaultEE-8.1.zip",
+    "size": 3703869,
+    "sha256": "71ba78bd289df1cce9a203393650671a03028f980b45e4534baeb321d034b7df"
+  },
+  "games": ["bg", "tutu", "bgt", "bgee", "sod", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "EET-compatible version of mod Vault.",
+      "components": {
+        "0": "The Vault (Ikki's rework for EET compatibility)",
+        "1": "The Vault's item upgrades - Compatibility with Item Revisions. Recommended for consistency if you plan to install IR main component later"
+      }
+    },
+    "fr_FR": {
+      "description": "Portage du mod Vault sur EET.",
+      "components": {
+        "0": "The Vault (refonte d'Ikki pour compatibilite avec EET)",
+        "1": "Amelioration des objets de The Vault - Compatibilite avec Item Revisions. Recommande par souci de coherence si vous projetez d'installer plus tard le composant principal d'IR"
+      }
+    },
+    "zh_CN": {
+      "description": "将Vault模组移植至EET平台。"
+    }
+  },
+  "tp2": "vaulteet",
+  "safe": 2,
+  "authors": ["Josh Clue", "Erebusant", "Adanedhel"]
+}

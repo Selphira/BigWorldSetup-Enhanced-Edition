@@ -1,0 +1,33 @@
+{
+  "name": "WeiDU",
+  "version": "249.00",
+  "links": {
+    "homepage": "http://weidu.org/main.html#weidu",
+    "download": "https://github.com/WeiDUorg/weidu/releases/download/v249.00/WeiDU-Windows-249-x86.zip"
+  },
+  "file": {
+    "filename": "WeiDU-Windows-249-x86.zip",
+    "size": 1906727,
+    "sha256": "5f3893a3b63be4f5f30d3d5891639c949a263e85a0750b073beba53a172d64ad"
+  },
+  "games": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "pst", "pstee", "iwd", "iwd2", "iwdee"],
+  "categories": ["util"],
+  "components": {
+    "0": {"type": "dwn"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "description": "WeiDU is needed for the installation and the recent WeiDU.exe must always be placed in the directory where there is chitin.key file.",
+      "components": {
+        "0": "WeiDU"
+      }
+    }
+  },
+  "tp2": "",
+  "safe": 2,
+  "authors": []
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Realistic Portraits for BG2EE",
+  "version": "3.0",
+  "links": {
+    "homepage": "https://www.nexusmods.com/baldursgate2ee/mods/76?tab=description",
+    "download": "https://www.nexusmods.com/baldursgate2ee/mods/76?tab=files&file_id=269"
+  },
+  "file": {
+    "filename": "Realistic Portraits for BG2EE - Complete Pack-76-3-0-1727086602.zip",
+    "size": 45339434,
+    "sha256": "d23cd86a9fee23c2878eab59cf640101ba27c32db09c8e97ef6cd69afba5a49c"
+  },
+  "games": ["bgee", "bg2ee", "eet"],
+  "categories": ["portrait"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0,
+    "all": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod propose de nouveaux portraits réalistes pour tous les personnages recrutables.",
+      "components": {
+        "0": "Portraits realistes pour BG2EE"
+      }
+    },
+    "en_US": {
+      "description": "This mod features new realistic portraits for all recruitable characters."
+    },
+    "zh_CN": {
+      "description": "此模组为所有可招募的角色提供了新写实肖像。"
+    }
+  },
+  "tp2": "realisticnpcportraitsforbg2ee",
+  "safe": 2,
+  "authors": ["NolSol"]
+}

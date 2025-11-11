@@ -1,0 +1,39 @@
+{
+  "name": "Improved BAMs",
+  "version": "2",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/files/file/719-improved-bams/",
+    "download": "https://www.gibberlings3.net/files/file/719-improved-bams/?do=download&r=4415&confirm=1&t=1"
+  },
+  "file": {
+    "filename": "ImprovedBAMs-v2.exe",
+    "size": 532030,
+    "sha256": "e5f42b61f60cb272af9f78f62bd3c32c66321976009f51a50e79fec31b56543f"
+  },
+  "games": ["bg", "iwd", "bgee", "eet"],
+  "categories": ["cosm"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Improved Inventory BAMs"
+      },
+      "description": "Many inventory icons have been modified by BG2. This mod replaces some BG and IWD icons with BG2 ones."
+    },
+    "fr_FR": {
+      "description": "De nombreuses icônes d'inventaire ont été modifiés par BG2. Ce mod remplace certaines icônes de BG et d'IWD par celles de BG2."
+    },
+    "zh_CN": {
+      "description": "许多物品栏图标被BG2修改了。这个模组用BG2的图标替换了BG和IWD的一些图标。"
+    }
+  },
+  "tp2": "improvedbams",
+  "safe": 2,
+  "authors": ["NiGHTMARE"]
+}

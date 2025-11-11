@@ -1,0 +1,56 @@
+{
+  "name": "Test Your Mettle!",
+  "version": "1.6",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/1241-test-your-mettle/",
+    "download": "https://github.com/Argent77/A7-TestYourMettle/releases/download/v1.6/win-A7-TestYourMettle-v1.6.zip"
+  },
+  "file": {
+    "filename": "win-A7-TestYourMettle-v1.6.zip",
+    "size": 37565142,
+    "sha256": "60ad250a9e852a9e87ec9f1ecef4838d6d24ce94ede7d9f401ec38e2d742780e"
+  },
+  "games": ["bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["11", "12", "13", "14"]},
+    "20": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 3
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Test your mettle!",
+        "choice_0": "Reduced experience for killing monsters",
+        "11": "Reduce by 50%",
+        "12": "Reduce by 75% (recommended)",
+        "13": "Reduce by 90%",
+        "14": "No experience",
+        "20": "Make \"Spacewarp\" available to stores"
+      },
+      "description": "The adventure begins in the planar sphere of Athkatla's slums district, where you can meet new victims of Lavok's planar travels. The result of the encounter will give you access to a dungeon tailor-made for intrepid adventurers. You'll have the chance to meet exotic races, discover a devious plot or simply battle with an endless stream of monsters."
+    },
+    "fr_FR": {
+      "description": "L'aventure commence dans la sphère planaire des bas quartiers d'Athkatla, où vous pouvez rencontrer de nouvelles victimes des voyages planaires de Lavok. Le résultat de la rencontre vous permettra d'accéder à un donjon taillé sur mesure pour d'intrépides aventuriers. Vous aurez la possibilité de rencontrer des races exotiques, de découvrir une intrigue sournoise ou tout simplement de vous battre avec un flot infini de monstres.",
+      "components": {
+        "0": "Testez votre courage !",
+        "choice_0": "Experience reduite en tuant des monstres",
+        "11": "Reduite de 50%",
+        "12": "Reduite de 75% (recommande)",
+        "13": "Reduite de 90%",
+        "14": "Pas d'experience",
+        "20": "Rendre \"Courbespace\" disponible dans les magasins"
+      }
+    },
+    "zh_CN": {
+      "description": "冒险始于阿斯卡特拉贫民区的位面领域，在那里你可以遇到拉沃克位面旅行的新受害者。遭遇的结果将让你进入一个为无畏冒险者量身定制的地牢。你将有机会遇到异族，发现一个阴险的阴谋，或者干脆与无穷无尽的怪物战斗。"
+    }
+  },
+  "tp2": "a7-testyourmettle",
+  "safe": 2,
+  "authors": ["Argent77"]
+}

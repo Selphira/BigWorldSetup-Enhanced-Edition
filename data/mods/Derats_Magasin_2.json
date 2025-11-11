@@ -1,0 +1,40 @@
+{
+  "name": "L'interplan, un magasin dedie à la magie",
+  "version": "9.1.0",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=31563",
+    "download": "https://github.com/Deratiseur/Interplan/releases/download/v9.1/win-Derats_magasin_2-v9.1.zip"
+  },
+  "file": {
+    "filename": "win-Derats_magasin_2-v9.1.zip",
+    "size": 48193764,
+    "sha256": "caff8d349f7282c8be46867c3fd56d0a6c336ee821a9bbc0937bd2b275d0d1f2"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet", "iwdee"],
+  "categories": ["smith", "spell"],
+  "components": {
+    "33": {"type": "std"},
+    "38": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "L'interplan est un magasin qui vend près de 100 objets originaux et plus d'une centaine de nouveaux sorts. Il peut aussi combiner plusieurs dizaines de potions. Il se trouve sur la Promenade de Waukyne dans BG2, et est accessible via un objet à récupérer dans la caverne des yetis dans IWD:EE.",
+      "components": {
+        "33": "L'interplan, Articles magiques",
+        "38": "Dupliquer certains sorts de l'Interaplan en version clericales/druidiques"
+      }
+    },
+    "en_US": {
+      "description": "L'interplan is a store selling a wide range of original items and over a hundred new spells. It can also combine several dozens of potions. It can be found on the Waukeen's Promenade in BG2, and is accessible via an item in the Yetis Cave in IWD:EE."
+    },
+    "zh_CN": {
+      "description": "异界商店是一个出售近100件原创物品和一百多种新法术的商店。它还可以组合数十种药水。它位于BG2的渥金商场，并且可以通过在冰风谷：增强版中 Yetis 洞穴里找到一个物品来访问。"
+    }
+  },
+  "tp2": "derats_magasin_2",
+  "safe": 2,
+  "authors": ["Deratiseur"]
+}

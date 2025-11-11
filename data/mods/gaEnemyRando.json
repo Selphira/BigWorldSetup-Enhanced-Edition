@@ -1,0 +1,83 @@
+{
+  "name": "Enemy Randomizer",
+  "version": "1.1.3",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/files/file/1031-enemy-randomizer/",
+    "download": "https://github.com/GuardianAnubite/bg_enemy_randomizer/releases/download/v1.1.3/gaenemyrando-v1.1.3.exe"
+  },
+  "file": {
+    "filename": "gaenemyrando-v1.1.3.exe",
+    "size": 1470467,
+    "sha256": "cde14c2960119fca7eda5e153fe37c8d99cebf90d4a969c96fdba7193292919e"
+  },
+  "games": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet"],
+  "categories": ["tactic"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]},
+    "2": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["3", "4"]},
+    "choice_2": {"type": "muc", "components": ["5", "6"]},
+    "choice_3": {"type": "muc", "components": ["7", "8"]},
+    "choice_4": {"type": "muc", "components": ["9", "10", "11", "12"]},
+    "choice_5": {"type": "muc", "components": ["13", "14", "15", "16"]},
+    "choice_6": {"type": "muc", "components": ["17", "18", "19", "20"]},
+    "choice_7": {"type": "muc", "components": ["21", "22", "23", "24", "25", "26", "27", "28"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "choice_0": "BG1 Spawn Point Randomizer",
+        "0": "BG creatures only",
+        "1": "With SoD creatures (Makes BG1 slightly tougher)",
+        "2": "BG2 Spawn Point Randomizer",
+        "choice_1": "EET Spawn Point Randomizer",
+        "3": "With SoD creatures (Makes BG1 slightly tougher)",
+        "4": "Without SoD creatures",
+        "choice_2": "BG1 Rest Encounter Randomizer",
+        "5": "BG creatures only",
+        "6": "With SoD creatures (Makes BG1 slightly tougher)",
+        "choice_3": "BG2 Rest Encounter Randomizer",
+        "7": "Include starting dungeon",
+        "8": "Exclude starting dungeon",
+        "choice_4": "EET Rest Encounter Randomizer",
+        "9": "With SoD creatures (Makes BG1 slightly tougher) - Exclude Chateau Irenicus",
+        "10": "Without SoD creatures - Exclude Chateau Irenicus",
+        "11": "With SoD creatures (Makes BG1 slightly tougher) - Include Chateau Irenicus",
+        "12": "Without SoD creatures - Include Chateau Irenicus",
+        "choice_5": "BG1 Set Creature Randomizer",
+        "13": "BG creatures only - Keep enemies roughly similar in power",
+        "14": "BG creatures only - Completely random",
+        "15": "With SoD creatures (Makes BG1 slightly tougher) - Keep enemies roughly similar in power",
+        "16": "With SoD creatures (Makes BG1 slightly tougher) - Completely random",
+        "choice_6": "BG2 Set Creature Randomizer",
+        "17": "Include starting dungeon - Keep enemies roughly similar in power",
+        "18": "Include starting dungeon - Completely random",
+        "19": "Exclude starting dungeon - Keep enemies roughly similar in power",
+        "20": "Exclude starting dungeon - Completely random",
+        "choice_7": "EET Set Encounter Randomizer",
+        "21": "With SoD creatures (Makes BG1 slightly tougher) - Exclude Chateau Irenicus - Keep enemies roughly similar in power",
+        "22": "With SoD creatures (Makes BG1 slightly tougher) - Exclude Chateau Irenicus - Completely random",
+        "23": "Without SoD creatures - Exclude Chateau Irenicus - Keep enemies roughly similar in power",
+        "24": "Without SoD creatures - Exclude Chateau Irenicus - Completely random",
+        "25": "With SoD creatures (Makes BG1 slightly tougher) - Include Chateau Irenicus - Keep enemies roughly similar in power",
+        "26": "With SoD creatures (Makes BG1 slightly tougher) - Include Chateau Irenicus - Completely random",
+        "27": "Without SoD creatures - Include Chateau Irenicus - Keep enemies roughly similar in power",
+        "28": "Without SoD creatures - Include Chateau Irenicus - Completely random"
+      },
+      "description": "Tired of fighting the same badgers every time you play Baldur's Gate? This mod randomizes the appearance of unimportant enemies (enemies without quests, dialogs) to offer a new experience every time you play. The author has endeavored to keep enemy encounters as difficult as possible, although it is possible to encounter enemies with special abilities or resistances sooner than expected, so be prepared for anything! It includes several groups of components that you can install independently of each other:|1. Random monster appearance: this component randomly selects new monsters for each appearance point in the game. This will be more visible in Baldur's Gate wilderness maps, but will also affect BG2. For BG:EE and EET, it is possible to include SoD monsters in the newly selected monsters.|2. Random encounters during rests: this component randomly selects new monsters for sleep interruptions, with the exception of city interior maps, which are supposed to be safe. For BG:EE and EET, it's possible to include SoD monsters in the new monsters selected. In BG2 and EET, you can include or exclude the starting dungeon from SoA.|3. Random monster replacement: this component randomly selects new monsters to replace those that are normally fixed, excluding all those affected by dialogs, critical items or linked to a quest. As enemies are generally replaced by creatures similar in power level, you shouldn't find any encounters impossible to beat. For BG:EE and EET, it's possible to include SoD monsters in newly selected monsters. Including SoD monsters will also make them random on SoD maps. In BG2 and EET, you can include or exclude the starting dungeon from SoA."
+    },
+    "fr_FR": {
+      "description": "Vous en avez assez de combattre les mêmes blaireaux à chaque fois que vous jouez à Baldur's Gate ? Ce mod rend aléatoire l'apparition des ennemis sans importance (ennemis sans quêtes, dialogues) pour offrir une nouvelle expérience à chaque fois que vous jouez. L'auteur s'est efforcé de conserver la difficulté des rencontres ennemies, bien qu'il soit possible de rencontrer des ennemis avec des capacités ou des résistances spéciales plus tôt que prévu, alors soyez prêt à tout ! Il comprend plusieurs groupes de composants que vous pouvez installer indépendamment les uns des autres :|1. Apparition aléatoire de monstres : ce composant choisit au hasard de nouveaux monstres pour chaque point d'apparition du jeu. Cela sera plus visible dans les cartes sauvages de Baldur's Gate, mais affectera également BG2. Pour BG:EE et EET, il est possible d'inclure des monstres de SoD dans les nouveaux monstres sélectionnés.|2. Rencontres aléatoires pendant les repos : ce composant choisit au hasard de nouveaux monstres pour les interruptions du sommeil, à l'exception des cartes intérieures citadines qui sont sensées être sûres. Pour BG:EE et EET, il est possible d'inclure des monstres de SoD dans les nouveaux monstres sélectionnés. Dans BG2 et EET, il est possible d'inclure ou d'exclure le donjon de départ de SoA.|3. Remplacement aléatoire de monstres : ce composant choisit au hasard de nouveaux monstres pour remplacer ceux qui sont normalement fixes, à l'exclusion de tous ceux concernés par des dialogues, des objets critiques, ou liés à une quête. Comme les ennemis sont généralement remplacés par des créatures similaires en niveau de puissance, vous ne devriez donc pas trouver de rencontres impossibles à battre. Pour BG:EE et EET, il est possible d'inclure des monstres SoD dans les nouveaux monstres sélectionnés. Inclure les monstres de SoD les rendra également aléatoires sur les cartes SoD. Dans BG2 et EET, il est possible d'inclure ou d'exclure le donjon de départ de SoA."
+    },
+    "zh_CN": {
+      "description": "你是否厌倦了每次玩博德之门时都和同样的獾战斗？此模组会随机出现无关紧要的敌人（没有任务、没有对话的敌人），以便每次游戏都能带来新的体验。作者努力保持了敌人遭遇的难度，但可能会比预期更早遇到具有特殊能力或抗性的敌人，所以请做好万全准备！它包含几个可以独立安装的组件组：|1. 怪物随机出现：此组件会为游戏中的每个刷新点随机选择新的怪物。这在博德之门的野外地图上会更明显，但也会影响博德之门2。对于博德之门：增强版和增强版三部曲，可以在新选择的怪物中包含龙矛围攻的怪物。|2. 休息时的随机遭遇：此组件会为睡眠中断随机选择新的怪物，但城市内部的地图除外，这些地图应该是安全的。对于博德之门：增强版和增强版三部曲，可以在新选择的怪物中包含龙矛围攻的怪物。在博德之门2和增强版三部曲中，可以包含或排除安姆阴影的起始地牢。|3. 怪物随机替换：此组件会随机选择新的怪物来替换那些通常固定的怪物，但所有涉及对话、关键物品或与任务相关的怪物除外。由于敌人通常会被同等级的类似生物替换，因此您不应该遇到无法战胜的遭遇。对于博德之门：增强版和增强版三部曲，可以在新选择的怪物中包含龙矛围攻的怪物。包含龙矛围攻的怪物也会使龙矛围攻的地图上的怪物随机化。在博德之门2和增强版三部曲中，可以包含或排除安姆阴影的起始地牢。"
+    }
+  },
+  "tp2": "gaenemyrando",
+  "safe": 2,
+  "authors": ["GuardianAnubite"]
+}

@@ -1,0 +1,56 @@
+{
+  "name": "Tower of Deception",
+  "version": "4.1.0",
+  "links": {
+    "homepage": "http://www.blackwyrmlair.net/~valiant/",
+    "download": "https://github.com/Black-Wyrm-Lair/TowerOfDeception/releases/download/v4.1.0/tower-of-deception-v4.1.0.zip"
+  },
+  "file": {
+    "filename": "tower-of-deception-v4.1.0.zip",
+    "size": 27929483,
+    "sha256": "fa00bb65b5c825f02f7d4a0aa00a0b937709760de77622d6676b24f51f2a8a6f"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "es_ES": 1,
+    "ru_RU": 3,
+    "it_IT": 4,
+    "de_DE": 5,
+    "fr_FR": 6
+  },
+  "translations": {
+    "en_US": {
+      "description": "It's a quest to explore a tower (new graphics according to the FAQ) that attracts some to imprison them (a bit like TotSC's ice island). It requires ToB and is aimed at characters of level 10-13, equipped with fairly powerful weapons (you need at least a pair of +3 weapons), as there are some pretty hefty monsters. To start the adventure, all you have to do is go and see the mage Tian at the Crooked Crane Inn (at the City Gates), and talk to him. He has a mission for you: to recover a book hidden in an old abandoned tower, the Tower of No Return... He's willing to pay a hefty sum for it. Will you rise to the challenge?",
+      "components": {
+        "0": "Tower Of Deception Mod (Requires Throne Of Bhaal)",
+        "1": "Improved Astral Shard Guardian",
+        "2": "Encounter with Ustrain"
+      }
+    },
+    "ru_RU": {"components": {"0": "Tower Of Deception Mod (Requires Throne Of Bhaal)", "1": "Improved Astral Shard Guardian", "2": "Encounter with Ustrain"}},
+    "it_IT": {"components": {"0": "Mod La Torre dell'Inganno (Richiede Throne Of Bhaal)", "1": "Migliorato il Guardiano del Frammento Astrale", "2": "L'incontro con Ustrain"}},
+    "fr_FR": {
+      "description": "Il s'agit d'une quête d'exploration d'une tour (nouveaux graphiques selon la FAQ) qui attire certains pour les emprisonner (un peu comme l'île de glace de TotSC). Il nécessite ToB et s'adresse à des personnages de niveau 10-13, équipés d'armes assez puissantes (il faut avoir au moins une paire d'armes +3) car il y a quelques monstres assez costauds. Pour lancer l'aventure, il vous suffit d'aller voir le mage Tian à l'auberge du Crâne Tordu (portes de la ville), et lui parler. Il a une mission pour vous : récupérer un livre, caché dans une vieille tour abandonnée, la tour sans retour... Il est prêt à payer une grosse somme pour cela. Relèverez-vous le défi ?",
+      "components": {
+        "0": "Tower of Deception",
+        "1": "Gardien ameliore de l'Eclat Astral",
+        "2": "Rencontre avec Ustrain",
+        "3": "Réparation de l'état d'accélération de la Lame guerrière du crépuscule."
+      }
+    },
+    "zh_CN": {
+      "description": "这是一个探索一座塔的任务（根据常见问题解答有新图形），它会吸引一些人将他们囚禁（有点像剑湾传奇的冰岛）。它需要巴尔王座，面向10-13级的角色，并配备相当强大的武器（至少需要一对+3武器），因为有一些相当难缠的怪物。要开始冒险，你只需要去见扭曲颅骨旅店（城门）的法师天，和他交谈。他有一个任务给你：找回一本书，它藏在一座名为“无归之塔”的废弃古塔里……他为此准备了一大笔酬金。你敢接受挑战吗？"
+    }
+  },
+  "tp2": "tod",
+  "safe": 2,
+  "authors": ["Valiant", "Lava Del'Vortel"]
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Hanna NPC",
+  "version": "2.5",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/821-hanna-pnj/",
+    "download": "http://www.shsforums.net/files/download/821-hanna-pnj/"
+  },
+  "file": {
+    "filename": "Hanna PNJ v2.5.zip",
+    "size": 9751132,
+    "sha256": "cca6abe0a67c8f212fc07f0d675d53e8aaffabc606aba33e40d4a2c38ebdd20e"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc1d"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2,
+    "en_US": 3
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Rôdeuse de son état, Hanna dispose d'une quête personnelle, de banters et d'interactions avec les PNJ du jeu. Vous la trouverez à Franc-Marché (SoA), et pourrez l'invoquer dans l'Antichambre (ToB). Ce mod améliore également un certain nombre de rencontres, dont celle avec Irenicus, le château de'Arnise, le dragon d'Irenicus et quelques autres.",
+      "components": {
+        "0": "Hanna NPC (ToB requis)",
+        "1": "Chateau D'Arnise ameliore",
+        "2": "Irenicus ameliore",
+        "3": "Genie des Enfers ameliore",
+        "4": "Dragon d'Irenicus ameliore",
+        "5": "Dragon des Enfers ameliore",
+        "6": "Crypte de Franc-Marche amelioree"
+      }
+    },
+    "en_US": {
+      "description": "A ranger by trade, Hanna has a personal quest, banters and interactions with the game's NPCs. You'll find her in Trademeet (SoA), and can summon her in the Antichambre (ToB). This mod also improves a number of encounters, including the one with Irenicus, Arnise Castle, Irenicus's dragon and others.",
+      "components": {
+        "0": "Hanna NPC (ToB required)",
+        "1": "Expanded De'Arnise Keep (overwrites Torgal et al)",
+        "2": "Improved Irenicus at the Tree",
+        "3": "Improved Hell Djinn",
+        "4": "Improved Black Dragon of Irenicus",
+        "5": "Improved Hell Dragon",
+        "6": "Improved Trademeet Crypt (compatible with Revised Battles and AzenMOD)"
+      }
+    },
+    "zh_CN": {
+      "description": "Hanna生来就是个游侠，她有一个个人任务，以及与游戏中NPC的闲聊和互动。你可以在商贸集会（安姆阴影）找到她，并可以在门厅（巴尔王座）召唤她。此模组还改进了许多遭遇战，包括与艾瑞尼卡斯的遭遇、德阿尼斯堡、艾瑞尼卡斯之龙以及其他一些遭遇战。"
+    }
+  },
+  "tp2": "hanna",
+  "safe": 2,
+  "authors": ["Ancalagon el Negro"]
+}

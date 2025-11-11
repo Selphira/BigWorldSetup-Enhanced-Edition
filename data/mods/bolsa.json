@@ -1,0 +1,45 @@
+{
+  "name": "Bolsa",
+  "version": "6.0.0",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/772-bolsa/",
+    "download": "https://github.com/Spellhold-Studios/Bolsa/releases/download/v6.0.0/bolsa-v6.0.0.zip"
+  },
+  "file": {
+    "filename": "bolsa-v6.0.0.zip",
+    "size": 4299241,
+    "sha256": "31a505965f8a55d53418b4f5e08e08f76b49b5627abfbc9ce795ce98f221b66a"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["smith"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "es_ES": 0,
+    "en_US": 1,
+    "fr_FR": 2,
+    "it_IT": 3
+  },
+  "translations": {
+    "en_US": {
+      "description": "Bolsa is a new merchant selling a variety of inventory bags (potions and ammunition), as well as the Magus Staff, a kind of mage's staff boosted with steroids (in addition to classic items).",
+      "components": {
+        "0": "Bolsa"
+      }
+    },
+    "fr_FR": {
+      "description": "Bolsa est un nouveau marchand qui vend des sacs variés pour l'inventaire (potions et munitions), mais aussi le Bâton de Magus, une sorte de bâton du mage boosté aux stéroïdes (en plus d'objets classiques).",
+      "components": {
+        "0": "Bolsa"
+      }
+    },
+    "it_IT": {"components": {"0": "Bolsa"}},
+    "zh_CN": {
+      "description": "博尔萨是一个新商人，出售各种背包（用于存放药剂和弹药），还有法师之杖，这是一种类固醇加强版的法师杖（以及一些经典物品）。"
+    }
+  },
+  "tp2": "bolsa",
+  "safe": 2,
+  "authors": ["Alexa", "Mhoram"]
+}

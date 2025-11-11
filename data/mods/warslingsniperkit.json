@@ -1,0 +1,42 @@
+{
+  "name": "Warsling Sniper Kit",
+  "version": "2.2",
+  "links": {
+    "homepage": "https://github.com/11jo/WarslingSniperKit",
+    "download": "https://github.com/11jo/WarslingSniperKit/archive/refs/heads/main.zip"
+  },
+  "file": {
+    "filename": "WarslingSniperKit-main.zip",
+    "size": 2052699,
+    "sha256": "9690fb0d87ff962931eba634dc80b5e9d19967aa49fc7c8e9c0173a4bca5d59f"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Warsling Sniper Kit for Fighters"
+      },
+      "description": "This mod adds a fighter kit, taken from the prestige classes of the Faerûn races, an archer specialized in slingshots."
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute un profil de guerrier, tiré des classes de prestige des races de Féérune, un archer spécialisé dans les frondes.",
+      "components": {
+        "0": "Le Frondeur d'elite, kit de guerrier"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组添加了一个战士职业，源自费伦（Féérune）种族的进阶职业，是一个专精于投石索的弓箭手。"
+    }
+  },
+  "tp2": "warslingsniperkit",
+  "safe": 2,
+  "authors": ["Adul"]
+}

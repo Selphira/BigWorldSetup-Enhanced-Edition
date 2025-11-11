@@ -1,0 +1,93 @@
+{
+  "name": "Prestige Kitpack",
+  "version": "4.1",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/632-prestige-kitpack/",
+    "download": "https://github.com/Plutonium-X/KIT_Prestige/releases/download/v4.1/win-PPK-v4.1.zip"
+  },
+  "file": {
+    "filename": "win-PPK-v4.1.zip",
+    "size": 2208194,
+    "sha256": "e3ebdd5be36954f9a3aa9cbbcca247e48753633eb96d9db964f84dbc39d04726"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "9": {"type": "std"},
+    "10": {"type": "std"},
+    "11": {"type": "std"},
+    "12": {"type": "std"},
+    "13": {"type": "std"},
+    "14": {"type": "std"},
+    "15": {"type": "std"},
+    "16": {"type": "std"},
+    "17": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 1,
+    "fr_FR": 2
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds a host of profiles (17 in all!) for all the classes in the game (which have them, of course):|- 3 fighter profiles: Legendary Dreadnought, Black Knight and Ssaulabi.|- 2 paladin profiles: Divine Champion and Mystic Fire.|- 2 ranger profiles: Duelist and Tempest 2 druid profiles: Elementalist and Shadow Druid 2 thief profiles: Swindler and Shadow Master 4 bard profiles: Disciple of the Red, Blue, Green and White Dragons",
+      "components": {
+        "0": "Prestige Kit Pack Basic",
+        "1": "Dreadnought",
+        "2": "Blackguard",
+        "3": "Ssaulabi",
+        "4": "Priest of Tempus",
+        "5": "Priest of Ohgma",
+        "6": "Champion",
+        "7": "Mystic Fire",
+        "8": "Duelist",
+        "9": "Tempest",
+        "10": "Trickster",
+        "11": "Shadowdancer",
+        "12": "Red Dragon Disciple",
+        "13": "Blue Dragon Disciple",
+        "14": "Green Dragon Disciple",
+        "15": "White Dragon Disciple",
+        "16": "Elementalist",
+        "17": "Shadowdruid"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute une foultitude de profils (17 en tout !) pour toutes les classes du jeu (qui en possèdent, évidemment) :|- 3 profils de guerrier : le Cuirassé légendaire, le Chevalier noir et le Ssaulabi.|- 2 profils de paladin : le Champion divin et le Feu mystique.|- 2 profils de rôdeur : le Duelliste et le Tempête.|- 2 profils de druide : l'Élémentaliste et le Druide de l'ombre.|- 2 profils de voleur : l'Escroc et le Maître des ombres.|- 4 profils de barde : le Disciple des dragons rouge, bleu, vert et blanc.",
+      "components": {
+        "0": "Prestige Kit Pack",
+        "1": "CUIRASSE LEGENDAIRE",
+        "2": "CHEVALIER NOIR",
+        "3": "SSAULABI",
+        "4": "PRETRE DE TEMPUS",
+        "5": "PRETRE D'OHGMA",
+        "6": "CHAMPION DIVIN",
+        "7": "FEU MYSTIQUE",
+        "8": "DUELLISTE",
+        "9": "TEMPETE",
+        "10": "ESCROC",
+        "11": "MAITRE DES OMBRES",
+        "12": "DISCIPLE DU DRAGON ROUGE",
+        "13": "DISCIPLE DU DRAGON BLEU",
+        "14": "DISCIPLE DU DRAGON BLEU VERT",
+        "15": "DISCIPLE DU DRAGON BLANC",
+        "16": "ELEMENTALISTE",
+        "17": "DRUIDE DE L'OMBRE"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组为游戏中所有拥有宗派的职业（显然）添加了大量的宗派（总共17个！）：|- 3个战士宗派：传奇重甲骑士、黑暗卫士和剑圣。|- 2个圣武士宗派：神之冠军和神秘之火。|- 2个游侠宗派：决斗者和风暴。|- 2个德鲁伊宗派：元素使和影德鲁伊。|- 2个盗贼宗派：骗子和影舞者。|- 4个吟游诗人宗派：红龙、蓝龙、绿龙和白龙的龙脉术士。"
+    }
+  },
+  "tp2": "ppk",
+  "safe": 2,
+  "authors": ["Inesius"]
+}

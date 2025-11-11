@@ -1,0 +1,51 @@
+{
+  "name": "Innershade",
+  "version": "11.13",
+  "links": {
+    "homepage": "https://downloads.weaselmods.net/download/innershade/",
+    "download": "https://downloads.weaselmods.net/download/innershade/?wpdmdl=73"
+  },
+  "file": {
+    "filename": "Innershade-v11.13.zip",
+    "size": 43791044,
+    "sha256": "39f70744348ff6be8fa9ec01cc45877a11a00e9c04376342ed542d50daca3a5f"
+  },
+  "games": ["bg2", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "it_IT": 3,
+    "ru_RU": 4,
+    "de_DE": 5
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "choice_0": "Couleurs de l'Infini : Innershade",
+        "0": "Oui, mais sans corriger les sauvegardes de jeu existantes",
+        "1": "Oui, et corriger les sauvegardes de jeu existantes"
+      },
+      "description": "After Tales of the Deep Gardens, Lava is back with a new opus in the Colours of Infinity series. Follow a path between the trees to find a very new village to visit: the village of Innershade. It's been having some problems lately: some people disappeared, and the attacker was never seen. You must stop the guilty party, if you can. Solving the problem may be not enough; getting rid of the attacker is only one of the ways to handle this. The second is understanding the motives and past that became a great burden. In the end, you may have to become a judge of sorts."
+    },
+    "fr_FR": {
+      "description": "Après Tales of the Deep Gardens, Lava récidive avec un nouvel opus de la série Colours of Infinity. Suivez un chemin au milieu des arbres pour découvrir un tout nouveau village à visiter : Innershade. Il connaît quelques problèmes ces derniers temps : certaines personnes ont disparu, et l'agresseur n'a jamais été vu. Vous devez arrêter les responsables, si vous le pouvez. Résoudre le problème ne suffira peut-être pas ; se débarasser de l'agresseur n'est que l'une des façons de gérer cette situation. La seconde, consiste à comprendre les motivations et le passé qui sont devenus un lourd fardeau. C'est à vous d'en juger.",
+      "components": {
+        "choice_0": "Couleurs de l'Infini : Innershade",
+        "0": "Oui, mais sans corriger les sauvegardes de jeu existantes",
+        "1": "Oui, et corriger les sauvegardes de jeu existantes"
+      }
+    },
+    "it_IT": {"components": {"choice_0": "Couleurs de l'Infini : Innershade", "0": "Oui, mais sans corriger les sauvegardes de jeu existantes", "1": "Oui, et corriger les sauvegardes de jeu existantes"}},
+    "ru_RU": {"components": {"choice_0": "Couleurs de l'Infini : Innershade", "0": "Oui, mais sans corriger les sauvegardes de jeu existantes", "1": "Oui, et corriger les sauvegardes de jeu existantes"}},
+    "zh_CN": {
+      "description": "在Tales of the Deep Gardens之后，Lava又推出了《无限色彩》系列的最新作品。在树林中寻找一条小路，你会发现一个全新的村庄可以游览：Innershade。最近它遇到了一些问题：一些人失踪了，而袭击者从未被见过。你必须阻止责任人，如果可能的话。解决问题可能还不够；摆脱袭击者只是处理这种情况的一种方式。第二种方式是理解那些已成为沉重负担的动机和过去。这由你来判断。"
+    }
+  },
+  "tp2": "innershade",
+  "safe": 2,
+  "authors": ["Lava Del'Vortel"]
+}

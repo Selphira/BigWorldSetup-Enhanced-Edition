@@ -1,0 +1,87 @@
+{
+  "name": "Bioware NPC Flirt Packs",
+  "version": "1.07",
+  "links": {
+    "homepage": "https://github.com/Pocket-Plane-Group/NPC_Flirt_Packs",
+    "download": "https://github.com/Pocket-Plane-Group/NPC_Flirt_Packs/releases/download/v1.07/NPCFlirtV107.zip"
+  },
+  "file": {
+    "filename": "NPCFlirtV107.zip",
+    "size": 4915198,
+    "sha256": "e646abb25c1d4271597e2089ae18172042edbad96914f95fa52e7d9785e2f9fe"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "9": {"type": "std"},
+    "10": {"type": "std"},
+    "11": {"type": "std"},
+    "12": {"type": "std"},
+    "13": {"type": "std"},
+    "14": {"type": "std"},
+    "15": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 3
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod allows many new interactions with the romanceable NPCs (Viconia, Anomen, Aerie, Jaheira), new dialogs, additional lines...",
+      "components": {
+        "0": "Aerie Flirt Pack For SOA",
+        "1": "Aerie/Solaufein Romance Conflict For SOA (Solaufein V60 or greater recommended)",
+        "2": "Aerie Flirt Pack For TOB",
+        "3": "Aerie/Solaufein Romance Conflict For TOB (Solaufein V60 or greater recommended)",
+        "4": "Jaheira Flirt Pack for SOA",
+        "5": "Jaheira/Solaufein Romance Conflict For SOA (Solaufein V60 or greater recommended)",
+        "6": "Jaheira Flirt Pack for TOB",
+        "7": "Jaheira/Solaufein Romance Conflict For TOB (Solaufein V60 or greater recommended)",
+        "8": "Viconia Flirt Pack for SOA",
+        "9": "Viconia/Solaufein Romance Conflict For SOA (Solaufein V60 or greater recommended)",
+        "10": "Viconia Flirt Pack for TOB",
+        "11": "Viconia/Solaufein Romance Conflict For TOB (Solaufein V60 or greater recommended)",
+        "12": "Anomen Flirt Pack for SOA",
+        "13": "Anomen/Solaufein Romance Conflict For SOA (Solaufein V60 or greater recommended)",
+        "14": "Anomen Flirt Pack for TOB",
+        "15": "Anomen/Solaufein Romance Conflict For TOB (Solaufein V60 or greater recommended)"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod permet de nombreuses et nouvelles interactions avec les PNJ romançables (Viconia, Anomen, Aerie, Jaheira), de nouveaux dialogues, des répliques supplémentaires...",
+      "components": {
+        "0": "Aerie Flirt Pack pour SoA",
+        "1": "Aerie/Solaufein : Conflit de romance pour SoA (Solaufein V60 ou plus recommandee)",
+        "2": "Aerie Flirt Pack pour ToB",
+        "3": "Aerie/Solaufein : Conflit de romance pour ToB (Solaufein V60 ou plus recommandee)",
+        "4": "Jaheira Flirt Pack pour SoA",
+        "5": "Jaheira/Solaufein : Conflit de romance pour SoA (Solaufein V60 ou plus recommandee)",
+        "6": "Jaheira Flirt Pack pour ToB",
+        "7": "Jaheira/Solaufein : Conflit de romance pour ToB (Solaufein V60 ou plus recommandee)",
+        "8": "Viconia Flirt Pack pour SoA",
+        "9": "Viconia/Solaufein : Conflit de romance pour SoA (Solaufein V60 ou plus recommandee)",
+        "10": "Viconia Flirt Pack pour ToB",
+        "11": "Viconia/Solaufein : Conflit de romance pour ToB (Solaufein V60 ou plus recommandee)",
+        "12": "Anomen Flirt Pack pour SoA",
+        "13": "Anomen/Solaufein : Conflit de romance pour SoA (Solaufein V60 ou plus recommandee)",
+        "14": "Anomen Flirt Pack pour ToB",
+        "15": "Anomen/Solaufein : Conflit de romance pour ToB (Solaufein V60 ou plus recommandee)"
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组让你能与众多可恋爱的NPC（维康妮亚、阿诺门、艾黎、贾希拉）进行许多新的互动，包括新的对话、额外的台词……"
+    }
+  },
+  "tp2": "npcflirt",
+  "safe": 2,
+  "authors": ["Wynne", "Jason Compton", "Sorschana", "Pirotess", "Cybersquirt", "Blue", "Kismet", "Perdita"]
+}

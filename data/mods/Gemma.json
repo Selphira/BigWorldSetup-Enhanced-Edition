@@ -1,0 +1,38 @@
+{
+  "name": "Gemma la naine guerrière/prêtresse d'Umberlie",
+  "version": "2",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?p=518624",
+    "download": "https://github.com/Plutonium-X/1D_NPC_Gemma/archive/refs/tags/v2.zip"
+  },
+  "file": {
+    "filename": "1D_NPC_Gemma-2.zip",
+    "size": 2183244,
+    "sha256": "40eb01472df3e9d70ffdf08135a61d1b481127e081d7310e444da03cfbe17780"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc1d"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Adepte d'Umberlie, Gemma n'est pas vraiment le genre de naine à passer son temps à chanter de joyeuses chansons, une chope de bière en main. Non, son truc, c'est utiliser de la rhétorique pour frapper de plein fouet l'hérétique qui ne s'y attend pas. Quand la rhétorique passe par le marteau, c'est sûr, les gens sont plus réceptifs (et morts). Gemma patiente tranquillement (non) sur les Docks d'Athkatla.|FOR 18/05, DEX 13, CON 19, INT 7, SAG 14, CHA 8.",
+      "components": {
+        "0": "Gemma"
+      }
+    },
+    "en_US": {
+      "description": "A follower of Umberlie, Gemma isn't really the kind of dwarf who spends her time singing happy songs, mug of ale in hand. No, she's all about using rhetoric to hit the unexpected heretic head-on. When rhetoric is hammered home, people are more receptive (and dead). Gemma sits quietly (no) on the Athkatla Docks.|STR 18/05, DEX 13, CON 19, INT 7, WIS 14, CHA 8."
+    },
+    "zh_CN": {
+      "description": "作为安博里的信徒，杰玛可不是那种整天拿着啤酒杯唱快乐歌曲的矮人。不，她的专长是用修辞学出其不意地打击异教徒。当修辞学通过铁锤来传达时，可以肯定，人们会更愿意接受（并且死去）。杰玛正（不）平静地待在阿斯卡特拉的码头区。|力量18/05，敏捷13，体质19，智力7，智慧14，魅力8。"
+    }
+  },
+  "tp2": "gemma",
+  "safe": 2,
+  "authors": ["Zyl"]
+}

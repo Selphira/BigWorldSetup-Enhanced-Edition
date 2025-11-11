@@ -1,0 +1,39 @@
+{
+  "name": "BG1 Icons pack mod",
+  "version": "1.0",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/88871/bg1-icons-pack-mod-released",
+    "download": "https://github.com/Alexander12-creator/bg1_icons_pack_mod/archive/refs/tags/1.0.zip"
+  },
+  "file": {
+    "filename": "bg1_icons_pack_mod-1.0.zip",
+    "size": 5638690,
+    "sha256": "5c7aab60a22610caf6a23c0644e6e5f809ed35fe59e2246ac566561f68853b59"
+  },
+  "games": ["bgee", "eet"],
+  "categories": ["cosm"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "BG1 Icons Pack"
+      },
+      "description": "The mod includes new icons for quest items and plot items in BG1:EE. In BG2, most quest items have their own image, whereas this is not the case in BG1."
+    },
+    "fr_FR": {
+      "description": "Ce mod contient de nouvelles icônes pour les objets de quête et les objets d'intrigue dans BG1:EE. Dans BG2 la plupart des objets de quête ont une image qui leur sont propres alors que ce n'est pas le cas dans BG1."
+    },
+    "zh_CN": {
+      "description": "此模组包含BG1:EE中任务物品和剧情物品的新图标。在BG2中，大多数任务物品都有自己的专属图像，而BG1中并非如此。"
+    }
+  },
+  "tp2": "bg1_ipm",
+  "safe": 2,
+  "authors": ["Alexander12"]
+}

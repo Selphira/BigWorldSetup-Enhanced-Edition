@@ -1,0 +1,42 @@
+{
+  "name": "The Reunion",
+  "version": "7",
+  "links": {
+    "homepage": "https://www.pocketplane.net/reunion/",
+    "download": "https://github.com/Pocket-Plane-Group/Reunion/releases/download/v7/the-reunion-v7.zip"
+  },
+  "file": {
+    "filename": "the-reunion-v7.zip",
+    "size": 7835533,
+    "sha256": "38afa353b55e3c722a01db6b9daf5402a48a678f119fd4d4beb40b7dbd5949e9"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Reunion"
+      },
+      "description": "Once in Amkethran (chapter 9), this mod offers you a quest concerning Arnise Castle, as well as answers from Gorion and Alianna. Nalia must be in the party to initiate the quest; her presence is not essential, but preferable."
+    },
+    "fr_FR": {
+      "description": "Une fois à Amkethran (chapitre 9), ce mod vous propose une quête concernant le château d'Arnise, ainsi que des réponses de Gorion et Alianna. Il faut avoir Nalia dans le groupe pour initier la quête, sa présence n'est pas indispensable par la suite mais préférable.",
+      "components": {
+        "0": "Reunion"
+      }
+    },
+    "zh_CN": {
+      "description": "一旦到达安克瑟特拉（第九章），此模组会为您提供一个关于德阿尼斯堡的任务，以及葛立安和艾莉安娜的回应。队伍中必须有娜里亚才能触发任务，之后她的存在并非必需，但最好有她。"
+    }
+  },
+  "tp2": "reunion",
+  "safe": 2,
+  "authors": ["Kulyok", "jastey"]
+}

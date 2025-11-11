@@ -1,0 +1,42 @@
+{
+  "name": "Chloe NPC",
+  "version": "1.7",
+  "links": {
+    "homepage": "https://www.spellholdstudios.net/ie/chloe",
+    "download": "https://github.com/Plutonium-X/NPC_Chloe/archive/refs/tags/v1.7.zip"
+  },
+  "file": {
+    "filename": "NPC_Chloe-1.7.zip",
+    "size": 8333006,
+    "sha256": "d2abd6312bcc17a7516d0ba9663881ad62d3e625e0d3b42bb14a690bac5b3e99"
+  },
+  "games": ["bg2", "bgt"],
+  "categories": ["npc"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 4
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Chloe NPC for SoA"
+      },
+      "description": "This mod adds a demi-goddess kensai true neutral, with a specific voice kit and weapons, who exclusively romances female characters. Interactions have been written with each character, but romance is currently only available for SoA. Quests relating to Chloe complete the package.|STR 13, DEX 25, CON 16, INT 12, WIS 12, CHA 14."
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute une kensaï demi-déesse neutre stricte, avec un kit de voix et des armes spécifiques, qui romance exclusivement les personnages féminins. Des interactions ont été écrites avec chaque personnage, mais la romance n'existe pour l'instant que pour SoA. Des quêtes relatives à Chloé complètent l'ensemble.|FOR 13, DEX 25, CON 16, INT 12, SAG 12, CHA 14.",
+      "components": {
+        "0": "Mod du PNJ Chloe"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组添加了一位严格中立的女性半神剑圣，拥有专属的语音和武器，并且只能与女性角色恋爱。已为每个角色编写了互动内容，但目前恋爱剧情仅存在于安姆阴影中。与克洛伊相关的任务完善了整个模组。|力量 13, 敏捷 25, 体质 16, 智力 12, 智慧 12, 魅力 14。"
+    }
+  },
+  "tp2": "chloe",
+  "safe": 2,
+  "authors": ["Lucythebeast"]
+}

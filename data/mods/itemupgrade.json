@@ -1,0 +1,62 @@
+{
+  "name": "Item Upgrade",
+  "version": "55",
+  "links": {
+    "homepage": "http://weidu.org/item.html",
+    "download": "https://github.com/Pocket-Plane-Group/Item_Upgrade/releases/download/v55/itemupgrade-v55.exe"
+  },
+  "file": {
+    "filename": "itemupgrade-v55.exe",
+    "size": 6213662,
+    "sha256": "e8163bf2f4d3ded63052239fc8e459cbfdcd396f0bf74762f02b74ee54399518"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["smith"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "10"]},
+    "choice_1": {"type": "muc", "components": ["1", "11"]},
+    "12": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "de_DE": 2,
+    "es_ES": 3,
+    "ru_RU": 5,
+    "ko_KR": 6
+  },
+  "translations": {
+    "en_US": {
+      "description": "This item is designed to please forge fans... It lets you combine an impressive number of items, to create even more powerful ones... Cespenar and Cromwell put on a festival for you...",
+      "components": {
+        "choice_0": "Shadows Of Amn Item Upgrades",
+        "0": "Original Version (new upgrades in a list)",
+        "10": "Revised Version (new upgrades presented in the same style as existing upgrades)",
+        "choice_1": "Throne Of Bhaal Item Upgrades",
+        "1": "Original Version (new upgrades in a list)",
+        "11": "Revised Version (new upgrades presented in the same style as existing upgrades)",
+        "12": "Install supplemental Cespenar audio for Item Upgrade"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod a pour objet de faire le bonheur des fans de forge... Il permet de combiner une impressionnante quantité d'objets, pour en créer de plus puissants... Cespenar et Cromwell font un festival pour vous...",
+      "components": {
+        "choice_0": "Shadows Of Amn Item Upgrades",
+        "0": "Version d'origine (les nouvelles ameliorations sont proposees dans une liste)",
+        "10": "Version revisee (les nouvelles ameliorations sont proposees dans le meme style que les ameliorations du jeu de base)",
+        "choice_1": "Throne Of Bhaal Item Upgrades",
+        "1": "Version d'origine (les nouvelles ameliorations sont proposees dans une liste)",
+        "11": "Version revisee (les nouvelles ameliorations sont proposees dans le meme style que les ameliorations du jeu de base)",
+        "12": "Install supplemental Cespenar audio for Item Upgrade"
+      }
+    },
+    "ru_RU": {"components": {"choice_0": "?????????? ?????? Shadows of Amn", "0": "Original Version (new upgrades in a list)", "10": "Revised Version (new upgrades presented in the same style as existing upgrades)", "choice_1": "?????????? ?????? Throne of Bhaal", "1": "Original Version (new upgrades in a list)", "11": "Revised Version (new upgrades presented in the same style as existing upgrades)", "12": "Install supplemental Cespenar audio for Item Upgrade"}},
+    "ko_KR": {"components": {"choice_0": "?????? ???? ?? ?????? ????????", "0": "Original Version (new upgrades in a list)", "10": "Revised Version (new upgrades presented in the same style as existing upgrades)", "choice_1": "???? ???? ??? ?????? ????????", "1": "Original Version (new upgrades in a list)", "11": "Revised Version (new upgrades presented in the same style as existing upgrades)", "12": "Install supplemental Cespenar audio for Item Upgrade"}},
+    "zh_CN": {
+      "description": "此模组旨在锻造爱好者们带来欢乐……它允许你将海量的物品进行组合，从而创造出更强大的装备……赛斯潘纳和克伦威尔会为你大显身手……"
+    }
+  },
+  "tp2": "itemupgrade",
+  "safe": 2,
+  "authors": ["Wes Weimer", "Lollorian", "CamDawg"]
+}

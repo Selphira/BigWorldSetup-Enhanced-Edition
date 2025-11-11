@@ -1,0 +1,38 @@
+{
+  "name": "Alsaahir kit for BG2",
+  "version": "5.0",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/61617-what-can-change-the-nature-of-a-member/",
+    "download": "https://github.com/TotoR115/Alsaahir/releases/download/v5/Alsaahir_v5.zip"
+  },
+  "file": {
+    "filename": "Alsaahir_v5.zip",
+    "size": 2383571,
+    "sha256": "63d06cbc57dd27ab19bf86373d39bc18764bb78b1a9ec8136b371a45f0b417b9"
+  },
+  "games": ["bg2ee", "eet"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Tel un charmeur de serpents, ce barde a étudié la sensibilité aux vibrations des démons et des morts-vivants. Cependant, côtoyer le mal est un jeu dangereux et ceux qui survivent n'en reviennent jamais indemnes, physiquement et mentalement. Cette voie nécessite de la sagesse, la maîtrise de l'art des illusions et de meilleures compétences de combattant qu'un barde, au détriment de sa polyvalence et de sa dextérité naturelles. Son chant améliore également les compétences martiales de ses alliés face aux démons et aux morts-vivants.",
+      "components": {
+        "0": "Alsaahir, un kit pour barde"
+      }
+    },
+    "en_US": {
+      "description": "Like a snake charmer, this bard has studied the vibrational sensitivity of demons and the undead. However, dealing with evil is a dangerous game, and those who survive never return unscathed, physically or mentally. This path requires wisdom, mastery of the art of illusions and better fighting skills than a bard, to the detriment of his natural versatility and dexterity. His singing also enhances the martial skills of his allies against demons and the undead."
+    },
+    "zh_CN": {
+      "description": "如同耍蛇人一样，这位吟游诗人研究了恶魔和不死生物对振动的敏感性。然而，与邪恶为伴是一场危险的游戏，而那些幸存下来的人，身心都会留下无法磨灭的创伤。这条道路需要智慧，掌握幻术艺术，以及比普通吟游诗人更强的战斗技巧，但牺牲了他的多面性和敏捷。他的歌声还能增强盟友面对恶魔和不死生物时的战斗技能。"
+    }
+  },
+  "tp2": "alsaahir",
+  "safe": 2,
+  "authors": ["TotoR115"]
+}

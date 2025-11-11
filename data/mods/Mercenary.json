@@ -1,0 +1,42 @@
+{
+  "name": "Mercenary",
+  "version": "3.1",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/68151/fighter-kit-mercenary-iwdee-eet-bgee-bg2ee",
+    "download": "https://github.com/Raduziel/Mercenary-Kit/archive/refs/tags/3.1.zip"
+  },
+  "file": {
+    "filename": "Mercenary-Kit-3.1.zip",
+    "size": 916358,
+    "sha256": "6b4ffe72d55c8c208940830f65af15fb6c0ac1de1557b35bd0bdd9f22717495a"
+  },
+  "games": ["bgee", "bg2ee", "eet"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod vous permet d'installer un nouveau profil de guerrier spécialisé dans les techniques de combat déloyales.|Un composant optionnel permet de modifier l'alignement de Kagain en neutre mauvais pour lui attribuer le profil de mercenaire, et un autre à Korgan.",
+      "components": {
+        "0": "Installer le profil de Mercenaire pour guerriers.",
+        "1": "Kagain, le Mercenaire. Modifie l'alignement de Kagain'en neutre mauvais et lui donne le profil de mercenaire.",
+        "2": "Korgan, le Mercenaire."
+      }
+    },
+    "en_US": {
+      "description": "This mod installation allows you to install a new fighter kit specializing in unfair combat techniques.| An optional component allows you to change Kagain's alignment to neutral evil to give him the mercenary profile, and another to Korgan."
+    },
+    "zh_CN": {
+      "description": "此模组允许你安装一个新的战士配置文件，专门从事不公平的战斗技巧。|一个可选组件可以将Kagain的阵营改为中立邪恶，为他分配佣兵配置文件，另一个组件为Korgan分配。"
+    }
+  },
+  "tp2": "mercenary",
+  "safe": 2,
+  "authors": ["Raduziel"]
+}

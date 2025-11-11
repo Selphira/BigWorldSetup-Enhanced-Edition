@@ -1,0 +1,38 @@
+{
+  "name": "Maître des éléments (Druide)",
+  "version": "2.1",
+  "links": {
+    "homepage": "https://github.com/Plutonium-X/KIT_Elements",
+    "download": "https://github.com/Plutonium-X/KIT_Elements/releases/download/v2.1/win-wladca.zip"
+  },
+  "file": {
+    "filename": "win-wladca.zip",
+    "size": 1288312,
+    "sha256": "a54c65035db9151e2331eb95d1eb1726915e8a17c172f7409abeec4493db93d3"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod ajoute un profil de druide, le Maître des éléments.",
+      "components": {
+        "0": "Kit de Druide : Maître des éléments"
+      }
+    },
+    "en_US": {
+      "description": "This mod adds a Druid profile, the Master of the Elements."
+    },
+    "zh_CN": {
+      "description": "此模组添加了一个德鲁伊职业：元素大师。"
+    }
+  },
+  "tp2": "wladca",
+  "safe": 2,
+  "authors": ["Aroc"]
+}

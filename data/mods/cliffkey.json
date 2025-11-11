@@ -1,0 +1,50 @@
+{
+  "name": "A Mod for the Orderly",
+  "version": "7",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/files/file/702-a-mod-for-the-orderly/",
+    "download": "https://www.gibberlings3.net/files/file/702-a-mod-for-the-orderly/?do=download&r=4925&confirm=1&t=1"
+  },
+  "file": {
+    "filename": "cliffkey-v7.zip",
+    "size": 1720188,
+    "sha256": "22ae04559006d010082f9c7266147df027b3705abea7734eef07f6a87a350562"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["spell"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "de_DE": 1,
+    "es_ES": 2,
+    "fr_FR": 3,
+    "ru_RU": 4
+  },
+  "translations": {
+    "en_US": {
+      "description": "This is a mod for maniacs, as it adds a key-ring via a small, fun quest, or through merchants (the choice is made at the time of installation).",
+      "components": {
+        "choice_0": "A Mod for the Orderly - Add a Keyring to Faerun! See readme for more details about the choices below.",
+        "0": "Nanoquest version",
+        "1": "Consistency Plus version"
+      }
+    },
+    "fr_FR": {
+      "description": "Un mod pour les maniaques puisqu'il ajoute un porte-clefs via une petite quête sympathique ou auprès des marchands (au choix lors de l'installation).",
+      "components": {
+        "choice_0": "Un mod pour les maniaques - Ajoute un porte-clefs a  Feerune ! Reportez-vous au fichier readme pour plus de details sur les choix  proposes ci-dessous.",
+        "0": "Version 1 : le recevoir en recompense d'une quete",
+        "1": "Version 2 : l'acheter dans des magasins"
+      }
+    },
+    "ru_RU": {"components": {"choice_0": "A Mod for the Orderly - Add a Keyring to Faerun! See readme for more details about the choices below.", "0": "Nanoquest version", "1": "Consistency Plus version"}},
+    "zh_CN": {
+      "description": "这是一个为强迫症患者准备的模组，因为它通过一个有趣的小任务或从商人处（安装时可选）添加了一个钥匙扣。"
+    }
+  },
+  "tp2": "cliffkey",
+  "safe": 2,
+  "authors": ["Cliffette"]
+}

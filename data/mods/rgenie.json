@@ -1,0 +1,48 @@
+{
+  "name": "Ribald's Genie",
+  "version": "3.1",
+  "links": {
+    "homepage": "http://forums.blackwyrmlair.net/index.php?showtopic=1629",
+    "download": "https://github.com/Plutonium-X/MISC_Genie/releases/download/v3.1/win-RGenie-v3.1.zip"
+  },
+  "file": {
+    "filename": "win-RGenie-v3.1.zip",
+    "size": 2461295,
+    "sha256": "013b0c2f23f4dbb7d4f63200f00ed02a189aee648c1c31ac13bfbaf168689353"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "es_ES": 1,
+    "ru_RU": 2,
+    "it_IT": 5,
+    "de_DE": 6,
+    "fr_FR": 7
+  },
+  "translations": {
+    "en_US": {
+      "description": "Tired of slogging through half the adventure map and taking an hour to get back to the Adventurer Mart to spend your hard-earned pennies? From now on, once you've spoken to him five times, Ribald will give you a flute that allows you to summon a genie. He can teleport you directly to the Adventurer Mart (or summon Ribald) to trade, and return you to your original destination if you wish. Unfortunately, the genie cannot be summoned during chapter 5 (nor in Suldanessellar or Hell). Nor can he be summoned in the Haer'Dalis planar prison or in the demonic plane to which the Planar Sphere leads you.",
+      "components": {
+        "0": "Ribald's Genie"
+      }
+    },
+    "ru_RU": {"components": {"0": "Ribald's Genie"}},
+    "it_IT": {"components": {"0": "Genio di Ribald"}},
+    "fr_FR": {
+      "description": "Fatigués de devoir se taper la moitié de la carte aventure et de mettre une heure pour retourner au Marché de l'Aventurier pour dépenser vos deniers chèrement gagnés ? Désormais, une fois que vous lui aurez parlé cinq fois, Ribald vous donnera une flûte qui vous permettra de convoquer un génie. Celui-ci pourra vous téléporter directement au Marché de l'Aventurier (ou convoquer Ribald) pour commercer, et vous ramener à votre destination d'origine si vous le souhaitez. Si vous le lui demandez, il pourra aussi faire venir d'autres marchands.|Le génie ne peut malheureusement pas être invoqué durant le chapitre 5 (ni à Suldanessalar ou en Enfer). Il ne peut pas non plus être invoqué dans la prison planaire d'Haer'Dalis ou dans le plan démoniaque vers lequel la Sphère planaire vous mène.",
+      "components": {
+        "0": "Le Genie de Ribald"
+      }
+    },
+    "zh_CN": {
+      "description": "厌倦了冒险地图上一半的路程，花一个小时才能回到冒险者市场去花掉你辛苦赚来的钱吗？现在，一旦您和他交谈五次，里巴尔会给你一支笛子，让你可以召唤一个精灵。这个精灵可以直接将你传送到冒险者市场（或召唤里巴尔）进行交易，如果你愿意，还可以将你送回你原来的目的地。如果你要求，他还可以叫来其他商人。|不幸的是，在第五章（以及在索丹尼斯拉或地狱）期间无法召唤精灵。他也不能在海尔达利的监狱位面或位面球带你前往的恶魔位面中被召唤。"
+    }
+  },
+  "tp2": "rgenie",
+  "safe": 2,
+  "authors": ["dragon_lord"]
+}

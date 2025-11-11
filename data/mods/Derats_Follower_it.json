@@ -1,0 +1,44 @@
+{
+  "name": "Follower_It",
+  "version": "6.3",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?p=518215",
+    "download": "https://github.com/Deratiseur/Follower_It/releases/download/v6.3/win-Derats_Follower_it-v6.3.zip"
+  },
+  "file": {
+    "filename": "win-Derats_Follower_it-v6.3.zip",
+    "size": 2074923,
+    "sha256": "0b2f76eca606cc16c6117dcdc5d775ba3aa943bc4e72acd599a60d3ed69d2268"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["1", "2", "3", "4"]}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod permet de transformer n'importe quel compagnon en suiveur (qui ne compte pas la limite de groupe). Il perd toute possibilité de dialogues, discutions, quête. Plusieurs options permettent de rendre les suiveurs immortels, pour que vous n'ayez pas à gérer leur résurrection et le lot d'inconvénients qui vont avec.",
+      "components": {
+        "0": "Transformez les compagnons en familier",
+        "choice_0": "Les suiveurs sont invulnerables (cheat)",
+        "1": "Fausse mort pendant 1 tour, pierre tombale",
+        "2": "Fausse mort pendant 1 tour, corps agonisant",
+        "3": "Fausse mort indefiniment, baguette pour les relever, pierre tombale",
+        "4": "Fausse mort indefiniment, baguette pour les relever, corps agonisant"
+      }
+    },
+    "en_US": {
+      "description": "This mod lets you turn any companion into a follower (who doesn't count against the party limit). He loses all possibility of banters, discussion or quest. Several options make followers immortal, so you don't have to deal with their resurrection and all the inconvenience that goes with it."
+    },
+    "zh_CN": {
+      "description": "此模组可将任何同伴转变为追随者（不计入队伍人数上限）。他将失去所有对话、交谈和任务的能力。提供多种选项可使追随者不朽，这样您就不必处理他们的复活及其附带的一系列麻烦。"
+    }
+  },
+  "tp2": "derats_follower_it",
+  "safe": 2,
+  "authors": ["Deratiseur"]
+}

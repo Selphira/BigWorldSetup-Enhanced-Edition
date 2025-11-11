@@ -1,0 +1,48 @@
+{
+  "name": "Passive Warrior HLAs",
+  "version": "1.1",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/37193-passive-warrior-hlas/",
+    "download": "https://github.com/Plutonium-X/FORK__Passive-Warrior-HLAs/releases/download/v1.1/win-passive_warrior_hlas-v1.0.0.zip"
+  },
+  "file": {
+    "filename": "win-passive_warrior_hlas-v1.0.0.zip",
+    "size": 1280337,
+    "sha256": "0df2eb3bc146b25a416afcd578fe5f81120e669ec1e91bb3d0cd5e38e162aeae"
+  },
+  "games": ["bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Les capacités de haut niveau (HLA) introduites par Throne of Bhaal ajoutent une complexité et une micro-gestion qui vont à l'encontre du rôle des guerriers, des personnages qui sont restés des participants relativement passifs au combat pendant la majorité des 2 jeux.|Ce mod vise à réduire la complexité des HLA des guerriers en les transformant en bonus passifs.",
+      "components": {
+        "0": "Attaque tournoyante et Attaque tournoyante majeure",
+        "1": "Coup mortel et Coup mortel majeur",
+        "2": "Robustesse",
+        "3": "Resistance magique",
+        "4": "Attaque fulminante, Frappe critique, et Punition",
+        "5": "Cri de guerre"
+      }
+    },
+    "en_US": {
+      "description": "The high-level abilities (HLAs) introduced by Throne of Bhaal add a complexity and micromanagement that runs counter to the role of fighters, characters who have remained relatively passive participants in combat for the majority of the 2 games.|This mod aims to reduce the complexity of fighter HLAs by transforming them into passive bonuses."
+    },
+    "zh_CN": {
+      "description": "巴尔王座引入的高级能力（HLA）增加了复杂性和微管理，这与战士的角色相悖，因为在两款游戏中，战士大部分时间都是战斗中相对被动的参与者。|此模组旨在通过将战士的HLA转化为被动奖励来降低其复杂性。"
+    }
+  },
+  "tp2": "passive_warrior_hlas",
+  "safe": 2,
+  "authors": ["Thor Thunderfist"]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Auror Kit for the Ranger Class",
+  "version": "2",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/687-auror-kit-for-the-ranger-class/",
+    "download": "https://github.com/Plutonium-X/KIT_Aurore/archive/refs/tags/V2_EE.zip"
+  },
+  "file": {
+    "filename": "KIT_Aurore-2_EE.zip",
+    "size": 2074136,
+    "sha256": "83c898d5374cf264e0372894eb67555104c91e91692ea582b7e954b6aacb5bcb"
+  },
+  "games": ["bgee", "bg2", "bgt", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod ajoute une archère unique avec une habilité exceptionnelle de contrôle de la glace et de l'hiver.",
+      "components": {
+        "0": "Auror"
+      }
+    },
+    "en_US": {
+      "description": "This mod adds a unique archer with exceptional ice and winter control skills."
+    },
+    "zh_CN": {
+      "description": "此模组添加了一位独特的女弓箭手，她对冰和冬的控制能力异常出色。"
+    }
+  },
+  "tp2": "aurorkit",
+  "safe": 2,
+  "authors": ["Aeviannce"]
+}

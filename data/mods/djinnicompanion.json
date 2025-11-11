@@ -1,0 +1,75 @@
+{
+  "name": "Afaaq, the Djinni Companion",
+  "version": "2.11",
+  "links": {
+    "homepage": "https://argent77.github.io/DjinniCompanion/index.html",
+    "download": "https://github.com/Argent77/DjinniCompanion/releases/download/v2.11/win-A7-DjinniCompanion-v2.11.zip"
+  },
+  "file": {
+    "filename": "win-A7-DjinniCompanion-v2.11.zip",
+    "size": 24998144,
+    "sha256": "074ee662bcfed4825571f45048e5ef99e0e30ea09f628a4ed92d0de4f9704701"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet", "iwdee"],
+  "categories": ["npc"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]},
+    "2": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["101", "102", "103", "104", "105"]},
+    "200": {"type": "std"},
+    "300": {"type": "std"},
+    "400": {"type": "std"},
+    "900": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "de_DE": 1,
+    "fr_FR": 2
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "choice_0": "Afaaq, the Djinni Companion",
+        "0": "Full Version (includes quests, banters and more)",
+        "1": "Light Version (the djinni only)",
+        "2": "Afaaq, the Djinni Companion (IWD:EE version)",
+        "choice_1": "Install Banter Accelerator for the djinni? (Default: 60 Minutes)",
+        "101": "15 Minutes",
+        "102": "30 Minutes",
+        "103": "45 Minutes",
+        "104": "90 Minutes",
+        "105": "120 Minutes",
+        "200": "Remove Afaaq's banter soundtrack",
+        "300": "Alternate djinni portrait by Ulb",
+        "400": "Disable IWD:EE Quest",
+        "900": "Add Infinity Animation creatures"
+      },
+      "description": "This mod adds a djinn acting as a seventh member of the party. It dialogues with the main character and the members of the party (work in progress) and gives its opinion in other dialogues, just like a classic NPC. He also proposes a number of quests to discover new places. He can be likened to a fighter-mage.|STR 15, DEX 16, CON 13, INT 15, WIS 16, CHA 11."
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute un djinn se comportant comme un septième membre du groupe. Il dialogue avec le personnage principal et les membres du groupe (partie en travaux) et donne son avis dans les autres dialogues, comme un PNJ classique. Il propose également plusieurs quêtes faisant découvrir de nouveaux lieux. Il est assimilé à un guerrier-mage.|FOR 15, DEX 16, CON 13, INT 15, SAG 16, CHA 11.",
+      "components": {
+        "choice_0": "Afaaq, le compagnon Djinn",
+        "0": "Version complete (avec quetes, conversations et plus encore)",
+        "1": "Version allegee (le djinn uniquement)",
+        "2": "Afaaq, le compagnon Djinn (version IWD:EE)",
+        "choice_1": "Changer la frequence des conversations (n'affecte que le djinn, par defaut : 60 minutes)",
+        "101": "15 Minutes",
+        "102": "30 Minutes",
+        "103": "45 Minutes",
+        "104": "90 Minutes",
+        "105": "120 Minutes",
+        "200": "Supprimer la bande-son des conversations d'Afaaq ?",
+        "300": "Portrait de djinn alternatif par Ulb",
+        "400": "Desactiver la quete de IWD:EE ?",
+        "900": "Ajouter des creatures d'Infinity Animation ?"
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组添加了一个精灵，他像第七名队员一样行动。他与主角和队员对话（部分内容正在开发中），并在其他对话中像经典NPC一样发表意见。他还提供了几个任务，可以发现新地点。他被归类为一名战士法师。|力量15，敏捷16，体质13，智力15，智慧16，魅力11。"
+    }
+  },
+  "tp2": "djinnicompanion",
+  "safe": 2,
+  "authors": ["Argent77"]
+}

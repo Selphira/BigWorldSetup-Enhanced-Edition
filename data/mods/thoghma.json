@@ -1,0 +1,48 @@
+{
+  "name": "Au service d'Oghma",
+  "version": "1.8",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=13198",
+    "download": "https://github.com/Plutonium-X/Quete_Oghma/releases/download/v1.8/win-thoghma-v1.8.zip"
+  },
+  "file": {
+    "filename": "win-thoghma-v1.8.zip",
+    "size": 2096075,
+    "sha256": "64fae476e1e05f1854e2e4b7de012c214bce8cf03866b843b3bbc45c4a5710d4"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0,
+    "de_DE": 1,
+    "en_US": 2,
+    "es_ES": 3,
+    "it_IT": 4,
+    "ru_RU": 5
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Thot a développé un petit mod sympathique qui ajoute une quête, donnée par un moine du temple d'Oghma, dans les Docks.",
+      "components": {
+        "0": "Quete au service d'Oghma"
+      }
+    },
+    "en_US": {
+      "description": "Thot has developed a nice little mod that adds a quest, given by a monk from the Temple of Oghma, to the Docks.",
+      "components": {
+        "0": "A Quest in the service of Oghma"
+      }
+    },
+    "it_IT": {"components": {"0": "Una Missione al servizio di Oghma"}},
+    "ru_RU": {"components": {"0": "A Quest in the service of Oghma"}},
+    "zh_CN": {
+      "description": "Thot 开发了一个有趣的小模组，它添加了一个任务，该任务由奥格玛神庙的一名武僧在码头区给出。"
+    }
+  },
+  "tp2": "thoghma",
+  "safe": 2,
+  "authors": ["Thot"]
+}

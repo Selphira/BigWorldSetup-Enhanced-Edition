@@ -1,0 +1,84 @@
+{
+  "name": "Item Revisions v4 (pre-release)",
+  "version": "v4 b10 sd19",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/26482-ir-v4-beta-last-update-20-june-2017/page/23/#comment-240456",
+    "download": "https://github.com/subtledoctor/ItemRevisions/archive/refs/tags/v4b10sd19.zip"
+  },
+  "file": {
+    "filename": "ItemRevisions-4b10sd19.zip",
+    "size": 17436957,
+    "sha256": "39f40d00d3cab40292e00bd2a143f3c2c1710a01660a3df44e07ccfb23ac6471"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "eet"],
+  "categories": ["spell"],
+  "components": {
+    "0": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["2", "3"]},
+    "choice_1": {"type": "muc", "components": ["9", "1101"]},
+    "10": {"type": "std"},
+    "11": {"type": "std"},
+    "12": {"type": "std"},
+    "choice_2": {"type": "muc", "components": ["15", "16"]},
+    "17": {"type": "std"},
+    "choice_3": {"type": "muc", "components": ["18", "19", "20"]},
+    "1030": {"type": "std"},
+    "choice_4": {"type": "muc", "components": ["1040", "1042"]},
+    "1060": {"type": "std"},
+    "1080": {"type": "std"},
+    "choice_5": {"type": "muc", "components": ["1090", "1091", "1092", "1093"]},
+    "1200": {"type": "std"},
+    "1070": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod apporte des corrections ou des modifications à Item Revisions. Vous en trouverez la liste [ici](https://www.gibberlings3.net/forums/topic/28894-ir-revised-v13800-2022-january-11th/).",
+      "components": {
+        "0": "Item Revisions par Demivrgvs",
+        "choice_0": "Autoriser le lancement de sorts en armure",
+        "2": "Avec un risque d'echec au lancement de sorts profanes",
+        "3": "Avec une penalite de vitesse d'incantation pour les lanceurs de sorts profanes",
+        "choice_1": "Autoriser l'usage des competences de voleur en armure",
+        "9": "Furtivite penalisee par les armures",
+        "10": "Bonus des boucliers revus",
+        "11": "Le combat a deux armes differe selon le type d'arme, legere ou lourde",
+        "12": "Les objets de protection peuvent etre portes en meme temps qu'une armure magique",
+        "choice_2": "Equipement des Druides version papier",
+        "15": "Pour les Druides uniquement",
+        "16": "Pour les Druides et les Guerriers/Druides",
+        "17": "Modifications des armes",
+        "choice_3": "Attaque sournoise revue (avec et sans penalite)",
+        "18": "Uniquement avec les armes du voleur monoclasse",
+        "19": "Davantage d'armes utilisables pour l'attaque sournoise",
+        "20": "Toutes les armes de melee et a projectiles utilisables pour l'attaque sournoise",
+        "1030": "Revision des boutiques",
+        "choice_4": "Bonus des armures revus",
+        "1040": "Penalite a la vitesse de deplacement",
+        "1042": "Sans penalite a la vitesse de deplacement",
+        "1060": "Les Kensai peuvent porter des bracelets",
+        "1080": "L'enchantement des armes n'affecte pas leur facteur de vitesse",
+        "choice_5": "Annule les restrictions d'arme pour les lanceurs de sorts divins multiclasses",
+        "1090": "Pour les Clercs uniquement",
+        "1091": "Pour les Clercs et les Druides",
+        "1092": "Pour les Clercs uniquement, specialisation diminuee de moitie",
+        "1093": "Pour les Clercs et les Druides, specialisation diminuee de moitie",
+        "choice_6": "Autoriser l'usage des competences de voleur en armure",
+        "1101": "Furtivite penalisee par les armures et les boucliers",
+        "1200": "Evitement des coups critiques revu",
+        "1070": "Les Voleurs peuvent utiliser des baguettes"
+      }
+    },
+    "en_US": {
+      "description": "This mod brings fixes or modifications to Item Revisions. You'll find the list [here](https://www.gibberlings3.net/forums/topic/28894-ir-revised-v13800-2022-january-11th/)."
+    },
+    "zh_CN": {
+      "description": "这个模组为Item Revisions提供了修复或修改。你可以在[这里](https://www.gibberlings3.net/forums/topic/28894-ir-revised-v13800-2022-january-11th/)找到列表。"
+    }
+  },
+  "tp2": "item_rev",
+  "safe": 2,
+  "authors": ["Bartimaeus"]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Tales of the Deep Gardens",
+  "version": "12.94",
+  "links": {
+    "homepage": "https://downloads.weaselmods.net/download/tales-of-the-deep-gardens/",
+    "download": "https://downloads.weaselmods.net/download/tales-of-the-deep-gardens/?wpdmdl=68"
+  },
+  "file": {
+    "filename": "Tales-of-the-Deep-Gardens-v12.94.zip",
+    "size": 29867812,
+    "sha256": "c9a19a8e01600ea46266092e9de95bdd30557f548169f9425446e7adcefb08f3"
+  },
+  "games": ["bg2", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "de_DE": 1,
+    "fr_FR": 2,
+    "it_IT": 4,
+    "es_ES": 5,
+    "ru_RU": 6
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "choice_0": "Couleurs de l'Infini : Contes des Jardins Profonds",
+        "0": "Oui, mais sans corriger les sauvegardes de jeu existantes",
+        "1": "Oui, et corriger les sauvegardes de jeu existantes"
+      },
+      "description": "The last thing you remember is a mage on the streets of Athkatla, the building of the Council of Six, the trees and mansions of the Government District. Now you feel only humid air and cold ground... You try to open your eyes, but you are not sure if your senses are to be believed. You are barely able to recognize shapes around you... Crooked trees, bantam buildings, colourful mists... Your head aches. It is impossible for you to focus... Suddenly, you realize something. You hear voices and footsteps... You are not alone in this unknown place.|TotDG is a new adventure that adds new areas, encounters, items and spells."
+    },
+    "fr_FR": {
+      "description": "La dernière chose dont vous vous souvenez, c'est un mage dans les rues d'Athkatla, le bâtiment du Conseil des Six, les arbres et les demeures du quartier du gouvernement. À présent, vous ne sentez plus que l'air humide et le sol froid... Vous essayez d'ouvrir les yeux, mais vous ne savez pas si vous pouvez vous fier à vos sens. Vous distinguez à peine les formes autour de vous... Des arbres tordus, des bâtiments rabougris, des brumes colorées... Vous avez mal à la tête. Vous n'arrivez pas à vous concentrer... Soudain, vous réalisez quelque chose. Vous entendez des voix et des pas... Vous n'êtes pas seul(e) dans cet endroit inconnu.|TotDG est une nouvelle aventure qui ajoute de nouvelles zones, rencontres, objets et sorts.",
+      "components": {
+        "choice_0": "Couleurs de l'Infini : Contes des Jardins Profonds",
+        "0": "Oui, mais sans corriger les sauvegardes de jeu existantes",
+        "1": "Oui, et corriger les sauvegardes de jeu existantes"
+      }
+    },
+    "it_IT": {"components": {"choice_0": "Couleurs de l'Infini : Contes des Jardins Profonds", "0": "Oui, mais sans corriger les sauvegardes de jeu existantes", "1": "Oui, et corriger les sauvegardes de jeu existantes"}},
+    "ru_RU": {"components": {"choice_0": "Couleurs de l'Infini : Contes des Jardins Profonds", "0": "Oui, mais sans corriger les sauvegardes de jeu existantes", "1": "Oui, et corriger les sauvegardes de jeu existantes"}},
+    "zh_CN": {
+      "description": "你最后记得的，是阿斯卡特拉街道上的一位法师，六人议会的大楼，以及政府区的树木和房屋。现在，你只感到潮湿的空气和冰冷的土地……你试图睁开眼睛，但不知道是否可以相信自己的感官。你几乎看不清周围的轮廓……扭曲的树木，矮小的建筑，彩色的雾气……你头痛欲裂，无法集中精神……突然，你意识到了什么。你听到了声音和脚步声……在这个陌生的地方，你并非孤身一人。|《龙矛围攻：龙之遗物》是一个新的冒险，它添加了新的区域、遭遇、物品和法术。"
+    }
+  },
+  "tp2": "totdg",
+  "safe": 2,
+  "authors": ["Lava Del'Vortel"]
+}

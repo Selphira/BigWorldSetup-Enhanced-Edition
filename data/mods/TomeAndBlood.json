@@ -1,0 +1,84 @@
+{
+  "name": "Tome and Blood",
+  "version": "1.4",
+  "links": {
+    "homepage": "https://github.com/UnearthedArcana/TomeAndBlood",
+    "download": "https://github.com/UnearthedArcana/TomeAndBlood/archive/refs/tags/1.4.zip"
+  },
+  "file": {
+    "filename": "TomeAndBlood-1.4.zip",
+    "size": 1973707,
+    "sha256": "773cfad6b1a7c53a81c68a18428b346faee09e9b523e55a912f3e4fb634950f2"
+  },
+  "games": ["bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit", "gameplay"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["11", "12"]},
+    "choice_1": {"type": "muc", "components": ["16", "17"]},
+    "20": {"type": "std"},
+    "25": {"type": "std"},
+    "31": {"type": "std"},
+    "33": {"type": "std"},
+    "35": {"type": "std"},
+    "37": {"type": "std"},
+    "40": {"type": "std"},
+    "choice_2": {"type": "muc", "components": ["51", "52", "53", "54"]},
+    "56": {"type": "std"},
+    "66": {"type": "std"},
+    "choice_3": {"type": "muc", "components": ["71", "72"]},
+    "80": {"type": "std"},
+    "82": {"type": "std"},
+    "85": {"type": "std"},
+    "choice_4": {"type": "muc", "components": ["92", "93"]},
+    "95": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod introduit un ensemble de modifications pour les mages/sorciers/bardes, ainsi que des règles, sorts et kits les concernant. Il propose une foultitude de composants que l'on peut ranger dans trois catégories : modifications de sorts, ajout ou modification de profils, modification du gameplay.|- Profils d'ensorceleurs : Amorphous Disciple, Favored Soul, Magus, Revenant Disciple, Sylvan Disciple.|- Profils d'ensorceleurs multi-classés : Arcanist, Mana Sorcerer.",
+      "components": {
+        "choice_0": "Revision de la table des sorts du mage",
+        "11": "Table de Tome & Blood",
+        "12": "Table debridee",
+        "choice_1": "Revision de la table des sorts du sorcier",
+        "16": "Table de Tome & Blood",
+        "17": "Table debridee",
+        "20": "Revision des Disciples du Dragon",
+        "25": "Kit d'ensorceleur : Magus",
+        "31": "Kit d'ensorceleur : Ame favorite",
+        "33": "Kit d'ensorceleur : Disciple sylvain",
+        "35": "Kit d'ensorceleur : Disciple revenant",
+        "37": "Kit d'ensorceleur : Disciple amorphe",
+        "40": "Revision des specialistes",
+        "choice_2": "Revision de la Metamagie",
+        "51": "Metamagie innee, apprise automatiquement par tout le monde",
+        "52": "Metamagie innee, apprise automatiquement, mais pas par les ensorceleurs",
+        "53": "Metamagie innee, apprise depuis les parchemins ou a la generation de personnage",
+        "54": "Metamagie innee, apprise depuis les parchemins SEULEMENT (pas pour les ensorceleurs)",
+        "56": "Sorts de metamagie: remplissage gratuit des sequenceurs",
+        "66": "Sort de Familier inne",
+        "choice_3": "Changement de sorts pour les ensorceleurs",
+        "71": "Changer les sorts a tous les niveaux",
+        "72": "Changer les sorts tous les 3 niveaux",
+        "80": "Ensorceleurs multiclasses",
+        "82": "Kit de mage : Arcaniste (Ne pas installer si vous prevoyez d'utiliser le lancer de sorts 5E pour tout le monde)",
+        "85": "Kit d'ensorceleur : ensorceleur a mana",
+        "choice_4": "Rendre les objets a emplacement de sorts bonus compatibles avec les ensorceleurs multi et les arcanistes",
+        "92": "Bonus pour la memorisation ET les emplacements de preparation",
+        "93": "Bonus seulement pour les emplacements de preparation",
+        "95": "Specialistes multiclasses"
+      }
+    },
+    "en_US": {
+      "description": "This mod introduces a set of changes for mages/sorcerers/bards, as well as rules, spells and kits for them. It offers a host of components that can be grouped into three categories: spell modifications, profile additions or modifications, and gameplay modifications.|- Sorcerer profiles: Amorphous Disciple, Favored Soul, Magus, Revenant Disciple, Sylvan Disciple.|- Multi-classed sorcerer profiles: Arcanist, Mana Sorcerer."
+    },
+    "zh_CN": {
+      "description": "此模组为法师/术士/吟游诗人引入了一系列修改，以及相关的规则、法术和职业。它提供了大量组件，可分为三类：法术修改、添加或修改职业、游戏玩法修改。|- 术士职业：无形门徒、被选之魂、魔武士、亡者门徒、林地门徒。|- 多职业术士职业：奥术师、法师术士。"
+    }
+  },
+  "tp2": "tomeandblood",
+  "safe": 2,
+  "authors": ["aquadrizzt", "Grammarsalad", "Subtledoctor"]
+}

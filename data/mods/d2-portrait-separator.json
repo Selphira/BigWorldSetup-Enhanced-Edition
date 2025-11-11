@@ -1,0 +1,39 @@
+{
+  "name": "Portrait Gender Separator",
+  "version": "1.7",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/83575/mod-portrait-gender-separator/",
+    "download": "https://github.com/D2-mods/Portrait-Gender-Separator-for-IE-games/releases/download/v1.7/portrait-gender-separator-1.7.7z"
+  },
+  "file": {
+    "filename": "portrait-gender-separator-1.7.7z",
+    "size": 2206791,
+    "sha256": "1428063df2634872224dabc6b136102eb768a7d6271035cd8d59122decbe3542"
+  },
+  "games": ["bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["util"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Portrait Gender Separator"
+      },
+      "description": "Portrait Gender Separator is not a mod, but a tool written with WeiDU and installed as a mod. It adds your portraits to the lists of male or female portraits available in the character creation screen. It's very easy to use: just place your portraits either in the game's Portraits folder, or in one of the sub-folders of the mod's folder. Then run the installer, which copies them into the override directory and lists their names in the .lua file used to select a portrait in the character creation screen."
+    },
+    "fr_FR": {
+      "description": "Portrait Gender Separator n'est pas un mod, mais un outil écrit avec WeiDU et s'installant comme un mod. Il ajoute vos portraits aux listes de portraits masculins ou féminins disponibles dans l'écran de création de personnage.|Son utilisation est très simple : il suffit de placer vos portraits soit dans le dossier Portraits du jeu, soit dans l'un des sous-dossiers du dossier du mod. Lancez ensuite le programme d'installation qui les copie dans le répertoire override et liste leurs noms dans le fichier .lua utilisé pour sélectionner un portrait dans l'écran de création de personnage."
+    },
+    "zh_CN": {
+      "description": "Portrait Gender Separator 不是一个模组，而是一个用WeiDU编写的工具，其安装方式与模组相同。它将您的头像添加到角色创建屏幕中可用的男性或女性头像列表中。|使用非常简单：只需将您的头像放在游戏的Portraits文件夹中，或模组文件夹的任何一个子文件夹中。然后运行安装程序，它会将头像复制到override目录，并在用于在角色创建屏幕中选择头像的.lua文件中列出它们的名称。"
+    }
+  },
+  "tp2": "d2-portrait-separator",
+  "safe": 2,
+  "authors": ["Dan_P"]
+}

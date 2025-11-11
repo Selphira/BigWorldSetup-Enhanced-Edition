@@ -1,0 +1,41 @@
+{
+  "name": "Remastered Spell Icons",
+  "version": "1.2",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/88266/mod-remastered-spell-icons-v1-2",
+    "download": "https://github.com/Renegade0/RemasteredSpellIcons/archive/refs/tags/v1.2.zip"
+  },
+  "file": {
+    "filename": "RemasteredSpellIcons-1.2.zip",
+    "size": 6059463,
+    "sha256": "f003dd418ba7f145be41a5e60439881815c791329b37592427a2b73acfbfbd72"
+  },
+  "games": ["bgee", "bg2ee", "iwdee", "eet"],
+  "categories": ["cosm"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Install Remastered Spell Icons Core Component",
+        "1": "Use IWD:EE Colors (Green icons for summoning spells)"
+      },
+      "description": "This mod modifies all spell and special ability icons, as well as scroll icons."
+    },
+    "fr_FR": {
+      "description": "Ce mod modifie toutes les icônes de sorts et de capacités spéciales, ainsi que les icônes de défilement."
+    },
+    "zh_CN": {
+      "description": "此模组修改了所有法术和特殊能力的图标，以及滚动条图标。"
+    }
+  },
+  "tp2": "remastered_spell_icons",
+  "safe": 2,
+  "authors": ["Pecca"]
+}

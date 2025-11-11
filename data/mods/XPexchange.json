@@ -1,0 +1,40 @@
+{
+  "name": "Experience Purchaser",
+  "version": "1.3",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/39001-xpexchange-v09-to-exchange-superfluous-experience-points-for-more-abilities/",
+    "download": "https://github.com/shohysie/XPexchange/archive/refs/tags/v1.3.zip"
+  },
+  "file": {
+    "filename": "XPexchange-1.3.zip",
+    "size": 1330144,
+    "sha256": "769802c6c167aa1b2bd410ec2f0480f0667c2449c55320e8f9b7d251f2c02316"
+  },
+  "games": ["bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Pour les BGEET qui intègrent plus de campagnes, un personnage de classe unique peut atteindre le plafond de niveau tôt et se sentir seul face à ses coéquipiers qui montent en niveau plus tard. Ce mod permet d'échanger les points d'expérience superflus contre des capacités supplémentaires.|Lorsqu'un coéquipier a suffisamment de points d'expérience, lancez un sort de Souhait ou de Souhait mineur et de nouvelles options d'échange apparaîtront. Cependant, il y a quelques limites :|1. le personnage doit être de classe unique (le composant 2 supprime cette restriction)|2. le personnage doit avoir plus de 6 millions de points d'expérience (7,5 ou 15 millions pour le mode Legacy of Bhaal, en fonction du plafond d'EXP).",
+      "components": {
+        "choice_0": "Experience Purchaser (echanger des points d'experience superflus contre des capacites supplementaires).",
+        "0": "Échange d'XP réservé aux personnages mono-classe uniquement (recommandé)",
+        "1": "Autoriser l'échange d'XP pour les personnages multi-classes (non recommandé - risque de déséquilibrer le jeu)"
+      }
+    },
+    "en_US": {
+      "description": "For BGEETs that incorporate more campaigns, a single-class character can reach the level cap early and feel lonely in the face of teammates who level up later. When a teammate has enough experience points, cast a Wishing or Minor Wishing spell and new exchange options will appear. However, there are a few limitations:|1. the character must be single-class (component 2 removes this restriction)|2. the character must have over 6 million experience points (7.5 or 15 million for Legacy of Bhaal mode, depending on EXP cap)."
+    },
+    "zh_CN": {
+      "description": "对于整合了更多战役的博德之门增强版三部曲玩家，一个单一职业的角色可能会很早就达到等级上限，而感到与等级提升较慢的同伴格格不入。此模组允许将多余的经验点兑换成额外能力。|当同伴积累了足够多的经验点时，请施放“许愿术”或“次级许愿术”，新的兑换选项就会出现。但是，这里有一些限制：|1. 角色必须是单一职业（组件2可以移除此限制）|2. 角色必须拥有超过600万点经验（在巴尔王座遗产模式下，根据经验上限，为750万或1500万点）。"
+    }
+  },
+  "tp2": "xpexchange",
+  "safe": 2,
+  "authors": ["Shohy"]
+}

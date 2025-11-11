@@ -1,0 +1,62 @@
+{
+  "name": "Wizard Slayer Rebalancing",
+  "version": "1.14",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/49205-wizard-slayer-rebalancing-v102/",
+    "download": "http://www.shsforums.net/files/download/960-wizard-slayer-rebalancing-v113-windows-version/"
+  },
+  "file": {
+    "filename": "wsr_v114.exe",
+    "size": 1269121,
+    "sha256": "a8be0be674b7ac1c3075c12703cc2f653889843035edd4942866d78355ac4865"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "100": {"type": "std"},
+    "200": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["301", "302"]},
+    "999": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "ru_RU": 1,
+    "fr_FR": 2,
+    "zh_CN": 3,
+    "de_DE": 5,
+    "es_ES": 6,
+    "it_IT": 8
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod is largely inspired by other previous Wizard Slayer rebalancing mods, most notably Grey Acumen's Kit Improvements, Konalan's Tweaks, Ashes of Embers and \"Kitanya's fixes\" (by SixOfSpades). This version is a little more classic and tries not to stray too far from the profile's original concept. In short, it tries to emphasize the strengths of the Wizard Slayer while adding some of the best features of the mods mentioned above. In the end, the profile should be a little more balanced and fun to play, while remaining essentially faithful to Bioware's original concept.|This mod revisits the Wizard Slayer profile with the addition of new anti-magic abilities, two new HLAs (Spell Reflection and Arcane Scourge replace Magic Resistance and Battle Cry) and the ability to let your Wizard Slayer use more magic items than usual.",
+      "components": {
+        "100": "Wizard Slayer kit revision",
+        "200": "Wizard Slayer High Level Ability revision",
+        "choice_0": "Revised Wizard Slayer item restrictions",
+        "301": "Minimal changes",
+        "302": "Moderate changes",
+        "999": "BG2-style icons for WSR content"
+      }
+    },
+    "ru_RU": {"components": {"100": "Wizard Slayer kit revision", "200": "Wizard Slayer High Level Ability revision", "choice_0": "Revised Wizard Slayer item restrictions", "301": "Minimal changes", "302": "Moderate changes", "999": "BG2-style icons for WSR content"}},
+    "fr_FR": {
+      "description": "Ce mod est largement inspiré par d'autres mods antérieurs de rééquilibrage du Tueur de magiciens, tout particulièrement Grey Acumen's Kit Improvements, Konalan's Tweaks, Ashes of Embers et \"Kitanya's fixes\" (par SixOfSpades). Cette version est un peu plus classique et essaie de ne pas trop s'éloigner du concept d'origine du profil. En bref, elle tente d'insister sur les points forts du Tueur de magiciens tout en ajoutant quelques uns des meilleurs traits des mods cités plus haut. Au final, le profil devrait être un peu plus équilibré et amusant à jouer, tout en restant pour l'essentiel fidèle au concept original de Bioware.|Ce mod revisite donc le profil de Tueur de magiciens avec l'ajout de nouvelles capacités anti-mages, de deux nouvelles HLA (Réflexion de sorts et Fléau des Arcanes remplacent Résistance à la magie et Cri de guerre) et la possibilité de laisser votre Tueur de magiciens utiliser plus d'objets magiques que d'ordinaire.",
+      "components": {
+        "100": "Revision du kit de Tueur de magiciens",
+        "200": "Revision des facultes de haut niveau du Tueur de magiciens",
+        "choice_0": "Revision des restrictions d'utilisation d'objets pour le Tueur de magiciens",
+        "301": "Changements minimes",
+        "302": "Changements moderes",
+        "999": "Icones style BG2 pour le contenu de WSR"
+      }
+    },
+    "it_IT": {"components": {"100": "Revisione sottoclasse Ammazzastregoni", "200": "Revisione Abilita' di Alto Livello dell'Ammazzastregoni", "301": "Cambiamenti minimi", "302": "Cambiamenti moderati", "999": "Icone in stile BG2 per i contenuti del mod"}},
+    "zh_CN": {
+      "description": "此模组在很大程度上受到了其他法师杀手平衡性修复模组的启发，特别是Grey Acumen's Kit Improvements、Konalan's Tweaks、Ashes of Embers和“Kitanya的修复”（由SixOfSpades制作）。这个版本更偏向传统，并试图不偏离该职业的原始概念。简而言之，它试图强调法师杀手的优点，同时加入上述一些最佳模组的特性。最终，该职业应该会变得更加平衡且更有趣，同时基本上保持对Bioware原始概念的忠实。|因此，此模组通过添加新的反法师能力、两个新的高级能力（法术反射和奥术打击取代魔法抗性和战争怒吼）以及允许你的法师杀手比平时使用更多魔法物品的方式，重新设计了法师杀手职业。"
+    }
+  },
+  "tp2": "wsr",
+  "safe": 2,
+  "authors": ["aVENGER"]
+}

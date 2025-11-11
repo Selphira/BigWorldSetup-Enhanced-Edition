@@ -1,0 +1,43 @@
+{
+  "name": "Recolored Toolbar Buttons",
+  "version": "4.3",
+  "links": {
+    "homepage": "https://github.com/Argent77/A7-recoloredbuttons",
+    "download": "https://github.com/Argent77/A7-recoloredbuttons/releases/download/v4.3/win-A7-recoloredbuttons-v4.3.zip"
+  },
+  "file": {
+    "filename": "win-A7-recoloredbuttons-v4.3.zip",
+    "size": 1439175,
+    "sha256": "ee50fb3d6b5878022a2d7745791977f914ba05da3d74d26427d08f280feaef3c"
+  },
+  "games": ["bgee", "bg2ee", "eet"],
+  "categories": ["ui"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]},
+    "2": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod, originally intended for BG2:EE, but also compatible with BG:EE, aims to make toggle buttons (such as the AI button) more prominent when selected.",
+      "components": {
+        "choice_0": "Recolored character's toolbar buttons (BG:EE)",
+        "0": "Bluish color scheme",
+        "1": "Golden color scheme",
+        "2": "Recolored character's toolbar buttons (BG2:EE)"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod, initialement destiné à BG2:EE, mais aussi compatible avec BG:EE, vise à mettre davantage en évidence les boutons à bascule (tels que celui de l'IA) lorsqu'ils sont sélectionnés."
+    },
+    "zh_CN": {
+      "description": "这个模组最初是为博德之门2：增强版设计的，但也兼容博德之门：增强版，旨在突出显示切换按钮（如IA按钮）在选中时的状态。"
+    }
+  },
+  "tp2": "recoloredbuttons",
+  "safe": 2,
+  "authors": ["Argent77"]
+}

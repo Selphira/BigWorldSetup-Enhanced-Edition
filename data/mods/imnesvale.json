@@ -1,0 +1,41 @@
+{
+  "name": "Duality's Odd Quest Mod (or simply Imnesvale)",
+  "version": "2.2.1",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/32419-ds-odd-quest-mod/",
+    "download": "https://github.com/Plutonium-X/FORK_Duality-Odd-Quest-Mod/archive/refs/tags/v2.2.1.zip"
+  },
+  "file": {
+    "filename": "FORK_Duality-Odd-Quest-Mod-2.2.1.zip",
+    "size": 2395789,
+    "sha256": "9c0ce7591b80ed2007915bf1a49eaa63cde27f7ae2b119cbc83a147c04cda162"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1", "2"]}
+  },
+  "languages": {
+    "fr_FR": 4
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mini mod ajoute une rencontre supplémentaire dans les Collines d'Umar au chapitre 6. Ce n'est que le prétexte à un combat assez difficile contre des ennemis de niveaux 15 à 20 et très bien équipés. L'auteur a prévu 3 niveaux de difficulté : facile (déjà bien assez ardu), difficile et carrément démentiel.",
+      "components": {
+        "choice_0": "Installer La quete etrange de D qui se passe dans les Collines d'Umar",
+        "0": "Facile",
+        "1": "Difficile",
+        "2": "Vous avez perdu la tete !?"
+      }
+    },
+    "en_US": {
+      "description": "This mini-mod adds an extra encounter in the Umar Hills in Chapter 6. This is merely the pretext for a rather difficult battle against enemies of levels 15 to 20 and very well equipped. The author has provided 3 levels of difficulty: easy (already hard enough), difficult and downright insane."
+    },
+    "zh_CN": {
+      "description": "这个小型模组在第6章的乌玛丘陵增加了一次额外的遭遇。这只是一个借口，用来一场相当艰难的战斗，对手是15到20级且装备精良的敌人。作者设置了3个难度等级：简单（已经相当艰难）、困难和彻底疯狂。"
+    }
+  },
+  "tp2": "imnesvale",
+  "safe": 2,
+  "authors": ["Duality"]
+}

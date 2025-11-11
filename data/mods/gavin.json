@@ -1,0 +1,80 @@
+{
+  "name": "Gavin NPC",
+  "version": "15",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/mods/npcs/gavin/",
+    "download": "https://github.com/Gibberlings3/Gavin_BG/releases/download/v15/gavin-v15.exe"
+  },
+  "file": {
+    "filename": "gavin-v15.exe",
+    "size": 10043701,
+    "sha256": "77724d854c7b4e40d5090da5f2a21c5adf21cb05f2f4cc0abdea1bc476cacb73"
+  },
+  "games": ["tutu", "bgt", "bgee", "eet"],
+  "categories": ["npc"],
+  "components": {
+    "0": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["1", "11", "12", "13", "14"]},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["4", "5", "6", "7", "8", "9"]},
+    "10": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "de_DE": 2
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Gavin NPC for Tutu, BGT, and BG:EE",
+        "1": "Gavin: Romance (mature content)",
+        "1.1.1": "1 hour real time (standard) minimum between LoveTalks",
+        "1.1.2": "45 minutes real time minimum between LoveTalks",
+        "1.1.3": "30 minutes real time minimum between LoveTalks",
+        "1.1.4": "15 minutes real time minimum between LoveTalks",
+        "1.1.5": "1 hour 30 minutes (extended) real time minimum between LoveTalks",
+        "2": "Gavin: Flirts (adult content)",
+        "3": "Gavin: Check for Tutu-Fix Walking Speeds",
+        "choice_0": "Gavin: Alternate Portraits",
+        "4": "Dawnbringer, by Amaurea",
+        "5": "Dawn skies, by Kaeloree",
+        "6": "Grey skies, by Kaeloree",
+        "7": "Red tunic, by Miloch",
+        "8": "Original alternate, by Kaeloree",
+        "9": "Dragon Age style portrait by berelinde",
+        "10": "Gavin: Player Initiated Dialogue"
+      },
+      "description": "This mod adds a romanticizable Cleric of Lathander for all PJs regardless of race or alignment (although it won't romanticize assassins). Gavin is talkative, idealistic, a bit of a coward, romantic, awkward and a Lathandrite. His difficult past haunts him, and his reasons for accompanying you on this adventure (apart from the usual desire for a better world) will gradually become clear to you... Banters, interjections and a little quest in Beregost. Meet him at the Temple of the Morning Song, not far from Beregost.|STR 16, DEX 12, CON 16, INT 12, WIS 17, CHA 12."
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute un clerc de Lathandre romançable pour tous les PJs quels que soient leur race et leur alignement (bien qu'il ne romancera pas les assassins). Gavin est bavard, idéaliste, un peu trouillard, romantique, maladroit et lathandrite. Son passé difficile le hante et ses raisons de vous accompagner sur les routes de l'aventure (hormis les habituels désirs d'un monde meilleur) vous apparaîtront petit à petit... Banters, interjections et une petite quête dans Bérégost. Retrouvez-le au Temple de la Chanson du Matin, non loin de Bérégost.|FOR 16, DEX 12, CON 16, INT 12, SAG 17, CHA 12.",
+      "components": {
+        "0": "Gavin NPC pour Tutu, BGT et BG:EE",
+        "choice_0": "Gavin : Romance (contenu pour adultes)",
+        "1": "Vitesse : 1 heure en temps reel (standard) minimum entre les dialogues de romance",
+        "11": "Vitesse : 45 minutes en temps reel minimum entre les dialogues de romance",
+        "12": "Vitesse : 30 minutes en temps reel minimum entre les dialogues de romance",
+        "13": "Vitesse : 15 minutes en temps reel minimum entre les dialogues de romance",
+        "14": "Vitesse : 1 heure 30 minutes en temps reel (etendu) minimum entre les dialogues de romance",
+        "2": "Gavin : Flirts (contenu pour adultes)",
+        "3": "Gavin : verification du Tutu-Fix des vitesses de deplacement.",
+        "choice_1": "Gavin : portraits alternatifs (le portrait original est installe)",
+        "4": "Semeur d'Aube, par Amaurea",
+        "5": "Ciel de l aube, par Kaeloree",
+        "6": "Ciel gris, par Kaeloree",
+        "7": "Tunique Rouge, par Miloch",
+        "8": "Alternative originale, par Kaeloree",
+        "9": "Portrait dans le style de Dragon Age, par berelinde",
+        "10": "Gavin : Dialogues inities par le joueur"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组添加了一位可恋爱的洛山达牧师，对所有种族和阵营的玩家角色开放（尽管他不会与刺客恋爱）。加文健谈、理想主义、有点胆小、浪漫、笨拙且是洛山达的信徒。他痛苦的过去萦绕着他，他陪伴你踏上冒险之路的原因（除了通常的渴望更美好的世界的愿望）将逐渐显现……伙伴闲聊、插话以及在贝尔苟斯特的一个小任务。在贝尔苟斯特附近的晨歌神殿找到他。|力量16，敏捷12，体质16，智力12，智慧17，魅力12。"
+    }
+  },
+  "tp2": "gavin",
+  "safe": 2,
+  "authors": ["berelinde"]
+}

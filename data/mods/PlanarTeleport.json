@@ -1,0 +1,38 @@
+{
+  "name": "Planar Sphere Teleporter",
+  "version": "1.2",
+  "links": {
+    "homepage": "http://mods.jo-ge.net/bg/index.htm",
+    "download": "https://github.com/Plutonium-X/MISC_Planar-teleport/archive/refs/tags/v1.2_EE.zip"
+  },
+  "file": {
+    "filename": "MISC_Planar-teleport-1.2_EE.zip",
+    "size": 2527182,
+    "sha256": "e8a391de9fd90dd5988470520979760b93fe7b4b39081222e9ce26c75758a877"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["spell"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Publié à l'origine sur [ce site](http://mods.jo-ge.net/bg/index.htm), ce mini mod ajoute un objet, donné par Lavok, permettant de se téléporter directement dans la Sphère planaire (et de revenir là où vous étiez), comme la capacité \"Antichambre\".",
+      "components": {
+        "0": "Teleporteur de la Sphere Planaire"
+      }
+    },
+    "en_US": {
+      "description": "Originally published on [this site](http://mods.jo-ge.net/bg/index.htm), this mini mod adds an item, donated by Lavok, allowing you to teleport directly into the Planar Sphere (and back to where you were), like the \"Pocket Plane\" ability."
+    },
+    "zh_CN": {
+      "description": "最初发布于[此网站](http://mods.jo-ge.net/bg/index.htm)，此小型模组添加了一个物品，由Lavok给予，允许您直接传送到领域面（并返回您所在的位置），就像“前厅”能力一样。"
+    }
+  },
+  "tp2": "planarteleport",
+  "safe": 2,
+  "authors": ["Jochen Gehring"]
+}

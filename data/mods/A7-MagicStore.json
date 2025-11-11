@@ -1,0 +1,56 @@
+{
+  "name": "Magic Store of Vergadain",
+  "version": "4.1",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/32357-magic-store-of-vergadain-visit-any-store-anywhere-and-anytime",
+    "download": "https://github.com/Argent77/A7-MagicStore/releases/download/v4.1/win-A7-MagicStore-v4.1.zip"
+  },
+  "file": {
+    "filename": "win-A7-MagicStore-v4.1.zip",
+    "size": 4839670,
+    "sha256": "99c0575c4704d30de43ce1cb0f869f2960b2dd2369cfbfe933777e43f7ad1f5c"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["gameplay"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["1", "2"]},
+    "10": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["21", "22", "23", "24"]},
+    "choice_2": {"type": "muc", "components": ["31", "32", "33", "34", "35", "36"]}
+  },
+  "languages": {
+    "fr_FR": 4
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Le jeu contient un grand nombre de magasins pour répondre à vos besoins. Cependant, retourner dans un magasin peut prendre beaucoup de temps, ou n'est parfois même pas possible. Ce mod vous permet d'acquérir un artefact magique qui vous donnera le moyen d'aller dans n'importe quel magasin que vous avez visité dans le passé. Mettre la main sur cet artefact unique nécessite de réaliser une petite quête.",
+      "components": {
+        "choice_0": "Magasin magique de Vergadain",
+        "1": "Frais requis",
+        "2": "Gratuit",
+        "10": "Autre portrait pour le Marchand fantome",
+        "choice_1": "Limiter les services disponibles dans les magasins convoques",
+        "21": "Proscrire le repos",
+        "22": "Proscrire le repos et les soins",
+        "23": "Proscrire le repos, les soins, les donations et les chopines",
+        "24": "Autoriser les echanges commerciaux uniquement",
+        "choice_2": "Modifier le nombre de charges du Magasin Magique (par defaut : 3x/jour)",
+        "31": "Une fois par jour",
+        "32": "10 fois par jour",
+        "33": "10 charges",
+        "34": "50 charges",
+        "35": "100 charges",
+        "36": "Charge illimitee"
+      }
+    },
+    "en_US": {
+      "description": "The game contains a large number of stores to suit your needs. However, returning to a store can be time-consuming, or sometimes not even possible. This mod allows you to acquire a magical artifact that will give you the means to go to any store you've visited in the past. To get your hands on this unique artifact, you'll need to complete a short quest."
+    },
+    "zh_CN": {
+      "description": "游戏中包含许多商店以满足您的需求。然而，返回一个商店可能需要很多时间，或者有时甚至不可能。此模组让您获得一个魔法神器，让您能够前往您过去访问过的任何商店。获得这个独特的神器需要完成一个小型任务。"
+    }
+  },
+  "tp2": "a7-magicstore",
+  "safe": 2,
+  "authors": ["Argent77"]
+}

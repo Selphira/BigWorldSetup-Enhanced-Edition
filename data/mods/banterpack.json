@@ -1,0 +1,60 @@
+{
+  "name": "Banter Packs",
+  "version": "18",
+  "links": {
+    "homepage": "https://www.pocketplane.net/banter-packs/",
+    "download": "https://github.com/Pocket-Plane-Group/Banter_Pack/releases/download/v18/banter-packs-v18.zip"
+  },
+  "file": {
+    "filename": "banter-packs-v18.zip",
+    "size": 5289013,
+    "sha256": "15f5b45d79c69258d956d3fed5f8118c8027c8791728d719cdd81b5337f3c6e6"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "es_ES": 1,
+    "de_DE": 2,
+    "fr_FR": 3,
+    "it_IT": 5,
+    "ru_RU": 6,
+    "ko_KR": 7,
+    "zh_CN": 8
+  },
+  "translations": {
+    "en_US": {
+      "description": "Looking for new dialogs and interactions to add depth to your game? This mod is for you. New stories from Jan, new jabs from Imoen and an even more cynical Edwin - it's all good stuff.",
+      "components": {
+        "0": "Pocket Plane Banter Pack for BG2: Shadows of Amn",
+        "1": "Install SOA Banter Accelerator script? (Increases the frequency of interparty banter)",
+        "2": "Pocket Plane Banter Pack for BG2: Throne of Bhaal",
+        "3": "Install TOB Banter Accelerator script? (Increases the frequency of interparty banter)"
+      }
+    },
+    "fr_FR": {
+      "description": "Envie de nouveaux dialogues et interactions rajoutant davantage de profondeur au jeu ? Ce mod est fait pour vous. De nouvelles histoires de Jan, de nouvelles piques d'Imoen et un Edwin encore plus cynique, bref que du bonheur.",
+      "components": {
+        "0": "Pocket Plane Banter Pack for BG2: Shadows of Amn",
+        "1": "Installer le script accelerateur de dialogues de SoA ? (augmente la frequence des dialogues a l'interieur du groupe)",
+        "2": "Pack de Dialogues du Pocket Plane Group pour BG2 : ToB",
+        "3": "Installer le script accelerateur de dialogues de ToB ? (augmente la frequence des dialogues a l'interieur du groupe)"
+      }
+    },
+    "it_IT": {"components": {"0": "Pocket Plane Banter Pack per BG2: Shadows of Amn", "1": "Installare lo script per l'Acceleratore di Battute per SOA? (Aumenta la frequenza delle battute fra i componenti del gruppo)", "2": "Pocket Plane Banter Pack per BG2: Throne of Bhaal", "3": "Installate lo script per l'Acceleratore di Battute per TOB? (Aumenta la frequenza delle battute fra i componenti del gruppo)"}},
+    "ru_RU": {"components": {"0": "Pocket Plane Banter Pack for BG2: Shadows of Amn", "1": "Install SOA Banter Accelerator script? (Increases the frequency of interparty banter)", "2": "Pocket Plane Banter Pack for BG2: Throne of Bhaal", "3": "Install TOB Banter Accelerator script? (Increases the frequency of interparty banter)"}},
+    "ko_KR": {"components": {"0": "Pocket Plane Banter Pack for BG2: Shadows of Amn", "1": "Install SOA Banter Accelerator script? (Increases the frequency of interparty banter)", "2": "Pocket Plane Banter Pack for BG2: Throne of Bhaal", "3": "Install TOB Banter Accelerator script? (Increases the frequency of interparty banter)"}},
+    "zh_CN": {
+      "description": "想要为游戏增添新的对话和互动，增加游戏深度吗？这个模组就是为您准备的。有关于姚恩的新故事，爱蒙的新嘲讽，以及一个更加愤世嫉俗的艾德温，总而言之，全是美好的体验。"
+    }
+  },
+  "tp2": "banterpack",
+  "safe": 2,
+  "authors": ["Jason Compton", "Kish Moore", "Blue", "Ghreyfain", "Kirwond", "Bons", "jastey"]
+}

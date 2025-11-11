@@ -1,0 +1,39 @@
+{
+  "name": "DLC Merger",
+  "version": "1.7",
+  "links": {
+    "homepage": "https://github.com/Argent77/A7-DlcMerger",
+    "download": "https://github.com/Argent77/A7-DlcMerger/releases/download/v1.7/win-64bit-DlcMerger-v1.7.zip"
+  },
+  "file": {
+    "filename": "win-64bit-DlcMerger-v1.7.zip",
+    "size": 1387083,
+    "sha256": "b984cfaf9ba8cdacc52928e50ad2fa3435f98471642e1ff004290d02d42711ea"
+  },
+  "games": ["bgee", "sod", "bg2ee", "eet", "iwdee", "pstee"],
+  "categories": ["util"],
+  "components": {
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "1": "Fusionner le DLC \"Siege of Dragonspear\" avec Baldur's Gate - Enhanced Edition"
+      },
+      "description": "This mod lets you merge DLC such as \"Siege of Dragonspear\" with the game's main content."
+    },
+    "fr_FR": {
+      "description": "Ce mod permet de fusionner des DLC comme \"Siege of Dragonspear\" avec le contenu principal du jeu."
+    },
+    "zh_CN": {
+      "description": "这个模组允许将“龙矛围攻”之类的DLC与游戏的主内容合并。"
+    }
+  },
+  "tp2": "dlcmerger",
+  "safe": 2,
+  "authors": ["Argent77"]
+}

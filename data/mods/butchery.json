@@ -1,0 +1,92 @@
+{
+  "name": "BuTcHeRy",
+  "version": "5.0.2",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/filesmods/ModsBG/butchery-readme-french.html",
+    "download": "https://github.com/The-Gate-Project/butchery/releases/download/v5.0.2/butchery-v5.0.2.zip"
+  },
+  "file": {
+    "filename": "butchery-v5.0.2.zip",
+    "size": 10032234,
+    "sha256": "9f9770ba7aca704a2aa46bdedc0a940428e0560d14a457de1988ea5af7777590"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["tactic"],
+  "components": {
+    "10": {"type": "std"},
+    "11": {"type": "std"},
+    "12": {"type": "std"},
+    "20": {"type": "std"},
+    "21": {"type": "std"},
+    "22": {"type": "std"},
+    "30": {"type": "std"},
+    "32": {"type": "std"},
+    "40": {"type": "std"},
+    "41": {"type": "std"},
+    "43": {"type": "std"},
+    "44": {"type": "std"},
+    "45": {"type": "std"},
+    "46": {"type": "std"},
+    "47": {"type": "std"},
+    "48": {"type": "std"},
+    "49": {"type": "std"},
+    "50": {"type": "std"},
+    "51": {"type": "std"},
+    "52": {"type": "std"},
+    "53": {"type": "std"},
+    "54": {"type": "std"},
+    "55": {"type": "std"},
+    "56": {"type": "std"},
+    "57": {"type": "std"},
+    "58": {"type": "std"},
+    "80": {"type": "std"},
+    "90": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "À l'origine, DrAzTiK avait développé un petit mod rendant le combat plus dynamique et plus relevé contre Tazok et Dig-Dag dans le repaire de Firkraag. Depuis, il s'est considérablement étoffé, s'est enrichi de nombreux composants et a désormais pour ambition de permettre aux joueurs de conduire des combats « épiques » dans de larges espaces et de rapprocher BG2 d'un Dungeon crawler. Consultez le readme pour bien comprendre ce qu'apporte chacun de ses composants.",
+      "components": {
+        "10": "Combat contre Tazok et DigDag revise par DrAzTiK [a installer avant Stratagems]",
+        "11": "Reequilibrage de certaines creatures generiques [a installer avant Stratagems]",
+        "12": "Reequilibrage de Tazok et de DigDag [a installer avant Stratagems]",
+        "20": "Rencontre avec Groumf et Bourrinos devant le donjon de Firkraag [a installer avant Stratagems]",
+        "21": "Rencontre avec Groumf et Bourrinos a Brynnlaw [a installer avant Stratagems]",
+        "22": "Rencontre avec Groumf et Bourrinos dans les Trefonds Obscurs [a installer avant Stratagems]",
+        "30": "Combat revisite de Sarevok necrophage dans les Abysses [a installer avant Stratagems]",
+        "32": "Musiques de combat dans les zones sans musique [a installer avant ou apres Stratagems]",
+        "40": "Creatures de DrAzTiK [a installer avant Stratagems, composant indispensable pour les suivants !]",
+        "41": "Boucherie de nains dans le donjon d'Irenicus [a installer apres Stratagems]",
+        "43": "Boucherie d'animaux/druides dans la foret de Tethyr [a installer apres Stratagems]",
+        "44": "Boucherie de demons dans la Sphere planaire [a installer apres Stratagems]",
+        "45": "3 boucheries dans Spellhold (golems, vampires et trolls) [a installer apres Stratagems]",
+        "46": "Boucherie de trolls a l'exterieur du Chateau de'Arnise [a installer apres Stratagems]",
+        "47": "Boucherie d'orques dans les Collines de Lancevent [a installer apres Stratagems]",
+        "48": "Boucherie de loups dans les Collines d'Umar [a installer apres Stratagems]",
+        "49": "2 boucheries d'animaux sauvages : Franc-Marche et Tour de Garde [a installer apres Stratagems]",
+        "50": "2 boucheries de golems a Suldanessellar et dans la Tour de Garde (Machine de Lum le Fou) [a installer apres Stratagems]",
+        "51": "Boucherie de Yaga Shura amelioree [a installer apres Ascension et Stratagems]",
+        "52": "Boucherie d'animaux/druides dans le Bosquet aux druides [a installer apres Stratagems]",
+        "53": "Boucherie de fanatiques dans l'antre de l'Oeil aveugle [a installer apres Stratagems]",
+        "54": "Boucherie de vampires dans l'antre de Bodhi au chapitre 2, avant l'Ombreterre [a installer apres Stratagems]",
+        "55": "Boucherie de vampires dans l'antre de Bodhi au chapitre 6, apres l'Ombreterre [a installer apres Stratagems]",
+        "56": "2 boucheries de sahuagins (Cite sous-marine et campement githyanki dans la Tour de Garde) [a installer apres Stratagems]",
+        "57": "4 boucheries d'araignees : entree de l'antre de Pai'Na, Temple d'Amaunator (Oeil aveugle), 1er etage de la Tour de Garde et devant l'Enclave de Sendai [a installer apres Stratagems]",
+        "58": "6 boucheries de squelettes (catacombes d'Atkthtla, Ruine du Temple, Spellhold, Tour de Garde et 2 dans le temple de Nyalee) [a installer apres Stratagems]",
+        "80": "Transformer BG2 en Dungeon crawler [a installer apres Stratagems]~ // Davantage d'ennemis pour ne pas s'endormir",
+        "90": "Composant cosmetique [a installer avant ou apres Stratagems]"
+      }
+    },
+    "en_US": {
+      "description": "Originally, DrAzTiK developed a small mod to make the fight against Tazok and Dig-Dag in Firkraag's lair more dynamic and challenging. Since then, it has grown considerably, adding numerous components and now aims to enable players to conduct \"epic\" battles in large spaces, bringing BG2 closer to a Dungeon crawler. Take a look at the readme to understand what each component brings."
+    },
+    "zh_CN": {
+      "description": "最初，DrAzTiK开发了一个小型模组，用于让在费尔克拉ag巢穴中与Tazok和Dig-Dag的战斗更具动态性和挑战性。此后，它得到了极大的扩展，增加了许多组件，其目标现在是让玩家能够在广阔的空间中指挥“史诗级”战斗，并让博德之门2更接近地城爬行游戏。请阅读readme文件以充分了解每个组件带来的功能。"
+    }
+  },
+  "tp2": "butchery",
+  "safe": 2,
+  "authors": ["DrAzTiK"]
+}

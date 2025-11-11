@@ -1,0 +1,41 @@
+{
+  "name": "Enhanced Edition Trilogy End",
+  "version": "14.1",
+  "links": {
+    "homepage": "https://github.com/Gibberlings3/EET"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet"],
+  "categories": ["conv"],
+  "components": {
+    "0": {"type": "sub", "prompts": {"1": {"options": ["1", "2"]}}}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 3,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Enhanced Edition Trilogy End",
+        "0.1.1": "Update old EET saves to work with new installation",
+        "0.1.2": "No (skips component installation)"
+      },
+      "description": "The equivalent of Enhanced Edition Trilogy but can be installed on Android."
+    },
+    "fr_FR": {
+      "description": "L'équivalent de Enhanced Edition Trilogy mais qui peut s'installer sur Android.",
+      "components": {
+        "0": "EET end (dernier mod dans l'ordre d'installation)",
+        "0.1.1": "Mise a jour des sauvegardes (pas de backups, plus d'information dans le fichier readme)",
+        "0.1.2": "Non (passer l'installation du composant)"
+      }
+    },
+    "zh_CN": {
+      "description": "Enhanced Edition Trilogy的安卓版本。"
+    }
+  },
+  "tp2": "eet_end",
+  "safe": 2,
+  "authors": ["K4thos"]
+}

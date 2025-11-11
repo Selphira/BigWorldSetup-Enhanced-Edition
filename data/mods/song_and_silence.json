@@ -1,0 +1,75 @@
+{
+  "name": "Song and Silence: A Mod for Bards and Thieves",
+  "version": "19",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/mods/kits/sns/",
+    "download": "https://github.com/Gibberlings3/SongAndSilence/releases/download/v19/song_and_silence-v19.exe"
+  },
+  "file": {
+    "filename": "song_and_silence-v19.exe",
+    "size": 3121466,
+    "sha256": "d95c64a9ff1318b8021c8bf38577a52de0ce883507086f13328af9bc620df0a0"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "9": {"type": "std"},
+    "10": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "de_DE": 3,
+    "ru_RU": 4
+  },
+  "translations": {
+    "en_US": {
+      "description": "Do you like bards and rogues? If so, you'll be delighted with this little mod, which adds several new profiles to your now classic Blademaster and Assassin: Acrobat, Dirgesinger, Chorister and Gypsy (bards); Adventurer, Burglar, Shadow Dancer, Lamesprit and Sharpshooter (thieves); and an inquisitive and ever-welcoming old gypsy, Raoul, who will suggest new items for your favorite characters. The designer's creation of the items is strongly geared to their use by bards and thieves, but there's nothing to stop you equipping other characters with them, unless they're unusable by the class you're playing, of course.",
+      "components": {
+        "0": "Changes to trueclass bards and thieves, and unmodded game kits (required for other components)",
+        "1": "Add new bardic store and thief items",
+        "2": "Install Acrobat bard kit",
+        "3": "Install Chorister bard kit",
+        "4": "Install Dirgesinger bard kit",
+        "5": "Install Gypsy bard kit",
+        "6": "Install Adventurer thief kit",
+        "7": "Install Burglar thief kit",
+        "8": "Install Soulknife thief kit",
+        "9": "Install Sharpshooter thief kit",
+        "10": "Install Shadowdancer thief kit"
+      }
+    },
+    "fr_FR": {
+      "description": "Aimez-vous les bardes et les roublards ? Si c'est le cas, vous serez comblés par ce petit mod qui ajoute plusieurs profils venant s'ajouter à vos désormais classique maître-lames et assassins : Acrobate, Chanteur funèbre, Choriste et Gitan (bardes) ; Aventurier, Cambrioleur, Danseur de l'ombre, Lamesprit et Tireur d'élite (voleurs).|Rencontrez aussi un vieux gitan, Raoul, un rien curieux et toujours accueillant, qui vous proposera de nouveaux objets pour vos personnages favoris. La création des objets par le concepteur est fortement orientée pour qu'ils soient utilisés par des bardes ou des voleurs, mais rien ne vous empêche d'équiper d'autres personnages avec, sauf s'ils sont inutilisables par la classe jouée, bien sûr.",
+      "components": {
+        "0": "Changements concernant les bardes et voleurs purs, ainsi que les kits originaux du jeu (necessaire pour les autres composants)",
+        "1": "Ajout d'une echoppe pour bardes et voleurs",
+        "2": "Installer l'Acrobate (kit de barde)",
+        "3": "Installer le Choriste (kit de barde)",
+        "4": "Installer le Chanteur Funebre (kit de barde)",
+        "5": "Installer le Gitan (kit de barde)",
+        "6": "Installer l'Aventurier (kit de voleur)",
+        "7": "Installer le Cambrioleur (kit de voleur)",
+        "8": "Installer le Lamesprit (kit de voleur)",
+        "9": "Installer le Tireur d'Elite (kit de voleur)",
+        "10": "Installer le Danseur de l'Ombre (kit de voleur)"
+      }
+    },
+    "ru_RU": {"components": {"0": "Changes to trueclass bards and thieves, and unmodded game kits (required for other components)", "1": "Add new bardic store and thief items", "2": "Install Acrobat bard kit", "3": "Install Chorister bard kit", "4": "Install Dirgesinger bard kit", "5": "Install Gypsy bard kit", "6": "Install Adventurer thief kit", "7": "Install Burglar thief kit", "8": "Install Soulknife thief kit", "9": "Install Sharpshooter thief kit", "10": "Install Shadowdancer thief kit"}},
+    "zh_CN": {
+      "description": "你喜欢吟游诗人和盗贼吗？如果是这样，这个小模组会让你心满意足，它添加了几个新的职业，可以补充到你现有的舞剑士和刺客中：杂技演员、哀歌者、合唱团成员和吉普赛人（吟游诗人）；冒险家、窃贼、影舞者、剑灵神射手和神射手（盗贼）。|还会遇到一个老吉普赛人，拉乌尔，他有点好奇，总是很热情，会为你最喜欢的角色提供新物品。设计师制作物品时，强烈倾向于让吟游诗人和盗贼使用它们，但当然，除非该物品无法被你玩的职业使用，否则你完全可以装备其他角色。"
+    }
+  },
+  "tp2": "song_and_silence",
+  "safe": 2,
+  "authors": ["Andyr", "NiGHTMARE", "Grim Squeaker", "CamDawg", "Mike1072"]
+}

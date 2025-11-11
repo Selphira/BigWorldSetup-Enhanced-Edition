@@ -1,0 +1,51 @@
+{
+  "name": "Artaport",
+  "version": "master",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/51904/mod-artaport-4-0/p1",
+    "download": "https://github.com/Eltamin/artaport/archive/refs/heads/master.zip"
+  },
+  "file": {
+    "filename": "artaport-master.zip",
+    "size": 42039024,
+    "sha256": "bac5343aa6b58b2e9459768b3c46a4212b257db10f4bd312b1029fb0a06342c2"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "sod", "eet"],
+  "categories": ["portrait"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "1180": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Change portraits in BG2:EE",
+        "1": "Change portraits in BG1:EE",
+        "2": "Change portraits in SoD",
+        "3": "Add portraits for non-joinable NPCs in BG1:EE.",
+        "4": "Add portraits for non-joinable NPCs in BG2:EE",
+        "5": "Restore BG1:EE NPC portraits",
+        "1180": "Add portrait for Edwina"
+      },
+      "description": "A version of PaintBG for EE games, this mod modifies certain NPC portraits, assigns [Artastrophe](https://artastrophe.deviantart.com) portraits to NPCs who didn't have any, etc..."
+    },
+    "fr_FR": {
+      "description": "Version de PaintBG pour les jeux EE, ce mod modifie certains portraits de PNJ, attribue des portraits de [Artastrophe](https://artastrophe.deviantart.com) à des PNJ qui n'en avaient pas, etc..."
+    },
+    "zh_CN": {
+      "description": "这是 PaintBG 的EE游戏版本，这个模组修改了一些NPC的肖像，为没有肖像的NPC分配了[Artastrophe](https://artastrophe.deviantart.com)的肖像，等等..."
+    }
+  },
+  "tp2": "artaport",
+  "safe": 2,
+  "authors": ["Etamin"]
+}

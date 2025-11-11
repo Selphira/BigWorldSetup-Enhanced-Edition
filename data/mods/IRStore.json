@@ -1,0 +1,45 @@
+{
+  "name": "IRStore",
+  "version": "2.0",
+  "links": {
+    "homepage": "https://github.com/The-Gate-Project/IRStore",
+    "download": "https://github.com/The-Gate-Project/IRStore/releases/download/v2.0/irstore-2.0.zip"
+  },
+  "file": {
+    "filename": "irstore-2.0.zip",
+    "size": 5021915,
+    "sha256": "385dc8dec2594960b4052e7dc8be9ce26dc68fde55923600c995549dd16eda9c"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["smith"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "2", "3", "4", "5"]},
+    "6": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Voici un mod d'objets très puissants que vous pourrez trouver chez Nathan à la Promenade de Waukyne.",
+      "components": {
+        "choice_0": "IRStore par Theo de Moree",
+        "0": "Installer \"IRStore Original\"",
+        "2": "Installer \"IRStore Delayed\" certains items ne seront disponible qu'apres votre retour d'Ombre-Terre",
+        "3": "Installer \"IRStore Delayed\" et \"IRStore ToB\"",
+        "4": "Installer \"IRStore ToB Only\", le magasin de Nathan ne sera disponible que dans Throne of Bhaal",
+        "5": "Installer \"IRStore Original\" et \"IRStore ToB\"",
+        "6": "Installer \"Item Errata\" modification de l'arc de fer et de la longue dague de Lydek en une fronde et un baton aux pouvoirs equivalents par PROF ERRATA"
+      }
+    },
+    "en_US": {
+      "description": "Here's a mod of powerful items you'll find at Nathan's Waukeen's Promenade."
+    },
+    "zh_CN": {
+      "description": "这是一个物品模组，您可以在渥金商场找到内森，从他那里获得非常强大的物品。"
+    }
+  },
+  "tp2": "irstore",
+  "safe": 2,
+  "authors": ["Theo de Moree"]
+}

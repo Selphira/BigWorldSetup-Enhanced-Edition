@@ -1,0 +1,42 @@
+{
+  "name": "Bubb's Spell Menu Extended",
+  "version": "5.1",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/35838-ui-bubbs-spell-menu-v51/",
+    "download": "https://github.com/Bubb13/Bubbs-Spell-Menu-Extended/archive/refs/tags/v5.1.zip"
+  },
+  "file": {
+    "filename": "Bubbs-Spell-Menu-Extended-5.1.zip",
+    "size": 1428377,
+    "sha256": "bbe15a58e01c8ffc3415da0b9fecc34d9b924d5c8efcfc5dbd05d7820b664d81"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["ui"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 2
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Bubb's Spell Menu Extended"
+      },
+      "description": "If you don't like the list view of spells in the normal version of this mod, you might like this version. It emulates the default spell selection slots and arranges them so that all spells are visible at the same time."
+    },
+    "fr_FR": {
+      "description": "Si la vue des sorts en liste de la version normale de ce mod ne vous plaît pas, cette version pourrait bien vous plaire. Elle émule les emplacements de la sélection de sorts par défaut et les organise de telle sorte que tous les sorts soient visibles en même temps.",
+      "components": {
+        "0": "Bubb's Spell Menu Extended"
+      }
+    },
+    "zh_CN": {
+      "description": "如果你不喜欢此模组普通版本的法术列表视图，这个版本可能会让你喜欢。它模拟了默认的法术选择槽位，并将它们组织起来，使所有法术都能同时显示。"
+    }
+  },
+  "tp2": "bubb_spell_menu_extended",
+  "safe": 2,
+  "authors": ["Bubb"]
+}

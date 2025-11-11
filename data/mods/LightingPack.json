@@ -1,0 +1,122 @@
+{
+  "name": "Shader Pack: Lighting Adjustments for the Enhanced Editions",
+  "version": "3.2",
+  "links": {
+    "homepage": "https://github.com/Argent77/A7-LightingPackEE",
+    "download": "https://github.com/Argent77/A7-LightingPackEE/releases/download/v3.2/win-LightingPack-v3.2.zip"
+  },
+  "file": {
+    "filename": "win-LightingPack-v3.2.zip",
+    "size": 2199048,
+    "sha256": "e57e3d90739eeaa8c9eea2a2163fad41598c16e1849ebb619b3e5b98c22f0897"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet", "iwdee", "pstee"],
+  "categories": ["cosm"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1", "2", "3", "4", "5", "7", "8", "9", "12", "13", "14", "16", "17", "18", "19", "20", "21"]},
+    "choice_1": {"type": "muc", "components": ["10", "11", "15"]},
+    "choice_2": {"type": "muc", "components": ["100", "101", "102", "103", "104", "105", "106", "107", "108"]},
+    "choice_3": {"type": "muc", "components": ["200", "201", "202", "203"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "choice_0": "Shader script files for lighting control",
+        "0": "Neutral settings for contrast, brightness and gamma",
+        "1": "Slightly increased contrast, brightness and gamma",
+        "2": "Moderately increased contrast, brightness and gamma (recommended)",
+        "3": "Greatly increased contrast, brightness and gamma",
+        "4": "Slightly reduced contrast, brightness and gamma",
+        "5": "Moderately reduced contrast, brightness and gamma",
+        "6": "Slightly increased contrast",
+        "7": "Moderately increased contrast",
+        "8": "Greatly increased contrast",
+        "9": "Slightly reduced contrast",
+        "10": "Moderately reduced contrast",
+        "11": "Slightly increased brightness",
+        "12": "Moderately increased brightness",
+        "13": "Greatly increased brightness",
+        "14": "Slightly reduced brightness",
+        "15": "Moderately reduced brightness",
+        "16": "Slightly increased gamma",
+        "17": "Moderately increased gamma",
+        "18": "Greatly increased gamma",
+        "19": "Slightly reduced gamma",
+        "20": "Moderately reduced gamma",
+        "21": "Enter lighting values manually",
+        "choice_1": "Modify Color Temperature",
+        "100": "Apply preset \"Arctic blue\" (15,000 Kelvin)",
+        "101": "Apply preset \"Overcast sky\" (7,500 Kelvin)",
+        "102": "Apply preset \"Daylight (neutral)\" (6,500 Kelvin)",
+        "103": "Apply preset \"Sunlight\" (5,500 Kelvin)",
+        "104": "Apply preset \"Moonlight\" (4,200 Kelvin)",
+        "105": "Apply preset \"Sunset\" (3,500 Kelvin)",
+        "106": "Apply preset \"Lightbulb\" (2,800 Kelvin)",
+        "107": "Apply preset \"Candlelight\" (1,900 Kelvin)",
+        "108": "Enter value for color temperature manually",
+        "choice_2": "Advanced settings: Modify Hue/Saturation/Lightness",
+        "200": "Enter value for hue manually",
+        "201": "Enter value for saturation manually",
+        "202": "Enter value for lightness manually",
+        "203": "Enter values for hue, saturation, lightness"
+      },
+      "description": "This mod corrects the lack of brightness adjustment in BG:EE and BG2:EE. It offers some twenty presets from which to choose. Simply reinstall the mod to choose another. The mod's [readme](https://argent77.github.io/A7-LightingPackEE/index.html) also indicates which files to modify in order to adjust the setting to your liking after installation."
+    },
+    "fr_FR": {
+      "description": "Ce mod vise à corriger l'absence de réglage de la luminosité dans BG:EE et BG2:EE. Il propose une vingtaine de pré-réglages parmi lesquels il faudra en choisir un. Il suffit de réinstaller le mod pour en choisir un autre. Le [readme du mod](https://argent77.github.io/A7-LightingPackEE/index.html) indique aussi quels fichiers modifier pour ajuster le réglage à sa guise après installation.",
+      "components": {
+        "choice_0": "Fichiers de script de shader pour le contrôle de l'éclairage",
+        "0": "Paramètres neutres pour le contraste, la luminosité et le gamma",
+        "1": "Contraste, luminosité et gamma légèrement augmentés",
+        "2": "Contraste, luminosité et gamma modérément augmentés (recommandé)",
+        "3": "Contraste, luminosité et gamma fortement augmentés",
+        "4": "Contraste, luminosité et gamma légèrement réduits",
+        "5": "Contraste, luminosité et gamma modérément réduits",
+        "7": "Contraste modérément augmenté",
+        "8": "Contraste fortement augmenté",
+        "9": "Contraste légèrement réduit",
+        "choice_1": "Fichiers de scripts de shader pour le contrôle de l'éclairage",
+        "10": "Contraste modérément réduit",
+        "11": "Luminosité légèrement augmentée",
+        "choice_2": "Fichiers de script de shader pour le contrôle de l'éclairage",
+        "12": "Luminosité modérément augmentée",
+        "13": "Luminosité fortement augmentée",
+        "14": "Luminosité légèrement réduite",
+        "choice_3": "Fichiers de scripts de shader pour le contrôle de l'éclairage",
+        "15": "Luminosité modérément réduite",
+        "choice_4": "Fichiers de script de shader pour le contrôle de l'éclairage",
+        "16": "Gamma légèrement augmenté",
+        "17": "Gamma modérément augmenté",
+        "18": "Gamma fortement augmenté",
+        "19": "Gamma légèrement réduit",
+        "20": "Gamma modérément réduit",
+        "21": "Entrer manuellement les valeurs d'éclairage",
+        "choice_5": "Modifier la température des couleurs",
+        "100": "Appliquer le préréglage « Bleu arctique » (15 000 Kelvin)",
+        "101": "Appliquer le préréglage « Ciel couvert » (7 500 Kelvin)",
+        "102": "Appliquer le préréglage « Lumière du jour (neutre) » (6 500 kelvins)",
+        "103": "Appliquer le préréglage « Lumière du soleil » (5 500 Kelvin)",
+        "104": "Appliquer le préréglage « Clair de lune » (4 200 Kelvin)",
+        "105": "Appliquer le préréglage « Coucher de soleil » (3 500 Kelvin)",
+        "106": "Appliquer le préréglage « Ampoule » (2 800 Kelvin)",
+        "107": "Appliquer le préréglage « Lumière de bougie » (1 900 Kelvin)",
+        "108": "Entrer manuellement la valeur de la température des couleurs",
+        "choice_6": "Paramètres avancés : Modifier Teinte/Saturation/Luminosité",
+        "200": "Entrer manuellement la valeur de la teinte",
+        "201": "Entrer manuellement la valeur de la saturation",
+        "202": "Entrer manuellement la valeur de la luminosité",
+        "203": "Entrer manuellement les valeurs de la teinte, la saturation et la luminosité"
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组旨在解决博德之门增强版和博德之门2增强版中缺少亮度调节的问题。它提供了二十多种预设，您需要选择其中一种。只需重新安装模组即可选择另一个。该[模组readme](https://argent77.github.io/A7-LightingPackEE/index.html)还说明了安装后如何修改文件以根据自己的喜好调整设置。"
+    }
+  },
+  "tp2": "lightingpack",
+  "safe": 2,
+  "authors": ["Argent77"]
+}

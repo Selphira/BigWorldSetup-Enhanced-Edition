@@ -1,0 +1,49 @@
+{
+  "name": "Eilistraee's Song",
+  "version": "7.5.1",
+  "links": {
+    "homepage": "https://downloads.weaselmods.net/download/eilistraees-song/",
+    "download": "https://downloads.weaselmods.net/download/eilistraees-song/?wpdmdl=89"
+  },
+  "file": {
+    "filename": "Eilistraees-Song-v7.5.1.zip",
+    "size": 19090887,
+    "sha256": "5c71af045d745903b0c0c6b780c7b159e2f353b9ad1137003727caf7de308db6"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "ru_RU": 2,
+    "de_DE": 3
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "choice_0": "Eilistraee's Song",
+        "0": "Oui, mais sans corriger les sauvegardes de jeu existantes",
+        "1": "Oui, et corriger les sauvegardes de jeu existantes"
+      },
+      "description": "A quest mod for BG2, which triggers if you decide to spare Solaufein's life and let him escape from Ust Natha. He'll thank you after your escape from Ust Natha, and tell you about a new location, where you can ask for help in getting your soul back... The mod includes 6 new areas, 21 new items and obviously some new quests - it's up to you if you want to complete them or focus on the main quests and getting your soul back."
+    },
+    "fr_FR": {
+      "description": "Un mod de quête pour BG2, qui se déclenche si vous décidez d'épargner la vie de Solaufein et de le laisser s'enfuir d'Ust Natha. Il vous remerciera après votre évasion d'Ust Natha, et vous parlera d'un nouvel endroit, où vous pourrez demander de l'aide afin de récupérer votre âme... Le mod inclut 6 nouvelles cartes, 21 nouveaux objets et bien entendu de nouvelles quêtes secondaires en marge de celle de votre âme.",
+      "components": {
+        "choice_0": "Eilistraee's Song",
+        "0": "Oui, mais sans corriger les sauvegardes de jeu existantes",
+        "1": "Oui, et corriger les sauvegardes de jeu existantes"
+      }
+    },
+    "ru_RU": {"components": {"choice_0": "Eilistraee's Song", "0": "Oui, mais sans corriger les sauvegardes de jeu existantes", "1": "Oui, et corriger les sauvegardes de jeu existantes"}},
+    "zh_CN": {
+      "description": "这是一个博德之门2的任务模组，如果你决定放过索劳纷并让他逃离乌斯特那萨，它就会被触发。在你逃离乌斯特那萨后，他会向你表示感谢，并会告诉你一个新地方，在那里你可以寻求帮助以找回你的灵魂……这个模组包含6张新地图、21个新物品，当然还有围绕你灵魂主线任务的新支线任务。"
+    }
+  },
+  "tp2": "eilistraee",
+  "safe": 2,
+  "authors": ["Lava Del'Vortel"]
+}

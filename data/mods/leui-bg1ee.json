@@ -1,0 +1,43 @@
+{
+  "name": "lefreut's Enhanced UI (BG1EE skin)",
+  "version": "4.9.1",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/30827-ui-lefreuts-enhanced-ui-bgee-sod-bg2ee-and-eet/",
+    "download": "https://github.com/r-e-d/LeUI-BG1EE/releases/download/v4.9.1/lefreuts-enhanced-ui-bg1ee-skin-4.9.1.zip"
+  },
+  "file": {
+    "filename": "lefreuts-enhanced-ui-bg1ee-skin-4.9.1.zip",
+    "size": 24597404,
+    "sha256": "dd429a7c195a80ace9092522ed9cb82899d20c2a1bc39a94de88ca4c64cc99a6"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet"],
+  "categories": ["ui"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "lefreut's Enhanced UI (BG1EE skin) - Core component",
+        "1": "lefreut's Enhanced UI (BG1EE skin) - BG2 vanilla bams for spells",
+        "2": "lefreut's Enhanced UI (BG1EE skin) - BG2 vanilla fonts for descriptions"
+      },
+      "description": "This mod lets you play the entire EE saga with the same interface. It's the same as BG:EE, with a number of ergonomic improvements."
+    },
+    "fr_FR": {
+      "description": "Ce mod permet de jouer toute la saga des jeux EE avec la même interface. Il s'agit de celle de BG:EE passablement améliorée par un certain nombre de modifications d'ergonomie."
+    },
+    "zh_CN": {
+      "description": "这个模组允许你使用相同的界面游玩整个EE游戏系列。这个界面是博德之门：增强版经过大量人体工程学改进后的版本。"
+    }
+  },
+  "tp2": "leui-bg1ee",
+  "safe": 2,
+  "authors": ["lefreut"]
+}

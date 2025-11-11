@@ -1,0 +1,44 @@
+{
+  "name": "The Sword of Noober",
+  "version": "2.1.0",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/36038-the-sword-of-noober/",
+    "download": "https://github.com/Spellhold-Studios/Sword-of-Noober/releases/download/v2.1.1/the-sword-of-noober-2.1.1.zip"
+  },
+  "file": {
+    "filename": "the-sword-of-noober-2.1.1.zip",
+    "size": 4813925,
+    "sha256": "2a454f03f51f5cedd15a897e2054479bdfa462b7df927ef9a1d8330f6c5661f5"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["spell"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "ru_RU": 2
+  },
+  "translations": {
+    "en_US": {
+      "description": "If you're a fan of Lilarcor, this wacky mod is for you. It adds a new sword of immeasurable power, totally useless, as talkative as a magpie, and whose humor is... er... well, it's Neeber.",
+      "components": {
+        "0": "The Sword of Noober"
+      }
+    },
+    "fr_FR": {
+      "description": "Si vous êtes fan de Lilarcor, ce mod tout ce qu'il y a de plus farfelu est pour vous. Il ajoute une nouvelle épée au pouvoir incommensurable, totalement inutile, aussi bavarde qu'une pie, et dont l'humour est... euh... ben c'est du Neeber.",
+      "components": {
+        "0": "L'epee de Noober"
+      }
+    },
+    "ru_RU": {"components": {"0": "The Sword of Noober"}},
+    "zh_CN": {
+      "description": "如果你喜欢莉拉科尔，这个最古怪的模组就是为你准备的。它添加了一把拥有无与伦比力量、完全无用、像喜鹊一样喋喋不休的剑，而且它的幽默感……呃……那就是尼伯风格。"
+    }
+  },
+  "tp2": "tnoober",
+  "safe": 2,
+  "authors": ["Pex657", "Kerintok"]
+}

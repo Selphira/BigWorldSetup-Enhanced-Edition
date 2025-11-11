@@ -1,0 +1,44 @@
+{
+  "name": "Mazzy Friendship",
+  "version": "3.5",
+  "links": {
+    "homepage": "https://github.com/Spellhold-Studios/Mazzy-Friendship",
+    "download": "https://github.com/Spellhold-Studios/Mazzy-Friendship/releases/download/v3.5/mazzy-friendship-v3.5.zip"
+  },
+  "file": {
+    "filename": "mazzy-friendship-v3.5.zip",
+    "size": 2845780,
+    "sha256": "1e8bb8f4732f79a1c9a09e3ace08a55e72c762b0dfc1c9bc2dcb791ab24a1df3"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "de_DE": 2,
+    "zh_CN": 3
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds a series of dialogues for any eligible PJ, allowing you to learn more about, and befriend, the valiant little person. Mazzy isn't the most talkative woman in the world, but she certainly has her opinions and will state them if she sees fit - likewise, if she has any questions, she won't hesitate to ask.",
+      "components": {
+        "0": "Mazzy Friendship"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute une série de dialogues pour tout PJ éligible, qui vous permettront d'en apprendre plus sur la vaillante petite-personne, et de vous lier d'amitié avec elle. Mazzy n'est pas la femme la plus bavarde au monde, mais elle a certainement ses avis et les énoncera si elle le juge opportun - de même, si elle a des questions, elle n'hésitera pas à les poser.",
+      "components": {
+        "0": "Mazzy Friendship"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组为所有符合条件的玩家角色（无论男女）添加了一系列对话，让你能更深入地了解这位勇敢的半身人，并与她建立友谊。玛兹不是个健谈的女人，但她有自己的见解，并会在适当时机表达出来——同样，如果她有问题，也会毫不犹豫地提出来。"
+    }
+  },
+  "tp2": "mazzy",
+  "safe": 2,
+  "authors": ["K'aeloree", "Lava Del'Vortel"]
+}

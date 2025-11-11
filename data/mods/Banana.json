@@ -1,0 +1,38 @@
+{
+  "name": "Banana! NPC Mod",
+  "version": "2",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/12947-banana-npc-mod-released/",
+    "download": "https://github.com/Plutonium-X/1D_NPC_Banana/releases/download/v2/win-Banana.zip"
+  },
+  "file": {
+    "filename": "win-Banana.zip",
+    "size": 6991292,
+    "sha256": "1577b33c6b52bacb7e1104e304d45dac122f80b5cc715d8cfefdf4d2653bb6c2"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc1d"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod ajoute une banane guerrière/mage/voleuse à l'entrée de la Couronne de cuivre.|FOR 18/00, DEX 18, CON 18, INT 18, SAG 18, CHA 18. Reçoit le double dégâts contondants.",
+      "components": {
+        "0": "Banana ! pour l'ordinateur ! (contenu retardé : c'est un mod sérieux pour des gens sérieux)"
+      }
+    },
+    "en_US": {
+      "description": "This mod adds a fighter/mage/thief banana to the Copper Coronet entrance.|STR 18/00, DEX 18, CON 18, INT 18, WIS 18, CHA 18. Receives double crushing damage."
+    },
+    "zh_CN": {
+      "description": "<french>Ce mod ajoute une banane guerrière/mage/voleuse à l'entrée de la Couronne de cuivre.|FOR 18/00, DEX 18, CON 18, INT 18, SAG 18, CHA 18. Reçoit le double dégâts contondants.</french>\n此模组在铜冠旅店入口处添加了一个战士/法师/盗贼香蕉。|力量 18/00，敏捷 18，体质 18，智力 18，智慧 18，魅力 18。获得双倍钝器伤害。"
+    }
+  },
+  "tp2": "banana",
+  "safe": 2,
+  "authors": ["Noctalys", "theacefes"]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "D2 Misc kits",
+  "version": "3.8",
+  "links": {
+    "homepage": "https://github.com/D2-mods/Misc-kits/",
+    "download": "https://github.com/D2-mods/Misc-kits/releases/download/v3.8/d2-misc-kits-v3.8-windows-x64.zip"
+  },
+  "file": {
+    "filename": "d2-misc-kits-v3.8-windows-x64.zip",
+    "size": 3149303,
+    "sha256": "f443ce70d22f92d8122070ee65e562001c8bbe9755110f14b522659b205d5ecc"
+  },
+  "games": ["bg2", "tutu", "bgee", "bg2ee", "sod", "eet", "iwd", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "9999": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["20", "21"]},
+    "30": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Mod contenant 3 kits :||- Kensaizerker (Kit de guerrier) - EE et BG2o|- Adepte de l'épée (Kit de moine) - EE uniquement|- Bouffon cinglant (Kit de barde) - EE et BG2o||Fichier \"config.ini\" présent dans le répertoire du mod :|Mettez la valeur d'un kit à = 0 pour ne pas l'installer",
+      "components": {
+        "9999": "Installer divers kits créés par Dan_P. \"Kensaizerker, Adepte de l'épée et Bouffon cinglant\"",
+        "choice_0": "Choisir la version de la capacité Enragé du Kensaizerker (peut être réinstalle à n'importe quel moment selon vos préférences)",
+        "20": "Version par défaut, cette option s'assure que Enragé garde les effets du jeu de base équivalent à la Furie, pour les Enhanced Editions cette capacité est réutilisable tout en supplantant les anciens effets",
+        "21": "Cette version d'Enragé clone le fichier SPCL321.spl (Furie) avec toutes les modifications qui auraient pu être apportés par d'autres mods à cette capacité (ex : Les révisons faites par Talents of Faerûn).",
+        "30": "Kit Updater : HLAs, Compétences, compatibilité. (Peut être installé en toute sécurité en fin d'installation et réinstallé à tout moment.)"
+      }
+    },
+    "en_US": {
+      "description": "Mod contains 3 kits:||- Kensaizerker (Fighter Kit) - EE and BG2o|- Monastery Swordsman (Monk Kit) - EE only|- JesterBlade (Bard Kit) - EE and BG2o|||\"config.ini\" file in mod directory:|Set a kit value to = 0 to avoid installing it"
+    },
+    "zh_CN": {
+      "description": "这个模组包含3个宗派：||- 剑狂战士（战士宗派）- 增强版和博德之门2o|- 剑之 adept（武僧宗派）- 仅增强版|- 尖锐小丑（吟游诗人宗派）- 增强版和博德之门2o||模组目录中存在“config.ini”文件：|将某个宗派的值设为 = 0 即可不安装该宗派"
+    }
+  },
+  "tp2": "d2-randomkits",
+  "safe": 2,
+  "authors": ["Dan_P"]
+}

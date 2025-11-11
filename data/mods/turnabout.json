@@ -1,0 +1,45 @@
+{
+  "name": "Turnabout",
+  "version": "1.8",
+  "links": {
+    "homepage": "https://www.pocketplane.net/turnabout/",
+    "download": "https://github.com/Pocket-Plane-Group/Turnabout/releases/download/v1.8/win-turnabout-v1.8.zip"
+  },
+  "file": {
+    "filename": "win-turnabout-v1.8.zip",
+    "size": 9295982,
+    "sha256": "79a2c47ef4b96f356e2fe4b230054edcb40867617d17078abf220968df493468"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "With this mod, you can summon former allies who fell in the final battle for the throne (Dynaheir, Tiax, Khalid, Xzar, Yoshimo). You can even call your adoptive mother or father to your side.",
+      "components": {
+        "0": "Ascension: Turnabout",
+        "1": "Balthazar Epilogue Portrait, by Cliffette"
+      }
+    },
+    "fr_FR": {
+      "description": "Grâce à ce mod, vous pouvez invoquer d'anciens alliés tombés au champ d'honneur dans la lutte finale du trône (Dynaheir, Tiax, Khalid, Xzar, Yoshimo). Vous pouvez même rappeler à vos côtés votre mère ou votre père adoptif.",
+      "components": {
+        "0": "Ascension : Turnabout",
+        "1": "Portrait de l'Epilogue de Balthazar, par Cliffette"
+      }
+    },
+    "zh_CN": {
+      "description": "有了这个模组，你可以在王座最终之战中召唤那些在战场上牺牲的老盟友（戴娜黑、提亚斯、卡立德、萨尔、善最）。你甚至可以把你养父或养母召回你身边。"
+    }
+  },
+  "tp2": "turnabout",
+  "safe": 2,
+  "authors": ["Multiple"]
+}

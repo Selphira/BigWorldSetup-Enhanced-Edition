@@ -1,0 +1,33 @@
+{
+  "name": "WeiDU-FileChangelog",
+  "version": "GitHub Master branch",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/41036-faq-for-the-megamods/#entry504049",
+    "download": "https://github.com/BiGWorldProject/WeiDU-FileChangelog/archive/master.zip"
+  },
+  "file": {
+    "filename": "WeiDU-FileChangelog-master.zip",
+    "size": 1314843,
+    "sha256": "94c287cf77c435b41e299e6ebc98f12236420b01e66000dbff0406888f874e50"
+  },
+  "games": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "pst", "pstee", "iwd", "iwd2", "iwdee"],
+  "categories": ["util"],
+  "components": {
+    "0": {"type": "dwn"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "description": "WeiDU-FileChangelog will shows which mod altered specified file",
+      "components": {
+        "0": "WeiDU-FileChangelog"
+      }
+    }
+  },
+  "tp2": "",
+  "safe": 2,
+  "authors": []
+}

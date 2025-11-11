@@ -1,0 +1,46 @@
+{
+  "name": "NPCs Enhanced... um, for Everyone!",
+  "version": "6.5.5",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/27526-npc_ee-new-class-and-kit-options-for-bgee-and-bg2ee-npcs/",
+    "download": "https://github.com/UnearthedArcana/NPC_EE/archive/refs/tags/6.5.5.zip"
+  },
+  "file": {
+    "filename": "NPC_EE-6.5.5.zip",
+    "size": 3267165,
+    "sha256": "b89d1d746be339d5190a0cb9bcc16d7cde5a578cd8f2b833cfbd9dbedaba3779"
+  },
+  "games": ["bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["npcx"],
+  "components": {
+    "1010": {"type": "std"},
+    "1020": {"type": "std"},
+    "1030": {"type": "std"},
+    "1200": {"type": "std"},
+    "2000": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod se veut le successeur du fantastique mod Level One NPCs qui n'a jamais été mis à jour pour les jeux EE, son auteur n'étant plus actif. Il offre des choix de classe et de profils pour tous les personnages recrutables. Pour chacun le choix est limité à ce qui paraissait pertinent à l'auteur, mais il inclut également des profils des mods The Divine Remix, Song and Silence: A Mod for Bards and Thieves, ou encore Scales of Balance (du même auteur), à condition qu'ils soient installés avant. Il est donc conseillé de l'installer parmi les tout derniers mods.|Il n'est donc pas aussi complet et flexible que L1NPCs, mais il y a un avantage majeur : vous pouvez changer les profils de chaque PNJ grâce à une capacité spéciale innée que vous pouvez utiliser en jeu. Cette capacité est à usage unique, alors choisissez bien ! Elle déclenche un dialogue qui vous donnera la possibilité d'adopter n'importe quel kit pour cette classe... Cela inclut tous les kits de mods que vous avez pu installer. Faites de Minsc un guerrier dans l'installation WeiDU, puis utilisez cette capacité pour en faire un Barbare ! (Barbare est en fait, techniquement, un kit de guerrier).",
+      "components": {
+        "1010": "Retirer l'indicateur de classe jumelee pour Imoen (attention, lire le fichier Readme)",
+        "1020": "Retirer l'indicateur de classe jumelee pour Nalia (attention, lire le fichier Readme)",
+        "1030": "Retirer l'indicateur de classe jumelee pour Anomen (attention, lire le fichier Readme)",
+        "1200": "Retirer l'indicateur de classe jumelee pour tous les autres PNJ (attention, lire le fichier Readme)",
+        "2000": "Choix des classes/caracteristiques/kits des PNJ"
+      }
+    },
+    "en_US": {
+      "description": "This is intended to be a successor to the fantastic Level One NPCs mod, which was never updated for EE games as its author is no longer active. It offers class and profile choices for all recruitable characters. For each, the choice is limited to what the author felt was relevant, but it also includes profiles from the mods The Divine Remix, Song and Silence: A Mod for Bards and Thieves, or Scales of Balance (by the same author), provided they are installed first. It's not as complete and flexible as L1NPCs, but it does have one major advantage: you can change the profiles of each NPC thanks to an innate special ability you can use in-game. This ability is for one-time use only, so choose wisely! It triggers a dialog that gives you the option of adopting any kit for that class... This includes any mod installation you may have done. Make Minsc a fighter in the WeiDU installation, then use this ability to make him a Barbarian! (Barbarian is in fact, technically, a fighter kit)."
+    },
+    "zh_CN": {
+      "description": "这个模组旨在成为神奇模组Level One NPCs的继承者，该模组从未为EE游戏更新过，因为其作者已不再活跃。它为所有可招募角色提供了职业和职业档案的选择。对于每个角色，选择都限于作者认为合适的内容，但它也包含了来自The Divine Remix、Song and Silence: A Mod for Bards and Thieves或Scales of Balance（同一作者）的模组职业档案，前提是这些模组已提前安装。因此，建议您在所有模组中最后安装它。因此，它不像L1NPCs那样全面和灵活，但有一个主要优点：您可以通过一个特殊的、可在游戏中使用的内在能力来改变每个NPC的职业档案。这个能力只能使用一次，所以要谨慎选择！它会触发一个对话，让您有机会为这个职业选择任何宗派……这包括您可能安装的所有模组宗派。在WeiDU安装中将明斯克设为战士，然后使用这个能力让他变成野蛮人！（野蛮人实际上，从技术上讲，是一个战士宗派）。"
+    }
+  },
+  "tp2": "npc_ee",
+  "safe": 2,
+  "authors": ["Subtledoctor"]
+}

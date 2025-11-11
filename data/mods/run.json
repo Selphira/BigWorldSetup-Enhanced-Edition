@@ -1,0 +1,38 @@
+{
+  "name": "Chantelame Runique (Guerrier elfe)",
+  "version": "3",
+  "links": {
+    "homepage": "https://github.com/Plutonium-X/KIT_Runic",
+    "download": "https://github.com/Plutonium-X/KIT_Runic/releases/download/v3/win-Run.zip"
+  },
+  "file": {
+    "filename": "win-Run.zip",
+    "size": 1282528,
+    "sha256": "fcfbf10212ef8b8a8e76ff76969a51101167f2bd8f2b5d73468261816ca2fc9c"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 3
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Runiczny Pieśniarz Klingi, de son vrai nom, ce mod installe un kit de guerrier appelé Chantelame runique, uniquement pour les guerriers elfes. Il acquiert au fil des niveaux la capacité de lancer des mots de pouvoir.",
+      "components": {
+        "0": "Chantelame runique"
+      }
+    },
+    "en_US": {
+      "description": "This mod installs the Chantelame runic kit, only for elven fighters. It gives them the power of magic words."
+    },
+    "zh_CN": {
+      "description": "Runiczny Pieśniarz Klingi，真名，此模组安装了一个名为“符文剑歌者”的战士宗派，仅限精灵族战士。随着等级提升，他获得施展法术位的能力。"
+    }
+  },
+  "tp2": "run",
+  "safe": 2,
+  "authors": ["Riklaunim"]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Chatty Imoen",
+  "version": "1.5",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/51443/chatty-imoen/p1",
+    "download": "https://github.com/The-Gate-Project/ChattyImoen/releases/download/v1.5/chatty-imoen-1.5.zip"
+  },
+  "file": {
+    "filename": "chatty-imoen-1.5.zip",
+    "size": 9041560,
+    "sha256": "ba56d300dd503099f913afa7c7e404c66d8a08ba15fbb6dccc8a120f7a888ac1"
+  },
+  "games": ["bg", "tutu", "bgt", "bgee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"},
+    "10": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "Imoen was a late addition to the original Baldur's Gate. Unfortunately, this means she has no dialog or interaction with other characters. Her audio cues are also limited. This mod adds audio cues to Imoen, drawing on BG1 and BG2 files, as well as dialogues with other recruitable characters.",
+      "components": {
+        "0": "Chatty Imoen: Expanded Character Sounds",
+        "10": "Chatty Imoen: Add NPC Interactions"
+      }
+    },
+    "fr_FR": {
+      "description": "Imoen a été ajoutée tardivement dans le Baldur's Gate originel. Malheureusement, cela signifie qu'elle n'a pas de dialogue ou d'interaction avec les autres personnages. Ses répliques audio sont également limitées. Ce mod ajoute à Imoen des répliques audio en piochant dans les fichiers de BG1 et de BG2, ainsi que des dialogues avec les autres personnages recrutables.",
+      "components": {
+        "0": "Chatty Imoen : Repliques audio supplementaires",
+        "10": "Chatty Imoen : Interactions supplementaires avec les autres personnages"
+      }
+    },
+    "zh_CN": {
+      "description": "爱蒙在最初的博德之门中是后期加入的。不幸的是，这意味着她没有与其他角色的对话或互动。她的语音台词也很有限。这个模组通过从博德之门1和博德之门2的文件中提取，为爱蒙添加了语音台词，以及与其他可招募角色的对话。"
+    }
+  },
+  "tp2": "chattyimoen",
+  "safe": 2,
+  "authors": ["AstroBryGuy"]
+}

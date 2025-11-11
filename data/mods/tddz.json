@@ -1,0 +1,57 @@
+{
+  "name": "The Darkest Day (EE-compatible)",
+  "version": "1.3.1",
+  "links": {
+    "homepage": "https://baldursgate.fandom.com/wiki/The_Darkest_Day",
+    "download": "https://github.com/Spellhold-Studios/TDDz/archive/refs/tags/v1.3.1.zip"
+  },
+  "file": {
+    "filename": "TDDz-1.3.1.zip",
+    "size": 125896221,
+    "sha256": "385b6a7cf4f0672436225b5bd0273734e49eb9a6adfd6acd04ee199de37feda4"
+  },
+  "games": ["bg2ee", "eet"],
+  "categories": ["quest", "spell", "kit"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "ru_RU": 1,
+    "de_DE": 3,
+    "fr_FR": 4,
+    "it_IT": 5,
+    "es_ES": 6
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce gigantesque add-on ajoute 10 nouveaux PNJ (certains provenant de BG1), 180 nouveaux objets, 170 nouveaux sorts, une 40aine de créatures supplémentaires, 78 nouveaux kits, 5 grandes quêtes et une quête gigantesque. Vous devez disposer d'une installation avec Throne of Bhaal.",
+      "components": {
+        "0": "TDD - Core",
+        "1": "TDD - Gué du troll",
+        "2": "TDD - Eshpurta",
+        "3": "TDD - Purskal",
+        "4": "TDD - Riatavin",
+        "5": "TDD - L'Avènement du Jour le plus Sombre",
+        "6": "TDD - Robilard",
+        "7": "Utiliser les zones de Baldur's Gate Graphical Overhaul pour TDDZ"
+      }
+    },
+    "en_US": {
+      "description": "This gigantic add-on adds 10 new NPCs (some from BG1), 180 new items, 170 new spells, some 40 additional creatures, 78 new kits, 5 major quests and a gigantic quest. You need to have Throne of Bhaal installed."
+    },
+    "zh_CN": {
+      "description": "这个大型扩展包新增了10个新角色（部分来自博德之门1）、180件新物品、170个新法术、40多种新生物、78个新宗派、5个大型任务和一个巨型任务。你必须安装有巴尔王座。"
+    }
+  },
+  "tp2": "tddz",
+  "safe": 2,
+  "authors": ["shadowlich", "Max Schnur", "Horred the Plague", "Hoppy", "Minto", "King Diamond"]
+}

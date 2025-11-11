@@ -1,0 +1,53 @@
+{
+  "name": "Haiass el Lobo",
+  "version": "2.4",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/40623-haiass/",
+    "download": "https://github.com/Endarire/Haiass-el-Lobo-for-EET/releases/download/2.4/haiass_v2_4.zip"
+  },
+  "file": {
+    "filename": "haiass_v2_4.zip",
+    "size": 4199093,
+    "sha256": "04a1c81034a436bcb110e6bdae6a7e16e30028a144e88e9b1292546a0a5b961b"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "eet"],
+  "categories": ["npc1d"],
+  "components": {
+    "0": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["10", "15"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "es_ES": 1,
+    "de_DE": 2,
+    "fr_FR": 3,
+    "ru_RU": 4
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds a wolf, your faithful companion. Depending on your game, you can find Haiass in the Candlekeep inn (BGT), on the Waukeen's Promenade (SoA) or call him in the Pocket Plane (ToB).",
+      "components": {
+        "0": "Haiass the Wolf",
+        "choice_0": "Haiass can be resurrected",
+        "10": "Moderate penalty (Constitution -4 temporarily)",
+        "15": "Tougher penalty (Constitution -4 and level drain temporarily)"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute un loup, votre fidèle compagnon. Selon votre partie, vous pourrez trouver Haiass dans l'auberge de Château-Suif (BGT), sur la promenade de Waukyne (SoA) ou l'appeler dans l'Antichambre (ToB).",
+      "components": {
+        "0": "Haiass le Loup",
+        "choice_0": "Haiass peut être ressuscité",
+        "10": "Pénalisation modérée (-4 Constitution temporairement)",
+        "15": "Pénalisation modérée (-4 Constitution et drainage de niveau temporaire)"
+      }
+    },
+    "ru_RU": {"components": {"0": "Haiass the Wolf", "choice_0": "Haiass can be resurrected", "10": "Moderate penalty (Constitution -4 temporarily)", "15": "Tougher penalty (Constitution -4 and level drain temporarily)"}},
+    "zh_CN": {
+      "description": "此模组添加了一只狼，你忠诚的伙伴。根据你的游戏进程，你可以在友善之臂旅店（博德之门三部曲）、渥金商场（安姆阴影）找到Haiass，或者在门厅（巴尔王座）召唤他。"
+    }
+  },
+  "tp2": "haiass",
+  "safe": 2,
+  "authors": ["Immortality", "Henanigan"]
+}

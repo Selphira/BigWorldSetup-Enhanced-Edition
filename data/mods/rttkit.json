@@ -1,0 +1,98 @@
+{
+  "name": "RTT Kitpack",
+  "version": "1.14",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/51-return-to-trademeet-kit-pack/",
+    "download": "https://github.com/Plutonium-X/KIT_RTT/archive/refs/tags/1.14_EE.zip"
+  },
+  "file": {
+    "filename": "KIT_RTT-1.14_EE.zip",
+    "size": 2373705,
+    "sha256": "f38a9c058d754322a9b225061b9eb86e1fbcfda893cdb1a3e43ecdbc3f7b7d19"
+  },
+  "games": ["bg2", "bgt"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "9": {"type": "std"},
+    "10": {"type": "std"},
+    "11": {"type": "std"},
+    "12": {"type": "std"},
+    "13": {"type": "std"},
+    "14": {"type": "std"},
+    "15": {"type": "std"},
+    "16": {"type": "std"},
+    "17": {"type": "std"},
+    "18": {"type": "std"},
+    "19": {"type": "std"},
+    "20": {"type": "std"},
+    "21": {"type": "std"},
+    "22": {"type": "std"},
+    "23": {"type": "std"},
+    "24": {"type": "std"},
+    "25": {"type": "std"},
+    "26": {"type": "std"},
+    "27": {"type": "std"},
+    "28": {"type": "std"},
+    "29": {"type": "std"},
+    "30": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod rend disponibles 30 profils du module de conversion Return to Trademeet. Quelques exemples ? Allez, c'est parti : Amazone, Gladiateur, Samourai (guerriers), Anti-paladin, Messie et Paladin noir (paladins) ; Gardien du temps et Élémentaliste (rôdeurs) ; Ninja et Chasseur de trésors (voleurs) ; Conteur, Jongleur et Maître des golems (bardes), Druide de l'ombre, et bien d'autres.",
+      "components": {
+        "0": "Amazone",
+        "1": "Gladiateur",
+        "2": "Enquêteur",
+        "3": "Tireur petit-homme",
+        "4": "Samourai",
+        "5": "Tueur de géants",
+        "6": "Anti-paladin",
+        "7": "Chevalier Noir",
+        "8": "Paladin Elfe",
+        "9": "Messie",
+        "10": "Arcane",
+        "11": "Elémental",
+        "12": "Gardien du Temps",
+        "13": "Rodeur ténébreux",
+        "14": "Convertisseur",
+        "15": "Prêtre de Cyric",
+        "16": "Prêtre de Mask",
+        "17": "Prêtre de Mystra",
+        "18": "Prêtre de Tempus",
+        "19": "Druide de l'Ombre",
+        "20": "Gardien de l'Eau",
+        "21": "Gardien du Feu",
+        "22": "Gardien des Vents",
+        "23": "Chasseur de trésor",
+        "24": "Gredin",
+        "25": "Gentilhomme",
+        "26": "Ninja",
+        "27": "Maître des golems",
+        "28": "Jongleur",
+        "29": "Conteur",
+        "30": "Sorts et armes des kits (ce composant est necessaire)"
+      }
+    },
+    "en_US": {
+      "description": "This mod makes 30 kits of the Return to Trademeet conversion module available. A few examples? Here we go: Amazon, Gladiator, Samurai (fighters), Anti-paladin, Messiah and Black Knight (paladins); Time Keeper and Elementalist (rangers); Ninja and Treasure Hunter (thieves); Minstrel, Juggler and Golem Trainer (bards), Dark Druid, and many more."
+    },
+    "zh_CN": {
+      "description": "这个模组提供了Return to Trademeet转换模组中的30种职业。一些例子？来吧，开始了：亚马逊、角斗士、武士（战士）、反圣武士、救世主和黑暗卫士（圣武士）；时间守护者和元素使（游侠）；忍者 and 宝藏猎人（盗贼）；说书人、杂耍师和傀儡大师（吟游诗人）、阴影德鲁伊，等等。"
+    }
+  },
+  "tp2": "rttkit",
+  "safe": 2,
+  "authors": ["al17", "the bigg"]
+}

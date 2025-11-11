@@ -1,0 +1,40 @@
+{
+  "name": "Domains of Dread",
+  "version": "3.5",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/135-domains-of-dread/",
+    "download": "https://github.com/11jo/Domains-of-Dread/releases/download/v3.5/domains-of-dread-v3.5.zip"
+  },
+  "file": {
+    "filename": "domains-of-dread-v3.5.zip",
+    "size": 4198931,
+    "sha256": "eaff4950ff95b1bd08f5395a56b2f80d814e65fadb54a313c618b3cdfb50f6a4"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"},
+    "100": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 4
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod ajoute une nouvelle quête assez difficile : Adressez-vous à la personne complètement folle dans le Marché de l'Aventurier. Il vous posera une demande et votre réponse ouvrira une série de combats assez compliqué. Seuls les survivants recevront la récompense.",
+      "components": {
+        "0": "DofD (Le Domaine de l'Effroi)",
+        "100": "Ajouter un autre moyen, plus simple pour acceder au Domaine de l'Effroi"
+      }
+    },
+    "en_US": {
+      "description": "This mod adds a new, rather difficult quest: Talk to the Utterly Insane Person in the Adventurer Mart. He will tell you a riddle, the answer will lead you to a pack of really tough battles. Those who survive will get the reward."
+    },
+    "zh_CN": {
+      "description": "这个模组添加了一个相当困难的新任务：去冒险者广场找那个完全疯掉的人。他会向你提出一个要求，你的回答将开启一系列相当复杂的战斗。只有幸存者才能获得奖励。"
+    }
+  },
+  "tp2": "dofd",
+  "safe": 2,
+  "authors": ["Badgert"]
+}

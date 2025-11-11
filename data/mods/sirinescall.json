@@ -1,0 +1,51 @@
+{
+  "name": "The Lure of the Sirine's Call",
+  "version": "16.4",
+  "links": {
+    "homepage": "https://www.pocketplane.net/bg1tutu-enhancements/",
+    "download": "https://github.com/Pocket-Plane-Group/Lure_Of_Sirines_Call/releases/download/v16.4/the-lure-of-the-sirines-call-v16.4.zip"
+  },
+  "file": {
+    "filename": "the-lure-of-the-sirines-call-v16.4.zip",
+    "size": 58118093,
+    "sha256": "9a8111ff8e0aec46ae9878a8f712ff8efe0b011f6e59bd80faf4b8ae11ad98c2"
+  },
+  "games": ["bg", "tutu", "bgt", "bgee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "es_ES": 1,
+    "fr_FR": 2,
+    "de_DE": 3,
+    "it_IT": 4,
+    "ru_RU": 6
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "The Lure of the Sirine's Call",
+        "1": "Extended Lighthouse area: Rubble in front of the lighthouse doors are removed"
+      },
+      "description": "Set in the area south of Candlekeep, this mini-mod completes the quest for Sil and the abandoned lighthouse on the Sword Coast. It involves mermaids (as the name suggests), pirates, treasure-filled caves and numerous other perils. Although perfect for a druid, this quest can be played by all classes without losing content."
+    },
+    "fr_FR": {
+      "description": "Ce mini-mod a pour cadre la zone au sud de Château-Suif et complète la quête de Sil et du phare abandonné sur la Côte des Épées. Il implique des sirènes (comme son nom l'indique), des pirates, des grottes remplies de trésors et d'autres nombreux périls. Bien que parfaite pour un druide, cette quête peut être jouée par toutes les classes sans perdre de contenu.",
+      "components": {
+        "0": "Le Chant des Sirènes",
+        "1": "Extended Lighthouse area: Rubble in front of the lighthouse doors are removed"
+      }
+    },
+    "it_IT": {"components": {"0": "Il canto delle Sirene", "1": "Extended Lighthouse area: Rubble in front of the lighthouse doors are removed"}},
+    "ru_RU": {"components": {"0": "The Lure of the Sirine's Call", "1": "Extended Lighthouse area: Rubble in front of the lighthouse doors are removed"}},
+    "zh_CN": {
+      "description": "这个小型模组以烛堡以南的区域为背景，完善了希尔和剑湾海岸上废弃灯塔的任务。它涉及（如其名称所示）的塞壬、海盗、充满宝藏的洞穴以及许多其他危险。虽然非常适合德鲁伊，但这个任务的所有内容都可以由任何职业游玩而不会缺失。"
+    }
+  },
+  "tp2": "sirinescall",
+  "safe": 2,
+  "authors": ["Ghreyfain", "jastey"]
+}

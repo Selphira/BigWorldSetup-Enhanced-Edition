@@ -1,0 +1,38 @@
+{
+  "name": "Spiritwalker - A Shaman Shapeshifter Kit",
+  "version": "1.4",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/1187-spiritwalker-a-shaman-shapeshifter-kit/",
+    "download": "https://github.com/thisisulb/SpiritwalkerKit/archive/refs/heads/master.zip"
+  },
+  "file": {
+    "filename": "SpiritwalkerKit-master.zip",
+    "size": 70163641,
+    "sha256": "b9398b623bed5a484c32731a3bf805ba171554e9ee2aca575f7f549b3d2e0406"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod permet de jouer un nouveau profil de personnage, un chaman métamorphe, le porteur d'esprit, qui entretient un lien plus étroit et plus personnel avec un petit nombre choisi, mais puissants, d'esprits animaux. Quand ils fait appel à ces esprits pendant sa Danse chamanique, il ne leur demande pas de se battre pour eux, mais les invite à intégrer son propre corps pour l'aider à se métamorphoser directement dans la forme de l'esprit animal choisi (yack, tigre et grue).",
+      "components": {
+        "0": "Spiritwalker Shaman Kit"
+      }
+    },
+    "en_US": {
+      "description": "This mod enables a new character profile to be played, a shapeshifting shaman, the spirit bearer, who maintains a closer, more personal bond with a small, select but powerful number of animal spirits. When he calls on these spirits during his Shamanic Dance, he doesn't ask them to fight for him, but invites them into his own body to help him shapeshift directly into the form of the chosen animal spirit (yak, tiger and crane)."
+    },
+    "zh_CN": {
+      "description": "此模组允许您扮演一个新的角色宗派：变形萨满，灵魂携带者，他与少数精选但强大的动物灵魂保持着更紧密、更个人化的联系。当他在萨满之舞中召唤这些灵魂时，他不是要求它们为自己战斗，而是邀请它们融入自己的身体，帮助他直接变形为所选的动物形态（牦牛、老虎和鹤）。"
+    }
+  },
+  "tp2": "spiritwalker",
+  "safe": 2,
+  "authors": ["Ulb"]
+}

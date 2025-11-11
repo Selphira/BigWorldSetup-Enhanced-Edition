@@ -1,0 +1,105 @@
+{
+  "name": "Olvyn Tweaks",
+  "version": "Latest Github release",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/74322/mod-metweaks-version-1-0",
+    "download": "https://github.com/OlvynChuru/Olvyn-Tweaks/archive/master.zip"
+  },
+  "file": {
+    "filename": "Olvyn-Tweaks-master.zip",
+    "size": 992073,
+    "sha256": "145a6ab8307fcc8614829eb2bd87bd72e42cc8284d1a90dbf0b26dbed5fc0a38"
+  },
+  "games": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwd", "iwd2", "iwdee", "pst", "pstee"],
+  "categories": ["gameplay"],
+  "components": {
+    "200": {"type": "std"},
+    "400": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["500", "505", "510"]},
+    "600": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["800", "805", "810"]},
+    "900": {"type": "std"},
+    "1000": {"type": "std"},
+    "1200": {"type": "std"},
+    "1400": {"type": "std"},
+    "1500": {"type": "std"},
+    "1600": {"type": "std"},
+    "1800": {"type": "std"},
+    "2000": {"type": "std"},
+    "2200": {"type": "std"},
+    "2400": {"type": "std"},
+    "2600": {"type": "std"},
+    "2800": {"type": "std"},
+    "3000": {"type": "std"},
+    "3100": {"type": "std"},
+    "3150": {"type": "std"},
+    "choice_2": {"type": "muc", "components": ["3200", "3205", "3210"]},
+    "choice_3": {"type": "muc", "components": ["3400", "3405", "3410", "3415"]},
+    "3600": {"type": "std"},
+    "choice_4": {"type": "muc", "components": ["3800", "3805", "3810", "3815"]},
+    "4000": {"type": "std"},
+    "4200": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod propose une collection de 24 ajustements pour la plupart des jeux EE : diviser le montant total des XP de quêtes par nombre de membres du groupe, supprimer la limite de deux points de compétences martiales à la création du personnage, permettre aux guerriers d'acquérir plus rapidement des points de compétence martiale, permettre aux chamanes de se déplacer quand ils dansent, clercs et moines atteignent le niveau 9 avec seulement 160000 XP, les paladins et les rôdeurs lancent des sorts à leur niveau, utiliser les parchemins maudits contre les ennemis, augmenter la vitesse de déplacement de toutes les créatures, possibilité d'accéder à certaines zones par des passages auparavant interdits, possibilité d'attribuer 5 points dans certains types de combat...",
+      "components": {
+        "200": "Repartir l'experience de quete entre les membres du groupe.",
+        "400": "Supprimer la limite de deux points de competence dans une arme a la creation du personnage.",
+        "choice_0": "Augmenter la vitesse a laquelle les guerriers obtiennent des points de competence.",
+        "500": "Les guerriers obtiennent 1 point tous les 2 niveaux ; les rodeurs et les paladins obtiennent toujours 1 point tous les 3 niveaux.",
+        "505": "Les guerriers, les rodeurs et les paladins obtiennent 1 point tous les 2 niveaux.",
+        "510": "Les guerriers obtiennent 1 point par niveau ; les rodeurs et les paladins obtiennent 1 point tous les 2 niveaux.",
+        "600": "Permettre aux chamans de se deplacer pendant leur danse.",
+        "choice_1": "Faites en sorte que les clercs et/ou les moines n'aient besoin que de 160000 points d'experience pour atteindre le niveau 9.",
+        "800": "Clercs seulement.",
+        "805": "Moines seulement.",
+        "810": "Clercs et moines.",
+        "900": "Permettre aux Rodeurs et aux Paladins de lancer des sorts a leur plein niveau de lanceur de sorts.",
+        "1000": "Donner aux Moines une capacite plus cool de Deflexion des projectiles.",
+        "1200": "Donner aux rodeurs la capacite de Pistage (de Trone de Bhaal) a partir du niveau 1.",
+        "1400": "Ameliorer la capacite de Charmer un animal du Rodeur.",
+        "1500": "Transformez la capacite de Detection du mal du paladin en une capacite passive qui peut etre activee ou desactivee.",
+        "1600": "Augmenter la resistance a la magie du Tueur de magiciens.",
+        "1800": "Le multiplicateur d'attaque sournoise des Assassins s'ameliore plus rapidement.",
+        "2000": "Permettre aux parchemins maudits d'etre utilises sur les ennemis.",
+        "2200": "Faire que les creatures prennent moins de place.",
+        "2400": "Permettre aux ennemis de changer plus rapidement de cible d'attaque.",
+        "2600": "Transitions de zone sans obligation de reunir le groupe.",
+        "2800": "Rendre possible l'entree dans les mines de Nashkel par l'entree arriere de la grotte.",
+        "3000": "Permettre d'entrer dans les catacombes sous Chateausuif plus tot.",
+        "3100": "Faire que les rencontres de Jacil et Wiven ne soient pas remplacees par d'autres quetes.",
+        "3150": "Donner a Belhifet des immunites plus raisonnables.",
+        "choice_2": "Faire que l'Infravision serve a quelque chose.",
+        "3200": "Les creatures sans infravision subissent -4 au TAC0 la nuit ou dans les endroits sombres.",
+        "3205": "Les creatures sans infravision ont une portee visuelle reduite la nuit ou dans les endroits sombres.",
+        "3210": "A la fois 1 et 2.",
+        "choice_3": "Augmenter la vitesse de toutes les creatures du jeu (y compris les membres du groupe).",
+        "3400": "Doubler le taux de deplacement.",
+        "3405": "Tripler le taux de deplacement.",
+        "3410": "Quadrupler le taux de deplacement.",
+        "3415": "Regler le taux de mouvement sur maximum.",
+        "3600": "Implementer un autre type d'animation de mort par eclatement.",
+        "choice_4": "Modifier l'attaque sournoise et l'attaque handicapante.",
+        "3800": "Supprimez le delai avant qu'une creature puisse etre de nouveau attaquee sournoisement.",
+        "3805": "Reduire le delai avant qu'une creature puisse a nouveau etre attaquee sournoisement a 1 round.",
+        "3810": "Supprimer le delai, mais empeche les attaques handicapantes multiples de s'empiler.",
+        "3815": "Reduire le delai a 1 round, mais empeche les attaques handicapantes multiples de s'empiler.",
+        "4000": "Modifier les styles de combat.",
+        "4200": "Remplacer le commentaire \"I'm on it like ugly on an orc\" par \"I'm on it\" (voix en anglais)."
+      }
+    },
+    "en_US": {
+      "description": "This mod offers a collection of 24 adjustments for most EE games: dividing the total amount of quest XP by the number of party members, removing the two-point martial skill limit at character creation, allowing fighters to acquire martial skill points faster, allowing shamans to move when they dance, clerics and monks reach level 9 with only 160000 XP, paladins and lurkers cast spells at their level, use cursed scrolls against enemies, increase the movement speed of all creatures, access certain areas through previously forbidden passages, award 5 points in certain types of combat..."
+    },
+    "zh_CN": {
+      "description": "此模组为大多数EE游戏提供了一套包含24项调整的合集：将任务总经验值按队伍成员数量分配，移除角色创建时最多只能分配2个武术技能点的限制，让战士更快获得武术技能点，允许萨满在施法时移动，牧师和武僧仅需160000经验值即可达到9级，圣武士和游侠按其等级施放法术，使用诅咒卷轴对抗敌人，提高所有生物的移动速度，可以通过之前无法通过的通道进入某些区域，可以在某些类型的战斗中分配5点……"
+    }
+  },
+  "tp2": "metweaks",
+  "safe": 2,
+  "authors": ["Olvyn Churu"]
+}

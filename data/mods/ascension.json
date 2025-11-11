@@ -1,0 +1,103 @@
+{
+  "name": "Ascension",
+  "version": "2.1.0",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/30299-g3-ascension-v20-now-available/",
+    "download": "https://github.com/Gibberlings3/Ascension/releases/download/2.1.0/ascension-2.1.0.zip"
+  },
+  "file": {
+    "filename": "ascension-2.1.0.zip",
+    "size": 7826251,
+    "sha256": "bd0ee14b3770d56104eaa81287c88a8672afa889a35184fb308be12d6d707e77"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest", "tactic"],
+  "components": {
+    "0": {"type": "std"},
+    "10": {"type": "std"},
+    "20": {"type": "std"},
+    "30": {"type": "std"},
+    "40": {"type": "std"},
+    "50": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["60", "61"]},
+    "1000": {"type": "std"},
+    "1100": {"type": "std"},
+    "1200": {"type": "std"},
+    "1300": {"type": "std"},
+    "1400": {"type": "std"},
+    "1500": {"type": "std"},
+    "2000": {"type": "std"},
+    "2100": {"type": "std"},
+    "2200": {"type": "std"},
+    "2300": {"type": "std"},
+    "2400": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "de_DE": 1,
+    "fr_FR": 2,
+    "es_ES": 3,
+    "zh_CN": 4,
+    "ru_RU": 7,
+    "it_IT": 9
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod created by the ToB's main designer, assisted by enthusiasts from an American forum, which was then converted to WeiDU by Weimer, the latter ensuring compatibility. He changes many things in ToB: every battle with Bhaal's children is much more difficult, Bhaal's new powers are included too, Demogorgon has become a fearsome monster once more, and above all there's a completely remodeled final battle. You can enlist either Balthazar or Bodhi to fight Amélissane. Amélissane is a fearsome war machine. At her side, the Hand. Yes, the 5 children of Bhaal (except Balthazar, if you've recruited him), Yaga, Abazigal, Sendai and Illasera, are all here to fight alongside Amelyssane, and at a higher level than their original versions. Before this fight, you'll get a taste of the challenge when you take on Bohdi and Irenicus, who are fully boosted, of course, and will no doubt cause you quite a few problems.",
+      "components": {
+        "0": "Rewritten Final Chapter of Throne ogf Bhaal",
+        "10": "Balthazar can be redeemed",
+        "20": "Improved Sarevok-Player Interactions",
+        "30": "Improved Imoen-Player Interactions in Throne of Bhaal",
+        "40": "Restored Bhaalspawn Powers",
+        "50": "Improved Slayer Transformation",
+        "60": "David Gaider's expanded epilogues for Bioware NPCs",
+        "61": "Alternate epilogues by Shawne",
+        "1000": "Tougher Abazigal",
+        "1100": "Tougher Balthazar",
+        "1200": "Tougher Demogorgon",
+        "1300": "Tougher Gromnir",
+        "1400": "Tougher Illasera",
+        "1500": "Tougher Yaga-Shura",
+        "2000": "Full-body portrait for Bodhi",
+        "2100": "Alternate Balthazar portrait, by Cuv",
+        "2200": "Extended Epilogues for additional Beamdog NPCs, by shawne",
+        "2300": "Sharper portraits of Abazigal and Gromnir for the Enhanced Edition, by DavidW",
+        "2400": "Slightly improved cutscenes, by DavidW"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod créé par le principal concepteur de ToB, assisté de passionnés d'un forum américain, qui a été ensuite converti en WeiDU par Weimer, ce dernier assurant la compatibilité. Il change beaucoup de choses dans ToB : chaque combat avec les enfants de Bhaal est bien plus difficile, les nouveaux pouvoirs de Bhaal sont inclus également, Demogorgon est redevenu un monstre redoutable, et on y trouve surtout un combat final complètement remodelé. Vous pourrez enrôler soit Balthazar, soit Bodhi pour combattre Amélissane. Celle-ci sera une machine de guerre, redoutable. A ses côtés, la Main. Oui, les 5 enfants de Bhaal (excepté Balthazar si vous l'avez recruté), Yaga, Abazigal, Sendai, Illasera, tous sont là pour combattre aux côtés d'Amelyssane, et de niveau supérieur à leur version originelle. À noter qu'avant ce combat, vous aurez un avant-goût du défi en combattant Bohdi et Irenicus, complètement boostés évidement, et qui vous poseront pas mal de problèmes sans doute.",
+      "components": {
+        "0": "Reecriture du chapitre final de Throne of Bhaal",
+        "10": "Balthazar peut etre rachete",
+        "20": "Interactions entre Sarevok et le joueur ameliorees",
+        "30": "Interactions entre Imoen et le joueur ameliorees dans Throne of Bhaal",
+        "40": "Pouvoirs de l'enfant de Bhaal restaures",
+        "50": "Transformation en Ecorcheur amelioree",
+        "choice_0": "Epilogues etendus pour les PNJ de Bioware",
+        "60": "Epilogues etendus de David Gaider pour les PNJ de Bioware",
+        "61": "Epilogues alternatifs, par Shawne",
+        "1000": "Combat d'Abazigal plus difficile",
+        "1100": "Combat de Balthazar plus difficile",
+        "1200": "Combat de Demogorgon plus difficile",
+        "1300": "Combat de Gromnir plus difficile",
+        "1400": "Combat d'Illasera plus difficile",
+        "1500": "Combat de Yaga-Shura plus difficile",
+        "2000": "Portrait complet de Bodhi (incluant son corps)",
+        "2100": "Portrait alternatif de Balthazar, par Cuv",
+        "2200": "Epilogues etendus pour les PNJ additionnels de Beamdog, par shawne",
+        "2300": "Portraits plus nets d'Abazigal et de Gromnir pour l'Enhanced Edition, par DavidW",
+        "2400": "Cinematiques legerement ameliorees, par DavidW"
+      }
+    },
+    "ru_RU": {"components": {"0": "Rewritten Final Chapter of Throne ogf Bhaal", "10": "Balthazar can be redeemed", "20": "Improved Sarevok-Player Interactions", "30": "Improved Imoen-Player Interactions in Throne of Bhaal", "40": "Restored Bhaalspawn Powers", "50": "Improved Slayer Transformation", "60": "David Gaider's expanded epilogues for Bioware NPCs", "61": "Alternate epilogues by Shawne", "1000": "Tougher Abazigal", "1100": "Tougher Balthazar", "1200": "Tougher Demogorgon", "1300": "Tougher Gromnir", "1400": "Tougher Illasera", "1500": "Tougher Yaga-Shura", "2000": "Full-body portrait for Bodhi", "2100": "Alternate Balthazar portrait, by Cuv", "2200": "Extended Epilogues for additional Beamdog NPCs, by shawne", "2300": "Sharper portraits of Abazigal and Gromnir for the Enhanced Edition, by DavidW", "2400": "Slightly improved cutscenes, by DavidW"}},
+    "it_IT": {"components": {"0": "Rewritten Final Chapter of Throne ogf Bhaal", "10": "Balthazar can be redeemed", "20": "Improved Sarevok-Player Interactions", "30": "Improved Imoen-Player Interactions in Throne of Bhaal", "40": "Restored Bhaalspawn Powers", "50": "Improved Slayer Transformation", "60": "David Gaider's expanded epilogues for Bioware NPCs", "61": "Alternate epilogues by Shawne", "1000": "Tougher Abazigal", "1100": "Tougher Balthazar", "1200": "Tougher Demogorgon", "1300": "Tougher Gromnir", "1400": "Tougher Illasera", "1500": "Tougher Yaga-Shura", "2000": "Full-body portrait for Bodhi", "2100": "Alternate Balthazar portrait, by Cuv", "2200": "Extended Epilogues for additional Beamdog NPCs, by shawne", "2300": "Sharper portraits of Abazigal and Gromnir for the Enhanced Edition, by DavidW", "2400": "Slightly improved cutscenes, by DavidW"}},
+    "zh_CN": {
+      "description": "这个模组由巴尔王座的主要设计师在美国论坛爱好者的协助下创建，然后由Weimer转换为WeiDU格式，后者确保了兼容性。它对巴尔王座做了很多改动：与每个巴尔之子的战斗都变得更加困难，巴哈尔的新能力也被包含在内，狄摩高根再次成为一个可怕的怪物，最重要的是，一个完全重新设计的最终战斗。你可以招募Balthazar或芭荻来对抗梅丽珊。她将是一台战争机器，令人畏惧。在她身边，还有“手”。是的，5个巴尔之子（如果你招募了Balthazar则除外）、雅加、阿巴齐加尔、珊黛、伊拉塞拉，他们都将在梅丽珊身边战斗，并且等级高于他们原来的版本。值得注意的是，在这场战斗之前，你将先尝到挑战的滋味，对抗完全强化过的芭荻和艾瑞尼卡斯，他们无疑会给你带来很多麻烦。"
+    }
+  },
+  "tp2": "ascension",
+  "safe": 2,
+  "authors": ["David Gaider", "Shawne", "JediMindTrix", "Turambar", "ALIENQuake", "DawidW", "Wes Weimer", "Cuv", "White Agnus", "Miloch", "agb1"]
+}

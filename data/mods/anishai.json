@@ -1,0 +1,38 @@
+{
+  "name": "Anishai one-day NPC",
+  "version": "3",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/files/file/687-anishai-one-day-npc/",
+    "download": "https://github.com/Gibberlings3/Anishai/releases/download/v3/win-anishai-v3.zip"
+  },
+  "file": {
+    "filename": "win-anishai-v3.zip",
+    "size": 2033854,
+    "sha256": "eb180ca339ff10b11383026d6cb72b9765bfdbc12e300cb01c49d80334234e9f"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc1d"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 3
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Une moniale chaotique neutre que l'on peut recruter à la guilde de Mae'Var après l'étape du nettoyage.|FOR 14, DEX 17, CON 10, INT 13, SAG 9, CHA 16.",
+      "components": {
+        "0": "Anishai one-day NPC"
+      }
+    },
+    "en_US": {
+      "description": "A neutral chaotic nun that can be recruited from the Mae'Var guild after the cleaning stage.|STR 14, DEX 17, CON 10, INT 13, WIS 9, CHA 16."
+    },
+    "zh_CN": {
+      "description": "一位混乱中立的女修士，在 Mae'Var 的帮派完成清理阶段后可以招募。|力量 14，敏捷 17，体质 10，智力 13，智慧 9，魅力 16。"
+    }
+  },
+  "tp2": "anishai",
+  "safe": 2,
+  "authors": ["Barren Fischa", "CamDawg"]
+}

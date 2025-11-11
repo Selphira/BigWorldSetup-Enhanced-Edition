@@ -1,0 +1,54 @@
+{
+  "name": "Edwin Romance",
+  "version": "3.1",
+  "links": {
+    "homepage": "http://www.shsforums.net/forum/69-edwin-romance/",
+    "download": "https://github.com/Spellhold-Studios/Edwin-Romance/releases/download/v3.1/edwinromance-v3.1.zip"
+  },
+  "file": {
+    "filename": "edwinromance-v3.1.zip",
+    "size": 14068674,
+    "sha256": "b04a899d67c3459da288f469bbd84f52b02f9bc9d2ce48021f188a6824eb2b3b"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "Anomen too insipid? Here's another alternative for female characters. The possibility (at last!) of romanticizing Faerûn's most whimsical and temperamental mage. Will this be an opportunity to see him in a new light? And let's not forget Edwin's mother and her transformation into Edwina, adding spice to an already lively relationship.",
+      "components": {
+        "0": "Edwin Romance",
+        "1": "Restore Edwin's BG1 portrait",
+        "2": "Edwin flirts",
+        "3": "New ending for Viconia Romance by Laufey  (fully independent tweak, unrelated to Edwin)",
+        "4": "Give Edwina a Portrait"
+      }
+    },
+    "fr_FR": {
+      "description": "Anomen est trop insipide ? Voici une autre alternative pour les personnages féminins. La possibilité (enfin !) de romancer le mage le plus fantasque et le plus caractériel de Féérune. Cela sera-t-il l'occasion de le voir sous un nouveau jour ? Sans oublier les interventions de la mère d'Edwin et sa transformation en Edwina, ajoutant du piment à une relation déjà animée.",
+      "components": {
+        "0": "La Romance d'Edwin",
+        "1": "Restaurer le portrait BGI d'Edwin",
+        "2": "Flirts d'Edwin",
+        "3": "Nouvelle fin pour la Romance de Viconia ecrite par Laufey (fully independent tweak, unrelated to Edwin)",
+        "4": "Give Edwina a Portrait"
+      }
+    },
+    "zh_CN": {
+      "description": "安诺门太乏味了？这里是女性角色的另一个选择。终于有机会与费伦最古怪、最有个性的法师发展恋情。这会是一个让他展现新一面的机会吗？也别忘了艾德温母亲的介入以及她变成艾德温娜的情节，为这段本就激烈的恋情增添了几分火药味。"
+    }
+  },
+  "tp2": "edwinromance",
+  "safe": 2,
+  "authors": ["K'aeloree", "jastey", "Laufey"]
+}

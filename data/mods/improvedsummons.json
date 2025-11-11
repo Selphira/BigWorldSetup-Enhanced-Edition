@@ -1,0 +1,76 @@
+{
+  "name": "Improved Summons",
+  "version": "2.03",
+  "links": {
+    "homepage": "https://www.sorcerers.net/Games/BG2/index_mods_hosted_misc.php",
+    "download": "https://www.sorcerers.net/Games/dl.php?s=BG2&f=BG2/Improved_Summons.rar&download=yes"
+  },
+  "file": {
+    "filename": "Improved_Summons.rar",
+    "size": 470742,
+    "sha256": "caf9682336fe2a17ff2f157a98acc7dc9754c0f61c284a3c1512c8c5149592bd"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "9": {"type": "std"},
+    "10": {"type": "std"}
+  },
+  "languages": {
+    "zh_CN": 0,
+    "en_US": 1,
+    "fr_FR": 2,
+    "ru_RU": 3,
+    "es_ES": 4
+  },
+  "translations": {
+    "en_US": {
+      "description": "Are you the type to send an army of cannon fodder to attack your enemies? Looking for more powerful solar? Would you like to summon spectators instead of those ridiculous carrion worms? Do you prefer vampires to wivernes and wish your undead were a bit stronger? This mod is for you!",
+      "components": {
+        "0": "Improved Angelic Summons(ToB Required)",
+        "1": "Improved Demonic Summons(ToB Required)",
+        "2": "Improved Elemental Summons(ToB Required)",
+        "3": "Use IWD Version Mordenkainen Sword after lv21",
+        "4": "Improved Animate Dead(ToB Required)",
+        "5": "Improved Call Woodland Being",
+        "6": "Improved Animal Summons",
+        "7": "Improved Monster Summons",
+        "8": "Replace Carrion Summons with Summon Beholder",
+        "9": "Replace Wyvern Call with Summon Vampire",
+        "10": "Others(Efreet,Djinni,etc.)"
+      }
+    },
+    "fr_FR": {
+      "description": "Vous êtes du genre à envoyer une armée de chair à canon à l'assaut de vos ennemis ? Vous cherchez des solaires plus puissants ? Vous désirez invoquer des spectateurs à la place de ces ridicules vers charognards ? Vous préférez les vampires aux wivernes et regrettez que vos mort-vivants ne soient pas un peu plus costauds ? Ce mod est fait pour vous !",
+      "components": {
+        "0": "Convocations Angeliques Ameliorees (ToB requis)",
+        "1": "Convocations Demoniques Ameliorees (ToB requis)",
+        "2": "Convocations Elementaires Ameliorees (ToB requis)",
+        "3": "Utiliser la version IWD de l'Epee de Mordenkainen apres le niveau 21",
+        "4": "Animation des Morts Amelioree (ToB requis)",
+        "5": "Appel de Creatures des Bois Amelioree",
+        "6": "Convocations d'Animaux Ameliorees",
+        "7": "Convocations de Monstres Ameliorees",
+        "8": "Remplacer Convocation de Vers Charognards par Convocation de Spectateur",
+        "9": "Remplacer Appel de la Wyverne par Convocation de Vampire",
+        "10": "Autres (Djinns, Efrits, etc.)"
+      }
+    },
+    "ru_RU": {"components": {"0": "Improved Angelic Summons(ToB Required)", "1": "Improved Demonic Summons(ToB Required)", "2": "Improved Elemental Summons(ToB Required)", "3": "Use IWD Version Mordenkainen Sword after lv21", "4": "Improved Animate Dead(ToB Required)", "5": "Improved Call Woodland Being", "6": "Improved Animal Summons", "7": "Improved Monster Summons", "8": "Replace Carrion Summons with Summon Beholder", "9": "Replace Wyvern Call with Summon Vampire", "10": "Others(Efreet,Djinni,etc.)"}},
+    "zh_CN": {
+      "description": "你是那种派炮灰大军冲击敌人的人吗？你寻找更强大的炽天使？你希望召唤那些令人作呕的食尸蠕虫的替代品——观者？你更喜欢吸血鬼而不是飞龙，并希望你的不死生物再强壮一点吗？这个模组就是为你准备的！"
+    }
+  },
+  "tp2": "improvedsummons",
+  "safe": 2,
+  "authors": ["Wu Min"]
+}

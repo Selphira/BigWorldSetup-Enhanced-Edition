@@ -1,0 +1,41 @@
+{
+  "name": "W_Packmule",
+  "version": "1.4b",
+  "links": {
+    "homepage": "https://www.shsforums.net/files/file/954-w-packmule/",
+    "download": "https://github.com/Endarire/W_Packmule/releases/download/1.4b/w_packmule-v1.4b.zip"
+  },
+  "file": {
+    "filename": "w_packmule-v1.4b.zip",
+    "size": 11482227,
+    "sha256": "0c802cb4a36132f2ac62408078a0dcf5a9c3797729f41a966bc16f34b0b7e38c"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["2", "3"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 3
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod ajout une mule de bât qui vous accompagnera partout, transportant vos objets sans jamais défaillir.",
+      "components": {
+        "choice_0": "Mule de bat (bgee)",
+        "2": "Fontes standards",
+        "3": "Fontes sans fond"
+      }
+    },
+    "en_US": {
+      "description": "This mod adds a pack mule that will accompany you everywhere, carrying your items without ever failing."
+    },
+    "zh_CN": {
+      "description": "此模组添加了一匹驮马，它会一直跟随你，永不疲倦地运输你的物品。"
+    }
+  },
+  "tp2": "w_packmule",
+  "safe": 2,
+  "authors": ["Kwiat_W"]
+}

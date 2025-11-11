@@ -1,0 +1,39 @@
+{
+  "name": "Druid Grove Area Visual Makeover",
+  "version": "1.2",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/62981/mod-druid-grove-makeover",
+    "download": "https://github.com/thisisulb/DruidGroveMakeover/archive/refs/tags/V1.2.zip"
+  },
+  "file": {
+    "filename": "DruidGroveMakeover-1.2.zip",
+    "size": 23439594,
+    "sha256": "deb37e672dccfa4789a262cfc1b6401f7113426327e48417a1b054fa1e89d6fd"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["cosm"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "description": "The aim of this mod is to improve the visual appeal of the area outside the Druids' Grove, making it more attractive and thematically appropriate.",
+      "components": {
+        "0": "Main component"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod a pour but d'améliorer le visuel de la zone extérieure du bosquet des druides et de la rendre plus attrayante et adaptée à la thématique."
+    },
+    "zh_CN": {
+      "description": "此模组旨在改进德鲁伊树林外部区域的外观，使其更具吸引力，并更符合主题。"
+    }
+  },
+  "tp2": "druidgrovemakeover",
+  "safe": 2,
+  "authors": ["Ulb"]
+}

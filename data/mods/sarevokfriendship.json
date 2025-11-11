@@ -1,0 +1,43 @@
+{
+  "name": "Sarevok Friendship",
+  "version": "2.7",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/1036-sarevok-friendship/",
+    "download": "https://github.com/Spellhold-Studios/Sarevok-Friendship/releases/download/v2.7/sarevok-friendship-v2.7.zip"
+  },
+  "file": {
+    "filename": "sarevok-friendship-v2.7.zip",
+    "size": 3403434,
+    "sha256": "a5ce8af9239a797717a0d7aadfe1f5afcab1332139d67cc319b6ed940a6e0b1a"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "zh_CN": 3
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds a series of dialogues with Sarevok, the YP's brother, and expands on his experiences and difficulties.",
+      "components": {
+        "0": "Sarevok Friendship for BGII: ToB"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute une série de dialogues à Sarevok, le frère du PJ, et développe ses expériences et ses difficultés.",
+      "components": {
+        "0": "Sarevok Friendship for BGII: ToB"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组为沙洛佛克（主角的兄弟）添加了一系列对话，并深入探讨了他的经历与困境。"
+    }
+  },
+  "tp2": "sarevokfriendship",
+  "safe": 2,
+  "authors": ["Aeryn", "Lava Del'Vortel"]
+}

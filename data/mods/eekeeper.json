@@ -1,0 +1,36 @@
+{
+  "name": "EE Keeper",
+  "version": "Sourceforge latest release",
+  "links": {
+    "homepage": "https://sourceforge.net/projects/eekeeper/",
+    "download": "http://sourceforge.net/projects/eekeeper/files/latest/download"
+  },
+  "file": {
+    "filename": "EEKeeper 1.0.4.0.zip",
+    "size": 2728765,
+    "sha256": "62c3893b8a7c3bcec1805f86038c3720bec766efb54dbc5351a12523acbb7859"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet", "pstee", "iwdee"],
+  "categories": ["util"],
+  "components": {
+    "0": {"type": "dwn"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "description": "This utility lets you edit your EE game saves."
+    },
+    "fr_FR": {
+      "description": "Cet utilitaire vous permet d'éditer vos sauvegardes des jeux EE.",
+      "components": {
+        "0": "Un outil pour éditer vos sauvegardes."
+      }
+    }
+  },
+  "tp2": "",
+  "safe": 2,
+  "authors": ["Troodon80"]
+}

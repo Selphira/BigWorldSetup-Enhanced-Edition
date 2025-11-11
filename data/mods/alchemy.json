@@ -1,0 +1,45 @@
+{
+  "name": "Jan's Alchemy",
+  "version": "8.1.0",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/801-jans-alchemy/",
+    "download": "https://github.com/Spellhold-Studios/Jans-Alchemy/releases/download/v8.1.0/jans-alchemy-v8.1.0.zip"
+  },
+  "file": {
+    "filename": "jans-alchemy-v8.1.0.zip",
+    "size": 4235148,
+    "sha256": "bd799de170374c342d63cd8fe39305f706a258be2f2237a517bf1d0fdc6fdf1d"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "de_DE": 1,
+    "fr_FR": 2,
+    "ru_RU": 3
+  },
+  "translations": {
+    "en_US": {
+      "description": "This little mod gives Jan the ability to make potions, thanks to a book of mixtures. The program includes 8 new potions.",
+      "components": {
+        "0": "Jan's Alchemy"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce petit mod dote Jan de la capacité de fabriquer des potions, grâce à un livre de mixtures. 8 nouvelles potions sont au programme.",
+      "components": {
+        "0": "Kit d'alchimie de Jan"
+      }
+    },
+    "ru_RU": {"components": {"0": "Jan's Alchemy?"}},
+    "zh_CN": {
+      "description": "这个小型模组让姚恩拥有制作药水的能力，通过一本混合药剂手册。计划中有8种新药水。"
+    }
+  },
+  "tp2": "alchemy",
+  "safe": 2,
+  "authors": ["Badgert"]
+}

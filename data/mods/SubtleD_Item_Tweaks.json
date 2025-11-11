@@ -1,0 +1,88 @@
+{
+  "name": "SubtleD's Item Tweaks",
+  "version": "1.4",
+  "links": {
+    "homepage": "https://github.com/subtledoctor/SubtleD_Item_Tweaks",
+    "download": "https://github.com/subtledoctor/SubtleD_Item_Tweaks/archive/refs/tags/1.3.4.zip"
+  },
+  "file": {
+    "filename": "SubtleD_Item_Tweaks-1.3.4.zip",
+    "size": 1769959,
+    "sha256": "b7ff23fd5999a48e5c6f7fdd7576b17c912a1f34abebedd02150e0e11ba525bf"
+  },
+  "games": ["bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["gameplay"],
+  "components": {
+    "100": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["111", "112"]},
+    "120": {"type": "std"},
+    "140": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["152"]},
+    "160": {"type": "std"},
+    "170": {"type": "std"},
+    "1000": {"type": "std"},
+    "1010": {"type": "std"},
+    "1020": {"type": "std"},
+    "1030": {"type": "std"},
+    "1040": {"type": "std"},
+    "choice_2": {"type": "muc", "components": ["1051", "1052"]},
+    "1055": {"type": "std"},
+    "1060": {"type": "std"},
+    "1070": {"type": "std"},
+    "1080": {"type": "std"},
+    "choice_3": {"type": "muc", "components": ["1091", "1092", "1093"]},
+    "1100": {"type": "std"},
+    "1109": {"type": "std"},
+    "choice_4": {"type": "muc", "components": ["1113", "1114"]}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod redéfini le gameplay des armes et des armures. Chaque composant peut-être sélectionné indépendamment des autres.",
+      "components": {
+        "100": "Encore une autre revision du systeme d'armure (YARAS)",
+        "choice_0": "Ajustements sur l'esthetique et les enchantements",
+        "111": "Standardiser l'equipement enchante",
+        "112": "Remplacer l'equipement enchante par des armes de maitre",
+        "120": "Ajustements fonctionnels des armes",
+        "140": "Ajustement des objets de IWD",
+        "choice_1": "Restrictions du combat a deux armes",
+        "152": "Combat a deux armes avec des armes de petite ou moyenne taille",
+        "160": "Toutes les potions sont utilisables par toutes les classes",
+        "170": "Lancer de sorts en armure pour les bardes",
+        "1000": "Donner deux APR aux armes creees par des sorts",
+        "1010": "Ajouter une immunite aux attaques sournoises a l'Anneau de perception du danger",
+        "1020": "Donner une vraie deviation des projectiles aux Bracelets antiprojectiles",
+        "1030": "Ameliorer les armes avec effet de detonation",
+        "1040": "Ajouter un effet de Peau d'ecorce 'revise' a l'Armure de la foi +3",
+        "choice_2": "Modifie le Baton d'absorption d'Item Revisions",
+        "1051": "...Utilisation instantanee",
+        "1052": "...Protection plus longue",
+        "1055": "Protection contre la peur permanente sur la Broche des braves",
+        "1060": "Modifier la Cape de gargouille pour appliquer un effet de Peau de pierre au lieu d'un bonus a la classe d'armure",
+        "1070": "Rendre les marteaux de jet nains utilisables par les non-nains",
+        "1080": "Ameliorer la Harpe d'Azlaer et la Harpe de Methild",
+        "choice_3": "Degrader l'amulette d'Edwin",
+        "1091": "Un seul emplacement de sort bonus par niveau de sorts",
+        "1092": "Limiter les emplacements de sorts bonus aux sorts de niveau 7",
+        "1093": "Un seul emplacement de sort bonus par niveau de sorts ET limiter au niveau 7",
+        "1100": "Remplacer la resistance a la magie par de la metamagie pour la Robe de la toile",
+        "1109": "Lancer de sort de 1er niveau gratuit avec certains objets",
+        "choice_4": "Modifier les anneaux de magie arcane",
+        "1113": "Remplacer la Memoire eternelle par un anneau de precision",
+        "1114": "Remplacer l'Anneau de precision par Memoire eternelle"
+      }
+    },
+    "en_US": {
+      "description": "This mod redefines the gameplay of weapons and armor. Each component can be selected independently of the others."
+    },
+    "zh_CN": {
+      "description": "此模组重新定义了武器和护甲的游戏玩法。每个组件都可以独立于其他组件进行选择。"
+    }
+  },
+  "tp2": "subtled_item_tweaks",
+  "safe": 2,
+  "authors": ["Subtledoctor"]
+}

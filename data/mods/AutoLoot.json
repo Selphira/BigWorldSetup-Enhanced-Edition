@@ -1,0 +1,39 @@
+{
+  "name": "Bubb's Auto Loot",
+  "version": "1.2.4",
+  "links": {
+    "homepage": "https://github.com/LCA-EET/AutoLoot",
+    "download": "https://github.com/LCA-EET/AutoLoot/releases/download/v1.2.4/AutoLoot.zip"
+  },
+  "file": {
+    "filename": "AutoLoot.zip",
+    "size": 1273304,
+    "sha256": "67d3dea6d63db969d3a6b394b3df3d7c3a3dce0848f5ae018847745fcc85b003"
+  },
+  "games": ["bgee", "sod", "bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Bubb's Auto Loot, for Baldur's Gate Enhanced Edition Games"
+      },
+      "description": "This mod aims to make loot collection easier, to reduce the amount of items the player misses and leaves on the ground, especially small piles of gold. You can filter auto loot by critical item, weapon enchantment level, gold, price and price by weight. For the moment, automatic looting only applies to items on the ground."
+    },
+    "fr_FR": {
+      "description": "Ce mod vise à faciliter le ramassage du butin afin de réduire la quantité d'objets que le joueur rate et laisse sur le sol, en particulier les petits tas d'or. Vous pouvez filtrer le pillage automatique par objet critique, niveau d'enchantement des armes, or, prix et prix par poids. Pour le moment, le pillage automatique ne concerne que les objets au sol."
+    },
+    "zh_CN": {
+      "description": "此模组旨在方便拾取战利品，以减少玩家遗漏并遗留在地上的物品数量，特别是小堆的金币。你可以根据关键物品、武器附魔等级、金币、价格和单价来自动过滤拾取。目前，自动拾取仅针对地面上的物品。"
+    }
+  },
+  "tp2": "autoloot",
+  "safe": 2,
+  "authors": ["Bubb", "Daniel Valle"]
+}

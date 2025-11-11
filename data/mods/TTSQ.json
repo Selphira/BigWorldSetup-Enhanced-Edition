@@ -1,0 +1,38 @@
+{
+  "name": "The Tortured Soul Quest",
+  "version": "8",
+  "links": {
+    "homepage": "https://github.com/Plutonium-X/1D_NPC_Tortured",
+    "download": "https://github.com/Plutonium-X/1D_NPC_Tortured/archive/refs/heads/main.zip"
+  },
+  "file": {
+    "filename": "1D_NPC_Tortured-main.zip",
+    "size": 2070486,
+    "sha256": "d8c934bcf017a4fa4632d3ab142f06ca45bf3a4434a0333423c3bdf514020ba5"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc1d"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 4
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "À ne pas confondre avec le méga mod Tortured Souls-BP, ce mod ajoute une petite quête, à la fin de laquelle vous obtenez un objet inédit qui vous permet d'invoquer Baenwuld le Tueur de magicien à volonté. Celui-ci peut-être libéré de son esclavage pour rejoindre votre groupe. Pour la démarrer, utilisez la baguette 'droppée' par un nouvel adversaire dans l'une des cryptes du cimetière d'Athkatla.|FOR 19, DEX 17, CON 19, INT 12, SAG 15, CHA 17.",
+      "components": {
+        "0": "The Tortured Soul Quest - WeiDU"
+      }
+    },
+    "en_US": {
+      "description": "Not to be confused with the mega mod Tortured Souls-BP, this mod adds a little quest, at the end of which you get a brand-new item that lets you summon Baenwuld the Wizard Slayer at will. He can be freed from his slavery to join your group. To start it, use the wand 'dropped' by a new adversary in one of the crypts of the Athkatla Graveyard.|STR 19, DEX 17, CON 19, INT 12, WIS 15, CHA 17."
+    },
+    "zh_CN": {
+      "description": "不要与巨型模组Tortured Souls-BP混淆，此模组添加了一个小任务，在任务结束时，你会获得一个全新的物品，可以让你随意召唤法师杀手巴恩伍尔德。他可以从奴役中被解放，加入你的队伍。要开启任务，使用一个新敌人在阿斯卡特拉墓园某个墓穴中“掉落”的魔杖。|力量19，敏捷17，体质19，智力12，智慧15，魅力17。"
+    }
+  },
+  "tp2": "ttsq",
+  "safe": 2,
+  "authors": ["Badgert"]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "5E Spellcasting",
+  "version": "2.7.1",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/32551-5e-spellcasting-rules-conversion/",
+    "download": "https://github.com/UnearthedArcana/5E_spellcasting/archive/refs/tags/2.7.1.zip"
+  },
+  "file": {
+    "filename": "5E_spellcasting-2.7.1.zip",
+    "size": 1488442,
+    "sha256": "7292e71b6ff073923f3834aeb209922573e2ddfe74a2f075e2a7eeee436030ab"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["gameplay"],
+  "components": {
+    "100": {"type": "std"},
+    "300": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["901", "902"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "100": "Change All Casters to 5E System",
+        "choice_0": "Bonus Spell Slot Items and 5E Casters",
+        "901": "bonuses to both memorization slots and casting slots",
+        "902": "bonuses to casting slots only"
+      },
+      "description": "This mod aims to replace the spell casting mechanisms of the IE games with the rules of D&D 5e (\"semi-instantaneous\" spell casting)."
+    },
+    "fr_FR": {
+      "description": "Ce mod a pour ambition de remplacer les mécanismes de lancement de sorts des jeux IE par les règles de D&D 5e (lancement de sort \"semi-instantané\" ).",
+      "components": {
+        "100": "Convertir tous les lanceurs de sorts au système 5E",
+        "300": "Convertir les bardes au système 5E",
+        "choice_0": "Objects accordant des emplacements de sorts bonus et lanceurs de sorts 5E",
+        "901": "Bonus à la fois aux emplacements de mémorisation et aux emplacements de lancer de sorts",
+        "902": "Bonus seulement aux emplacements de lancer de sorts"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组的目的是用D&D 5e的规则（“半即时”施法）来替换IE引擎游戏的施法机制。"
+    }
+  },
+  "tp2": "5e_spellcasting",
+  "safe": 2,
+  "authors": ["Subtledoctor"]
+}

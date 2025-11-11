@@ -1,0 +1,41 @@
+{
+  "name": "BWS-FR Fixpack",
+  "version": "master",
+  "links": {
+    "homepage": "https://github.com/Selphira/BWS-FR-Fixpack",
+    "download": "https://github.com/Selphira/BWS-FR-Fixpack/archive/refs/heads/master.zip"
+  },
+  "file": {
+    "filename": "BWS-FR-Fixpack-master.zip",
+    "size": 4711333,
+    "sha256": "0f72799ae34b09ee0f3948adcfca24462d6d6010841b760021870600ead5db80"
+  },
+  "games": ["bg2ee", "eet"],
+  "categories": ["patch"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0,
+    "all": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "BWS-FR Fixpack est une compilation de correctifs, à la base destinés au Big World Setup FR, mais qui peut aussi être utilisé indépendamment. Il suffit de l'exécuter après avoir décompressé vos mods dans le dossier du jeu, et avant de débuter vos installations de mod.|Un second composant, à exécuter à la toute fin de votre installation, va vérifier divers problèmes connus, et vous suggèrera des corrections si possible.",
+      "components": {
+        "0": "Application des patches sur les mods contenus dans le dossier du jeu",
+        "1": "Vérification de problèmes connus"
+      }
+    },
+    "en_US": {
+      "description": "BWS-FR Fixpack is a compilation of patches, originally intended for Big World Setup FR, but which can also be used independently. A second component, to be run at the very end of your installation, will check various known problems, and suggest fixes if possible."
+    },
+    "zh_CN": {
+      "description": "BWS-FR修复包是一个修复程序的集合，最初是为Big World Setup FR设计的，但也可以独立使用。只需在将你的模组解压到游戏文件夹后、开始安装模组之前运行它即可。|第二个组件，在你的安装过程最后运行，将检查各种已知问题，并在可能的情况下建议修复方案。"
+    }
+  },
+  "tp2": "bws-fr-fixpack",
+  "safe": 2,
+  "authors": ["Selphira"]
+}

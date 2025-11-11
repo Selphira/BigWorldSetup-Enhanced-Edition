@@ -1,0 +1,48 @@
+{
+  "name": "Teleport Spell",
+  "version": "16a",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/78039/teleport-spell-for-bg2ee-eet-compatible",
+    "download": "https://github.com/Plutonium-X/SORT_Teleport/archive/refs/tags/v16a.zip"
+  },
+  "file": {
+    "filename": "SORT_Teleport-16a.zip",
+    "size": 2194542,
+    "sha256": "e5903437ed35b5a239f85e5a83d2632c04405e0a48b422e2b68f0ed0caaec3b8"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["spell"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 1,
+    "fr_FR": 7
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds a 7th-level spell to Dame Yurth's stockpile at the back of the Adventurer Mart and to Lazarus Librarus' stockpile in the Arcane Archives, enabling teleportation to all previously visited areas. Unfortunately, it doesn't work for areas introduced by mods.",
+      "components": {
+        "0": "Teleport spell for BG2:SoA",
+        "1": "Teleport spell for BG2:ToB",
+        "2": "Modification of NPCs and strongholds quests."
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute au stock de Dame Yurth, au fond du Marché de l'Aventurier ainsi qu'au stock de Lazarus Librarus, aux Archives de l'Arcane, un sort de niveau 7 permettant de se téléporter dans toutes les zones précédemment visitées. Malheureusement, il ne fonctionne pas pour les zones introduites par des mods.",
+      "components": {
+        "0": "Sort de teleportation pour BG2:SoA",
+        "1": "Sort de téléportation pour BG2:ToB",
+        "2": "Modifications des PNJ et des quetes des forteresses."
+      }
+    },
+    "zh_CN": {
+      "description": "此模组在冒险者市场深处的尤丝夫人商店以及奥术档案馆的拉撒路·利巴鲁斯商店中，增加了一个7级法术，允许传送到所有先前访问过的区域。不幸的是，该法术对由模组引入的区域无效。"
+    }
+  },
+  "tp2": "teleport",
+  "safe": 2,
+  "authors": ["Razfallow"]
+}

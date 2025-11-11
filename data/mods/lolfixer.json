@@ -1,0 +1,89 @@
+{
+  "name": "Lollorian's LolFixer",
+  "version": "19022016",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/52508-lolfixer-thread/",
+    "download": "Manual"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "eet"],
+  "categories": ["patch"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "9": {"type": "std"},
+    "10": {"type": "std"},
+    "11": {"type": "std"},
+    "12": {"type": "std"},
+    "13": {"type": "std"},
+    "14": {"type": "std"},
+    "15": {"type": "std"}
+  },
+  "languages": {
+    "de_DE": 0,
+    "en_US": 0,
+    "es_ES": 0,
+    "fr_FR": 0,
+    "it_IT": 0,
+    "ko_KR": 0,
+    "pl_PL": 0,
+    "ru_RU": 0,
+    "zh_CN": 0
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod includes a series of generic patches to clean up game files and avoid crashes.",
+      "components": {
+        "0": "MAJESTIC Area Fixer (fix unassigned/missing scripts, invalid references, missing scripts/NPCs, inaccessible items)",
+        "1": "Creature Resource Fixer (creature file restructuring, fix idle sounds if ToBEx installed)",
+        "2": "Creature Inventory Unborker (resolve mismatch between inventory and item table by ensuring items are present in inventory) - not selected by default because it causes Obe's illusions to drop items",
+        "3": "Creature Inventory Cleaner (requires unborker, convert common typos into valid items, remove invalid items from inventory)",
+        "4": "Creature Inventory Overhauler (unequip invalid items, equip free slots with useable armor, helmet, weapons from inventory)",
+        "5": "MAJESTIC Creature Fixer (fix missing scripts/dialogue, invalid spell levels/slot assignments, invalid spellbook entries)",
+        "6": "Duplicate Creature Effect Remover (delete duplicate effects, usually caused by multiple mods editing same creature)",
+        "7": "Item Resource Fixer (item file restructuring, fix flaming swords, poison resist effect, helm animation crash)",
+        "8": "MAJESTIC Item Fixer (fix abilities, animations, enchantment levels, types, drained items, missing flags/links/icons)",
+        "9": "Portrait Icon Assigner Tweak (patch items to show icons on portraits for all effects - cosmetic, informative, can clutter)",
+        "10": "Proper Immunity Assigner Tweak (ensure immunities are consistently applied following BG2Fixpack standards)",
+        "11": "Duplicate Item Effect Remover Tweak (delete duplicate effects, usually caused by multiple mods editing same item)",
+        "12": "MAJESTIC Item Checker (makes no changes, not recommended for players, provides debugging information for modders)",
+        "13": "Spell Resource Fixer (spell file restructuring)",
+        "14": "MAJESTIC Spell Fixer (prevent crashes with preset target spells and with innate abilities used in scripts)",
+        "15": "MAJESTIC Store Fixer (fix mismatch of store inventory and for-sale/for-purchase status, remove invalid references)"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod regroupe une série de correctifs génériques permettant de nettoyer les fichiers du jeu et éviter certains crashs.",
+      "components": {
+        "0": "Area - Correction des zones de MAJESTIC (ATTENTION: Ce composant peut provoquer des bugs avec certains mods)",
+        "1": "Creature - Correction des ressources des créatures",
+        "2": "Creature - Débouchage de l'inventaire (ATTENTION: Ce composant peut provoquer des bugs en ajoutant des objets dans l'inventaire qui devraient rester en dehors)",
+        "3": "Creature - Nettoyage de l'inventaire (Supprime les objets qui n'existent pas et les convertit en objets déjà présents le cas échéant)",
+        "4": "Creature - Rangement de l'inventaire (ATTENTION: Ce composant peut provoquer des bugs en équipant ou déséquipant des objets qui ont besoin de rester où ils se trouvent.)",
+        "5": "Creature - Correction des créatures de MAJESTIC",
+        "6": "Creature - Suppression des effets en double (ATTENTION: Peut supprimer des effets volontairement en double)",
+        "7": "Item - Correction des ressources des objets",
+        "8": "Item - Correction des objets de MAJESTIC",
+        "9": "Item - Attribution des icônes de portrait (ATTENTION: Vos portraits pourraient être surchargés d'icônes)",
+        "10": "Item - Attribution des immunités",
+        "11": "Item - Suppression des effets en double (ATTENTION: Peut supprimer des effets volontairement en double)",
+        "12": "Item - Vérification des objets de MAJESTIC (Ne fait que créer des logs pour les moddeurs)",
+        "13": "Spell - Correction des ressources des sorts",
+        "14": "Spell - Correction des sorts de MAJESTIC",
+        "15": "Store - Correction des magasins de MAJESTIC"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组包含一系列通用修复补丁，用于清理游戏文件并避免某些崩溃。"
+    }
+  },
+  "tp2": "lolfixer",
+  "safe": 2,
+  "authors": ["Lollorian"]
+}

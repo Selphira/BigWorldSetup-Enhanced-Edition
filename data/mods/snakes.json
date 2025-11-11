@@ -1,0 +1,48 @@
+{
+  "name": "The Slithering Menace",
+  "version": "4.0.0",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/151-the-slithering-menace-tob/",
+    "download": "https://github.com/Spellhold-Studios/Slithering-Menace/releases/download/v4.0.0/the-slithering-menace-v4.0.0.zip"
+  },
+  "file": {
+    "filename": "the-slithering-menace-v4.0.0.zip",
+    "size": 4277028,
+    "sha256": "2a80f4855902ee819470ef69bd917c03e8c23c5c9ad9223ec10c8dd448c7a713"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "de_DE": 2,
+    "it_IT": 3,
+    "ru_RU": 4,
+    "es_ES": 5
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds a short quest in Throne of Bhaal. More precisely, it's triggered in Bhaal's Pocket Plane, once you've brought Sarevok back to life. For the quest to begin, Imoen must be in your party. It's your mischievous sister who will trigger it by committing one of her stupid deeds. Among other things, you'll be treated to a fight, followed by a brand-new magical item as a reward for your efforts.",
+      "components": {
+        "0": "The Slithering Menace (for BGII:ToB only)"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute une courte quête dans Throne of Bhaal. Plus précisément, elle se déclenche dans l'Antichambre de Bhaal, une fois que vous avez rendu vie à Sarevok. Pour que la quête commence, Imoen doit être dans votre groupe. c'est votre chipie de sœur qui, en effet, va la déclencher en commettant une de ses bêtises. Vous aurez entre autres droit à un combat, puis à un objet magique inédit reçu en récompense pour vos efforts.",
+      "components": {
+        "0": "La menace ophidienne (pour BGII - ToB uniquement)"
+      }
+    },
+    "it_IT": {"components": {"0": "The Slithering Menace (for BGII:ToB only)"}},
+    "ru_RU": {"components": {"0": "The Slithering Menace (for BGII:ToB only)"}},
+    "zh_CN": {
+      "description": "此模组在巴尔王座中添加了一个短任务。具体来说，在你复活沙洛佛克后，此任务会在巴尔的门厅触发。要开启任务，爱蒙必须在你的队伍中。确实，正是你那个调皮的妹妹会通过犯下一个蠢事来触发它。你将获得一场战斗，以及一个作为奖励的全新魔法物品。"
+    }
+  },
+  "tp2": "snakes",
+  "safe": 2,
+  "authors": ["vilkacis"]
+}

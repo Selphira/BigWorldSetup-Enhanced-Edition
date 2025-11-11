@@ -1,0 +1,38 @@
+{
+  "name": "Revisit The Old Haunt",
+  "version": "0.1",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/38986-revisit-the-old-haunt-v01-teleporting-to-areas-youve-already-visited/",
+    "download": "https://github.com/The-Gate-Project/RevisitOldHaunt/archive/refs/heads/main.zip"
+  },
+  "file": {
+    "filename": "RevisitOldHaunt-main.zip",
+    "size": 1282382,
+    "sha256": "e0eec3e2f4f9424436df2276e1d894b46d4ef71f2f3cef9b59de29299b7ba8c5"
+  },
+  "games": ["bgee", "bg2ee", "eet"],
+  "categories": ["spell"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod permet grâce à un sort de Souhait ou de Souhait mineur, de se téléporter dans une zone déjà visitée.",
+      "components": {
+        "0": "Revisit The Old Haunt / Revenir sur ses pas"
+      }
+    },
+    "en_US": {
+      "description": "This mod allows you to teleport to a previously visited area using a Wish or Minor Wish spell."
+    },
+    "zh_CN": {
+      "description": "此模组允许通过一个“许愿术”或“次级许愿术”法术，传送到一个已经访问过的区域。"
+    }
+  },
+  "tp2": "revisitoldhaunt",
+  "safe": 2,
+  "authors": ["Shohy"]
+}

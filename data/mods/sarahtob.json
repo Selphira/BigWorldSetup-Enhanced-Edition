@@ -1,0 +1,46 @@
+{
+  "name": "Sarah NPC",
+  "version": "8",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/mods/npcs/sarah/",
+    "download": "https://github.com/Gibberlings3/Sarah/releases/download/v8/sarahtob-v8.exe"
+  },
+  "file": {
+    "filename": "sarahtob-v8.exe",
+    "size": 58535213,
+    "sha256": "dd59a991a8e9760936998b98ec657e04e9041595c0f6b72f90852f337ed72edf"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "ru_RU": 2
+  },
+  "translations": {
+    "en_US": {
+      "description": "This chaotic good ranger hails from the slums of Baldur's Gate, and grew up with her uncle in Cloakwood, who taught her the ways of nature as well as the art of combat. Years later, she left the Cloakwood to explore on her own. She settled in an empty cabin not too far from Umar Hills. Sarah is a relatively shy but determined person who admits to loving nature more than people, but then again, perhaps she just hasn't found the right person yet.|STR 16, DEX 17, CON 15, INT 14, WIS 12, CHA 10.",
+      "components": {
+        "0": "Sarah NPC Romance Mod for BG2:ToB"
+      }
+    },
+    "fr_FR": {
+      "description": "Cette rôdeuse chaotique bonne provient des bas quartiers de la Porte de Baldur, et a grandi avec son oncle, à Bois-Manteau, qui lui enseigna les voies de la nature et l'art du combat. Des années plus tard, elle quitta Bois-Manteau pour découvrir le monde et finit par s'installer dans une cabane près des collines d'Umar. Sarah est relativement timide mais déterminée, et qui avoue sans complexe préférer la nature aux individus. Peut-être n'a-t-elle pas encore rencontré la bonne personne ?|FOR 16, DEX 17, CON 15, INT 14, SAG 12, CHA 10.",
+      "components": {
+        "choice_0": "Mod Sarah NPC Romance pour BG2:ToB",
+        "0": "Use original audio",
+        "1": "Use revised audio from HalmyLyseas"
+      }
+    },
+    "ru_RU": {"components": {"0": "Sarah NPC Romance Mod for BG2:ToB"}},
+    "zh_CN": {
+      "description": "这位混乱善良的游侠来自博德之门的贫民区，由她的叔叔在友善之臂抚养长大，叔叔教导了她自然的道路和战斗的艺术。多年后，她离开友善之臂去探索世界，最终在乌玛丘陵附近的一个小屋里定居。莎拉相对害羞但意志坚定，她毫不掩饰地表示更喜欢自然而非人群。也许她还没遇到对的人？|力量 16, 敏捷 17, 体质 15, 智力 14, 智慧 12, 魅力 10。"
+    }
+  },
+  "tp2": "sarahtob",
+  "safe": 2,
+  "authors": ["theacefes"]
+}

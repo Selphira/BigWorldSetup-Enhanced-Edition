@@ -1,0 +1,42 @@
+{
+  "name": "CluaFr",
+  "version": "1.2",
+  "links": {
+    "homepage": "https://github.com/The-Gate-Project/CluaFr",
+    "download": "https://github.com/The-Gate-Project/CluaFr/releases/download/v1.2/CluaFr.v1.2.zip"
+  },
+  "file": {
+    "filename": "CluaFr.v1.2.zip",
+    "size": 3695291,
+    "sha256": "a3389200c48abcff8c42c218ab6b92e43bfae7c63e38300072125892d1f6b55c"
+  },
+  "games": ["bgee", "sod", "bg2ee", "eet", "iwdee"],
+  "categories": ["patch"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["12", "13"]},
+    "11": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod permet traduire les CheatsAreas disponibles via la CLUA console, y compris celles ajoutées par d'autres mods. Il ajoute également de nouvelles zones dans la liste.",
+      "components": {
+        "choice_0": "\"AREAS CHEATS\" pour les cartes du jeu original",
+        "12": "Voulez-vous simplement traduire les cartes initialement accessibles dans la CLUAConsole ?",
+        "13": "Voulez-vous acceder a toutes les cartes du jeu ainsi qu'aux extensions pendant la campagne principale ?",
+        "11": "\"AREAS CHEATS\" pour les cartes ajoutees par des mods"
+      }
+    },
+    "en_US": {
+      "description": "This mod translates the CheatsAreas available via the CLUA console, including those added by other mods. It also adds new areas to the list."
+    },
+    "zh_CN": {
+      "description": "此模组可通过CLUA控制台翻译可用的作弊区域（CheatAreas），包括其他模组添加的区域。它还会在列表中添加新的区域。"
+    }
+  },
+  "tp2": "cluafr",
+  "safe": 2,
+  "authors": ["JohnBob"]
+}

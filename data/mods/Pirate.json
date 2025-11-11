@@ -1,0 +1,48 @@
+{
+  "name": "Le kit Pirate d'Huxaltek (voleur humain)",
+  "version": "2.1",
+  "links": {
+    "homepage": "https://weiducommando.forumgaming.fr/t270-kit-de-pirate-compatible-bgt-termine",
+    "download": "https://github.com/Plutonium-X/KIT_Pirate/releases/download/v2.1/win-Pirate-v2.1.zip"
+  },
+  "file": {
+    "filename": "win-Pirate-v2.1.zip",
+    "size": 4117272,
+    "sha256": "2d4689c33b07f87ea8b9afebd64966e2fda75a38c79db3634c1f03b09b420869"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "sod", "iwdee", "eet"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["1", "2"]},
+    "choice_1": {"type": "muc", "components": ["3", "4", "5", "6"]}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Création originale d'Huxaltec, ce profil de voleur (très bien documenté et inspiré) est exclusivement réservé au personnage principal et permet d'incarner un pirate de la Côte des Épées. Un don régional, selon l'origine géographique du pirate (choisie à l'installation du kit), lui octroie certains avantages. Comme tout pirate qui se respecte, il a son propre perroquet (capable d'aller chercher des trésors aléatoires une fois par jour) et stocke son trésor dans un coffre qu'il emporte partout.",
+      "components": {
+        "0": "Le kit Pirate",
+        "choice_0": "Race du perroquet Coco",
+        "1": "Ara macao (rouge)",
+        "2": "Ara ararauna (vert-bleu-jaune)",
+        "choice_1": "Dons innés régionaux",
+        "3": "Attaque massive : Lorsqu'il appelle des mercenaires pirates, ceux-ci arrivent avec une recrue supplémentaire.",
+        "4": "Volonté farouche : +10% de résistance magique.",
+        "5": "Intrépide et résistant : +12PV de façon permanente.",
+        "6": "Maîtrise supérieure du cimeterre (6ème étoile de compétence)"
+      }
+    },
+    "en_US": {
+      "description": "An original creation by Huxaltec, this thief's profile (very well documented and inspired) is reserved exclusively for the main character and allows you to play the role of a pirate from the Sword Coast. A regional gift, depending on the pirate's geographical origin (chosen when installing the kit), grants him certain advantages. Like any self-respecting pirate, he has his own parrot (capable of fetching random treasure once a day) and stores his treasure in a chest that he takes everywhere."
+    },
+    "zh_CN": {
+      "description": "这是Huxaltec的原创作品，这个盗贼档案（文档详实且富有灵感）专为主角保留，让您扮演一位剑湾海盗。根据海盗的地理起源（在安装宗派时选择），他会获得一个地域专长，从而获得某些优势。像所有自重海盗一样，他有自己的鹦鹉（每天可以随机寻找一次宝藏），并将他的宝藏存放在一个随身携带的箱子里。"
+    }
+  },
+  "tp2": "pirate",
+  "safe": 2,
+  "authors": ["Huxaltec"]
+}

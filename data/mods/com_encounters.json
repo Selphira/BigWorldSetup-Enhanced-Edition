@@ -1,0 +1,53 @@
+{
+  "name": "Chosen of Mystra Encounters",
+  "version": "1.21",
+  "links": {
+    "homepage": "http://mods.chosenofmystra.net/encounters/index.html",
+    "download": "https://github.com/The-Gate-Project/Com_encounters/releases/download/v1.21/com-encounters-v1.21.zip"
+  },
+  "file": {
+    "filename": "com-encounters-v1.21.zip",
+    "size": 3625947,
+    "sha256": "c9fd79abfd918bf12e8de7f40a1b5f457267f00ec38b8cdfa091a6e0300a392a"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "de_DE": 2,
+    "it_IT": 3,
+    "ru_RU": 4
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds several encounters with groups of opponents, three stores, a quest involving a halfling and a ring, and improves the fight against Shagbag.",
+      "components": {
+        "0": "Chosen of Mystra's Encounters (Requires Throne of Bhaal)",
+        "1": "Would you like to install improved druid encounters?",
+        "2": "Would you like to install improved Shagbag encounters?"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute plusieurs rencontres avec des groupes d'adversaires, trois magasins, une quête impliquant un halfling et un anneau, et améliore le combat contre Shagbag.",
+      "components": {
+        "0": "Rencontres, par Chosen of Mystra (Necessite Throne of Bhaal)",
+        "1": "Rencontres avec les druides ameliorees",
+        "2": "Rencontres avec Shagbag ameliorees"
+      }
+    },
+    "it_IT": {"components": {"0": "Chosen of Mystra's Encounters (Richiede Throne of Bhaal)", "1": "Would you like to install improved druid encounters?", "2": "Would you like to install improved Shagbag encounters?"}},
+    "ru_RU": {"components": {"0": "Chosen of Mystra's Encounters (Requires Throne of Bhaal)", "1": "Would you like to install improved druid encounters?", "2": "Would you like to install improved Shagbag encounters?"}},
+    "zh_CN": {
+      "description": "此模组增加了与多个敌对群体的遭遇战，三家商店，一个涉及半身人和戒指的任务，并改进了与沙格巴格的战斗。"
+    }
+  },
+  "tp2": "com_encounters",
+  "safe": 2,
+  "authors": ["Magnus Thorenson", "CoM_Solaufein", "Dark Raven"]
+}

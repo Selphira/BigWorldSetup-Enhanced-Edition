@@ -1,0 +1,52 @@
+{
+  "name": "Drizzt Saga",
+  "version": "3.00",
+  "links": {
+    "homepage": "http://www.blackwyrmlair.net/Mods/drizztsaga.php",
+    "download": "https://github.com/Black-Wyrm-Lair/Drizzt-Saga/archive/refs/heads/master.zip"
+  },
+  "file": {
+    "filename": "Drizzt-Saga-master.zip",
+    "size": 75883991,
+    "sha256": "a8825cca678c9de0f10e313fd119e58df0aef0a3b42b089fd3a8016f66264feb"
+  },
+  "games": ["bg", "tutu", "bgt", "bgee", "sod", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "1000": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Drizzt est sur le chemin du retour depuis la Côte des Épées en direction du Val de Bise. Ce qu'il ne sait pas, c'est que des temps sombres se profilent sur le Val et ses compagnons l'entraîneront, lui comme vous, dans une aventure aux dimensions épiques.|Ce mod vous propose une quête majeure, aux côtés du célèbre personnage de R.A. Salvatore, qui débute au moment où vous le rencontrez dans le jeu. Cette aventure prend place dans de nouvelles zones inspirées d'Icewind Dale et englobe de nombreuses quêtes secondaires, des monstres inédits, de nouveaux sorts et équipements...|Il existe deux versions : l'une pour ToSC qui ne comprend pas le français, l'autre pour BG1tutu, BGT et BG:EE, disponible en français.",
+      "components": {
+        "choice_0": "The Drizzt Saga pour BGEE / Tutu / BGT",
+        "0": "Version par defaut : zones connectees par des declencheurs de voyage",
+        "1": "Version BP-BGT Worldmap : ajout de toutes les zones a la carte du monde (requiert BP-BGT Worldmap)",
+        "2": "Eleve la limite d'XP",
+        "3": "Debut repousse : Drizzt revient apres la Tour de Durlag",
+        "4": "Empecher d'exploiter les objets des PNJ",
+        "5": "Reduire la puissance de certains objets",
+        "6": "XP recue pour les creatures reduite au 3/4",
+        "1000": "Biffing des ressources"
+      }
+    },
+    "en_US": {
+      "description": "Drizzt is on his way back from the Sword Coast to the Vale of Bise. What he doesn't know is that dark times lie ahead in the Valley, and his companions will lead him, and you, on an adventure of epic proportions.|This mod features a major quest, alongside the famous character of R.A. Salvatore, which begins the moment you meet him in the game. This adventure takes place in new areas inspired by Icewind Dale, and includes numerous side quests, new monsters, new spells and equipment...|There are two versions: one for ToSC, the other for BG1tutu, BGT and BG:EE."
+    },
+    "zh_CN": {
+      "description": "崔斯特正从剑湾返回冰风谷。但他不知道的是，黑暗时代正笼罩着冰风谷，他的同伴将把他和你一起卷入一场史诗般的冒险中。|这个模组为您提供了一个主要任务，与R.A.萨尔瓦托罗的著名角色并肩作战，该任务在您游戏中遇到他时开始。这场冒险发生在受冰风谷启发的新区域中，并包含许多支线任务、新怪物、新法术和装备……|它有两个版本：一个用于剑湾传奇，但不包含法语；另一个用于博德之门三部曲和博德之门：增强版，提供法语版本。"
+    }
+  },
+  "tp2": "drizztsaga",
+  "safe": 2,
+  "authors": ["Flysoup", "Badgert", "pro5", "Erebusant"]
+}

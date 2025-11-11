@@ -1,0 +1,48 @@
+{
+  "name": "The Minotaur and Lilacor",
+  "version": "2.1",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/41667-the-minotaur-and-lilacor/",
+    "download": "https://github.com/Spellhold-Studios/Minotaur-and-Lilacor/releases/download/v2.1/the-minotaur-and-lilacor-2.1.zip"
+  },
+  "file": {
+    "filename": "the-minotaur-and-lilacor-2.1.zip",
+    "size": 4818071,
+    "sha256": "1d948bef86daa43a6ad92bbaa6dc7c189f780d89f8a201a59183a49c0e31bbfe"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "de_DE": 0,
+    "en_US": 1,
+    "fr_FR": 2,
+    "it_IT": 3,
+    "ru_RU": 4,
+    "es_ES": 5
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "The Minotaur and Lilacor"
+      },
+      "description": "In the sewers of Athkatla, you encounter a minotaur attacked by 4 myconids, as well as 3 bodies lying on the ground, with no explanation given. This mini-mod tells the story."
+    },
+    "fr_FR": {
+      "description": "Dans les égouts d'Athkatla, vous rencontrez un minotaure attaqué par 4 myconides, ainsi que 3 corps gisant au sol, sans qu'aucune explication ne soit donnée. Ce mini-mod se propose d'en raconter l'histoire.",
+      "components": {
+        "0": "Le minotaure et Lilarcor"
+      }
+    },
+    "it_IT": {"components": {"0": "Il Minotauro e Lilacor"}},
+    "ru_RU": {"components": {"0": "The Minotaur and Lilacor"}},
+    "zh_CN": {
+      "description": "在阿斯卡特拉的下水道里，你遇到一只被4个蘑菇人攻击的米诺陶，以及3具倒在地上的尸体，没有任何解释。这个小型模组旨在讲述这个故事。"
+    }
+  },
+  "tp2": "slandor",
+  "safe": 2,
+  "authors": ["Yovaneth"]
+}

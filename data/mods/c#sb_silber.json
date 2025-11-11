@@ -1,0 +1,48 @@
+{
+  "name": "Adalon's Blood",
+  "version": "17.2",
+  "links": {
+    "homepage": "https://www.baldurs-gate.de/index.php?resources/adalons-blood-silberdrachenblutmod.5/",
+    "download": "https://github.com/Gitjas/Adalons_Blood/releases/download/v17.2/adalons-blood-17.2.zip"
+  },
+  "file": {
+    "filename": "adalons-blood-17.2.zip",
+    "size": 4981047,
+    "sha256": "c7f16a2ead1e080111a13a9cdbb642650cc8c242f9355f2d436d56e629e08238"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "de_DE": 1,
+    "fr_FR": 2,
+    "it_IT": 3,
+    "es_ES": 4,
+    "ru_RU": 5
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Adalon's Blood - Modification for BGII by Gandalf the white"
+      },
+      "description": "This mini-mod allows mainly good-aligned players to complete the Bridge District Murders quest without having to kill Adalon to recover his blood. Players of bad alignment can also try their luck: they will then have a small chance of fooling the silver dragon. Armed with the blood, it will now be possible to flush out the tanner's sponsors and clean the armor in a temple."
+    },
+    "fr_FR": {
+      "description": "Ce mini mod permet aux joueurs d'alignement bon principalement, de terminer la quête des meurtres du district du Pont sans avoir à tuer Adalon pour récupérer son sang. Les joueurs d'alignement mauvais peuvent également tenter leur chance : ils auront alors une petite chance de duper le dragon d'argent. Muni du sang, il sera désormais possible de débusquer les commanditaires du tanneur et de nettoyer l'armure dans un temple.",
+      "components": {
+        "0": "Adalon's Blood - Modification pour BGII par Gandalf the white"
+      }
+    },
+    "it_IT": {"components": {"0": "Il Sangue di Adalon ?EModificato per BGII da Gandalf the white"}},
+    "ru_RU": {"components": {"0": "Adalon's Blood - Modification for BGII by Gandalf the white"}},
+    "zh_CN": {
+      "description": "此迷你模组主要允许善良阵营的玩家完成大桥区的谋杀任务，而无需杀死艾达隆来获取它的血液。邪恶阵营的玩家也可以尝试他们的运气：他们将会有很小的机会欺骗这头银龙。有了血液，现在就有可能找出制革商的幕后黑手，并在神殿中净化盔甲。"
+    }
+  },
+  "tp2": "c#sb_silber",
+  "safe": 2,
+  "authors": ["Gandalf the white", "jastey"]
+}

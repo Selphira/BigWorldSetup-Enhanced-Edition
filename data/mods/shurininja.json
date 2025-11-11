@@ -1,0 +1,48 @@
+{
+  "name": "Shuri Ninja kit",
+  "version": "2.0.0",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=33164",
+    "download": "https://github.com/GwendolyneFreddy/Shuri-Ninja/releases/download/v2.0.0/shuri-ninja-kit-2.0.0.zip"
+  },
+  "file": {
+    "filename": "shuri-ninja-kit-2.0.0.zip",
+    "size": 4820194,
+    "sha256": "da7ccab7ab0f0690928e060a55bcc9e9831dc004d0a409efa15a58a6ca791ad1"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["10", "20", "30"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "choice_0": "Shuri Ninja Kit",
+        "10": "Shuri Ninja Kit (legacy)",
+        "20": "Shuri Ninja Kit may not wear heavier armor than leather (EE only)",
+        "30": "Shuri Ninja Kit may not wear any armor (EE only)"
+      },
+      "description": "This mod adds a new thief profile to the game, the shuri ninja, and offers two new components for EE games."
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute un nouveau profil de voleur dans le jeu, le shuri ninja, et offre deux nouveaux composants pour les jeux EE.",
+      "components": {
+        "choice_0": "Profil de Shuri Ninja",
+        "10": "Profil de Shuri Ninja original",
+        "20": "Profil de Shuri Ninja limite aux armures de cuir (seulement pour EE)",
+        "30": "Profil de Shuri Ninja sans armure (seulement pour EE)"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组在游戏中添加了一个新的盗贼职业——忍者手里剑，并为EE游戏提供了两个新组件。"
+    }
+  },
+  "tp2": "shurininja",
+  "safe": 2,
+  "authors": ["Twinblades2"]
+}

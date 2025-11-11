@@ -1,0 +1,42 @@
+{
+  "name": "Mystigan the Merchant",
+  "version": "1.62",
+  "links": {
+    "homepage": "https://akadis.baldursgateworld.fr/Mystigan/MystiganFr.html",
+    "download": "https://akadis.baldursgateworld.fr/Mystigan/zip/Mystigan1.62.zip"
+  },
+  "file": {
+    "filename": "Mystigan1.62.zip",
+    "size": 2146252,
+    "sha256": "61c32aebeb03e3cab562286733fc662c1d2f67dc2c4d949c83000195a542ab50"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["smith"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0,
+    "en_US": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce nouveau marchand que vous pourrez rencontrer dans le district du Gouvernement propose toutes sortes de contenants (étuis à parchemins, sacs de gemmes et bien d'autres), mais également des fléchettes +2 et autres dagues de jet enchantées.",
+      "components": {
+        "0": "Marchand Mystigan (ToB requis)"
+      }
+    },
+    "en_US": {
+      "description": "This new merchant whom you can meet in the Government district offers all kinds of containers (scroll cases, gem bags and more), as well as +2 darts and enchanted throwing daggers.",
+      "components": {
+        "0": "Mystigan the Merchant(ToB Required)"
+      }
+    },
+    "zh_CN": {
+      "description": "你可以在行政区遇到这个新商人，他提供各种容器（羊皮纸套、宝石袋等等），以及+2飞镖和其他附魔投掷匕首。此模组需要ToB。"
+    }
+  },
+  "tp2": "mystigan",
+  "safe": 2,
+  "authors": ["Akadis"]
+}

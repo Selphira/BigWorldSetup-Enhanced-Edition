@@ -1,0 +1,39 @@
+{
+  "name": "Random rolls using RDRAND",
+  "version": "1.1.0",
+  "links": {
+    "homepage": "https://github.com/drake127/randomrolls/releases",
+    "download": "https://github.com/drake127/randomrolls/releases/download/v1.1.0/randomrolls-win.zip"
+  },
+  "file": {
+    "filename": "randomrolls-win.zip",
+    "size": 1274804,
+    "sha256": "bd0d6483cee72c62d82f95a034dc15ed8983a2cf8bac87f6b64bf532ec774e82"
+  },
+  "games": ["bgee", "bg2ee", "iwdee", "pstee", "eet"],
+  "categories": ["util"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce programme permet d'améliorer l'aléatoire de l'InfinityEngine. En effet, lorsque de nombreux lancers sont effectués, il devient apparent que les résultats finissent par se répéter. Lisez le README pour plus d'informations.",
+      "components": {
+        "0": "Améliorer le caractère aléatoire des jets de dés"
+      }
+    },
+    "en_US": {
+      "description": "This program improves InfinityEngine's randomness. Indeed, when many rolls are performed, it becomes apparent that the results end up repeating themselves. Read the README for more information."
+    },
+    "zh_CN": {
+      "description": "此程序可以改进无限引擎的随机性。事实上，当进行大量投掷时，结果最终会开始重复。请阅读README文件以获取更多信息。"
+    }
+  },
+  "tp2": "randomrolls",
+  "safe": 2,
+  "authors": ["drake127"]
+}

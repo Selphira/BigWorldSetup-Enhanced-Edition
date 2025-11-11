@@ -1,0 +1,61 @@
+{
+  "name": "Selphira Tweaks",
+  "version": "1.4",
+  "links": {
+    "homepage": "https://github.com/Selphira/SelphiraTweaks",
+    "download": "https://github.com/Selphira/SelphiraTweaks/releases/download/1.4/SelphiraTweaks-v1.4.zip"
+  },
+  "file": {
+    "filename": "SelphiraTweaks-v1.4.zip",
+    "size": 11227,
+    "sha256": "64097360fd289be9def20f4d5a94fc2b9730d8b15c40f09f693a0d8c9028fdb9"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "10": {"type": "std"},
+    "11": {"type": "std"},
+    "20": {"type": "std"},
+    "21": {"type": "std"},
+    "22": {"type": "std"},
+    "23": {"type": "std"},
+    "24": {"type": "std"},
+    "25": {"type": "std"},
+    "26": {"type": "std"},
+    "30": {"type": "std"},
+    "40": {"type": "std"},
+    "50": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0,
+    "all": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod modifie certains aspects du jeu (effets du charisme et de la réputation sur les prix, progression des sorts pour chaque classe, érudition des classes, attaque par round bonus des compétences martiales et adaptation des bonus d'expérience des pièges.",
+      "components": {
+        "10": "Effet du charisme sur les prix",
+        "11": "Effet de la reputation sur les prix",
+        "20": "Progression des sorts des mages",
+        "21": "Progression des sorts des sorciers",
+        "22": "Progression des sorts des paladins",
+        "23": "Progression des sorts des rodeurs",
+        "24": "Progression des sorts des druides",
+        "25": "Progression des sorts des bardes",
+        "26": "Progression des sorts des pretres",
+        "30": "Erudition des classes",
+        "40": "Lancement des sorts depuis les parchemins au niveau (de mage) du personnage",
+        "50": "Adaptation des bonus d'experience"
+      }
+    },
+    "en_US": {
+      "description": "This mod modifies certain aspects of the game (effects of charisma and reputation on prices, spell progression for each class, class erudition, attack per round bonuses for martial skills and adaptation of trap experience bonuses."
+    },
+    "zh_CN": {
+      "description": "这个模组修改了游戏的某些方面（魅力和名誉对价格的影响、每个职业的法术进阶、职业的学识、武术技能的每轮攻击加值以及陷阱经验值的调整）。"
+    }
+  },
+  "tp2": "selphiratweaks",
+  "safe": 2,
+  "authors": ["Selphira"]
+}

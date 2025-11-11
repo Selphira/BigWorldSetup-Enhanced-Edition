@@ -1,0 +1,42 @@
+{
+  "name": "Korgan's Redemption",
+  "version": "10.0.1",
+  "links": {
+    "homepage": "https://github.com/Spellhold-Studios/Korgan-Redemption",
+    "download": "https://github.com/Spellhold-Studios/Korgan-Redemption/releases/download/v10.0.1/korgans-redemption-v10.0.1.zip"
+  },
+  "file": {
+    "filename": "korgans-redemption-v10.0.1.zip",
+    "size": 2763184,
+    "sha256": "447fbb39631efd8f9ed17c9343dff9bf0e0460019302c0090cc1c0cd0eade284"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 1,
+    "fr_FR": 3
+  },
+  "translations": {
+    "en_US": {
+      "description": "This expansion mod gives Korgan a chance of redemption if Mazzy is part of the group.",
+      "components": {
+        "0": "Korgan's Redemption"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod d'expansion donne une possibilité de rédemption à Korgan si Mazzy fait partie du groupe.",
+      "components": {
+        "0": "La Redemption de Korgan"
+      }
+    },
+    "zh_CN": {
+      "description": "这个扩展模组如果玛兹在队伍中，就为寇根提供了一个救赎的机会。"
+    }
+  },
+  "tp2": "korgan",
+  "safe": 2,
+  "authors": ["Picollo"]
+}

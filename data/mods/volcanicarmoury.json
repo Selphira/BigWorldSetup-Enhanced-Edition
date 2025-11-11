@@ -1,0 +1,42 @@
+{
+  "name": "Volcanic Armoury",
+  "version": "1.6",
+  "links": {
+    "homepage": "https://github.com/The-Gate-Project/VolcanicArmoury",
+    "download": "https://github.com/The-Gate-Project/VolcanicArmoury/releases/download/v1.6/volcanic-armoury-1.6.zip"
+  },
+  "file": {
+    "filename": "volcanic-armoury-1.6.zip",
+    "size": 3250574,
+    "sha256": "f717ba7425d686c9f144343936d7f5147974032ee5855fa93976c70605a2159e"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["spell"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Volcanic Armoury"
+      },
+      "description": "This mod adds numerous defensive items to the in-game stores. Keep your eyes peeled."
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute dans les magasins du jeu de nombreux objets défensifs. Ouvrez bien les yeux.",
+      "components": {
+        "0": "Volcanic Armoury"
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组在游戏商店中添加了许多防御性物品。睁大你的眼睛。"
+    }
+  },
+  "tp2": "volcanicarmoury",
+  "safe": 2,
+  "authors": ["St.Aion"]
+}

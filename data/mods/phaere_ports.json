@@ -1,0 +1,56 @@
+{
+  "name": "Phaere NPC Portraits for BG2",
+  "version": "5.0",
+  "links": {
+    "homepage": "https://github.com/Spellhold-Studios/Phaere-NPC-Portraits-BG2",
+    "download": "https://github.com/Spellhold-Studios/Phaere-NPC-Portraits-BG2/releases/download/v5.0/phaere-npc-portraits-for-bg2-v5.0.zip"
+  },
+  "file": {
+    "filename": "phaere-npc-portraits-for-bg2-v5.0.zip",
+    "size": 5116908,
+    "sha256": "b59d49b18f126d0d6e8214d12019ec5507b831f4d84d99c2919d25e204ac6b88"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["portrait"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "9": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod remplace des portraits de PNJ de BG2 par des créations de Phaere : Aerie, Edwin, Haer'Dalis, Imoen, Jaheira, Mazzy, Minsc, Sarevok et Viconia.",
+      "components": {
+        "0": "Portrait de Minsc",
+        "1": "Portrait d'Aerie",
+        "2": "Portrait d'Imoen",
+        "3": "Portrait d'Edwin",
+        "4": "Portrait de Viconia",
+        "5": "Portrait d'Haer'Dalis",
+        "6": "Portrait de Sarevok (uniquement pour ToB)",
+        "7": "Portrait de Jaheira",
+        "8": "Portrait de Bodhi (uniquement pour les jeux originaux)",
+        "9": "Portrait de Mazzy"
+      }
+    },
+    "en_US": {
+      "description": "This mod replaces BG2 NPC portraits with Phaere creations: Aerie, Edwin, Haer'Dalis, Imoen, Jaheira, Mazzy, Minsc, Sarevok and Viconia."
+    },
+    "zh_CN": {
+      "description": "此模组用Phaere的创作替换了BG2中的一些NPC肖像：艾黎、艾德温、海尔达利、爱蒙、贾希拉、玛兹、明斯克、沙洛佛克和维康妮亚。"
+    }
+  },
+  "tp2": "phaere_ports",
+  "safe": 2,
+  "authors": ["Phaere", "Rastor"]
+}

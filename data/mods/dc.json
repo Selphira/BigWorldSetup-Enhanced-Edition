@@ -1,0 +1,47 @@
+{
+  "name": "Dungeon Crawl",
+  "version": "13.1",
+  "links": {
+    "homepage": "https://www.pocketplane.net/dungeon-crawl/",
+    "download": "https://github.com/Pocket-Plane-Group/Dungeon_Crawl/releases/download/v13.1/DungeonCrawl_v13-1.zip"
+  },
+  "file": {
+    "filename": "DungeonCrawl_v13-1.zip",
+    "size": 11617122,
+    "sha256": "46d69a1e2fb5c45830d4f68b77c3725a28e60bd878c8e8936f0fd5801ba972db"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "ru_RU": 1,
+    "de_DE": 2,
+    "it_IT": 3,
+    "fr_FR": 6
+  },
+  "translations": {
+    "en_US": {
+      "description": "A bit of humor in this brutal world seems to be the philosophy of this mod, which adds a few quests as well as new maps, apparently filled with adventurers more like \"Naheulbeuk\" than \"Lancelot\"! The mod works without Throne of Bhaal and is adapted from the US-famous comic strip of the same name.",
+      "components": {
+        "0": "Dungeon Crawl"
+      }
+    },
+    "ru_RU": {"components": {"0": "Dungeon Crawl"}},
+    "it_IT": {"components": {"0": "Dungeon Crawl"}},
+    "fr_FR": {
+      "description": "Un peu d'humour dans ce monde de brute semble être la philosophie de ce mod, qui ajoute quelques quêtes ainsi que des nouvelles cartes, apparemment remplies d'aventuriers plutôt genre \"Naheulbeuk\" que \"Lancelot\" ! Le mod fonctionne sans Throne of Bhaal et est adapté de la bande dessinée du même nom, célèbre aux États-Unis.",
+      "components": {
+        "0": "Dungeon Crawl"
+      }
+    },
+    "zh_CN": {
+      "description": "在这个野蛮人的世界里加点幽默，似乎是此模组的理念，它添加了一些任务和新地图，显然里面满是“纳赫尔贝克”风格的冒险家，而非“兰斯洛特”风格的！该模组无需《巴尔王座》即可运行，并改编自同名漫画，该漫画在美国很有名。"
+    }
+  },
+  "tp2": "dc",
+  "safe": 2,
+  "authors": ["Kulyok", "WoRm", "Kayless", "jastey"]
+}

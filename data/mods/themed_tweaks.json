@@ -1,0 +1,57 @@
+{
+  "name": "Themed Tweaks",
+  "version": "0.4",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/32346-themed-tweaks-for-bgee-sod-bg2ee-tob-eet/",
+    "download": "https://github.com/lzenner/themed_tweaks/releases/download/v0.4/themed-tweaks-v0.4.zip"
+  },
+  "file": {
+    "filename": "themed-tweaks-v0.4.zip",
+    "size": 3785624,
+    "sha256": "1b9c52ffaf4984c31092e9f618215560358cf2d9709ce83c064fd46be1a3c772"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "60": {"type": "std"},
+    "70": {"type": "std"},
+    "80": {"type": "std"},
+    "90": {"type": "std"},
+    "100": {"type": "std"},
+    "140": {"type": "std"},
+    "150": {"type": "std"},
+    "160": {"type": "std"},
+    "180": {"type": "std"},
+    "200": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "L'objectif principal de ce mod est d'améliorer l'aspect de jeu de rôle tout au long de la série de jeux. À cette fin, il modifie l'histoire à divers endroits.",
+      "components": {
+        "60": "SoD - Donner a Imoen une baguette speciale lors de l'attaque du palais",
+        "70": "SoD - Permettre au PC de porter secours a Imoen apres l'attaque du palais",
+        "80": "SoD - Observations basees sur les statistiques et options de quete",
+        "90": "SoD - Eviter le tour de la ville avec Corwin Schael",
+        "100": "SoD - Quete : Peripeties au Pont de la Voie Cotiere",
+        "140": "SoD/BG2EE - Ajoutez un peu de mordant aux dialogues",
+        "150": "SoD/BG2EE - Supprimer les scenes coupees auxquelles le PC ne devrait pas avoir acces",
+        "160": "SoD/BG2EE - Deplacer les reves avec Irenicus de SoD a BG2EE",
+        "180": "BG2EE - Donner a Imoen la capacite innee, projectiles magiques, pour la scene de la Promenade de Waukyne.",
+        "200": "BG2EE - Utiliser la cinematique d'Irenicus en enfer comme un reve qui restaure vos pouvoirs d'enfant de Bhaal."
+      }
+    },
+    "en_US": {
+      "description": "This mod's main purpose is to augment the role-playing environment throughout the game series. To that end, it tweaks the storyline in various places."
+    },
+    "zh_CN": {
+      "description": "此模组的主要目标是改善整个游戏系列的扮演体验。为此，它在多处修改了剧情。"
+    }
+  },
+  "tp2": "themed_tweaks",
+  "safe": 2,
+  "authors": ["Lauriel"]
+}

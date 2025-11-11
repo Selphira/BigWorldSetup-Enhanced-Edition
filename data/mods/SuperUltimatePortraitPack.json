@@ -1,0 +1,39 @@
+{
+  "name": "Super Ultimate Portrait Pack",
+  "version": "2",
+  "links": {
+    "homepage": "https://www.moddb.com/games/baldurs-gate-enhanced-edition/addons/super-ultimate-portrait-pack-zip",
+    "download": "Manual"
+  },
+  "file": {
+    "filename": "Super_Ultimate_Portrait_Pack_Unsupported_v2.zip",
+    "size": 153369327,
+    "sha256": "ea4ca92ffbc5fc1dff0a16970c716881ad2fc4d8423268f30420b22bbd9b036f"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet"],
+  "categories": ["portrait"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Super Ultimate Portrait Pack"
+      },
+      "description": "Successor to the Ultimate portrait pack, this is a pack of 541 portraits for BG:EE and BG2:EE."
+    },
+    "fr_FR": {
+      "description": "Successeur du Ultimate portrait pack, il s'agit d'un pack de 541 portraits pour BG:EE et BG2:EE."
+    },
+    "zh_CN": {
+      "description": "这是Ultimate portrait pack的继承者，是一个包含541个肖像的包，适用于博德之门：增强版和博德之门2：增强版。"
+    }
+  },
+  "tp2": "superultimateportraitpack",
+  "safe": 2,
+  "authors": ["Rodman49"]
+}

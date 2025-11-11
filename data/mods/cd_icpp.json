@@ -1,0 +1,44 @@
+{
+  "name": "Infinity Collection Portrait Pack",
+  "version": "2",
+  "links": {
+    "homepage": "https://github.com/Gibberlings3/Infinity_Collection_Portrait_Pack",
+    "download": "https://github.com/Gibberlings3/Infinity_Collection_Portrait_Pack/archive/refs/tags/v2.zip"
+  },
+  "file": {
+    "filename": "Infinity_Collection_Portrait_Pack-2.zip",
+    "size": 33421857,
+    "sha256": "10fa9e302b5d9d91f8f2dad741b2266f6eab7ccead08f30c79e0f2939770536b"
+  },
+  "games": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwd", "iwd2", "iwdee"],
+  "categories": ["portrait"],
+  "components": {
+    "100": {"type": "std"},
+    "200": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["300", "400"]}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod regroupe plus de 150 portraits officiels utilisables par votre personnage (sauf ceux de PsT) : ceux de BG, de SoD, de BG2 et ToB, d'IWD ou d'IWD2.",
+      "components": {
+        "100": "Installer tous les portraits de Baldur's Gate pour le PJ",
+        "200": "Installer tous les portraits de Baldur's Gate II pour le PJ",
+        "choice_0": "Installer tous les portraits d'Icewind Dale pour le PJ",
+        "300": "SEULEMENT les portraits d'Icewind Dale",
+        "400": "Les portraits d'Icewind Dale ET d'Icewind Dale II"
+      }
+    },
+    "en_US": {
+      "description": "This mod includes over 150 official portraits that your character can use (except those from PsT): those from BG, SoD, BG2 and ToB, IWD or IWD2."
+    },
+    "zh_CN": {
+      "description": "该模组汇集了150多个官方肖像，可用于你的角色（异度风景：苦难的除外）：来自博德之门、龙矛围攻、博德之门II和巴尔王座、冰风谷或冰风谷2的肖像。"
+    }
+  },
+  "tp2": "cd_icpp",
+  "safe": 2,
+  "authors": ["CamDawg"]
+}

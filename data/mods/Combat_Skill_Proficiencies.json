@@ -1,0 +1,46 @@
+{
+  "name": "Combat Skills & Proficiencies",
+  "version": "1.5.2",
+  "links": {
+    "homepage": "https://github.com/subtledoctor/Combat_Skill_Proficiencies",
+    "download": "https://github.com/subtledoctor/Combat_Skill_Proficiencies/archive/refs/tags/1.5.2.zip"
+  },
+  "file": {
+    "filename": "Combat_Skill_Proficiencies-1.5.2.zip",
+    "size": 1695416,
+    "sha256": "125b336366d6ee515f2b0b75039652d66e2fcffed5e73fa9fed1ff6c753ceae6"
+  },
+  "games": ["bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["gameplay"],
+  "components": {
+    "10": {"type": "std"},
+    "30": {"type": "std"},
+    "50": {"type": "std"},
+    "70": {"type": "std"},
+    "90": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod redéfini le gameplay des compétences martiales. Chaque composant peut-être sélectionné indépendamment des autres.",
+      "components": {
+        "10": "Revision du systeme de competences de combat",
+        "30": "Points de competence de combat",
+        "50": "Regroupement des categories d'armes",
+        "70": "Modification des styles de combat",
+        "90": "Gain d'attaque par round a la specialisation pour toutes les classes (APR on Spec)"
+      }
+    },
+    "en_US": {
+      "description": "This mod redefines the gameplay of martial skills. Each component can be selected independently of the others."
+    },
+    "zh_CN": {
+      "description": "此模组重新定义了武术技能的游戏玩法。每个组件都可以独立于其他组件进行选择。"
+    }
+  },
+  "tp2": "combat_skill_proficiencies",
+  "safe": 2,
+  "authors": ["Subtledoctor"]
+}

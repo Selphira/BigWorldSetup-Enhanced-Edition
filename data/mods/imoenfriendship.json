@@ -1,0 +1,46 @@
+{
+  "name": "Imoen Friendship",
+  "version": "3.6",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/901-imoen-friendship-soa-tob/",
+    "download": "https://github.com/Spellhold-Studios/Imoen-Friendship/releases/download/v3.6/imoen-friendship-v3.6.zip"
+  },
+  "file": {
+    "filename": "imoen-friendship-v3.6.zip",
+    "size": 4272305,
+    "sha256": "60cf8815708121ee0e71a8271b4b740dcde47b6c004ee006a7e812ec6ea129e6"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "ru_RU": 1,
+    "fr_FR": 3,
+    "es_ES": 4,
+    "zh_CN": 5
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds a series of dialogs with Imoen, the PJ's sister, expanding on her experiences and Imoen's struggles.",
+      "components": {
+        "0": "Imoen Friendship for SoA"
+      }
+    },
+    "ru_RU": {"components": {"0": "Imoen Friendship for SoA"}},
+    "fr_FR": {
+      "description": "Ce mod ajoute une série de dialogues avec Imoen, la soeur du PJ, développant son vécu et les luttes d'Imoen.",
+      "components": {
+        "0": "Imoen Friendship pour SoA"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组添加了一系列与爱蒙（主角的妹妹）的对话，深入探讨了她的过往经历和内心挣扎。"
+    }
+  },
+  "tp2": "imoenfriendship",
+  "safe": 2,
+  "authors": ["K'aeloree", "Lava Del'Vortel"]
+}

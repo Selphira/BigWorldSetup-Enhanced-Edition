@@ -1,0 +1,69 @@
+{
+  "name": "Golem Construction for Spellcasters",
+  "version": "6.4",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/1219-golem-construction-for-spellcasters/",
+    "download": "https://github.com/Argent77/A7-GolemConstruction/archive/refs/heads/devel.zip"
+  },
+  "file": {
+    "filename": "A7-GolemConstruction-devel.zip",
+    "size": 25046272,
+    "sha256": "6b806aa9ba23d4d2a01de107edb108e93fbf0c4b4af85b92f3bafe9141cbd949"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"},
+    "10": {"type": "std"},
+    "15": {"type": "std"},
+    "20": {"type": "std"},
+    "25": {"type": "std"},
+    "30": {"type": "std"},
+    "35": {"type": "std"},
+    "40": {"type": "std"},
+    "45": {"type": "std"},
+    "50": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Golem Construction ability for spellcasters",
+        "10": "Replace original Golem Manual",
+        "15": "Improve enemy spellcaster AI",
+        "20": "Golems for enemy spellcasters",
+        "25": "Greater variety of enemy golem types",
+        "30": "Fighter Stronghold golems may continue to serve you",
+        "35": "Make golems vulnerable to specific spell effects",
+        "40": "Reduce weapon immunities and resistances for constructed golems",
+        "45": "Identify all mod items",
+        "50": "Add \"Teleport\" ability to golems"
+      },
+      "description": "This mod enables spellcasters to create their own golem. The golems have a limited lifespan, but follow their creator throughout the game. A small part of the mod is only accessible in BG2:EE."
+    },
+    "fr_FR": {
+      "description": "Ce mod permet aux lanceurs de sorts de fabriquer leur propre golem. Les golems ont une durée de vie limitée, mais suivent leur concepteur partout dans le jeu. Une petite partie du mod n'est accessible que dans BG2:EE.",
+      "components": {
+        "0": "Capacite de Fabrication de Golem pour lanceurs de sorts",
+        "10": "Remplacer le Grimoire des golems original",
+        "15": "Ameliorer l'IA des lanceurs de sorts ennemis",
+        "20": "Des golems pour les lanceurs de sorts ennemis",
+        "25": "Une plus grande diversite de types de golems ennemis",
+        "30": "Les golems de la Forteresse du guerrier ont une chance de vous servir",
+        "35": "Rendre les golems vulnerables aux effets de certains sorts",
+        "40": "Reduire les resistances et l'immunite aux armes des golems fabriques",
+        "45": "Identifier tous les objets du module",
+        "50": "Ajouter la capacite \"Teleportation\" aux golems"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组允许施法者制造他们自己的构装体。构装体有有限的生命周期，但在游戏中会跟随其创造者到处走动。该模组的一小部分内容仅在《博德之门2：增强版》中可用。"
+    }
+  },
+  "tp2": "a7-golemconstruction",
+  "safe": 2,
+  "authors": ["Argent77"]
+}

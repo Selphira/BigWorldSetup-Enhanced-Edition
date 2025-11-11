@@ -1,0 +1,38 @@
+{
+  "name": "Malthis le bretteur vampyre",
+  "version": "2.3",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?p=140073",
+    "download": "https://github.com/Plutonium-X/1D_NPC_Malthis/releases/download/v2.3/win-Malthis-Version_2.3.zip"
+  },
+  "file": {
+    "filename": "win-Malthis-Version_2.3.zip",
+    "size": 3383184,
+    "sha256": "87c9b76e3ca1c77b38fc0f74917c7e4007396c5ee8df2f5bd3951c9bfdfee95a"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc1d"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Malthis est un bretteur chaotique bon que vous pouvez trouver près de Cromwell. Il n'est pas comme les autres et porte un lourd secret. Ses caractéristiques et son alignement vont dépendre de vous. Saurez-vous l'adopter et l'aider dans sa guerre contre une sombre organisation ?|Comme le site hébergeant le mod a disparu (rosenranken.org), le lien renvoie à un compte GitHub d'hébergement temporaire.|FOR 17, DEX 18, CON 17, INT 10, SAG 11, CHA 11.",
+      "components": {
+        "0": "Malthis, le bretteur!"
+      }
+    },
+    "en_US": {
+      "description": "Malthis is a chaotic good Swashbuckler who can be found near Cromwell. He's not like the others and carries a dark secret. His characteristics and alignment will depend on you. Will you be able to adopt him and help him in his war against a dark organization?|As the site hosting the mod has disappeared (rosenranken.org), the link goes to a temporary hosting GitHub account.|STR 17, DEX 18, CON 17, INT 10, WIS 11, CHA 11."
+    },
+    "zh_CN": {
+      "description": "Malthis是一个守序善良的游荡剑客，你可以在Cromwell附近找到他。他与众不同，背负着一个沉重的秘密。他的属性和阵营将取决于你。你会接纳他，并在他与一个黑暗组织的战争中帮助他吗？|由于托管该模组的网站（rosenranken.org）已消失，链接指向一个临时的GitHub托管账户。|力量17，敏捷18，体质17，智力10，智慧11，魅力11。"
+    }
+  },
+  "tp2": "malthis",
+  "safe": 2,
+  "authors": ["jastey"]
+}

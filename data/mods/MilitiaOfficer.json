@@ -1,0 +1,40 @@
+{
+  "name": "Militia Officer",
+  "version": "1.8",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/68238/fighter-kit-bodyguard-iwdee-eet-bgee-bg2ee",
+    "download": "https://github.com/Raduziel/MilitiaOfficer-Kit/archive/refs/tags/1.8.zip"
+  },
+  "file": {
+    "filename": "MilitiaOfficer-Kit-1.8.zip",
+    "size": 923271,
+    "sha256": "2e870badfc23934d03de528fe7457c697f83e2c53e7934608a35e1aca626c000"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod vous permet d'installer un nouveau profil de guerrier spécialisé dans la protection d'autrui.|Un composant optionnel permet d'attribuer le profil d'officier de la milice à Khalid.",
+      "components": {
+        "0": "Installer le profil d'Officier de la milice pour guerriers.",
+        "1": "Khalid, Officier de la milice."
+      }
+    },
+    "en_US": {
+      "description": "This mod installs a new fighter kit specialized in the protection of others; an optional component assigns the militia officer profile to Khalid."
+    },
+    "zh_CN": {
+      "description": "此模组允许你安装一个新的战士配置文件，专门从事保护他人。|一个可选组件可以将Khalid分配为民兵军官的配置文件。"
+    }
+  },
+  "tp2": "militiaofficer",
+  "safe": 2,
+  "authors": ["Raduziel"]
+}

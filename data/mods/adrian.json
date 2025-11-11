@@ -1,0 +1,62 @@
+{
+  "name": "Adrian NPC",
+  "version": "6.1",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/1007-adrian/",
+    "download": "https://github.com/Spellhold-Studios/Adrian-NPC/releases/download/v6.1/adrian-npc-for-bgii-v6.1.zip"
+  },
+  "file": {
+    "filename": "adrian-npc-for-bgii-v6.1.zip",
+    "size": 11370543,
+    "sha256": "0c09635592a0e51f682cc351aa94eec63661b340aa28962fe7ecb9aa0ce387ab"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1", "2"]},
+    "choice_1": {"type": "muc", "components": ["10", "11"]},
+    "20": {"type": "std"},
+    "choice_2": {"type": "muc", "components": ["30", "31"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "Adrian Sianodel is a lawful evil 33-year-old half-Elf mage, whom you meet at the end of the Irenicus dungeon. He has a personal quest and will romanticize human or half-Elf female PJs without restriction of alignment or class. However, your PJ must have a minimum of 12 charisma. Leaf-eaters are not particularly her cup of tea.",
+      "components": {
+        "0": "Adrian for BGII",
+        "choice_0": "Install optional soundset for Adrian?",
+        "1": "Phaelin's soundset",
+        "2": "Tatterdemalion's soundset",
+        "choice_1": "Install alternate class for Adrian?",
+        "3": "Change Adrian's class to Cleric/Mage",
+        "4": "Change Adrian's class to Mage/Thief",
+        "5": "Crossmod Content"
+      }
+    },
+    "fr_FR": {
+      "description": "Adrian Sianodel est un mage demi-elfe loyal mauvais vieux de 33 ans, que vous rencontrerez à la fin du donjon d'Irenicus. Il dispose d'une quête personnelle et romancera les PJs féminins humaines ou demi-elfes sans restriction d'alignement ni de classe. Votre PJ devra toutefois disposer d'un minimum de 12 en charisme. Les mangeurs de feuilles ne sont pas spécialement sa tasse de thé.",
+      "components": {
+        "choice_0": "Adrian pour BGII",
+        "0": "Adrian est un Sorcier",
+        "1": "Changer la classe d'Adrian en Clerc/Mage",
+        "2": "Changer la classe d'Adrian en Mage/Voleur",
+        "choice_1": "Installer un pack de voix optionnel pour Adrian (seulement en anglais)",
+        "10": "Pack de voix de Phaelin",
+        "11": "Pack de voix de Tatterdemalion",
+        "20": "Installer des dialogues avec les PNJs d'autres mods (seulement en anglais)",
+        "choice_2": "Adrian Tolerates High Reputation",
+        "30": "Always",
+        "31": "For Active Romance or Friendship"
+      }
+    },
+    "zh_CN": {
+      "description": "艾德里安·西亚诺德尔是一位33岁的守序邪恶半精灵法师，你将在艾瑞尼卡斯地牢的尽头遇到他。他有一个个人任务，并且会与女性人类或半精灵玩家角色（不限阵营和职业）发展恋情。然而，你的玩家角色魅力值必须至少为12。德鲁伊并非他的菜。"
+    }
+  },
+  "tp2": "adrian",
+  "safe": 2,
+  "authors": ["Rhaella"]
+}

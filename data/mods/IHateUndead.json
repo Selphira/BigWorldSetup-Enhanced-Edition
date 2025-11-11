@@ -1,0 +1,75 @@
+{
+  "name": "I Hate Undead",
+  "version": "3.8.3",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/forums/topic/30786-kit-pack-i-hate-undead-bgee-bg2ee-iwdee-and-eet/",
+    "download": "https://github.com/Raduziel/I-Hate-Undead-Kitpack/archive/refs/tags/3.8.3.zip"
+  },
+  "file": {
+    "filename": "I-Hate-Undead-Kitpack-3.8.3.zip",
+    "size": 1501727,
+    "sha256": "0bc8af5491375b6d559fd27c53b020c482baf9b4f42d67f0d3a7a2ab2f11249c"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "9": {"type": "std"},
+    "10": {"type": "std"},
+    "11": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod lets you select 11 new profiles, all specialized in fighting the undead: Undead Predator (ranger), Holy Redeemer (priest), Slayer of the Dead (mage), Revised Undead Hunter (paladin - Warning: overwrites game profile), Deceiver of Death (thief), Grave Protector (fighter), Mourning Bearer (bard), Keeper of the Circle (druid), Pallid Mask (monk), Fateful Witch (shaman) and Imprisoned Soul (sorcerer).",
+      "components": {
+        "0": "Undead Predator (Ranger Kit)",
+        "1": "Holy Redeemer (Cleric Kit)",
+        "2": "Deathslayer (Wizard Kit)",
+        "3": "Undead Hunter Revision (Paladin Kit - Caution: Overwrites the vanilla kit)",
+        "4": "Death Tricker (Thief Kit)",
+        "5": "Burial Defender (Fighter Kit)",
+        "6": "Grave Mourner (Bard Kit)",
+        "7": "Circle Enforcer (Druid Kit)",
+        "8": "Jaheira, the Circle Enforcer",
+        "9": "Pallid Mask (Monk Kit)",
+        "10": "Dreadful Witch (Shaman Kit)",
+        "11": "Imprisoned Soul (Sorcerer Kit)"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod vous permet de sélectionner 11 nouveaux profils, tous spécialisés dans la lutte contre les morts-vivants : Prédateur des morts-vivants (rôdeur), Saint rédempteur (prêtre), Tueur de morts (mage), Chasseur de morts-vivants révisé (paladin - Attention : écrase le profil du jeu), Trompe la mort (roublard), Protecteur de sépultures (guerrier), Porteur de deuil (barde), Garant du Cercle (druide), Masque Blême (moine), Sorcière funeste (shaman) et Âme emprisonnée (ensorceleur).",
+      "components": {
+        "0": "Predateur des morts-vivants (profil de rodeur)",
+        "1": "Saint redempteur (profil de pretre)",
+        "2": "Tueur de morts (profil de mage)",
+        "3": "Chasseur de morts-vivants revise (profil de paladin)",
+        "4": "Trompe la mort (profil de roublard)",
+        "5": "Protecteur de sépultures (profil de guerrier)",
+        "6": "Porteur de deuil (profil de barde)",
+        "7": "Garant du Cercle (profil de druide)",
+        "8": "Jaheira, Garante du Cercle",
+        "9": "Masque Bleme (profil de moine)",
+        "10": "Sorciere funeste (profil de shaman)",
+        "11": "Ame emprisonnee (profil d'ensorceleur)"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组允许你选择11个新的职业专长，它们都专注于对抗不死生物：不死生物猎手（游侠），救赎圣徒（牧师），亡灵杀手（法师），修订版不死生物猎人（圣武士 - 注意：会覆盖游戏中的原版职业），戏弄死神（盗贼），陵墓守护者（战士），哀悼者（吟游诗人），圆环保证人（德鲁伊），苍白面具（武僧），厄运女巫（萨满），以及被囚之魂（术士）。"
+    }
+  },
+  "tp2": "ihateundead",
+  "safe": 2,
+  "authors": ["Raduziel"]
+}

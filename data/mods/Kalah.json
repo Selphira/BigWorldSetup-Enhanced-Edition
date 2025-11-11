@@ -1,0 +1,40 @@
+{
+  "name": "Kalah",
+  "version": "4.1",
+  "links": {
+    "homepage": "https://github.com/Plutonium-X/QUETE_KALAH",
+    "download": "https://github.com/Plutonium-X/QUETE_KALAH/releases/download/v4.1/win-Kalah-v4.1.zip"
+  },
+  "file": {
+    "filename": "win-Kalah-v4.1.zip",
+    "size": 3162503,
+    "sha256": "04ee05d06415b43d6c651fbdc9bd6dfaa0c7cf6d9bf34db0c1027d4809c1a0a1"
+  },
+  "games": ["bg2", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod modifie la quête du cirque en y ajoutant de petites épreuves. Le résultat de ces épreuves influencent la difficulté du combat final. Un autre composant rend à Aerie métamorphosée son apparence originellement prévue par les développeurs (spoil : ce n'est pas un ogre).",
+      "components": {
+        "0": "Restaurer l'apparence originale d'Aerie.",
+        "1": "Chapiteau de Kalah 2.0"
+      }
+    },
+    "en_US": {
+      "description": "This mod modifies the circus quest by adding small tests. The results of these tests influence the difficulty of the final battle. Another component returns metamorphosed Aerie to the appearance originally intended by the developers (spoiler: she's not an ogre)."
+    },
+    "zh_CN": {
+      "description": "此模组修改了马戏团的任务，在其中加入了一些小考验。这些考验的结果会影响最终战斗的难度。另一个组件将恢复艾黎变形后的原始外观（剧透：她不是食人魔）。"
+    }
+  },
+  "tp2": "kalah",
+  "safe": 2,
+  "authors": ["Picollo"]
+}

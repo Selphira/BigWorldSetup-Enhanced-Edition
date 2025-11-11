@@ -1,0 +1,95 @@
+{
+  "name": "Revised Battles",
+  "version": "6.5.1",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/655-revised-battles-v63/",
+    "download": "https://github.com/Plutonium-X/FIGHT_Battles/releases/download/V6.5.1/win-RevisedBattles-v6.5.1.zip"
+  },
+  "file": {
+    "filename": "win-RevisedBattles-v6.5.1.zip",
+    "size": 2832765,
+    "sha256": "a2a061cd4a7f00c44b4ba099f9f9230332fa63a5dcf84da8f0d342712f48ab6c"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["tactic", "kit"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "9": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["10"]},
+    "choice_1": {"type": "muc", "components": ["11"]},
+    "choice_2": {"type": "muc", "components": ["12"]},
+    "13": {"type": "std"},
+    "14": {"type": "std"},
+    "15": {"type": "std"},
+    "16": {"type": "std"},
+    "17": {"type": "std"},
+    "18": {"type": "std"},
+    "19": {"type": "std"},
+    "20": {"type": "std"},
+    "21": {"type": "std"},
+    "22": {"type": "std"},
+    "23": {"type": "std"},
+    "24": {"type": "std"},
+    "25": {"type": "std"},
+    "26": {"type": "std"},
+    "27": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Remix d'Improved Battles, ce mod augmente la difficulté d'un certain nombre de combats (Drizzt, Firkraag, etc...), il augmente également les drops. Il ajoute par ailleurs quatre nouveaux kits de guerrier :|`Bâtard` : immunisé aux attaques sournoises, il gagne des compétences qui le booste de façon provisoire.|`Chevalier Démon` : immunisé à la peur et à l'immobilisation, il possède également 40% de résistance au feu et une résistance à la magie qui augmente au fil des niveaux.|`Maître d'armes` : il améliore son Tac0, ses dégâts ainsi que sa CA au fil des niveaux, il peut utiliser Kai et a un léger bonus de vitesse de déplacement.|`Vengeur des arcanes` : il a un gros bonus de Tac0 et de dégâts contre les mages et les sorciers ainsi qu'à ses jets de sauvegarde contre les sorts. Il dispose également de deux sorts lui permettant de dissiper les invisibilités et de dévier les sorts pendant plusieurs rounds.",
+      "components": {
+        "0": "Improved Battles - \"Version patchee\" v6.4",
+        "1": "Drizzt ameliore",
+        "2": "Mencar Brisecaillou ameliore",
+        "3": "Clerc fou ameliore",
+        "4": "Maison Jae'llat amelioree",
+        "5": "Seigneur Roenall ameliore",
+        "6": "Geancephale ameliore",
+        "7": "Spectre de Sarevok ameliore",
+        "8": "Cohrvale, Bregg & Alamas ameliores",
+        "9": "Firkraag ameliore",
+        "choice_0": "Patch de compatibilite NEJ2v691 pour Firkraag ameliore",
+        "10": "Firkraag ameliore",
+        "choice_1": "Patch de compatibilite FR_ROV pour Firkraag ameliore",
+        "11": "Firkraag ameliore",
+        "choice_2": "Patch de compatibilite Romantic Encounters pour Firkraag ameliore",
+        "12": "Firkraag ameliore",
+        "13": "Geants de Feu ameliores (ToB requis)",
+        "14": "Seigneur de la Penombre ameliore",
+        "15": "Crypte de FrancMarche amelioree",
+        "16": "Donjon ameliore",
+        "17": "Equipe des Egouts du Quartier du Temple davantage amelioree",
+        "18": "Kiser Jhaeri ameliore (ToB requis)",
+        "19": "Falahar ameliore",
+        "20": "Combats d'Arene des Drow ameliores",
+        "21": "Demon Chromatique ameliore",
+        "22": "Chevaliers de Sombre Renom",
+        "23": "Kit : Vengeur des Arcanes",
+        "24": "Kit : Maitre d'Armes",
+        "25": "Kit : Chevalier Demon",
+        "26": "Kit : Batard",
+        "27": "Modifier les competences, capacites et effets des fichiers .CRE. Ce composant doit IMPERATIVEMENT etre installe."
+      }
+    },
+    "en_US": {
+      "description": "A remix of Improved Battles, this mod increases the difficulty of a number of battles (Drizzt, Firkraag, etc.), as well as increasing drops. It also adds four new fighter kits:|`Bastard`: immune to sneak attacks, he gains skills that boost him temporarily.|`Demon Knight`: immune to fear and immobilization, he also has 40% resistance to fire and a resistance to magic that increases with level.|Weapon Master: improves Tac0, damage and AC over levels, can use Kai and has a slight movement speed bonus. Arcane Avenger: has a high Tac0 and damage bonus against mages and sorcerers, as well as to saving throws against spells. He also has two spells enabling him to dispel invisibility and deflect spells for several rounds."
+    },
+    "zh_CN": {
+      "description": "Improved Battles的混音版，此模组增加了许多战斗的难度（崔斯特、费尔克拉格等），同时也增加了掉落率。此外，它还添加了四个新的战士宗派：|`私生子`：对偷袭免疫，获得一些能暂时提升他的技能。|`恶魔骑士`：对恐惧和定身免疫，同时拥有40%的火焰抗性，并且魔法抗性会随等级提升。|`武器大师`：随着等级提升，他的THAC0、伤害和AC都会得到改善，他可以使用“凯伊”技能，并拥有轻微的移动速度加成。|`奥术复仇者`：对法师和术士有巨大的THAC0和伤害加成，并且对法术的豁免检定也有加成。他还拥有两个法术，可以驱散隐形效果并在数回合内偏转法术。"
+    }
+  },
+  "tp2": "revisedbattles",
+  "safe": 2,
+  "authors": ["Erebusant"]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "Rolles Safyer",
+  "version": "5.0.5",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/36655-rolles-v505/",
+    "download": "https://github.com/Spellhold-Studios/Rolles/releases/download/v5.0.5/rolles-safyer-v5.0.5.zip"
+  },
+  "file": {
+    "filename": "rolles-safyer-v5.0.5.zip",
+    "size": 5165236,
+    "sha256": "132cc46f673cc1e8bd7eb869ddf664774ce0e37bc49fce5f5a3e6c1dacf01316"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["smith"],
+  "components": {
+    "0": {"type": "std"},
+    "10": {"type": "std"}
+  },
+  "languages": {
+    "ru_RU": 0,
+    "en_US": 1,
+    "fr_FR": 2
+  },
+  "translations": {
+    "ru_RU": {"components": {"0": "Rolles Safyer", "10": "Bag of Holding in Irenicus Dungeon"}},
+    "en_US": {
+      "description": "Rolles Safyer is a vendor on Athkatla's Waukeen's Promenade. While he sells many items - and quite a lot of money - (including a few of those famous books that increase stats), his main function is as a blacksmith of magical items. Like a Cromwell or Ruad, he will analyze your inventory to see if any of your weapons or items can be improved or combined with other items. The result can be powerful, if you pay the price, which can be substantial...",
+      "components": {
+        "0": "Rolles Safyer",
+        "10": "Bag of Holding in Irenicus Dungeon"
+      }
+    },
+    "fr_FR": {
+      "description": "Rolles Safyer est un vendeur présent sur la Promenade de Waukyne d'Athkatla. S'il vend de nombreux objets - assez cher - (dont quelques-uns de ces fameux livres qui augmentent les caractéristiques), sa principale fonction est forgeron d'objets magiques. À la manière d'un Cromwell ou d'un Ruad, il analysera votre inventaire pour voir si certaines de vos armes ou de vos objets peuvent être améliorés ou combinés avec d'autres objets. Le résultat peut être puissant, si toutefois vous y mettez le prix, qui peut être conséquent...",
+      "components": {
+        "0": "Rolles Safyer",
+        "10": "Sac de contenance a la prison d'Irenicus"
+      }
+    },
+    "zh_CN": {
+      "description": "Rolles Safyer是一位出现在阿斯卡特拉渥金商场的商人。他出售许多物品——价格相当昂贵——（其中一些是那些能提升属性的著名书籍），但他的主要功能是打造魔法物品。像克伦威尔或鲁阿德一样，他会分析你的物品栏，看看你的某些武器或物品是否可以被强化或与其他物品组合。结果可能非常强大，前提是你愿意支付可能相当高昂的价格……"
+    }
+  },
+  "tp2": "rolles",
+  "safe": 2,
+  "authors": ["Serdrick"]
+}

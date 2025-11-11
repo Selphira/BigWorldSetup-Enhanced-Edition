@@ -1,0 +1,49 @@
+{
+  "name": "The White Queen",
+  "version": "7.3.1",
+  "links": {
+    "homepage": "https://downloads.weaselmods.net/download/the-white-queen/",
+    "download": "https://downloads.weaselmods.net/download/the-white-queen/?wpdmdl=75"
+  },
+  "file": {
+    "filename": "The-White-Queen-v7.3.1.zip",
+    "size": 31960870,
+    "sha256": "c203ecc056f4e08906f6a308cae62cefbb6e122c87b3695210805757af856aed"
+  },
+  "games": ["bg2", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "de_DE": 1,
+    "ru_RU": 2,
+    "fr_FR": 4
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "choice_0": "Couleurs de l'Infini - La Reine Blanche",
+        "0": "Oui, mais sans corriger les sauvegardes de jeu existantes",
+        "1": "Oui, et corriger les sauvegardes de jeu existantes"
+      },
+      "description": "This mod is the 3rd in the Colours of Infinity series, following Tales of the Deep Gardens and Innershade. To start the quest buy a new book at the book merchant's store on the Promenade. It may guide you to one of the strange marshes where terrible events took place earlier: a place of mystery and tragedy. Explore the ruins of a forgotten village, discover what lies under the layers of the mud and meet the White Queen and her servants... The mod includes 8 new locations, some dialogues, new music, items and more. It's more combat-oriented than previous mods in the series."
+    },
+    "ru_RU": {"components": {"choice_0": "Couleurs de l'Infini - La Reine Blanche", "0": "Oui, mais sans corriger les sauvegardes de jeu existantes", "1": "Oui, et corriger les sauvegardes de jeu existantes"}},
+    "fr_FR": {
+      "description": "Ce mod est le 3ème opus de la série Colours of Infinity, après Tales of the Deep Gardens et Innershade. Tout commence par un livre acheté auprès d'un marchand de la Promenade de Waukyne. Il vous guidera peut-être dans un des marais étranges où des évènements terribles ont eu lieu un peu plus tôt : un lieu de mystères et de tragédies. Explorez les ruines d'un village oublié, découvrez ce qui se cache sous la boue en allant à la rencontre de la Reine Blanche et de ses adeptes... Pourrez-vous résoudre les conflits enfouis de ce lieu ?|Le mod inclut 8 nouveaux lieux, des dialogues, de nouvelles musiques, des objets, etc. Il est plus orienté vers le combat que les précédents mods de la série.",
+      "components": {
+        "choice_0": "Couleurs de l'Infini - La Reine Blanche",
+        "0": "Oui, mais sans corriger les sauvegardes de jeu existantes",
+        "1": "Oui, et corriger les sauvegardes de jeu existantes"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组是《无限色彩》系列的第三部作品，继Tales of the Deep Gardens和Innershade之后。一切始于在渥金商场从一个商人那里买到的一本书。它可能会引导你前往一个奇怪的沼泽，那里不久前发生了可怕的事件：一个充满神秘和悲剧的地方。探索一个被遗忘村庄的废墟，在遇见白女王及其追随者时，发现泥泞之下隐藏着什么……你能解决这个地方隐藏的冲突吗？|模组包含8个新地点、对话、新音乐、物品等。它比该系列之前的模组更侧重于战斗。"
+    }
+  },
+  "tp2": "whitequeen",
+  "safe": 2,
+  "authors": ["Lava Del'Vortel"]
+}

@@ -1,0 +1,78 @@
+{
+  "name": "Almateria's Restoration Project",
+  "version": "10.1",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/1053-almaterias-restoration-project/",
+    "download": "https://github.com/Spellhold-Studios/Almaterias-Restoration-Project/releases/download/v10.1/arestorationp-v10.1.zip"
+  },
+  "file": {
+    "filename": "arestorationp-v10.1.zip",
+    "size": 4921804,
+    "sha256": "78aa81458a8f8aa42ab50720a55bed3f5075b3b9b3f77471f7f1a4632b505477"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "10": {"type": "std"},
+    "11": {"type": "std"},
+    "12": {"type": "std"},
+    "13": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 1,
+    "fr_FR": 7
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Restored Locations",
+        "1": "Restored Characters and Dialogs",
+        "2": "Restored Sounds",
+        "3": "Restored Items",
+        "4": "Restored Wish Options",
+        "5": "Restored XP for Minor Things",
+        "6": "Lich Deril",
+        "7": "Restored Random Encounters",
+        "8": "Minor Restorations",
+        "10": "Better Item Import",
+        "11": "Restored Final Slayer Dream",
+        "12": "Alternate Slayer Change",
+        "13": "Restored Waukeen's Promenade Cutscene"
+      },
+      "description": "This mod can also be installed independently of Unfinished Business, but its purpose is to restore content not exploited by the latter; in this sense, it's worth pairing it with Unfinished Business."
+    },
+    "fr_FR": {
+      "description": "Pouvant être également installé indépendamment d'Unfinished Business, ce mod a toutefois pour vocation de restaurer du contenu non exploité par ce dernier ; dans ce sens il est donc intéressant de le coupler à Unfinished Business.",
+      "components": {
+        "0": "Restauration de lieux",
+        "1": "Restauration de personnages et de dialogues",
+        "2": "Restauration de sons",
+        "3": "Restauration d'objets",
+        "4": "Restauration d'options de souhait",
+        "5": "Restauration de table d'XP dans ToB",
+        "6": "Liche Deril",
+        "7": "Restauration de rencontres aleatoires",
+        "8": "Restaurations mineures",
+        "10": "Meilleur import d'objet",
+        "11": "Restauration du reve de fin avec l'Ecorcheur",
+        "12": "Transformation en Ecorcheur alternative",
+        "13": "Restauration de la cinematique de la Promenade de Waukyne"
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组也可以独立于 Unfinished Business 安装，但其目的是恢复后者未使用的内容；从这个意义上说，将它与 Unfinished Business 配合使用是很有趣的。"
+    }
+  },
+  "tp2": "arestorationp",
+  "safe": 2,
+  "authors": ["Almateria"]
+}

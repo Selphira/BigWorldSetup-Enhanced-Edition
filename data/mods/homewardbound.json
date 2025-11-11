@@ -1,0 +1,49 @@
+{
+  "name": "Homeward Bound",
+  "version": "8",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/30937-homeward-bound/",
+    "download": "https://github.com/Plutonium-X/MISC_Homeward/archive/refs/tags/v8.zip"
+  },
+  "file": {
+    "filename": "MISC_Homeward-8.zip",
+    "size": 6614813,
+    "sha256": "1ec21dd331be335130a0b11c9b07b18748ed49369e775d44ccc983cd5e667e58"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["1", "2"]}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod allows you to send your companions home or have them return to the Throne of Bhaal Pocket Plane, and to access the epilogue of all your companions, even those who are no longer part of your party... It also allows you to send them back to the mainland from the island of Brynnlaw, just before or after the Spellhold stage. A store is included (in Brynnlaw).",
+      "components": {
+        "0": "Homeward Bound",
+        "choice_0": "Romances end due to separation",
+        "1": "Homeward Bound does *not* kill BioWare romances",
+        "2": "Original game behavior is unchanged"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod permet de renvoyer vos compagnons chez eux ou de les faire revenir dans l'Antichambre de Throne of Bhaal, et d'avoir accès à l'épilogue de tous vos compagnons, même ceux qui ne font plus partie de votre groupe... Il permet aussi de les renvoyer sur le continent à partir de l'île de Brynnlaw, juste avant ou après l'étape de Spellhold. Un magasin est inclus (à Brynnlaw).",
+      "components": {
+        "0": "Homeward Bound",
+        "choice_0": "La separation met fin aux romances",
+        "1": "Homeward Bound ne met *pas* fin aux romances de BioWare",
+        "2": "Les parametres du jeu original restent inchanges"
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组允许您将同伴送回家，或在巴尔王座的前厅将他们召回，并可以访问所有同伴的结局，即使他们不再是您小队的一员……它还允许您在从布林劳岛出发前往索丹尼斯拉之前或之后，将他们送回大陆。包含一个商店（在布林劳）。"
+    }
+  },
+  "tp2": "homewardbound",
+  "safe": 2,
+  "authors": ["berelinde"]
+}

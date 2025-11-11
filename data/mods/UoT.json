@@ -1,0 +1,38 @@
+{
+  "name": "Umbra of Torto",
+  "version": "2.4.0",
+  "links": {
+    "homepage": "https://trow.cc/board/index.php?showtopic=13329",
+    "download": "https://github.com/Plutonium-X/FIGHT_Umbra-of-Torto/releases/download/2.4.0/win-UoT-v2.4.0.zip"
+  },
+  "file": {
+    "filename": "win-UoT-v2.4.0.zip",
+    "size": 10898904,
+    "sha256": "f98340f63a8089555c841d59342c07107152efb41919d591665435d20696bf2b"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 3
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod organise des combats d'arène contre de puissantes créatures extra planaires. Le but est simple : vaincre ou mourir ! Le combat contre le grand maître est le seul qui peut vous rapporter des objets.|Quelques puissants objets sont également en vente.",
+      "components": {
+        "0": "Umbra of Torto"
+      }
+    },
+    "en_US": {
+      "description": "This mod organizes arena battles against powerful extra-planar creatures. The aim is simple: win or die! The battle against the Grandmaster is the only one that can earn you items, and some powerful items are also for sale."
+    },
+    "zh_CN": {
+      "description": "此模组组织了对抗强大异界生物的竞技场战斗。目标很简单：战胜或死亡！与大师的战斗是唯一能为你带来物品的战斗。一些强大的物品也可以买到。"
+    }
+  },
+  "tp2": "uot",
+  "safe": 2,
+  "authors": ["inthel", "lijing_hi"]
+}

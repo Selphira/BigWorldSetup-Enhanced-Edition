@@ -1,0 +1,39 @@
+{
+  "name": "Sequencer ColoredText",
+  "version": "1.0",
+  "links": {
+    "homepage": "http://www.shsforums.net/files/file/1273-sequencer-coloredtext/",
+    "download": "http://america.iegmc.com/gamemacik/Sequencer_ColoredText_v1.0.rar"
+  },
+  "file": {
+    "filename": "Sequencer_ColoredText_v1.0.rar",
+    "size": 1046725,
+    "sha256": "d114b95dbd19fc34de302b42ad44232984d2c289c9bcaa668bbd8646226b209d"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet"],
+  "categories": ["cosm"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Sequencer_ColoredText"
+      },
+      "description": "This small mod restores the purple color (that of the original BG2) of the sequencer/trigger combat log to purple and displays the \"vorpal stroke\" of planar swords in yellow."
+    },
+    "fr_FR": {
+      "description": "Ce petit mod rétablit la couleur violette (celle de BG2 original) du journal de combat des séquenceurs/déclencheurs en violette et affiche en jaune le \"coup vorpal\" des épées des planaires."
+    },
+    "zh_CN": {
+      "description": "这个小模组恢复了序列者/触发者战斗日志的紫色（博德之门2原版的颜色），并以黄色显示位面剑的“斩首一击”。"
+    }
+  },
+  "tp2": "sequencer_coloredtext",
+  "safe": 2,
+  "authors": ["Gamemacik"]
+}

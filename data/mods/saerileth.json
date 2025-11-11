@@ -1,0 +1,42 @@
+{
+  "name": "Saerileth",
+  "version": "23",
+  "links": {
+    "homepage": "https://smolderingmodsbar.com/saerileth-bg2-ee/",
+    "download": "https://github.com/PaulaMigrate/Saerileth/archive/refs/tags/V23.zip"
+  },
+  "file": {
+    "filename": "Saerileth-23.zip",
+    "size": 40300569,
+    "sha256": "08a66419c5b0aa48c7cf8fdd05b7a0a0ac5099b3fcee71aeab056e89df40c4cc"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 2
+  },
+  "translations": {
+    "en_US": {
+      "description": "Saerileth is a pretty 15-year-old Paladin of Tyre. This mod is complete with content for SoA/ToB, a romance (for humans, elves and half-elves), several quests (bringing 3 new maps). It's very well written, but only for lawful good guys on a quest for courtly love, since flirting with Saerileth isn't exactly... vicony-esque.|STR 16, DEX 14, CON 12, INT 14, WIS 17, CHA 18.",
+      "components": {
+        "0": "Saerileth mod"
+      }
+    },
+    "fr_FR": {
+      "description": "Saerileth est une Paladine de Tyr âgée de 15 ans, et fort jolie. Ce mod est complet avec du contenu pour SoA/ToB, une romance (pour les humains, elfes et demi-elfes), plusieurs quêtes (apportant 3 nouvelles maps). Il est très bien écrit, mais réservé aux loyaux bons en quête d'amour courtois, le flirt avec Saerileth n'étant pas franchement... viconiesque.|FOR 16, DEX 14, CON 12, INT 14, SAG 17, CHA 18.",
+      "components": {
+        "0": "Saerileth mod"
+      }
+    },
+    "zh_CN": {
+      "description": "赛瑞莱斯是一位15岁的提尔圣武士，非常漂亮。这个模组内容完整，包含安姆阴影/巴尔王座的内容、一段浪漫剧情（仅限人类、精灵和半精灵）、多个任务（带来3张新地图）。文本写得非常好，但只适合那些追求典雅之爱的守序善良角色，因为与赛瑞莱斯的调情……一点也不维康妮亚式。|力量 16, 敏捷 14, 体质 12, 智力 14, 智慧 17, 魅力 18。"
+    }
+  },
+  "tp2": "saerileth",
+  "safe": 2,
+  "authors": ["Sillara", "Nethrin", "Paula Migrate"]
+}

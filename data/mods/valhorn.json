@@ -1,0 +1,42 @@
+{
+  "name": "Improved Horns of Valhalla",
+  "version": "2.0",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/mods/items/horns/",
+    "download": "https://github.com/Gibberlings3/Improved_Horns_of_Valhalla/releases/download/v2/valhorn-v2.exe"
+  },
+  "file": {
+    "filename": "valhorn-v2.exe",
+    "size": 1188432,
+    "sha256": "d5fab20afa7be8f0185a275eaf4fc49b7d1c57ec60b47a29bfbc9a08eb36150f"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["spell"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mini-mod upgrades the berserkers summoned by the three Valhalla horns. Only the creatures and their items are modified. The horns themselves remain unchanged. Berserkers have improved weapons and skills, and are constantly in a state of rage (like the Berserker kit).",
+      "components": {
+        "0": "Improved Horns of Valhalla"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mini mod améliore les berserkers invoqués par les trois cors du Valhalla. Seules les créatures et leurs objets sont modifiés. Les cornes elles-mêmes restent inchangées. Les berserkers ont des armes et des compétences améliorées, et sont constamment dans un état de rage (comme le kit Berserker).",
+      "components": {
+        "0": "Cor du Valhalla ameliore"
+      }
+    },
+    "zh_CN": {
+      "description": "这个迷你模组改进了由三个瓦尔哈拉号角召唤的狂战士。只有生物和他们的物品被修改。号角本身保持不变。狂战士拥有更好的武器和技能，并且始终处于狂怒状态（就像狂战士宗派一样）。"
+    }
+  },
+  "tp2": "valhorn",
+  "safe": 2,
+  "authors": ["Cirerrek", "CamDawg"]
+}

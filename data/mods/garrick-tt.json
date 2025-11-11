@@ -1,0 +1,43 @@
+{
+  "name": "Garrick: Tales of a Troubadour",
+  "version": "1.27",
+  "links": {
+    "homepage": "https://mirandir.baldursgateworld.fr/garrick-tt/fr.html",
+    "download": "https://github.com/The-Gate-Project/Garrick_Tales-of-a-Troubadour/releases/download/v1.27/garrick-tales-of-a-troubadour-1.27.zip"
+  },
+  "file": {
+    "filename": "garrick-tales-of-a-troubadour-1.27.zip",
+    "size": 7804083,
+    "sha256": "bf5c8d26f10e3804689a88da263073a4a2df750b76d881cd05263bf243709461"
+  },
+  "games": ["bgt", "bgee", "eet"],
+  "categories": ["npcx"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0,
+    "en_US": 1,
+    "de_DE": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod vise à rendre le personnage de Garrick plus intéressant à jouer, en ajoutant de nouveaux dialogues, de nouvelles situations et rencontres ainsi que des chants supplémentaires propres au barde de Bérégost. Il s'appuie pour cela sur le contenu introduit par le The BG1NPC Project et le complète.",
+      "components": {
+        "0": "Garrick : les contes d'un troubadour"
+      }
+    },
+    "en_US": {
+      "description": "This mod aims to make Garrick's character more interesting to play, by adding new dialogs, situations and encounters, as well as additional songs specific to the Bard of Beregost. It builds on and completes the content introduced by The BG1NPC Project.",
+      "components": {
+        "0": "Garrick: Tales of a troubadour"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组旨在让加瑞克这个角色变得更有趣，通过添加新的对话、新的情境与遭遇，以及贝尔苟斯特吟游诗人专属的额外歌曲。它基于The BG1NPC Project引入的内容并对其进行补充。"
+    }
+  },
+  "tp2": "garrick-tt",
+  "safe": 2,
+  "authors": ["mirandir", "Zyl", "Erg"]
+}

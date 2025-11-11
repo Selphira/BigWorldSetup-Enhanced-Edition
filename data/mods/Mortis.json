@@ -1,0 +1,38 @@
+{
+  "name": "Mortis Mini mod",
+  "version": "2.35",
+  "links": {
+    "homepage": "https://github.com/Plutonium-X/MISC_Mortis",
+    "download": "https://github.com/Plutonium-X/MISC_Mortis/archive/refs/tags/v2.35.zip"
+  },
+  "file": {
+    "filename": "MISC_Mortis-2.35.zip",
+    "size": 2901343,
+    "sha256": "6e516c4fb77642ba548e329530e3f0d0c44f52643a48f013c03412785893d01f"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["smith"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod ajoute deux magasins (l'un dans le donjon d'Irenicus derrière la cellule de Jaheira et l'autre dans les ruines de l'ombre - temple d'Amaunator) qui vendent des potions vous permettant de vous transformer en diverses créatures : limon, vampire, minotaure, spectateur... C'est un mod ténébreux basé sur les morts-vivants, les liches, etc. Les potions sont seulement utilisables par des humains de classe guerrier, clerc, mage ou voleur.",
+      "components": {
+        "0": "Mortis"
+      }
+    },
+    "en_US": {
+      "description": "This mod adds two stores (one in the Irenicus dungeon behind Jaheira's cell and the other in the shadow ruins - Amaunator's temple) that sell potions allowing you to transform into various creatures: silt, vampire, minotaur, spectator... This is a dark mod based on undead, liches, etc. Potions can only be used by humans of fighter, cleric, mage or thief class."
+    },
+    "zh_CN": {
+      "description": "此模组添加了两个商店（一个在艾瑞尼卡斯地牢，在贾希拉的牢房后面；另一个在幽影废墟——阿玛纳多神庙），出售各种药水，让你可以变成不同的生物：泥怪、吸血鬼、牛头人、眼魔……这是一个基于不死生物、巫妖等的黑暗模组。这些药水只能由人类战士、牧师、法师或盗贼职业使用。"
+    }
+  },
+  "tp2": "mortis",
+  "safe": 2,
+  "authors": ["Mortis"]
+}

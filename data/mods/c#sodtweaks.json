@@ -1,0 +1,66 @@
+{
+  "name": "Jastey's SoD Tweakpack",
+  "version": "13",
+  "links": {
+    "homepage": "https://github.com/Gibberlings3/Jasteys_SoD_Tweakpack",
+    "download": "https://github.com/Gibberlings3/Jasteys_SoD_Tweakpack/releases/download/v13/jasteys-tweaks-for-sod-and-eet-and-bgt-v13.zip"
+  },
+  "file": {
+    "filename": "jasteys-tweaks-for-sod-and-eet-and-bgt-v13.zip",
+    "size": 5171657,
+    "sha256": "b2598c56163fce3e35f9d3baf2b2196fa0554aeaad4013b15aa193e756162cef"
+  },
+  "games": ["bgt", "bgee", "sod", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "1": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["2", "3"]},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["8", "9", "10", "11"]},
+    "choice_2": {"type": "muc", "components": ["12", "13", "14", "15"]},
+    "20": {"type": "std"},
+    "21": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 3
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Cette collection d'ajustements est destiné à la partie SoD part de BG:EE (excepté le dernier composant qui permet d'utiliser le portrait SoD d'Imoen dans BG2) :|- Décision du jugement final indépendamment des réponses du PJ : la libération est toujours privilégiée sur l'évasion si les actes du PJs le permettent.|- Déclencher les dialogues de romance indépendamment des zones dans lesquelles on doit passer. Vous avez aussi la possibilité de mettre en attente les interactions entre PNJ s'ils ne sont pas dans le groupe dans les zones concernées. Ils seront alors déclenchés lorsqu'ils réintégreront le groupe.|- Sauter le donjon de Korlasz et se rendre directement au palais ducal sans briser le quatrième mur.|- Choix de dialogue supplémentaires et prévention des impasses dans la réalisation des quêtes.|- Rétablir le combat scénarisé de la scène d'enlèvement à la fin de SoD.|- Choisir les XP des personnages au début de SoD (65 000, 90 000, 125 000 ou 161 000).|- Et bien d'autres...",
+      "components": {
+        "1": "Fin independante des reponses du PC",
+        "choice_0": "Ne manquez pas de dialogues entre NPC-PC",
+        "2": "Pour les PNJ du groupe uniquement",
+        "3": "Toujours activer tous les dialogues entre PNJ-PC",
+        "4": "Ignorer le donjon de Korlasz",
+        "5": "Plus de choix de dialogue et eviter les situations sans issue",
+        "6": "Utiliser le portrait SoD d'Imoen pour BGII dans EET & BGT",
+        "7": "Restaurer le script de la scene de combat lors de l'enlevement.",
+        "choice_1": "Ajuster l'experience de depart du PC au debut de SoD, par Subtledoctor",
+        "8": "Regler l'experience de depart a 65,000",
+        "9": "Regler l'experience de depart a 90,000",
+        "10": "Regler l'experience de depart a 125,000",
+        "11": "Regler l'experience de depart a 161,000",
+        "choice_2": "Final de SoD : Jastey's Tweaks",
+        "12": "Version complete revisee",
+        "13": "Version revisee et simplifiee",
+        "14": "Version originale simplifiee",
+        "15": "Version tres tres simplifiee",
+        "20": "Fermer le portail depuis le Chateau Paldragon (Aun Argent survit toujours).",
+        "21": "Hephernaan prend la cle de la crypte du Chateau Paldragon."
+      }
+    },
+    "en_US": {
+      "description": "This collection of tweaks is intended for the SoD part of BG:EE (except for the last component, which allows you to use Imoen's SoD portrait in BG2):|- Final judgment decision regardless of the PJ's answers: release is always favored over escape if the PJ's actions allow it.|- Trigger romance dialogs regardless of the areas you have to pass through. You can also put NPC interactions on hold if they are not in the party in the areas concerned. Skip the Korlasz dungeon and go straight to the ducal palace without breaking the fourth wall.|- Choose additional dialogs and prevent quest deadlocks.|- Restore the scripted combat from the kidnapping scene at the end of SoD.|- Choose character XP at the start of SoD (65,000, 90,000, 125,000 or 161,000).|- And much more..."
+    },
+    "zh_CN": {
+      "description": "这个调整集合适用于从博德之门：增强版开始的龙矛围攻部分（最后一个除外，该组件允许在博德之门2中使用爱蒙的龙矛围攻肖像）：|- 最终审判的判定独立于玩家的回答：如果玩家的行为允许，则优先选择释放而非逃脱。|- 在任何区域都能触发浪漫对话。您还可以将不在相关区域队伍中的NPC互动暂时搁置。当他们重新加入队伍时，这些互动将被触发。|- 跳过科拉萨兹的地牢，直接前往公爵宫殿，打破第四面墙。|- 额外的对话选择，并防止在完成任务时陷入死胡同。|- 恢复龙矛围攻结尾绑架场景的剧情战斗。|- 在龙矛围攻开始时选择角色的经验值（65,000、90,000、125,000或161,000）。|- 以及其他许多……"
+    }
+  },
+  "tp2": "c#sodtweaks",
+  "safe": 2,
+  "authors": ["jastey"]
+}

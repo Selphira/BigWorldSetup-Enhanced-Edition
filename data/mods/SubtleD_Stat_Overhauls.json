@@ -1,0 +1,80 @@
+{
+  "name": "SubtleD's Stat Overhauls",
+  "version": "1.8",
+  "links": {
+    "homepage": "https://github.com/subtledoctor/SubtleD_Stat_Overhauls",
+    "download": "https://github.com/subtledoctor/SubtleD_Stat_Overhauls/archive/refs/tags/1.8.zip"
+  },
+  "file": {
+    "filename": "SubtleD_Stat_Overhauls-1.8.zip",
+    "size": 1692177,
+    "sha256": "c867d1c81a17fa478e002903bfd1829eaf2c343e555018f021f789f5f73b22d7"
+  },
+  "games": ["bgee", "bg2ee", "eet"],
+  "categories": ["gameplay"],
+  "components": {
+    "100": {"type": "std"},
+    "110": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["121", "122"]},
+    "130": {"type": "std"},
+    "140": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["151", "152", "153"]},
+    "160": {"type": "std"},
+    "180": {"type": "std"},
+    "200": {"type": "std"},
+    "choice_2": {"type": "muc", "components": ["211", "212", "213"]},
+    "choice_3": {"type": "muc", "components": ["221", "222", "223", "224"]},
+    "choice_4": {"type": "muc", "components": ["231", "232", "233", "234"]},
+    "choice_5": {"type": "muc", "components": ["251", "252"]}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod redéfini le gameplay des caractéristiques. Chaque composant peut-être sélectionné indépendamment des autres.",
+      "components": {
+        "100": "Revision des scores de caracteristique",
+        "110": "Sorts bonus lies aux stats",
+        "choice_0": "Sorts bonus lies aux stats pour les lanceurs 5E",
+        "121": "bonus a la fois pour les emplacements de memorisation et de lancer",
+        "122": "bonus seulement pour les emplacements de lancer",
+        "130": "Bonus de force complet seulement pour les armes a 2 mains",
+        "140": "Plinkification",
+        "choice_1": "Revision des points de vie",
+        "151": "Distribution genereuse des points de vie",
+        "152": "Points de vie plus proches de la moyenne",
+        "153": "Points de vie reduits",
+        "160": "Revision des jets de sauvegarde",
+        "180": "Diminution des exigences du jumelage",
+        "200": "Tables de PX standardisee, plus lente",
+        "choice_2": "Pas de PX pour le meurtre",
+        "211": "tuer donne 1/8 des PX",
+        "212": "tuer donne 1/4 des PX",
+        "213": "tuer donne la moitie des PX",
+        "choice_3": "Choisir l'experience au debut de SoD",
+        "221": "65 000",
+        "222": "90 000",
+        "223": "125 000",
+        "224": "161 000",
+        "choice_4": "Choisir l'experience au debut de SoA",
+        "231": "90 000",
+        "232": "161 000",
+        "233": "240 000",
+        "234": "400 000",
+        "choice_5": "Revision de la resistance a la magie",
+        "251": "Remplacer la resistance a la magie par d'autres effets",
+        "252": "Reduire la resistance a la magie"
+      }
+    },
+    "en_US": {
+      "description": "This mod redefines the gameplay of features. Each component can be selected independently of the others."
+    },
+    "zh_CN": {
+      "description": "此模组重新定义了属性的游戏玩法。每个组件都可以独立于其他组件进行选择。"
+    }
+  },
+  "tp2": "subtled_stat_overhauls",
+  "safe": 2,
+  "authors": ["Subtledoctor"]
+}

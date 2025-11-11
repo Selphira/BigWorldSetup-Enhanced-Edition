@@ -1,0 +1,47 @@
+{
+  "name": "The Longer Road",
+  "version": "2.0.7",
+  "links": {
+    "homepage": "https://github.com/Spellhold-Studios/LongerRoad",
+    "download": "https://github.com/Spellhold-Studios/LongerRoad/releases/download/2.0.7/the-longer-road-2.0.7.zip"
+  },
+  "file": {
+    "filename": "the-longer-road-2.0.7.zip",
+    "size": 12660911,
+    "sha256": "3311f8d88be4f50929cfcd5b97296aa55f3882319d58eaaf2174503f425f57f6"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "es_ES": 1,
+    "fr_FR": 2,
+    "de_DE": 3
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Longer Road",
+        "1": "Restore Irenicus's original portrait from SoA."
+      },
+      "description": "Finally, Irenicus becomes a recruitable character right from the start of ToB! This mod adds quests, dialogues and a breathtaking finale. Beware: your answers will have a major influence on your relationship with Irenicus, and the contract you fulfill with him by integrating him into your team will also have negative repercussions."
+    },
+    "fr_FR": {
+      "description": "Enfin, Irenicus devient un personnage recrutable dès le début de ToB ! Ce mod rajoute des quêtes, des dialogues, et un final autrement époustouflant. Attention, vos réponses influent grandement sur vos relations avec Irenicus, et le contrat que vous remplissez avec lui en l'intégrant à votre équipe aura aussi des répercussions négatives.",
+      "components": {
+        "0": "Longer Road",
+        "1": "Restaure le portrait SoA d'Irenicus"
+      }
+    },
+    "zh_CN": {
+      "description": "终于，艾瑞尼卡斯在《巴尔王座》一开始就成为一个可招募的角色！这个模组增加了任务、对话，以及一个同样令人惊叹的结局。注意，你的回答会极大地影响你和艾瑞尼卡斯的关系，并且将他纳入队伍时与他签订的协议也会带来负面影响。"
+    }
+  },
+  "tp2": "longerroad",
+  "safe": 2,
+  "authors": ["ladydorotea"]
+}

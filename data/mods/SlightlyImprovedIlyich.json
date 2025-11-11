@@ -1,0 +1,40 @@
+{
+  "name": "Slightly Improved Ilyich",
+  "version": "1.7",
+  "links": {
+    "homepage": "https://github.com/Plutonium-X/FIGHT_Light_Ilyich",
+    "download": "https://github.com/Plutonium-X/FIGHT_Light_Ilyich/releases/download/v1.7/win-SlightlyImprovedIlyich.zip"
+  },
+  "file": {
+    "filename": "win-SlightlyImprovedIlyich.zip",
+    "size": 1364958,
+    "sha256": "6afc5132f83f5acdfc81f039c298eba64457798c5291137c1328624e40cb5987"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["tactic"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["0", "1"]}
+  },
+  "languages": {
+    "fr_FR": 3
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Lassé(e) de combattre ce groupe de duergars décidément trop facile pour vos gros bras ou vos sortilèges destructeurs - malgré le fait que vous n'en ayez qu'assez peu au début du jeu ? Mais le composant `Ilyich amélioré` de Weimer Tactics vous a déjà fait arracher tous les cheveux qu'il vous restait - ayant déjà arraché la première moitié en essayant d'installer correctement votre interminable liste de mods ? Alors, ce mod vous plaira probablement ! Il améliore les duergars de la prison d'Irenicus, sans toutefois les rendre invincibles... Notez qu'il ajoute également quelques autres petites choses ; elles sont listées dans le readme comme d'habitude.",
+      "components": {
+        "choice_0": "Ilyich legerement ameliore",
+        "0": "Ilyich legerement ameliore",
+        "1": "Ilyich legerement ameliore et passage plus rapide du second etage"
+      }
+    },
+    "en_US": {
+      "description": "Tired of fighting this group of duergars that are decidedly too easy for your strong arms or destructive spells - despite the fact that you only have a few at the start of the game? But has Weimer Tactics's `Ilyich amélioré` component already made you pull out all the hair you had left - having already pulled out the first half while trying to properly install your endless list of mods? Then you'll probably love this mod! It improves the duergars in Irenicus prison, without making them invincible... Note that it also adds a few other little things; these are listed in the readme as usual."
+    },
+    "zh_CN": {
+      "description": "厌倦了与这群矮人战斗——对于你强壮的手臂或毁灭性的法术来说，他们实在太容易了——尽管在游戏开始时你几乎没有这样的法术？但是，Weimer的`Ilyich改良`组件Tactics已经让你拔掉了所有剩下的头发——在试图正确安装你那没完没了的模组列表时已经拔掉了第一半？那么，这个模组可能会让你喜欢！它改良了艾瑞尼卡斯监狱里的矮人，但并没有让他们变得无敌。请注意，它还添加了一些其他的小东西；它们像往常一样在readme中列出。"
+    }
+  },
+  "tp2": "slightlyimprovedilyich",
+  "safe": 2,
+  "authors": ["Razfallow"]
+}

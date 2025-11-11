@@ -1,0 +1,38 @@
+{
+  "name": "Yasraena NPC",
+  "version": "21",
+  "links": {
+    "homepage": "https://github.com/RoxanneSHS/YasraenaEET",
+    "download": "https://github.com/RoxanneSHS/YasraenaEET/archive/refs/tags/V21.zip"
+  },
+  "file": {
+    "filename": "YasraenaEET-21.zip",
+    "size": 17156214,
+    "sha256": "43737d7c82deca5846aeaa281d44b484050cfe85700df5826a21d64f1fbee123"
+  },
+  "games": ["bg2", "bgt", "bg2ee"],
+  "categories": ["npc"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 2
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod ajoute une PNJ drow qui a des banters, des voix et des objets spécialement conçus pour elle. C'est une guerrière pure, chaotique bonne, qui possède deux épées personnelles ainsi qu'une amulette. Vous la rencontrez à la fin du donjon d'Irenicus (notez que si vous lui demandez de partir, vous ne la retrouverez plus jamais). Elle s'implante bien dans votre groupe, si ce dernier défend des objectifs louables (personnages Bons ou Neutres) et une voix particulière lui est allouée.|Notez qu'elle dispose d'une attaque supplémentaire par round ; ce qui est pour le moins abusé...|FOR 18/97, DEX 18, CON 12, INT 13, SAG 12, CHA 16.",
+      "components": {
+        "0": "Yasraena (BG2:SoA & TOB NPC) creee par nethrin & Sillara of the Tamari"
+      }
+    },
+    "en_US": {
+      "description": "This mod adds a drow NPC with specially designed banters, voices and items. She's a pure fighter, chaotic good, with two swords of her own and an amulet. You meet her at the end of the Irenicus dungeon (note that if you ask her to leave, you'll never find her again). She'll fit in well with your group, provided it's defending worthy objectives (Good or Neutral characters), and has a special voice allotted to her.|Note that she has one extra attack per round; which is abusive, to say the least...|STR 18/97, DEX 18, CON 12, INT 13, WIS 12, CHA 16."
+    },
+    "zh_CN": {
+      "description": "这个模组添加了一个卓尔族NPC，她有专属的对话、语音和物品。她是一位纯粹的战士，混乱善良阵营，拥有两把专属剑和一枚护身符。你会在艾瑞尼卡斯的监狱尽头遇到她（注意：如果你让她离开，你将再也找不到她）。如果你的队伍捍卫高尚的目标（善良或中立阵营角色），她会很好地融入你的队伍，并且她会获得一个独特的语音。|请注意，她每轮有一次额外的攻击；这至少可以说是有点过分了...|力量 18/97，敏捷 18，体质 12，智力 13，智慧 12，魅力 16。"
+    }
+  },
+  "tp2": "yasraena",
+  "safe": 2,
+  "authors": ["Sillara", "Nethrin"]
+}

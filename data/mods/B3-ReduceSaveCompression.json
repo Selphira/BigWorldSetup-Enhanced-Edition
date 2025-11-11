@@ -1,0 +1,39 @@
+{
+  "name": "Reduce Save Compression",
+  "version": "1.1",
+  "links": {
+    "homepage": "https://github.com/Bubb13/B3-ReduceSaveCompression",
+    "download": "https://github.com/Bubb13/B3-ReduceSaveCompression/releases/download/v1.1/win-B3-ReduceSaveCompression-v1.1.zip"
+  },
+  "file": {
+    "filename": "win-B3-ReduceSaveCompression-v1.1.zip",
+    "size": 1271239,
+    "sha256": "aaf5e3a1c8d9907c5c491c9f8b5c3b33dd04cf4f5b0779f77e3d76fafd1f183b"
+  },
+  "games": ["bgee", "bg2ee", "eet", "iwdee", "pstee"],
+  "categories": ["util"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Diminuer la compression des fichiers de sauvegarde"
+      },
+      "description": "Reduce Save Compression lowers the compression level used by Beamdog's Enhanced Edition of the Infinity Engine when saving. This speeds up the saving process for late-game playthroughs at the cost of marginally increased storage size."
+    },
+    "fr_FR": {
+      "description": "Réduit le niveau de compression utilisé par l'édition améliorée du moteur Infinity Engine de Beamdog lors de l'enregistrement. Cela accélère le processus de sauvegarde pour les parties en fin de jeu, au prix d'une légère augmentation de la taille de stockage."
+    },
+    "zh_CN": {
+      "description": "降低 Beamdog 的无限引擎增强版在保存时使用的压缩级别。这会加快游戏后期的存档速度，但代价是存储空间会略有增加。"
+    }
+  },
+  "tp2": "b3-reducesavecompression",
+  "safe": 2,
+  "authors": ["Bubb"]
+}

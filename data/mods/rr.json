@@ -1,0 +1,88 @@
+{
+  "name": "Rogue Rebalancing",
+  "version": "4.92",
+  "links": {
+    "homepage": "http://avenger981.github.io/doc/readme_rr.html",
+    "download": "https://github.com/FredrikLindgren/rr/archive/refs/tags/v4.92.zip"
+  },
+  "file": {
+    "filename": "rr-4.92.zip",
+    "size": 4793435,
+    "sha256": "89dea1db6a6b7daeb9191188ca9ab9a26989c434760fe200a2cbb9448bea5c96"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["9", "10"]},
+    "11": {"type": "std"},
+    "12": {"type": "std"},
+    "999": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 1,
+    "es_ES": 2,
+    "de_DE": 3,
+    "ru_RU": 4,
+    "it_IT": 5
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod modifies the gameplay for Baldur's Gate 2: Throne of Bhaal and strives to bring the roublard classes (bards and thieves) and their respective profiles closer to their AD&D P&P counterparts. It comprises several components, all of which can be installed separately and are completely independent of each other.|RR updates the two-weapon combat skills of thieves and bards, revises/improves their profiles, revises their high-level abilities, restores the appropriate racial adjustments for thief abilities, as well as the PnP spell progression table specific to bards.|It also makes the confrontation with the Shadow Thieves guild in chapter 3 much more difficult, and adds additional items for thieves and bards (in the Thieves guild), as well as an encounter with Cyric worshippers in chapter 6.",
+      "components": {
+        "0": "Proper dual-wielding implementation for Thieves and Bards",
+        "1": "Thief kit revisions",
+        "2": "Thief High Level Ability revisions",
+        "3": "Proper racial adjustments for thieving skills",
+        "4": "Bard kit revisions",
+        "5": "Bard High Level Ability revisions",
+        "6": "Proper spell progression for Bards",
+        "7": "Additional equipment for Thieves and Bards",
+        "8": "Upgradeable Equipment",
+        "choice_0": "Revised Thievery",
+        "9": "Use PnP thievery potions and prevent their effects from stacking",
+        "10": "Retain default thievery potions and prevent their effects from stacking",
+        "11": "Chosen of Cyric encounter",
+        "12": "Shadow Thief Improvements",
+        "999": "BG2-style icons for RR content"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod modifie le gameplay pour Baldur's Gate 2: Throne of Bhaal et s'efforce de rapprocher les classes de roublard (bardes et voleurs) et leurs profils respectifs de leurs homologues P&P d'AD&D. Il comprend plusieurs composants qui peuvent tous être installés séparément et sont complètement indépendants les uns des autres.|RR met à jour les compétences de combat à deux armes des voleurs et des bardes, révise/améliore leurs profils, révise leurs capacités de haut niveau, restaure les ajustements raciaux appropriés pour les capacités de voleur, ainsi que la table de progression des sorts PnP propre aux bardes.|Il empêche les effets des potions de voleur de se cumuler avec la possibilité de les remplacer par des potions de la version papier.|Il rend également beaucoup plus difficile l'affrontement avec la guilde des Voleurs de l'Ombre dans le chapitre 3.|Il ajoute enfin des objets supplémentaires pour les voleurs et les bardes (dans la guilde des voleurs) ainsi qu'une rencontre avec des fidèles de Cyric dans le chapitre 6.",
+      "components": {
+        "0": "Mise a jour du Combat a deux armes pour les voleurs et les bardes",
+        "1": "Revisions des kits des voleurs",
+        "2": "Revisions des capacites de haut niveau du voleur",
+        "3": "Ajustements raciaux propres pour les capacites de voleur",
+        "4": "Revisions des kits des bardes",
+        "5": "Revisions des capacites de haut niveau des bardes",
+        "6": "Progression des sorts propre aux bardes",
+        "7": "Equipement supplementaire pour les voleurs et les bardes",
+        "8": "Equipement ameliorable",
+        "choice_0": "Revisions des roublards",
+        "9": "Utiliser les potions de voleur de la version papier et empecher leurs effets de se cumuler.",
+        "10": "Garder les potions par defaut et empecher leurs effets de se cumuler.",
+        "11": "Rencontre avec les Elus de Cyric",
+        "12": "Amelioration des Voleurs de l'Ombre",
+        "999": "Icones du style de BG2 pour le contenu de RR"
+      }
+    },
+    "ru_RU": {"components": {"0": "Proper dual-wielding implementation for Thieves and Bards", "1": "Thief kit revisions", "2": "Thief High Level Ability revisions", "3": "Proper racial adjustments for thieving skills", "4": "Bard kit revisions", "5": "Bard High Level Ability revisions", "6": "Proper spell progression for Bards", "7": "Additional equipment for Thieves and Bards", "8": "Upgradeable Equipment", "choice_0": "Revised Thievery", "9": "Use PnP thievery potions and prevent their effects from stacking", "10": "Retain default thievery potions and prevent their effects from stacking", "11": "Chosen of Cyric encounter", "12": "Shadow Thief Improvements", "999": "BG2-style icons for RR content"}},
+    "it_IT": {"components": {"0": "Corretta implementazione dello stile di combattimento con due armi per bardi e ladri", "1": "Revisione dei kit del ladro", "2": "Revisione delle abilita' di alto livello dei ladri", "3": "Applica i corretti modificatori razziali alle abilita' da ladro secondo le regole di AD&D", "4": "Revisione dei kit del bardo", "5": "Revisione delle abilita' di alto livello dei bardi", "6": "Corretta tabella di progressione degli incantesimi del bardo", "7": "Equipaggiamenti addizionali per bardi e ladri", "8": "Equipaggiamenti migliorabili", "choice_0": "Revisione delle abilita' di classe dei ladri", "9": "Applica le regole di AD&D alle pozioni che conferiscono bonus alle abilita' da ladro e rendine gli effetti non cumulativi", "10": "Mantieni inalterate le pozioni che conferiscono bonus alle abilita' da ladro ma rendine gli effetti non cumulativi", "11": "Incontro con i Prescelti di Cyric", "12": "Miglioramenti ai Ladri Tenebrosi", "999": "Icone stile BG2 per il contenuto RR"}},
+    "zh_CN": {
+      "description": "此模组修改了《博德之门2：巴尔王座》的游戏玩法，力求使盗贼类职业（吟游诗人和盗贼）及其各自的职业设定更贴近其AD&D（龙与地下城）桌面游戏的原型。它包含多个组件，所有组件均可单独安装且彼此完全独立。|RR更新了盗贼和吟游诗人的双武器战斗技能，修正/改进了他们的职业设定，修订了他们的高级能力，恢复了盗贼能力的适当种族调整，以及吟游诗人独有的桌面游戏法术等级表。|它防止盗贼药水效果叠加，并可以用桌面游戏版本的药水替代。|它还使第三章与影贼公会的战斗变得更加困难。|最后，它为盗贼和吟游诗人（在盗贼公会中）添加了额外的物品，以及在第六章增加了一场与 Cyric（塔洛斯）信徒的遭遇战。"
+    }
+  },
+  "tp2": "rr",
+  "safe": 2,
+  "authors": ["aVENGER"]
+}

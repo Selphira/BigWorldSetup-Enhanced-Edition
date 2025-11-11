@@ -1,0 +1,61 @@
+{
+  "name": "Derat's Unused Kits Pack",
+  "version": "18.6",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=24001",
+    "download": "https://github.com/Deratiseur/DUKP/releases/download/v18.6/win-Derats_kits-v18.6.zip"
+  },
+  "file": {
+    "filename": "win-Derats_kits-v18.6.zip",
+    "size": 32474430,
+    "sha256": "ad369252f32b280e193fcd3b4fec30a32aaff551312212c2ee7bda0c62093fd6"
+  },
+  "games": ["bg2", "bgt", "bgee", "sod", "bg2ee", "eet", "iwd", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "30": {"type": "std"},
+    "10": {"type": "std"},
+    "110": {"type": "std"},
+    "20": {"type": "std"},
+    "140": {"type": "std"},
+    "120": {"type": "std"},
+    "40": {"type": "std"},
+    "90": {"type": "std"},
+    "choice_0": {"type": "muc", "components": ["70"]},
+    "80": {"type": "std"},
+    "60": {"type": "std"},
+    "150": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Dans ce kitpack, vous y retrouverez le Chasseur de vermine (rôdeur), le Porteur de haine (guerrier demi-orque), le Prêcheur des flammes (clerc offensif), le Seigneur de guerre (guerrier jumelé mage), le Croisé de Garagos (clerc), l'Anatomiste (multiclassé voleur/nécromancien) et bien d'autres.",
+      "components": {
+        "30": "Profil de guerrier (demi-orque) : Porteur de haine",
+        "10": "Profil de rodeur : Chasseur de vermine",
+        "110": "Modification de profil de rodeur : amelioration du Belluaire",
+        "20": "Profil de clerc : Precheur des flammes",
+        "140": "Profil de clerc : Croise de Garagos",
+        "120": "Profil de voleur : Arpenteur d'ombres",
+        "40": "Profil de voleur (gnome) : Ombremage",
+        "90": "Profil de mage (oBG2 : remplace l'invocateur) : Savant Artilleur",
+        "choice_0": "Profil de jumelage Guerrier",
+        "70": "Mage : Seigneur de guerre",
+        "80": "Profil de multi-classes Guerrier/Mage (elfe) : Chantelameur",
+        "60": "Profil de multi-classes Clerc/Entropiste (humain) : Explorateur theurgique",
+        "150": "Profil de multi-classes Voleur/Necromancien : Anatomiste"
+      }
+    },
+    "en_US": {
+      "description": "In this kitpack, you'll find the Hunter of Vermin (ranger), the Bearer of Hate (fighter half-orc), the Preacher of Flames (offensive cleric), the Warlord (fighter dualclass to mage), the Garagos crusader (cleric), the Anatomist (multi-classed thief/necromancer) and many more."
+    },
+    "zh_CN": {
+      "description": "在这个宗派包中，你将找到害虫猎人（游侠）、仇恨携带者（半兽人战士）、火焰布道者（进攻型牧师）、战争领主（双职业战士/法师）、加拉戈斯十字军（牧师）、解剖学家（双职业盗贼/死灵法师）等等。"
+    }
+  },
+  "tp2": "derats_kits",
+  "safe": 2,
+  "authors": ["Deratiseur"]
+}

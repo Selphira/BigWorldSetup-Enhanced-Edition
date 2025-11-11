@@ -1,0 +1,60 @@
+{
+  "name": "The Sorcerer's Place Collection",
+  "version": "14",
+  "links": {
+    "homepage": "https://www.gibberlings3.net/mods/kits/spc",
+    "download": "https://github.com/Gibberlings3/SP_Collection/releases/download/v14/spstuff-v14.exe"
+  },
+  "file": {
+    "filename": "spstuff-v14.exe",
+    "size": 2566287,
+    "sha256": "8101a620f0ceb1cda7ef85d756a703ccaccbc70fd2aff88505ecbb89a4fd06e0"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit", "spell"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 4
+  },
+  "translations": {
+    "en_US": {
+      "description": "This mod adds six new kits created by Drizzt1180 (Sylvan Mystic Kit, `Blade Master`, Death Knight, `Wushi Ninja`, `Archer of Sylvanus`, Arcane Fist), as well as new items (Creslyn's BG2 Custom Items) from existing stores. All these items come from item packs and profiles published on the Sorcerer's Place site, converted to WeiDU format for easy installation.",
+      "components": {
+        "0": "Sylvan Mystic Kit, by Polar Bear",
+        "1": "Blade Master Kit, by Drizzt1180",
+        "2": "Death Knight Kit, by Drizzt1180",
+        "3": "Wushi Ninja Kit, by Drizzt1180",
+        "4": "Creslyn's BG2 Item Pack",
+        "5": "Archer of Sylvanus, by Drizzt1180",
+        "6": "Arcane Fist, by Drizzt1180"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce mod ajoute six nouveaux kits créés par Drizzt1180 (Sylvan Mystic Kit, `Blade Master`, Death Knight, `Wushi Ninja`, `Archer of Sylvanus`, Arcane Fist), ainsi que de nouveaux objets (Creslyn's BG2 Custom Items) dans des magasins déjà existants. Tous ces éléments proviennent de packs d'objets et de profils publiés sur le site Sorcerer's Place convertis au format WeiDU pour faciliter leur installation.",
+      "components": {
+        "0": "Kit de Mystique Sylvain, par Polar Bear",
+        "1": "Kit de Maitre-Lame, par Drizzt1180",
+        "2": "Kit du Chevalier de la Mort, par Drizzt1180",
+        "3": "Kit du Ninja Wushi, par Drizzt1180",
+        "4": "Pack d'Objets pour Baldur's Gate 2, par Creslyn",
+        "5": "Archer de Sylvanus, par Drizzt1180",
+        "6": "Poing des Arcanes, par Drizzt1180"
+      }
+    },
+    "zh_CN": {
+      "description": "这个模组添加了六个由Drizzt1180创建的新职业（Sylvan Mystic Kit，`舞剑士`，Death Knight，`武氏忍者`，` Sylvanus的弓箭手`，Arcane Fist），以及新物品（Creslyn's BG2 Custom Items）到现有商店中。所有这些元素都来自Sorcerer's Place网站上发布的物品包和职业配置文件，并已转换为WeiDU格式以方便安装。"
+    }
+  },
+  "tp2": "spstuff",
+  "safe": 2,
+  "authors": ["CamDawg", "PolarBear", "Drizzt1180", "Creslyn"]
+}

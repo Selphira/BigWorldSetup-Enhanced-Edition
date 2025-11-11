@@ -1,0 +1,42 @@
+{
+  "name": "Isra NPC for BG",
+  "version": "3.5",
+  "links": {
+    "homepage": "https://www.shsforums.net/files/file/1042-isra/",
+    "download": "https://www.baldursgateworld.fr/download/file.php?id=15642"
+  },
+  "file": {
+    "filename": "Isra.rar",
+    "size": 6583280,
+    "sha256": "f15c01b2e033250a4c9dcfafe8f657abf5d0e4f10f5d4aa9e96811be96d868b3"
+  },
+  "games": ["tutu", "bgt", "bgee", "sod", "eet"],
+  "categories": ["npc"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 3
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Suivante de Sunie Cheveux-de-flamme, déité chaotique, Isra est une paladine atypique dans le sens où elle fréquente de nombreuses maisons empruntes d'une certaine gaieté et manque de ce fait de la gravité classique propre à cette classe de personnage. Comme tous les paladins, elle tient en haute estime tout ce qui touche à l'honneur, à la discipline et à l'ordre, mais elle tend à estimer davantage le code de conduite de sa classe que les exigences de sa déesse. De ce fait, elle sera plus laxiste envers certains comportements chaotiques. Une voie de l'amitié est possible et quelques flirts sont également disponibles. Sa romance est prévue, mais dans BG2. Isra dispose de contenu supplémentaire si BG:EE est installé (banters).|FOR 16, DEX 12, CON 16, INT 13, SAG 14, CHA 17",
+      "components": {
+        "0": "Mod Isra NPC pour BG:EE, EET, BGT et TuTu",
+        "1": "Contenu mods croises Valerie/Isra",
+        "2": "Contenu mods croises Gavin/Isra"
+      }
+    },
+    "en_US": {
+      "description": "A follower of Sune Firehair, a chaotic deity, Isra is an atypical paladin in that she frequents many houses with a certain cheerfulness, and therefore lacks the classic gravity typical of this character class. Like all paladins, she holds everything to do with honor, discipline and order in high esteem, but tends to esteem the code of conduct of her class more than the demands of her goddess. As a result, she will be more lax towards certain chaotic behaviors. A path of friendship is possible, and a few flirtations are also available. Her romance is planned for BG2. Isra has additional content if BG:EE is installed (banters).|STR 16, DEX 12, CON 16, INT 13, WIS 14, CHA 17"
+    },
+    "zh_CN": {
+      "description": "作为混乱神祇淑娜·火焰之发（Sunie Cheveux-de-flamme）的追随者，Isra是一位不典型的圣武士，因为她经常光顾许多充满某种欢乐气息的场所，因此缺乏该职业角色典型的庄重。和所有圣武士一样，她非常看重与荣誉、纪律和秩序有关的一切，但她倾向于更重视自己职业的行为准则，而非她女神的要求。因此，她对某些混乱的行为会更为宽松。可以发展友谊线，也有一些调情选项。她的恋情计划在博德之门II中实现。如果安装了博德之门：增强版，Isra会有额外内容（对话）。|力量16，敏捷12，体质16，智力13，智慧14，魅力17"
+    }
+  },
+  "tp2": "isra",
+  "safe": 2,
+  "authors": ["Rhaella"]
+}

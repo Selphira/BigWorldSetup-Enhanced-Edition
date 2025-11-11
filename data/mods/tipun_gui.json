@@ -1,0 +1,45 @@
+{
+  "name": "Tipun's User Interface",
+  "version": "main",
+  "links": {
+    "homepage": "https://arcanecoast.ru/forum/viewtopic.php?f=31&t=1604",
+    "download": "https://github.com/tipun81/tipun_gui_mod/archive/refs/heads/main.zip"
+  },
+  "file": {
+    "filename": "tipun_gui_mod-main.zip",
+    "size": 79451131,
+    "sha256": "9ea5317a53d3d1f88e85f2f30d2842584f0a07ec2c1c77c9ebfb3cf07050ada2"
+  },
+  "games": ["bgee", "sod", "bg2ee", "eet"],
+  "categories": ["ui"],
+  "components": {
+    "10": {"type": "std"},
+    "20": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 1,
+    "fr_FR": 2
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "10": "Tipun's User Interface (main component)",
+        "20": "Tipun's User Interface (create data tables)"
+      },
+      "description": "This mod modifies the user interface for Baldur's Gate Siege of Dragonspear, Baldur's Gate II Enhanced Edition and Enhanced Edition Trilogy. You can activate them in the Additional Options menu."
+    },
+    "fr_FR": {
+      "description": "Ce mod modifie l'interface utilisateur pour Baldur's Gate Siege of Dragonspear, Baldur's Gate II Enhanced Edition et Enhanced Edition Trilogy.|Remarques : Nombres de ces nouvelles fonctionnalités sont désactivées par défaut. Vous pouvez les activer dans le menu Options Additionnelles.",
+      "components": {
+        "10": "Tipun's User Interface (main component)",
+        "20": "Tipun's User Interface (create data tables)"
+      }
+    },
+    "zh_CN": {
+      "description": "此模组修改了博德之门：龙矛围攻、博德之门II增强版和Enhanced Edition Trilogy的用户界面。|注意：许多新功能默认是关闭的。你可以在“附加选项”菜单中启用它们。"
+    }
+  },
+  "tp2": "tipun_gui",
+  "safe": 2,
+  "authors": ["tipun"]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Plasmocat's Portrait Pack",
+  "version": "4",
+  "links": {
+    "homepage": "https://github.com/Gibberlings3/Plasmocats_Portrait_Pack",
+    "download": "https://github.com/Gibberlings3/Plasmocats_Portrait_Pack/releases/download/v4/plasmoportraits-v4.exe"
+  },
+  "file": {
+    "filename": "plasmoportraits-v4.exe",
+    "size": 6090858,
+    "sha256": "109159c26ee8f8824585b0f010e08a4967a0afa21ea9245157f204ef0f8704e0"
+  },
+  "games": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwd", "iwd2", "iwdee"],
+  "categories": ["portrait"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"},
+    "2": {"type": "std"},
+    "3": {"type": "std"},
+    "4": {"type": "std"},
+    "5": {"type": "std"},
+    "6": {"type": "std"},
+    "7": {"type": "std"},
+    "8": {"type": "std"},
+    "9": {"type": "std"},
+    "10": {"type": "std"},
+    "11": {"type": "std"},
+    "12": {"type": "std"},
+    "13": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod offre de nombreux portraits ethniques pour votre personnage, ainsi que 13 portraits alternatifs pour des PNJ recrutables (Aerie, Anomen, Cernd, Edwin, Imoen, Jaheira, Jan, Keldorn, Korgan, Mazzy, Minsc, Nalia et Viconia).",
+      "components": {
+        "0": "Rendre tous les portraits utilisables par les joueurs",
+        "1": "Aerie",
+        "2": "Anomen",
+        "3": "Cernd",
+        "4": "Edwin",
+        "5": "Imoen",
+        "6": "Jaheira",
+        "7": "Jan",
+        "8": "Keldorn",
+        "9": "Korgan",
+        "10": "Mazzy",
+        "11": "Minsc",
+        "12": "Nalia",
+        "13": "Viconia"
+      }
+    },
+    "en_US": {
+      "description": "This mod offers numerous ethnic portraits for your character, as well as 13 alternative portraits for recruitable NPCs (Aerie, Anomen, Cernd, Edwin, Imoen, Jaheira, Jan, Keldorn, Korgan, Mazzy, Minsc, Nalia and Viconia)."
+    },
+    "zh_CN": {
+      "description": "此模组为您的角色提供许多种族头像，以及13个可招募NPC的替代头像（艾黎、阿诺门、瑟恩、艾德温、爱蒙、贾希拉、姚恩·姚森、凯东、寇根、玛兹、明斯克、娜里亚和维康妮亚）。"
+    }
+  },
+  "tp2": "plasmoportraits",
+  "safe": 2,
+  "authors": ["Plasmocat", "Domi"]
+}

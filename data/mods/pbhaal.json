@@ -1,0 +1,32 @@
+{
+  "name": "Prêtre de Bhaal",
+  "version": "1.4",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=31643",
+    "download": "https://github.com/Plutonium-X/KIT_Bhaal/releases/download/v1.4/win-P.Bhaal.zip"
+  },
+  "file": {
+    "filename": "win-P.Bhaal.zip",
+    "size": 1288353,
+    "sha256": "7520b400f6b8b89da1fd5c1c9ea988afde30444755e1e417066be04727ee2a92"
+  },
+  "games": ["bg2", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod français créé sur LCC ajoute un profil de clerc mauvais qui peut lancer Chaos, simili Boule de feu et simili Chaîne d'éclairs, et est immunisé au poison. Il a des HLA personnalisées.",
+      "components": {
+        "0": "Installation du Kit : Pretre de Bhaal - cree par Esprit"
+      }
+    }
+  },
+  "tp2": "P!Bhaal",
+  "safe": 2,
+  "authors": ["Esprit"]
+}

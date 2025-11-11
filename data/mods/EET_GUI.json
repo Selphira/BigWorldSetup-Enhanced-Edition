@@ -1,0 +1,37 @@
+{
+  "name": "EET Alternative GUI (SoD)",
+  "version": "14.1",
+  "links": {
+    "homepage": "https://github.com/Gibberlings3/EET"
+  },
+  "games": ["bgee", "bg2ee", "sod", "eet"],
+  "categories": ["conv"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "fr_FR": 3,
+    "all": 0
+  },
+  "translations": {
+    "en_US": {
+      "components": {
+        "0": "Alternative EET GUI (SoD)"
+      },
+      "description": "The equivalent of Enhanced Edition Trilogy but can be installed on Android."
+    },
+    "fr_FR": {
+      "description": "L'équivalent de Enhanced Edition Trilogy mais qui peut s'installer sur Android.",
+      "components": {
+        "0": "Interface graphique utilisateur alternatif de EET (Siege of Dragonspear)"
+      }
+    },
+    "zh_CN": {
+      "description": "Enhanced Edition Trilogy的安卓版本。"
+    }
+  },
+  "tp2": "eet_gui",
+  "safe": 2,
+  "authors": ["K4thos"]
+}

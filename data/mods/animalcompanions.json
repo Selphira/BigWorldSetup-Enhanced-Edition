@@ -1,0 +1,53 @@
+{
+  "name": "Animal Companions",
+  "version": "1.6",
+  "links": {
+    "homepage": "http://www.shsforums.net/topic/56242-animal-companions/",
+    "download": "https://github.com/thisisulb/AnimalCompanions/archive/refs/heads/master.zip"
+  },
+  "file": {
+    "filename": "AnimalCompanions-master.zip",
+    "size": 3489400,
+    "sha256": "c157f8e172f177e86609ceefac80e53afde8a51b769ad94da97762d538fb4f94"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["gameplay"],
+  "components": {
+    "0": {"type": "sub", "prompts": {"1": {"options": ["0", "1"]}, "2": {"options": ["buddy"]}, "3": {"options": ["1"]}}}
+  },
+  "languages": {
+    "en_US": 0,
+    "de_DE": 1,
+    "fr_FR": 2,
+    "it_IT": 4
+  },
+  "translations": {
+    "en_US": {
+      "description": "This little mod allows lurkers (and druids if you wish) to obtain a companion animal that will follow them throughout the game (a bit like a pet). From level 3 onwards, they can set off in search of it.|Possible animal types: bear, wolf, panther, leopard, dog, spider, wiverne, marmot, rabbit.",
+      "components": {
+        "0": "Animal Companions For All Rangers (Optional: Druids)",
+        "0.1.0": "Don't allow druids to get animal companions",
+        "0.1.1": "Allow druids to get animal companions too",
+        "0.2.buddy": "Enter a name for your animal companion (by default is Buddy)",
+        "0.3.1": "Proceed the installation"
+      }
+    },
+    "fr_FR": {
+      "description": "Ce petit mod permet aux rôdeurs (et aux druides si vous le souhaitez) d'obtenir un animal compagnon qui les suivra pendant tout le jeu (un peu comme un familier). À partir du niveau 3, ils peuvent partir à sa recherche.|Type d'animaux possibles : ours, loup, panthère, léopard, chien, araignée, wiverne, marmotte, lapin.",
+      "components": {
+        "0": "Compagnons animal pour tous les rodeurs (Optionnel : Druides)",
+        "0.1.0": "NON, ne pas autoriser les druides à obtenir des compagnons animaux",
+        "0.1.1": "OUI, permettre aux druides d'avoir aussi des compagnons animaux",
+        "0.2.buddy": "Entrez un nom pour votre compagnon animal (par défaut, c'est Buddy)",
+        "0.3.1": "Poursuivre l'installation"
+      }
+    },
+    "it_IT": {"components": {"0": "Animal Companions For All Rangers (Optional: Druids)", "0.1.0": "NO, don't allow druids to get animal companions", "0.1.1": "YES, allow druids to get animal companions too", "0.2.buddy": "Enter a name for your animal companion (by default is Buddy)", "0.3.1": "Proceed the installation"}},
+    "zh_CN": {
+      "description": "这个小型模组允许游侠（如果你愿意，也包括德鲁伊）获得一个动物伙伴，它会在整个游戏中跟随你（有点像 familiars）。从3级开始，他们可以去寻找它。|可能的动物类型：熊、狼、豹、美洲豹、狗、蜘蛛、飞龙、土拨鼠、兔子。"
+    }
+  },
+  "tp2": "animalcompanions",
+  "safe": 2,
+  "authors": ["Ulb"]
+}

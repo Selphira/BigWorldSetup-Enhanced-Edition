@@ -1,0 +1,50 @@
+{
+  "name": "NPC Generator",
+  "version": "1.7",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/80057/mod-npc-generator-npc-creation-made-easy",
+    "download": "https://github.com/Argent77/A7-NPCGenerator/releases/download/v1.7/win-A7-NPCGenerator-v1.7.zip"
+  },
+  "file": {
+    "filename": "win-A7-NPCGenerator-v1.7.zip",
+    "size": 1948755,
+    "sha256": "e37e89dac076fe0ef070cbb2ead5d1c8d922b9507dfab1cd3d2ba82184403729"
+  },
+  "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
+  "categories": ["npc", "gameplay"],
+  "components": {
+    "choice_0": {"type": "muc", "components": ["1", "2", "3", "4"]},
+    "20": {"type": "std"},
+    "21": {"type": "std"},
+    "choice_1": {"type": "muc", "components": ["100", "101"]}
+  },
+  "languages": {
+    "fr_FR": 3
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "N'avez-vous jamais regretté que le jeu ne vous permette de créer qu'une partie initiale composée du protagoniste et (avec un certain effort) d'un petit nombre de personnages supplémentaires ? Plus maintenant ! Ce mod vous permet d'installer des personnages pré-générés ou exportés en tant que PNJ ordinaires. Vous pouvez les rencontrer à des endroits prédéterminés où vous avez la possibilité de les inviter dans votre groupe ou de les faire vous suivre sans occuper de place dans le groupe, à n'importe quel moment du jeu. Les PNJ renvoyés peuvent recevoir l'ordre d'attendre ou de retourner au lieu de rencontre initial.",
+      "components": {
+        "choice_0": "Ajouter des PNJ personnalises au jeu",
+        "1": "Personnages de l'utilisateur uniquement",
+        "2": "Personnages du jeu uniquement",
+        "3": "Personnages de l'utilisateur et personnages du jeu",
+        "4": "Installation automatisee (a partir de settings.tpa)",
+        "20": "Activer les controles d'alignement pour les PNJ personnalises",
+        "21": "Desactiver les controles d'alignement pour les PNJ personnalises",
+        "choice_1": "Supprimer les PNJ personnalises du jeu",
+        "100": "Choisir individuellement",
+        "101": "Tous les supprimer"
+      }
+    },
+    "en_US": {
+      "description": "Have you ever regretted that the game only lets you create an initial party consisting of the protagonist and (with some effort) a small number of additional characters? Not anymore! This mod lets you install pre-generated or exported characters as ordinary NPCs. You can meet them at predetermined locations, where you have the option of inviting them into your party or having them follow you without occupying a place in the party, at any time during the game. NPCs sent back can be instructed to wait or return to the original meeting place."
+    },
+    "zh_CN": {
+      "description": "您是否从未后悔过游戏只允许您创建一个由主角和（经过一番努力）少数额外角色组成的初始队伍？现在不会了！这个模组允许您将预生成或导出的角色作为普通NPC安装。您可以在预定地点遇到他们，在那里您可以邀请他们加入队伍，或者让他们跟随您而不占用队伍位置，在游戏中的任何时间都可以。被解雇的NPC可以被命令等待或返回到最初的相遇地点。"
+    }
+  },
+  "tp2": "a7-npcgenerator",
+  "safe": 2,
+  "authors": ["Argent77"]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Illumisfhityroc",
+  "version": "4.1",
+  "links": {
+    "homepage": "https://www.baldursgateworld.fr/viewtopic.php?t=33955",
+    "download": "https://github.com/Deratiseur/Illumisfhityroc/releases/download/v4.1/win-Derats_Illum-v4.1.zip"
+  },
+  "file": {
+    "filename": "win-Derats_Illum-v4.1.zip",
+    "size": 1395438,
+    "sha256": "3c004614facd50e310f29f5a55263ed2ff4c6b25c359eb2fe789172ec636b6de"
+  },
+  "games": ["bgee", "eet", "iwdee"],
+  "categories": ["smith"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Une extra-terrestre qui loue des objets temporaires +4 pour 200 pos et 1000 xps.",
+      "components": {
+        "0": "Illumisfhityroc"
+      }
+    },
+    "en_US": {
+      "description": "An alien who rents +4 temporary items for 200 pos and 1000 xps."
+    },
+    "zh_CN": {
+      "description": "一个外星人，临时出租+4的物品，租金为200金币和1000点经验值。"
+    }
+  },
+  "tp2": "derats_illum",
+  "safe": 2,
+  "authors": ["Deratiseur"]
+}

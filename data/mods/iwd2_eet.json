@@ -1,0 +1,38 @@
+{
+  "name": "IWD2_EET",
+  "version": "1.1",
+  "links": {
+    "homepage": "https://github.com/The-Gate-Project/IWD2_EET",
+    "download": "https://github.com/The-Gate-Project/IWD2_EET/archive/refs/heads/main.zip"
+  },
+  "file": {
+    "filename": "IWD2_EET-main.zip",
+    "size": 1273446876,
+    "sha256": "7e0bbf6bdf1864324261011dac734abaaf3edf1af487aaf3561b6d69d2d5f2b1"
+  },
+  "games": ["bgee", "bg2ee", "eet"],
+  "categories": ["conv"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 3
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Cette conversion permet de jouer à IWD1 et IWD2 depuis Enhanced Edition Trilogy.",
+      "components": {
+        "0": "Icewind Dale 2 dans Baldur's Gate Enhanced Edition Trilogy"
+      }
+    },
+    "en_US": {
+      "description": "This conversion allows you to play IWD1 and IWD2 from Enhanced Edition Trilogy."
+    },
+    "zh_CN": {
+      "description": "此转换允许通过 Enhanced Edition Trilogy 来玩《冰风谷1》和《冰风谷2》。"
+    }
+  },
+  "tp2": "iwd2_eet",
+  "safe": 2,
+  "authors": ["tipun"]
+}

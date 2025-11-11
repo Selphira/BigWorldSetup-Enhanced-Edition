@@ -1,0 +1,40 @@
+{
+  "name": "Kensai Kit Revision Mod",
+  "version": "2.6",
+  "links": {
+    "homepage": "https://forums.beamdog.com/discussion/41836/mod-kensai-rebalancing-for-bg-ee-and-bgii-ee-v2-6/p1",
+    "download": "https://github.com/Plutonium-X/KIT_Kensai_Rev/archive/refs/heads/main.zip"
+  },
+  "file": {
+    "filename": "KIT_Kensai_Rev-main.zip",
+    "size": 1777816,
+    "sha256": "87d6a970a28948324bf8035c3131c1d74d81c38fc4d9e0277ffcc19c073cf709"
+  },
+  "games": ["bgee", "bg2ee", "eet", "iwdee"],
+  "categories": ["kit"],
+  "components": {
+    "0": {"type": "std"},
+    "1": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 1
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Ce mod modifie le profil de Kensaï, selon les règles du manuel des Aventures orientales (AD&D 1ère édition).",
+      "components": {
+        "0": "Revision du profil de Kensai",
+        "1": "Kensai High Level Ability revision"
+      }
+    },
+    "en_US": {
+      "description": "This mod modifies Kensaï's profile, according to the rules in the Oriental Adventures manual (AD&D 1st edition)."
+    },
+    "zh_CN": {
+      "description": "此模组根据《东方冒险》手册（AD&D第一版）的规则修改了剑圣的设定。"
+    }
+  },
+  "tp2": "kensaikr",
+  "safe": 2,
+  "authors": ["Greener"]
+}

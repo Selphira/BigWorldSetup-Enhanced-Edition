@@ -1,0 +1,44 @@
+{
+  "name": "Tiax NPC MOD for Baldur's Gate II",
+  "version": "6",
+  "links": {
+    "homepage": "https://forums.pocketplane.net/index.php/topic,23660.0.html",
+    "download": "https://github.com/Pocket-Plane-Group/Tiax_for_BGII/releases/download/v6/Tiax_v6.zip"
+  },
+  "file": {
+    "filename": "Tiax_v6.zip",
+    "size": 8304518,
+    "sha256": "6a1769928345d3a2641145bb67bdfe2c242b0f63e6340673362e7d1d4b6f3274"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["npc1d"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "en_US": 0,
+    "ru_RU": 1,
+    "fr_FR": 2
+  },
+  "translations": {
+    "en_US": {
+      "description": "Surely you remember that demented, megalomaniac priest/thief? Here's your chance to (re)meet him.|STR 9, DEX 16, CON 16, INT 10, WIS 13, CHA 9.",
+      "components": {
+        "0": "Tiax NPC MOD for Baldur's Gate II"
+      }
+    },
+    "ru_RU": {"components": {"0": "Tiax NPC MOD for Baldur's Gate II"}},
+    "fr_FR": {
+      "description": "Vous vous souvenez certainement de ce prêtre/voleur dément et mégalomane ? L'occasion de (re)faire sa connaissance.|FOR 9, DEX 16, CON 16, INT 10, SAG 13, CHA 9.",
+      "components": {
+        "0": "Tiax MOD PNJ Pour Baldur's Gate 2"
+      }
+    },
+    "zh_CN": {
+      "description": "你一定还记得那个疯狂且自大的牧师/盗贼吗？这是（重新）认识他的机会。|力量9，敏捷16，体质16，智力10，智慧13，魅力9。"
+    }
+  },
+  "tp2": "tiax",
+  "safe": 2,
+  "authors": ["Kulyok", "K4thos"]
+}

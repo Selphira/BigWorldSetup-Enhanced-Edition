@@ -1,0 +1,38 @@
+{
+  "name": "Extension de la quête de Jan remixée",
+  "version": "2.0.6",
+  "links": {
+    "homepage": "https://akadis.baldursgateworld.fr/Jan/JansQuestRemixFr.html",
+    "download": "https://akadis.baldursgateworld.fr/Jan/zip/JansQuestRemix2.0.6.zip"
+  },
+  "file": {
+    "filename": "JansQuestRemix2.0.6.zip",
+    "size": 9589165,
+    "sha256": "f5a4e8fdb266df4b43b83e112e92869397785d8f71498655ae0e3496d2d9ddcf"
+  },
+  "games": ["bg2", "bgt", "bg2ee", "eet"],
+  "categories": ["quest"],
+  "components": {
+    "0": {"type": "std"}
+  },
+  "languages": {
+    "fr_FR": 0
+  },
+  "translations": {
+    "fr_FR": {
+      "description": "Modification de la quête Extension de la quête de Jan du même auteur. Cette version supprime les déplacements par téléportation. Les différents lieux du mod sont accessibles par de nouvelles entrées créées dans les rues d'Athkatla.",
+      "components": {
+        "0": "Extension de la quete de Jan. Version remixee"
+      }
+    },
+    "en_US": {
+      "description": "Modification of the quest Jan's Extended Quest by the same author. This version removes teleportation travel. The various locations in the mod are accessible via new entrances created in the streets of Athkatla."
+    },
+    "zh_CN": {
+      "description": "对同一作者Extension de la quête de Jan任务的修改。这个版本删除了传送移动。模组中的不同地点可以通过在阿斯卡特拉街道上创建的新入口进入。"
+    }
+  },
+  "tp2": "janquestremix",
+  "safe": 2,
+  "authors": ["Akadis", "Kasumi"]
+}
