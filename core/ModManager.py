@@ -404,7 +404,7 @@ class ModManager(QObject):
         Returns:
             True if successful
         """
-        if any(lang == language for lang, _ in SUPPORTED_LANGUAGES):
+        if not any(lang == language for lang, _ in SUPPORTED_LANGUAGES):
             logger.warning(f"Unsupported language: {language}")
             return False
 
