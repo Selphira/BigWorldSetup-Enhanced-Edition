@@ -17,8 +17,8 @@ from PySide6.QtWidgets import (
 from constants import COLOR_PANEL_BG
 from core.StateManager import StateManager
 from core.TranslationManager import tr
-from core.enums.GameEnum import GameEnum, GameValidationRule
-from core.validators.FolderValidator import GameFolderValidator, WritableFolderValidator
+from core.enums.GameEnum import GameEnum
+from core.validators.FolderValidator import WritableFolderValidator, GameFolderValidator
 from ui.pages.BasePage import BasePage, ButtonConfig
 from ui.widgets.FolderSelector import FolderSelector, GameFolderSelector
 from ui.widgets.GameButton import GameButton
@@ -28,12 +28,17 @@ logger = logging.getLogger(__name__)
 
 
 class InstallationTypePage(BasePage):
-    """Page for selecting game type and configuring installation folders.
+    """
+    Page for selecting game type and configuring installation folders.
 
-    Allows user to:
-    - Select game type from available options
-    - Configure game folder paths
-    - Set download and backup folders
+    Features:
+    - Game type selection from available options
+    - Game folder path configuration with validation
+    - Download and backup folder configuration
+    - Language preference ordering
+
+    Uses folder sharing: multiple games can reference the same folder widget
+    (e.g., EET sequences reference SOD and BG2EE folder widgets).
     """
 
     # Layout constants
@@ -41,7 +46,8 @@ class InstallationTypePage(BasePage):
     GRID_COLUMNS = 2
 
     def __init__(self, state_manager: StateManager) -> None:
-        """Initialize installation type page.
+        """
+        Initialize installation type page.
 
         Args:
             state_manager: Application state manager
@@ -53,7 +59,10 @@ class InstallationTypePage(BasePage):
         # UI state
         self.selected_game: Optional[GameEnum] = None
         self.game_buttons: Dict[GameEnum, GameButton] = {}
-        self.game_folder_widgets: Dict[GameEnum, FolderSelector] = {}
+
+        # Folder widgets indexed by folder key (not game)
+        # This supports folder sharing (e.g., EET uses "sod" and "bg2ee" keys)
+        self.folder_widgets: Dict[str, GameFolderSelector] = {}
 
         # UI components
         self.right_panel: Optional[QWidget] = None
@@ -61,10 +70,11 @@ class InstallationTypePage(BasePage):
         self.folders_layout: Optional[QVBoxLayout] = None
         self.download_folder: Optional[FolderSelector] = None
         self.backup_folder: Optional[FolderSelector] = None
+        self.languages_order: Optional[SortableLanguages] = None
 
         # Create UI
         self._create_widgets()
-        self._initialize_game_selectors()
+        self._initialize_folder_widgets()
         self._load_saved_state()
         self.retranslate_ui()
 
@@ -89,7 +99,8 @@ class InstallationTypePage(BasePage):
         layout.addWidget(self.right_panel, 1)
 
     def _create_left_panel(self) -> QWidget:
-        """Create left panel with game selection buttons.
+        """
+        Create left panel with game selection buttons.
 
         Returns:
             Panel widget with game buttons in grid
@@ -117,7 +128,8 @@ class InstallationTypePage(BasePage):
         return panel
 
     def _create_game_grid_scroll(self) -> QScrollArea:
-        """Create scrollable grid of game buttons.
+        """
+        Create scrollable grid of game buttons.
 
         Returns:
             Scroll area with game buttons
@@ -147,7 +159,8 @@ class InstallationTypePage(BasePage):
         return scroll
 
     def _create_game_button(self, game: GameEnum) -> GameButton:
-        """Create button for a game.
+        """
+        Create button for a game.
 
         Args:
             game: Game enum
@@ -166,7 +179,8 @@ class InstallationTypePage(BasePage):
         return button
 
     def _create_right_panel(self) -> QWidget:
-        """Create right panel for folder configuration.
+        """
+        Create right panel for folder configuration.
 
         Returns:
             Panel widget with folder selectors
@@ -216,18 +230,18 @@ class InstallationTypePage(BasePage):
         separator = self._create_separator()
         layout.addWidget(separator)
 
+        # Languages order section
         self.languages_order_title = self._create_section_title()
         layout.addWidget(self.languages_order_title)
+
         self.languages_order = SortableLanguages()
-        self.languages_order.order_changed.connect(
-            self._on_language_order_changed
-        )
         layout.addWidget(self.languages_order)
 
         return panel
 
     def _create_game_folders_scroll(self) -> QScrollArea:
-        """Create scrollable area for game folder selectors.
+        """
+        Create scrollable area for game folder selectors.
 
         Returns:
             Scroll area
@@ -248,73 +262,63 @@ class InstallationTypePage(BasePage):
     # GAME FOLDER INITIALIZATION
     # ========================================
 
-    def _initialize_game_selectors(self) -> None:
-        """Initialize folder selectors for all games.
-
-        Creates selectors upfront and reuses them across games that
-        share the same folder requirements.
+    def _initialize_folder_widgets(self) -> None:
         """
+        Initialize folder selector widgets efficiently.
+
+        Creates ONE widget per unique folder key, supporting folder sharing.
+        For example, EET references "sod" and "bg2ee", so those widgets are
+        created/reused rather than creating EET-specific widgets.
+        """
+        # Collect all unique folder keys across all games
+        unique_folder_keys = set()
+
         for game in GameEnum:
-            sequences = game.validation_rules
+            folder_keys = game.get_unique_folder_keys()
+            unique_folder_keys.update(folder_keys)
 
-            for sequence_rules in sequences:
-                # Determine which game this sequence references
-                ref_code = sequence_rules.game_folder or game.code
-                ref_game = GameEnum.from_code(ref_code)
+        # Create one widget per unique folder key
+        for folder_key in unique_folder_keys:
+            # Get the game this folder key represents
+            ref_game = GameEnum.from_code(folder_key)
+            if not ref_game:
+                logger.error(f"Invalid folder key: {folder_key}")
+                continue
 
-                # Skip if selector already exists for this reference game
-                if ref_game in self.game_folder_widgets:
-                    logger.debug(
-                        f"Reusing selector for {ref_game.code} "
-                        f"(requested by {game.code})"
-                    )
-                    continue
+            # Get validation rules for this game's first sequence
+            # (assuming shared folders use consistent validation)
+            validation_sequence = ref_game.get_validation_sequence(0)
+            if not validation_sequence:
+                logger.error(f"No validation sequence for {folder_key}")
+                continue
 
-                # Create new selector
-                selector = self._create_game_folder_selector(
-                    game, ref_game, sequence_rules
-                )
-                self.game_folder_widgets[ref_game] = selector
+            # Create selector
+            selector = GameFolderSelector(
+                "page.type.game_folder",
+                "page.type.select_game_folder_title",
+                ref_game,
+                GameFolderValidator(validation_sequence)
+            )
+            selector.validation_changed.connect(self._on_folder_validation_changed)
 
-        logger.info(f"Initialized {len(self.game_folder_widgets)} game folder selectors")
+            # Add to layout but hide initially
+            self.folders_layout.addWidget(selector)
+            selector.hide()
 
-    def _create_game_folder_selector(
-            self,
-            game: GameEnum,
-            ref_game: GameEnum,
-            validation_rules: GameValidationRule
-    ) -> FolderSelector:
-        """Create folder selector for a game.
+            # Store by folder key
+            self.folder_widgets[folder_key] = selector
 
-        Args:
-            game: Game requesting the selector
-            ref_game: Game whose folder is being validated
-            validation_rules: Validation rules for the folder
+            logger.debug(f"Created folder widget for key '{folder_key}' ({ref_game.display_name})")
 
-        Returns:
-            Configured folder selector
-        """
-        selector = GameFolderSelector(
-            "page.type.game_folder",
-            "page.type.select_game_folder_title",
-            ref_game,
-            GameFolderValidator(validation_rules)
-        )
-        selector.validation_changed.connect(self._on_folder_validation_changed)
-
-        # Add to layout but hide initially
-        self.folders_layout.addWidget(selector)
-        selector.hide()
-
-        logger.debug(f"Created selector for {ref_game.code} (label: {ref_game.display_name})")
-        return selector
+        logger.info(f"Initialized {len(self.folder_widgets)} unique folder widgets")
 
     # ========================================
     # EVENT HANDLERS
     # ========================================
 
     def _on_game_selected(self, game: GameEnum) -> None:
-        """Handle game selection.
+        """
+        Handle game selection.
 
         Args:
             game: Selected game
@@ -328,43 +332,45 @@ class InstallationTypePage(BasePage):
             button.set_selected(g == game)
 
         self.selected_game = game
-        self._update_folder_selectors()
+        self._update_visible_folder_selectors()
         self.notify_navigation_changed()
 
         logger.info(f"Game selected: {game.code}")
 
-    def _update_folder_selectors(self) -> None:
-        """Show/hide folder selectors based on selected game."""
+    def _update_visible_folder_selectors(self) -> None:
+        """
+        Show/hide folder selectors based on selected game.
+
+        Uses get_unique_folder_keys() to determine which widgets to show.
+        """
         # Hide all selectors
-        for selector in self.game_folder_widgets.values():
+        for selector in self.folder_widgets.values():
             selector.hide()
 
         # Nothing to show if no game selected
         if not self.selected_game:
             return
 
-        # Show selectors for selected game
-        sequences = self.selected_game.validation_rules
-        for sequence_rules in sequences:
-            ref_code = sequence_rules.game_folder or self.selected_game.code
-            ref_game = GameEnum.from_code(ref_code)
+        # Show selectors for selected game's folder keys
+        folder_keys = self.selected_game.get_unique_folder_keys()
 
-            selector = self.game_folder_widgets.get(ref_game)
+        for folder_key in folder_keys:
+            selector = self.folder_widgets.get(folder_key)
             if selector:
                 selector.show()
-                logger.debug(f"Showing selector for {ref_game.code}")
+                logger.debug(f"Showing folder widget for '{folder_key}'")
+            else:
+                logger.warning(f"No widget found for folder key '{folder_key}'")
 
     def _on_folder_validation_changed(self, is_valid: bool) -> None:
-        """Handle folder validation state change.
+        """
+        Handle folder validation state change.
 
         Args:
             is_valid: Whether validation passed
         """
         self.notify_navigation_changed()
-
-    def _on_language_order_changed(self, order):
-        print(f"ORDER CHANGED: {order}")
-        pass
+        logger.debug(f"Folder validation changed: {is_valid}")
 
     # ========================================
     # STATE MANAGEMENT
@@ -376,22 +382,20 @@ class InstallationTypePage(BasePage):
         saved_game_code = self.state_manager.get_selected_game()
         if saved_game_code:
             try:
-                game = GameEnum.from_code(saved_game_code)
+                game = GameEnum.from_code_strict(saved_game_code)
                 self._on_game_selected(game)
             except ValueError:
                 logger.warning(f"Unknown game code in saved state: {saved_game_code}")
 
         # Load game folder paths
         saved_folders = self.state_manager.get_game_folders()
-        for game_code, path in saved_folders.items():
-            try:
-                game = GameEnum.from_code(game_code)
-                selector = self.game_folder_widgets.get(game)
-                if selector and path:
-                    selector.set_path(path)
-                    logger.debug(f"Restored path for {game_code}: {path}")
-            except ValueError:
-                logger.warning(f"Unknown game code in saved folders: {game_code}")
+        for folder_key, path in saved_folders.items():
+            selector = self.folder_widgets.get(folder_key)
+            if selector and path:
+                selector.set_path(path)
+                logger.debug(f"Restored path for '{folder_key}': {path}")
+            else:
+                logger.warning(f"No widget for saved folder key: {folder_key}")
 
         # Load download folder
         download_path = self.state_manager.get_download_folder()
@@ -423,6 +427,7 @@ class InstallationTypePage(BasePage):
         return tr("page.type.title")
 
     def retranslate_ui(self) -> None:
+        """Update all translatable UI elements."""
         self.left_title.setText(tr("page.type.select_game"))
         self.right_title.setText(tr("page.type.configure_folders"))
         self.languages_order_title.setText(tr("page.type.languages_order"))
@@ -430,7 +435,8 @@ class InstallationTypePage(BasePage):
         self.backup_folder.retranslate_ui()
         self.download_folder.retranslate_ui()
 
-        for game, selector in self.game_folder_widgets.items():
+        # Update all folder selectors
+        for selector in self.folder_widgets.values():
             selector.retranslate_ui()
 
     def get_previous_button_config(self) -> ButtonConfig:
@@ -446,24 +452,34 @@ class InstallationTypePage(BasePage):
         )
 
     def can_proceed(self) -> bool:
-        """Check if user can proceed to next page.
+        """
+        Check if user can proceed to next page.
+
+        Validates:
+        - Game is selected
+        - All required game folders are valid
+        - Download folder is valid
+        - Backup folder is valid
 
         Returns:
             True if all required validations pass
         """
         # Must have selected a game
         if not self.selected_game:
+            logger.debug("Cannot proceed: no game selected")
             return False
 
-        # Check game folder(s) for selected game
-        sequences = self.selected_game.validation_rules
-        for sequence_rules in sequences:
-            ref_code = sequence_rules.game_folder or self.selected_game.code
-            ref_game = GameEnum.from_code(ref_code)
+        # Check all folder widgets for selected game
+        folder_keys = self.selected_game.get_unique_folder_keys()
 
-            selector = self.game_folder_widgets.get(ref_game)
-            if selector and not selector.is_valid():
-                logger.debug(f"Game folder validation failed for {ref_game.code}")
+        for folder_key in folder_keys:
+            selector = self.folder_widgets.get(folder_key)
+            if not selector:
+                logger.error(f"Missing widget for folder key: {folder_key}")
+                return False
+
+            if not selector.is_valid():
+                logger.debug(f"Game folder validation failed for '{folder_key}'")
                 return False
 
         # Check download folder
@@ -479,7 +495,8 @@ class InstallationTypePage(BasePage):
         return True
 
     def validate(self) -> bool:
-        """Validate page data before proceeding.
+        """
+        Validate page data before proceeding.
 
         Returns:
             True if validation passes
@@ -493,13 +510,13 @@ class InstallationTypePage(BasePage):
             self.state_manager.set_selected_game(self.selected_game.code)
             logger.debug(f"Saved selected game: {self.selected_game.code}")
 
-        # Save all valid game folder paths
+        # Save all valid folder paths (by folder key)
         game_folders = {}
-        for game, selector in self.game_folder_widgets.items():
+        for folder_key, selector in self.folder_widgets.items():
             if selector.is_valid():
                 path = selector.get_path()
                 if path:
-                    game_folders[game.code] = path
+                    game_folders[folder_key] = path
 
         if game_folders:
             self.state_manager.set_game_folders(game_folders)
@@ -516,7 +533,8 @@ class InstallationTypePage(BasePage):
             logger.debug(f"Saved backup folder: {self.backup_folder.get_path()}")
 
         # Save languages order
-        self.state_manager.set_languages_order(self.languages_order.get_order())
-        logger.debug(f"Saved languages order: {self.languages_order.get_order()}")
+        languages_order = self.languages_order.get_order()
+        self.state_manager.set_languages_order(languages_order)
+        logger.debug(f"Saved languages order: {languages_order}")
 
         logger.info("Installation configuration saved")

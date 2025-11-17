@@ -29,7 +29,7 @@ class GameValidationRule:
             data: Dictionary with validation rules
 
         Returns:
-            GameValidationSequence instance
+            GameValidationRule instance
         """
         return cls(
             required_files=tuple(data.get("required_files", [])),
@@ -161,6 +161,44 @@ class GameEnum(Enum):
         self.sequence_count = sequence_count
         self.validation_rules = validation_rules
 
+    def get_validation_sequence(self, sequence_index: int = 0) -> Optional[GameValidationRule]:
+        """
+        Get validation sequence for a specific index.
+
+        Args:
+            sequence_index: Sequence index (0-based)
+
+        Returns:
+            GameValidationRule or None if index out of range
+        """
+        if 0 <= sequence_index < len(self.validation_rules):
+            return self.validation_rules[sequence_index]
+        return None
+
+    def get_unique_folder_keys(self) -> List[str]:
+        """
+        Get list of unique folder keys needed for UI widgets.
+
+        For standalone sequences: uses game code
+        For shared sequences: uses referenced game code
+
+        Example:
+            EET returns ["sod", "bg2ee"] (not ["eet", "eet"])
+            BGEE returns ["bgee"]
+
+        Returns:
+            List of folder keys for widget creation
+        """
+        folder_keys = []
+        for i, sequence in enumerate(self.validation_rules):
+            if sequence.game_folder:
+                # Use referenced game's folder
+                folder_keys.append(sequence.game_folder)
+            else:
+                # Use own code
+                folder_keys.append(self.code)
+        return folder_keys
+
     @classmethod
     def from_code(cls, code: str) -> Optional['GameEnum']:
         """
@@ -175,7 +213,26 @@ class GameEnum(Enum):
         for game in cls:
             if game.code == code:
                 return game
-        raise ValueError(f"Unknown game code: {code}")
+        raise None
+
+    @classmethod
+    def from_code_strict(cls, code: str) -> 'GameEnum':
+        """
+        Get GameEnum from code string (raises on error).
+
+        Args:
+            code: Game code (e.g., "bgee")
+
+        Returns:
+            GameEnum instance
+
+        Raises:
+            ValueError: If code not found
+        """
+        game = cls.from_code(code)
+        if game is None:
+            raise ValueError(f"Unknown game code: {code}")
+        return game
 
     def __str__(self) -> str:
         """String representation."""
