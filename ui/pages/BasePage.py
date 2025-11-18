@@ -6,8 +6,9 @@ from dataclasses import dataclass
 from typing import List, Optional
 
 from PySide6.QtCore import Signal
-from PySide6.QtWidgets import QWidget
+from PySide6.QtWidgets import QFrame, QWidget, QLabel
 
+from constants import *
 from core.StateManager import StateManager
 from core.TranslationManager import tr
 
@@ -61,6 +62,33 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
         self.widgets_created = False
 
         logger.debug(f"Page initialized: {self.__class__.__name__}")
+
+    @staticmethod
+    def _create_section_title() -> QLabel:
+        """Create styled section title label.
+
+        Returns:
+            Configured title label
+        """
+        title = QLabel()
+        font = title.font()
+        font.setPointSize(14)
+        font.setBold(True)
+        title.setFont(font)
+        title.setFixedHeight(30)
+        return title
+
+    @staticmethod
+    def _create_separator() -> QFrame:
+        """Create horizontal separator line.
+
+        Returns:
+            Separator frame
+        """
+        separator = QFrame()
+        separator.setFrameShape(QFrame.Shape.HLine)
+        separator.setStyleSheet(f"background-color: {COLOR_BACKGROUND_ACCENTED};")
+        return separator
 
     # ========================================
     # PAGE METADATA (REQUIRED)
