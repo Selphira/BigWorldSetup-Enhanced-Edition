@@ -14,7 +14,6 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from constants import COLOR_PANEL_BG
 from core.StateManager import StateManager
 from core.TranslationManager import tr
 from core.enums.GameEnum import GameEnum
@@ -107,10 +106,6 @@ class InstallationTypePage(BasePage):
         """
         panel = QFrame()
         panel.setFrameShape(QFrame.Shape.StyledPanel)
-        panel.setStyleSheet(
-            f"QFrame {{ background-color: {COLOR_PANEL_BG}; "
-            "border-radius: 8px; }}"
-        )
         panel.setFixedWidth(self.LEFT_PANEL_WIDTH)
 
         layout = QVBoxLayout(panel)
@@ -171,7 +166,8 @@ class InstallationTypePage(BasePage):
         icon_path = self.icons_dir / f"{game.code}.png"
         button = GameButton(
             game,
-            icon_path if icon_path.exists() else None
+            icon_path if icon_path.exists() else None,
+            parent=self
         )
         button.clicked.connect(self._on_game_selected)
         self.game_buttons[game] = button
@@ -187,10 +183,6 @@ class InstallationTypePage(BasePage):
         """
         panel = QFrame()
         panel.setFrameShape(QFrame.Shape.StyledPanel)
-        panel.setStyleSheet(
-            f"QFrame {{ background-color: {COLOR_PANEL_BG}; "
-            "border-radius: 8px; }}"
-        )
 
         layout = QVBoxLayout(panel)
         layout.setContentsMargins(15, 15, 15, 15)

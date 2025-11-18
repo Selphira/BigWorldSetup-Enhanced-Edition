@@ -16,15 +16,16 @@ EXEMPLES:
     python ini_to_json_converter.py mods_ini/ mods_json/
 """
 
-import os
-import sys
-import json
-import hashlib
-import re
-from pathlib import Path
-from typing import Dict, Any, Optional, List
-from dataclasses import dataclass, asdict
 import configparser
+import hashlib
+import json
+import os
+import re
+import sys
+from dataclasses import dataclass
+from typing import Dict, Any, Optional, List
+
+from constants import *
 
 
 class CompactJSONEncoder(json.JSONEncoder):
@@ -120,6 +121,7 @@ class CompactJSONEncoder(json.JSONEncoder):
 
         return "{" + ", ".join(items) + "}"
 
+
 @dataclass
 class ModMetadata:
     """Structure des métadonnées d'un mod"""
@@ -192,10 +194,10 @@ class INIToJSONConverter:
         """Affiche un message si verbose"""
         if self.verbose:
             prefix = {
-                'INFO': '→',
-                'SUCCESS': '✓',
-                'ERROR': '✗',
-                'WARNING': '⚠'
+                'INFO': ICON_INFO,
+                'SUCCESS': ICON_SUCCESS,
+                'ERROR': ICON_ERROR,
+                'WARNING': ICON_WARNING
             }.get(level, '•')
             print(f"{prefix} {message}")
 
@@ -233,7 +235,7 @@ class INIToJSONConverter:
         Returns:
             True si succès, False sinon
         """
-        #try:
+        # try:
         self.log(f"Conversion: {ini_path.name}")
 
         # Lire le fichier INI
@@ -279,7 +281,8 @@ class INIToJSONConverter:
 
         raise ValueError(f"Impossible de lire {path} avec les encodages supportés")
 
-    def _extract_mod_data(self, config: configparser.ConfigParser, ini_path: Path, files_folder: Path) -> Dict[str, Any]:
+    def _extract_mod_data(self, config: configparser.ConfigParser, ini_path: Path, files_folder: Path) -> Dict[
+        str, Any]:
         """Extrait toutes les données du fichier INI"""
 
         # Section [Mod]

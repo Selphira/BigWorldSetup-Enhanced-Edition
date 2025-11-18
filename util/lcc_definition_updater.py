@@ -16,15 +16,14 @@ USAGE:
     python lcc_definition_updater.py <json_dir_or_file>
 """
 
-import sys
 import json
+import sys
 import urllib.request
-from pathlib import Path
 from typing import Dict, Any, Optional, List
 from urllib.error import URLError, HTTPError
-from ini_to_json_converter import CompactJSONEncoder
 
-from constants import LCC_CACHE_DIR
+from constants import *
+from ini_to_json_converter import CompactJSONEncoder
 
 
 class LCCDataFetcher:
@@ -63,7 +62,7 @@ class LCCDataFetcher:
         self.cache_dir.mkdir(exist_ok=True)
         self.data = {}
         self.tp2_index = {}  # Index: tp2 -> mod_data
-        self.id_index = {}   # Index: id -> mod_data (pour résoudre [[id]])
+        self.id_index = {}  # Index: id -> mod_data (pour résoudre [[id]])
 
     def fetch_all(self, force_refresh: bool = False) -> bool:
         """
@@ -304,10 +303,10 @@ class JSONCompleter:
         """Affiche un message si verbose"""
         if self.verbose:
             prefix = {
-                'INFO': '→',
-                'SUCCESS': '✓',
-                'ERROR': '✗',
-                'WARNING': '⚠'
+                'INFO': ICON_INFO,
+                'SUCCESS': ICON_SUCCESS,
+                'ERROR': ICON_ERROR,
+                'WARNING': ICON_WARNING
             }.get(level, '•')
             print(f"{prefix} {message}")
 
@@ -388,7 +387,7 @@ class JSONCompleter:
                         current_desc = mod_data['translations'][lang_code].get('description', '')
                     else:
                         current_desc = ''
-                        mod_data['translations'][lang_code]={}
+                        mod_data['translations'][lang_code] = {}
 
                     # Ajouter ou remplacer si différent
                     if current_desc != description:
@@ -511,7 +510,7 @@ def main():
     # Banner
     print("\n" + "═" * 60)
     print("  COMPLÉTION JSON DEPUIS LCC")
-    print("═"*60)
+    print("═" * 60)
 
     # Récupérer les données LCC
     fetcher = LCCDataFetcher()
