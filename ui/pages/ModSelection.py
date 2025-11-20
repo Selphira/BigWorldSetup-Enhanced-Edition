@@ -29,8 +29,6 @@ from ui.pages.BasePage import BasePage, ButtonConfig
 from ui.widgets.CategoryButton import CategoryButton
 from ui.widgets.ComponentSelector import ComponentSelector
 
-SKILL_LEVEL_ROLE = Qt.ItemDataRole.UserRole + 1
-
 logger = logging.getLogger(__name__)
 
 
@@ -451,6 +449,7 @@ class ModSelectionPage(BasePage):
         """Apply all active filters to component selector."""
         # Prepare filter parameters
         text = self._search_input.text()
+        game = self.state_manager.get_selected_game()
         categories = None
 
         if self._current_category != CategoryEnum.ALL:
@@ -459,7 +458,8 @@ class ModSelectionPage(BasePage):
         # Apply filters in one operation
         self._component_selector.apply_filters(
             text=text,
-            categories=categories
+            categories=categories,
+            game=game
         )
 
         # Expand/collapse based on search
@@ -518,6 +518,7 @@ class ModSelectionPage(BasePage):
         """Called when page becomes visible."""
         super().on_page_shown()
         self._search_input.setFocus()
+        self._apply_all_filters()
 
     # ========================================
     # Translation Support

@@ -7,7 +7,7 @@ and minimal memory footprint.
 
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Dict, Optional
+from typing import Any, Optional, Iterable, Union
 
 
 class ComponentType(Enum):
@@ -159,7 +159,7 @@ class Mod:
         '_components_raw', '_translations', '_components_cache'
     )
 
-    def __init__(self, data: Dict[str, Any]) -> None:
+    def __init__(self, data: dict[str, Any]) -> None:
         """
         Construct a Mod from JSON cache data.
 
@@ -174,12 +174,12 @@ class Mod:
         # Lists (convert to tuples for immutability where appropriate)
         self.categories: tuple[str, ...] = tuple(data.get("categories", []))
         self.games: tuple[str, ...] = tuple(data.get("games", []))
-        self.languages: Dict[str, Any] = data.get("languages", {})
+        self.languages: dict[str, int] = data.get("languages", {})
 
         # Translations
         translations = data.get("translations", {})
         self.description: str = translations.get("description", "")
-        self._translations: Dict[str, str] = translations.get("components", {})
+        self._translations: dict[str, str] = translations.get("components", {})
 
         # Optional links
         self.download: Optional[str] = data.get("download")
@@ -187,8 +187,8 @@ class Mod:
         self.homepage: Optional[str] = data.get("homepage")
 
         # Components (stored raw, instantiated on demand)
-        self._components_raw: Dict[str, Any] = data.get("components", {})
-        self._components_cache: Dict[str, Component] = {}
+        self._components_raw: dict[str, Any] = data.get("components", {})
+        self._components_cache: dict[str, Component] = {}
 
     def get_component(self, key: str) -> Optional[Component]:
         """
@@ -213,7 +213,7 @@ class Mod:
         self._components_cache[key] = component
         return component
 
-    def _create_component(self, key: str, raw_data: Dict[str, Any]) -> Component:
+    def _create_component(self, key: str, raw_data: dict[str, Any]) -> Component:
         """
         Create a Component instance of the appropriate type.
 
@@ -346,9 +346,24 @@ class Mod:
         """Check if mod supports a game."""
         return game in self.games
 
-    def supports_language(self, language: str) -> bool:
-        """Check if mod supports a language."""
-        return language in self.languages
+    def supports_language(self, languages: Union[str, Iterable[str]]) -> bool:
+        """
+        Return True if the mod supports at least one of the given languages.
+
+        Accepts:
+            - a single language code (str)
+            - multiple language codes (list, set, tuple...)
+        """
+        if isinstance(languages, str):
+            # Single language
+            return languages in self.languages
+
+        # Case: iterable of languages
+        langs = list(languages)
+        if not langs:  # empty iterable
+            return False
+
+        return any(lang in self.languages for lang in langs)
 
     def __repr__(self) -> str:
         return (

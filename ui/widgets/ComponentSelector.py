@@ -14,7 +14,7 @@ from PySide6.QtGui import QStandardItemModel, QStandardItem, QColor
 from PySide6.QtWidgets import QTreeView
 
 from constants import (
-    ROLE_MOD, ROLE_COMPONENT, ROLE_GAMES, ROLE_AUTHOR, ROLE_OPTION_KEY, ROLE_PROMPT_KEY, ROLE_IS_DEFAULT, ROLE_RADIO,
+    ROLE_MOD, ROLE_COMPONENT, ROLE_AUTHOR, ROLE_OPTION_KEY, ROLE_PROMPT_KEY, ROLE_IS_DEFAULT, ROLE_RADIO,
     COLOR_STATUS_NONE, COLOR_STATUS_COMPLETE, COLOR_STATUS_PARTIAL
 )
 from core.ModManager import ModManager
@@ -43,15 +43,13 @@ class ItemType(Enum):
 class FilterCriteria:
     """Encapsulates all filter criteria."""
     text: str = ""
-    games: set[str] = None
+    game: str = ""
     categories: set[str] = None
     authors: set[str] = None
     languages: set[str] = None
 
     def __post_init__(self):
         """Initialize sets if None."""
-        if self.games is None:
-            self.games = set()
         if self.categories is None:
             self.categories = set()
         if self.authors is None:
@@ -62,14 +60,14 @@ class FilterCriteria:
     def has_active_filters(self) -> bool:
         """Check if any filter is active."""
         return bool(
-            self.text or self.games or self.categories
+            self.text or self.game or self.categories
             or self.authors or self.languages
         )
 
     def clear(self) -> None:
         """Clear all filters."""
         self.text = ""
-        self.games.clear()
+        self.game = ""
         self.categories.clear()
         self.authors.clear()
         self.languages.clear()
@@ -103,7 +101,7 @@ class FilterEngine:
             return False
 
         # Games filter
-        if self._criteria.games and not self._matches_games(index):
+        if self._criteria.game and not self._matches_game(index):
             return False
 
         # Categories filter
@@ -127,15 +125,12 @@ class FilterEngine:
             return False
         return self._criteria.text.lower() in text.lower()
 
-    def _matches_games(self, index: QModelIndex) -> bool:
-        """Check if item matches games filter."""
-        item_games = index.data(ROLE_GAMES)
-        if not item_games:
+    def _matches_game(self, index: QModelIndex) -> bool:
+        """Check if item matches game filter."""
+        mod = index.data(ROLE_MOD)
+        if not mod:
             return False
-
-        if isinstance(item_games, (list, set)):
-            return bool(self._criteria.games.intersection(item_games))
-        return item_games in self._criteria.games
+        return mod.supports_game(self._criteria.game)
 
     def _matches_categories(self, index: QModelIndex) -> bool:
         """Check if item matches categories filter."""
@@ -994,7 +989,7 @@ class ComponentSelector(QTreeView):
     def apply_filters(
             self,
             text: str = "",
-            games: Optional[set[str]] = None,
+            game: str = "",
             categories: Optional[set[str]] = None,
             authors: Optional[set[str]] = None,
             languages: Optional[set[str]] = None
@@ -1002,7 +997,7 @@ class ComponentSelector(QTreeView):
         """Apply all filters at once for better performance."""
         criteria = FilterCriteria(
             text=text,
-            games=games or set(),
+            game=game,
             categories=categories or set(),
             authors=authors or set(),
             languages=languages or set()
@@ -1040,7 +1035,7 @@ class ComponentSelector(QTreeView):
         # Create criteria without category filter
         filter_no_category = FilterCriteria(
             text=criteria.text,
-            games=criteria.games.copy(),
+            game=criteria.game,
             categories=set(),  # Exclude category
             authors=criteria.authors.copy(),
             languages=criteria.languages.copy()
