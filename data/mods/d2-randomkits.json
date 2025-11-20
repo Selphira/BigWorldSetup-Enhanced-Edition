@@ -14,7 +14,7 @@
   "categories": ["kit"],
   "components": {
     "9999": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["20", "21"]},
+    "choice_0": {"type": "muc", "components": ["20", "21"], "default": "20"},
     "30": {"type": "std"}
   },
   "languages": {

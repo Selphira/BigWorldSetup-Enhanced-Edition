@@ -13,10 +13,10 @@
   "games": ["sod", "eet"],
   "categories": ["quest"],
   "components": {
-    "0": {"type": "std"},
-    "1": {"type": "std"},
-    "2": {"type": "std"},
-    "3": {"type": "std"}
+    "0": {"type": "std", "category": "gameplay"},
+    "1": {"type": "std", "category": "gameplay"},
+    "2": {"type": "std", "category": "gameplay"},
+    "3": {"type": "std", "category": "gameplay"}
   },
   "languages": {
     "fr_FR": 2

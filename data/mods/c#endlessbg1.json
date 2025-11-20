@@ -21,7 +21,7 @@
     "5": {"type": "std"},
     "6": {"type": "std"},
     "7": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["8", "9"]},
+    "choice_0": {"type": "muc", "components": ["8", "9"], "default": "8"},
     "10": {"type": "std"},
     "11": {"type": "std"},
     "12": {"type": "std"},

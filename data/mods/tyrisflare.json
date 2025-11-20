@@ -14,7 +14,7 @@
   "categories": ["npc"],
   "components": {
     "0": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["101", "102", "103", "104", "105", "106", "107"]}
+    "choice_0": {"type": "muc", "components": ["101", "102", "103", "104", "105", "106", "107"], "default": "101"}
   },
   "languages": {
     "fr_FR": 2

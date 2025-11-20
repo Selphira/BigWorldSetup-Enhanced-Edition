@@ -15,7 +15,7 @@
   "components": {
     "100": {"type": "std"},
     "200": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["301", "302"]},
+    "choice_0": {"type": "muc", "components": ["301", "302"], "default": "301"},
     "999": {"type": "std"}
   },
   "languages": {

@@ -13,8 +13,8 @@
   "games": ["bg2", "bgt", "bg2ee", "eet"],
   "categories": ["spell"],
   "components": {
-    "0": {"type": "std"},
-    "1000": {"type": "std"}
+    "0": {"type": "std", "category": "smith"},
+    "1000": {"type": "std", "category": "smith"}
   },
   "languages": {
     "fr_FR": 1

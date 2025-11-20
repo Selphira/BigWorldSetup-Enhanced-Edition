@@ -13,9 +13,9 @@
   "games": ["bg2", "bgt", "bg2ee", "eet"],
   "categories": ["quest"],
   "components": {
-    "0": {"type": "std"},
-    "1": {"type": "std"},
-    "2": {"type": "std"}
+    "0": {"type": "std", "category": "tactic"},
+    "1": {"type": "std", "category": "tactic"},
+    "2": {"type": "std", "category": "tactic"}
   },
   "languages": {
     "en_US": 0,

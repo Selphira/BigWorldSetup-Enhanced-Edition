@@ -13,8 +13,8 @@
   "games": ["bg2", "bgt", "bgee", "bg2ee", "eet"],
   "categories": ["patch"],
   "components": {
-    "10": {"type": "std"},
-    "15": {"type": "std"},
+    "10": {"type": "std", "category": "util"},
+    "15": {"type": "std", "category": "util"},
     "20": {"type": "std"}
   },
   "languages": {

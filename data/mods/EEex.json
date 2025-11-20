@@ -13,14 +13,14 @@
   "games": ["bgee", "bg2ee", "eet", "iwdee"],
   "categories": ["util"],
   "components": {
-    "0": {"type": "std"},
-    "1": {"type": "std"},
-    "2": {"type": "std"},
-    "3": {"type": "std"},
-    "4": {"type": "std"},
-    "5": {"type": "std"},
-    "6": {"type": "std"},
-    "7": {"type": "std"}
+    "0": {"type": "std", "category": "patch"},
+    "1": {"type": "std", "category": "patch"},
+    "2": {"type": "std", "category": "patch"},
+    "3": {"type": "std", "category": "patch"},
+    "4": {"type": "std", "category": "patch"},
+    "5": {"type": "std", "category": "patch"},
+    "6": {"type": "std", "category": "patch"},
+    "7": {"type": "std", "category": "patch"}
   },
   "languages": {
     "en_US": 0,

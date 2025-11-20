@@ -13,7 +13,7 @@
   "games": ["bg", "bg2", "bg2ee", "eet"],
   "categories": ["portrait"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"]}
+    "choice_0": {"type": "muc", "components": ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"], "default": "10"}
   },
   "languages": {
     "fr_FR": 1

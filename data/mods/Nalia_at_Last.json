@@ -14,7 +14,7 @@
   "categories": ["npcx"],
   "components": {
     "0": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["1"]}
+    "choice_0": {"type": "muc", "components": ["1"], "default": "1"}
   },
   "languages": {
     "fr_FR": 2

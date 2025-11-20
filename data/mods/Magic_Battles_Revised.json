@@ -13,7 +13,7 @@
   "games": ["bgee", "bg2ee", "eet", "iwdee"],
   "categories": ["gameplay"],
   "components": {
-    "10": {"type": "std"}
+    "10": {"type": "std", "category": "spell"}
   },
   "languages": {
     "fr_FR": 1

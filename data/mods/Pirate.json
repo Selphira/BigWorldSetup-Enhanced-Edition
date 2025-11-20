@@ -14,8 +14,8 @@
   "categories": ["kit"],
   "components": {
     "0": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["1", "2"]},
-    "choice_1": {"type": "muc", "components": ["3", "4", "5", "6"]}
+    "choice_0": {"type": "muc", "components": ["1", "2"], "default": "1"},
+    "choice_1": {"type": "muc", "components": ["3", "4", "5", "6"], "default": "3"}
   },
   "languages": {
     "fr_FR": 0

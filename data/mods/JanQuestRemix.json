@@ -13,7 +13,7 @@
   "games": ["bg2", "bgt", "bg2ee", "eet"],
   "categories": ["quest"],
   "components": {
-    "0": {"type": "std"}
+    "0": {"type": "std", "category": "npcx"}
   },
   "languages": {
     "fr_FR": 0

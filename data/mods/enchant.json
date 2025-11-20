@@ -13,7 +13,7 @@
   "games": ["bgee", "bg2ee", "sod", "iwdee", "eet"],
   "categories": ["spell"],
   "components": {
-    "0": {"type": "std"},
+    "0": {"type": "std", "category": "smith"},
     "1": {"type": "std"},
     "2": {"type": "std"},
     "3": {"type": "std"},

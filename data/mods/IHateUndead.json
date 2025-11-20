@@ -21,7 +21,7 @@
     "5": {"type": "std"},
     "6": {"type": "std"},
     "7": {"type": "std"},
-    "8": {"type": "std"},
+    "8": {"type": "std", "category": "npcx"},
     "9": {"type": "std"},
     "10": {"type": "std"},
     "11": {"type": "std"}

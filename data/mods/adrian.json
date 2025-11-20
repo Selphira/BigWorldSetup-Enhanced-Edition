@@ -13,10 +13,10 @@
   "games": ["bg2", "bgt", "bg2ee", "eet"],
   "categories": ["npc"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["0", "1", "2"]},
+    "choice_0": {"type": "muc", "components": ["0", "1", "2"], "default": "0"},
     "choice_1": {"type": "muc", "components": ["10", "11"]},
     "20": {"type": "std"},
-    "choice_2": {"type": "muc", "components": ["30", "31"]}
+    "choice_2": {"type": "muc", "components": ["30", "31"], "default": "31"}
   },
   "languages": {
     "en_US": 0,

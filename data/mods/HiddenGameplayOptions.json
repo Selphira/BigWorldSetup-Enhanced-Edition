@@ -44,7 +44,7 @@
     "37": {"type": "std"},
     "38": {"type": "std"},
     "39": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["101", "102", "103"]},
+    "choice_0": {"type": "muc", "components": ["101", "102", "103"], "default": "101"},
     "200": {"type": "std"},
     "201": {"type": "std"}
   },

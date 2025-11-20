@@ -13,12 +13,12 @@
   "games": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet"],
   "categories": ["spell"],
   "components": {
-    "0": {"type": "std"},
-    "1": {"type": "std"},
-    "2": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["3", "4"]},
-    "5": {"type": "std"},
-    "6": {"type": "std"}
+    "0": {"type": "std", "category": "smith"},
+    "1": {"type": "std", "category": "smith"},
+    "2": {"type": "std", "category": "smith"},
+    "choice_0": {"type": "muc", "components": ["3", "4"], "category": "smith", "default": "3"},
+    "5": {"type": "std", "category": "smith"},
+    "6": {"type": "std", "category": "smith"}
   },
   "languages": {
     "en_US": 0,

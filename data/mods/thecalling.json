@@ -15,7 +15,7 @@
   "components": {
     "0": {"type": "std"},
     "20": {"type": "std"},
-    "40": {"type": "std"}
+    "40": {"type": "std", "category": "smith"}
   },
   "languages": {
     "fr_FR": 2

@@ -13,9 +13,9 @@
   "games": ["bg2", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
   "categories": ["kit", "spell"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["0", "1"]},
+    "choice_0": {"type": "muc", "components": ["0", "1"], "default": "0"},
     "2": {"type": "std"},
-    "choice_1": {"type": "muc", "components": ["3", "4"]},
+    "choice_1": {"type": "muc", "components": ["3", "4"], "default": "3"},
     "5": {"type": "std"}
   },
   "languages": {

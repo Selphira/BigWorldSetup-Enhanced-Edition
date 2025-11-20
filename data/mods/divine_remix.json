@@ -13,7 +13,7 @@
   "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "eet", "iwdee"],
   "categories": ["kit", "spell", "gameplay"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["10", "11"]},
+    "choice_0": {"type": "muc", "components": ["10", "11"], "default": "10"},
     "choice_1": {"type": "muc", "components": ["50", "51"]},
     "choice_2": {"type": "muc", "components": ["52", "53"]},
     "choice_3": {"type": "muc", "components": ["54", "55"]},
@@ -37,9 +37,9 @@
     "409": {"type": "std"},
     "412": {"type": "std"},
     "415": {"type": "std"},
-    "600": {"type": "std"},
-    "605": {"type": "std"},
-    "610": {"type": "std"},
+    "600": {"type": "std", "category": "npcx"},
+    "605": {"type": "std", "category": "npcx"},
+    "610": {"type": "std", "category": "npcx"},
     "1000": {"type": "std"}
   },
   "languages": {

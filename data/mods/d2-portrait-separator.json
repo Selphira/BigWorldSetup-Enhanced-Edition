@@ -13,7 +13,7 @@
   "games": ["bgee", "bg2ee", "eet", "iwdee"],
   "categories": ["util"],
   "components": {
-    "0": {"type": "std"}
+    "0": {"type": "std", "category": "portrait"}
   },
   "languages": {
     "en_US": 0,

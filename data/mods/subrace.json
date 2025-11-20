@@ -13,7 +13,7 @@
   "games": ["bgee"],
   "categories": ["gameplay"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["100", "200"]}
+    "choice_0": {"type": "muc", "components": ["100", "200"], "category": "spell", "default": "100"}
   },
   "languages": {
     "fr_FR": 2

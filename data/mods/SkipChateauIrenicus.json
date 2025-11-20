@@ -13,9 +13,9 @@
   "games": ["bg2", "bgt", "bg2ee", "eet"],
   "categories": ["gameplay"],
   "components": {
-    "0": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["101", "102"]},
-    "200": {"type": "std"}
+    "0": {"type": "std", "category": "spell"},
+    "choice_0": {"type": "muc", "components": ["101", "102"], "category": "spell", "default": "101"},
+    "200": {"type": "std", "category": "spell"}
   },
   "languages": {
     "en_US": 0,

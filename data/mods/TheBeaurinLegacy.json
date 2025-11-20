@@ -15,7 +15,7 @@
   "components": {
     "1000": {"type": "std"},
     "2000": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["3010", "3020", "3030"]}
+    "choice_0": {"type": "muc", "components": ["3010", "3020", "3030"], "default": "3010"}
   },
   "languages": {
     "en_US": 0,

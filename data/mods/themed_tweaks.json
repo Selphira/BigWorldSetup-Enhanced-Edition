@@ -13,16 +13,16 @@
   "games": ["bgee", "bg2ee", "sod", "eet"],
   "categories": ["quest"],
   "components": {
-    "60": {"type": "std"},
-    "70": {"type": "std"},
-    "80": {"type": "std"},
-    "90": {"type": "std"},
+    "60": {"type": "std", "category": "gameplay"},
+    "70": {"type": "std", "category": "gameplay"},
+    "80": {"type": "std", "category": "gameplay"},
+    "90": {"type": "std", "category": "gameplay"},
     "100": {"type": "std"},
-    "140": {"type": "std"},
-    "150": {"type": "std"},
-    "160": {"type": "std"},
-    "180": {"type": "std"},
-    "200": {"type": "std"}
+    "140": {"type": "std", "category": "gameplay"},
+    "150": {"type": "std", "category": "gameplay"},
+    "160": {"type": "std", "category": "gameplay"},
+    "180": {"type": "std", "category": "spell"},
+    "200": {"type": "std", "category": "spell"}
   },
   "languages": {
     "en_US": 0,

@@ -13,7 +13,7 @@
   "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "eet", "iwdee"],
   "categories": ["kit"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["10", "20", "30"]}
+    "choice_0": {"type": "muc", "components": ["10", "20", "30"], "default": "10"}
   },
   "languages": {
     "en_US": 0,

@@ -13,10 +13,10 @@
   "games": ["bgee", "bg2ee", "sod", "eet", "iwdee", "pstee"],
   "categories": ["cosm"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["0", "1", "2", "3", "4", "5", "7", "8", "9", "12", "13", "14", "16", "17", "18", "19", "20", "21"]},
-    "choice_1": {"type": "muc", "components": ["10", "11", "15"]},
-    "choice_2": {"type": "muc", "components": ["100", "101", "102", "103", "104", "105", "106", "107", "108"]},
-    "choice_3": {"type": "muc", "components": ["200", "201", "202", "203"]}
+    "choice_0": {"type": "muc", "components": ["0", "1", "2", "3", "4", "5", "7", "8", "9", "12", "13", "14", "16", "17", "18", "19", "20", "21"], "category": "portrait", "default": "2"},
+    "choice_1": {"type": "muc", "components": ["10", "11", "15"], "category": "portrait", "default": "10"},
+    "choice_2": {"type": "muc", "components": ["100", "101", "102", "103", "104", "105", "106", "107", "108"], "category": "portrait", "default": "100"},
+    "choice_3": {"type": "muc", "components": ["200", "201", "202", "203"], "category": "portrait", "default": "200"}
   },
   "languages": {
     "en_US": 0,

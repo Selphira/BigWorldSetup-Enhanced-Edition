@@ -14,10 +14,10 @@
   "categories": ["npc"],
   "components": {
     "0": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["1", "11", "12", "13", "14"]},
+    "choice_0": {"type": "muc", "components": ["1", "11", "12", "13", "14"], "default": "1"},
     "2": {"type": "std"},
     "3": {"type": "std"},
-    "choice_1": {"type": "muc", "components": ["4", "5", "6", "7", "8", "9"]},
+    "choice_1": {"type": "muc", "components": ["4", "5", "6", "7", "8", "9"], "default": "4"},
     "10": {"type": "std"}
   },
   "languages": {

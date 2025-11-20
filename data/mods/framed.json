@@ -13,7 +13,7 @@
   "games": ["bgee", "eet"],
   "categories": ["quest"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["0", "1"]}
+    "choice_0": {"type": "muc", "components": ["0", "1"], "default": "0"}
   },
   "languages": {
     "fr_FR": 1

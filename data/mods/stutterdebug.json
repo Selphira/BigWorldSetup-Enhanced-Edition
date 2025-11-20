@@ -13,7 +13,7 @@
   "games": ["bg", "tutu", "bg2", "bgt", "bgee", "bg2ee", "eet", "iwd", "iwd2", "iwdee", "pstee", "sod", "pst"],
   "categories": ["util"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["1", "2"]}
+    "choice_0": {"type": "muc", "components": ["1", "2"], "default": "1"}
   },
   "languages": {
     "en_US": 1,

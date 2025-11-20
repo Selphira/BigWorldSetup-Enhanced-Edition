@@ -13,8 +13,8 @@
   "games": ["bg2", "bgt", "bg2ee", "eet"],
   "categories": ["gameplay"],
   "components": {
-    "0": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["1", "2"]}
+    "0": {"type": "std", "category": "npcx"},
+    "choice_0": {"type": "muc", "components": ["1", "2"], "category": "npcx", "default": "2"}
   },
   "languages": {
     "en_US": 0,

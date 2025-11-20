@@ -13,10 +13,13 @@
   "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet"],
   "categories": ["patch"],
   "components": {
-    "0": {"type": "sub", "prompts": {"1": {"options": ["1", "2"]}, "2": {"options": ["1", "2"]}}},
-    "choice_0": {"type": "muc", "components": ["1", "2"]},
+    "0": {
+      "type": "sub",
+      "prompts": {"1": {"options": ["1", "2"], "default": "1"}, "2": {"options": ["1", "2"], "default": "2"}}
+    },
+    "choice_0": {"type": "muc", "components": ["1", "2"], "default": "1"},
     "3": {"type": "std"},
-    "choice_1": {"type": "muc", "components": ["4", "5"]}
+    "choice_1": {"type": "muc", "components": ["4", "5"], "default": "4", "category": "ui"}
   },
   "languages": {
     "en_US": 0,

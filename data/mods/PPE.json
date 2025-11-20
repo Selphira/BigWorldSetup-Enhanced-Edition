@@ -19,12 +19,12 @@
     "25": {"type": "std"},
     "30": {"type": "std"},
     "40": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["100", "150"]},
-    "choice_1": {"type": "muc", "components": ["300", "301", "302"]},
-    "choice_2": {"type": "muc", "components": ["310", "311", "312"]},
-    "choice_3": {"type": "muc", "components": ["320", "322"]},
-    "choice_4": {"type": "muc", "components": ["330", "332"]},
-    "choice_5": {"type": "muc", "components": ["340", "342"]},
+    "choice_0": {"type": "muc", "components": ["100", "150"], "default": "100"},
+    "choice_1": {"type": "muc", "components": ["300", "301", "302"], "default": "300"},
+    "choice_2": {"type": "muc", "components": ["310", "311", "312"], "default": "310"},
+    "choice_3": {"type": "muc", "components": ["320", "322"], "default": "320"},
+    "choice_4": {"type": "muc", "components": ["330", "332"], "default": "330"},
+    "choice_5": {"type": "muc", "components": ["340", "342"], "default": "340"},
     "350": {"type": "std"}
   },
   "languages": {

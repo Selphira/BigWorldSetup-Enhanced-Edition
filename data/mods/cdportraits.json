@@ -13,11 +13,11 @@
   "games": ["bg", "bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet"],
   "categories": ["portrait"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["10", "11"]},
-    "choice_1": {"type": "muc", "components": ["20", "21", "22", "23", "24"]},
-    "choice_2": {"type": "muc", "components": ["30", "31"]},
-    "choice_3": {"type": "muc", "components": ["40", "41"]},
-    "choice_4": {"type": "muc", "components": ["50", "51", "52", "53", "54"]}
+    "choice_0": {"type": "muc", "components": ["10", "11"], "default": "11"},
+    "choice_1": {"type": "muc", "components": ["20", "21", "22", "23", "24"], "default": "21"},
+    "choice_2": {"type": "muc", "components": ["30", "31"], "default": "31"},
+    "choice_3": {"type": "muc", "components": ["40", "41"], "default": "41"},
+    "choice_4": {"type": "muc", "components": ["50", "51", "52", "53", "54"], "default": "53"}
   },
   "languages": {
     "fr_FR": 1,

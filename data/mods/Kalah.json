@@ -13,7 +13,7 @@
   "games": ["bg2", "bg2ee", "eet"],
   "categories": ["quest"],
   "components": {
-    "0": {"type": "std"},
+    "0": {"type": "std", "category": "portrait"},
     "1": {"type": "std"}
   },
   "languages": {

@@ -17,7 +17,7 @@
     "1": {"type": "std"},
     "2": {"type": "std"},
     "3": {"type": "std"},
-    "4": {"type": "std"},
+    "4": {"type": "std", "category": "smith"},
     "5": {"type": "std"},
     "6": {"type": "std"}
   },

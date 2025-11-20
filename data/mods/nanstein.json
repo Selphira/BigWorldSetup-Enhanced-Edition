@@ -13,7 +13,7 @@
   "games": ["bg2", "bgt", "bg2ee", "eet"],
   "categories": ["smith"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["0", "100"]}
+    "choice_0": {"type": "muc", "components": ["0", "100"], "default": "0"}
   },
   "languages": {
     "es_ES": 0,

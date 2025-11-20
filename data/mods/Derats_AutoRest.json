@@ -13,9 +13,9 @@
   "games": ["bg2", "bgt", "bgee", "bg2ee", "eet", "iwdee", "pstee"],
   "categories": ["gameplay"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["11", "12", "13"]},
-    "choice_1": {"type": "muc", "components": ["21", "22", "23", "24", "25", "26", "27", "28"]},
-    "choice_2": {"type": "muc", "components": ["31", "32", "33", "34"]}
+    "choice_0": {"type": "muc", "components": ["11", "12", "13"], "category": "util", "default": "11"},
+    "choice_1": {"type": "muc", "components": ["21", "22", "23", "24", "25", "26", "27", "28"], "category": "util", "default": "21"},
+    "choice_2": {"type": "muc", "components": ["31", "32", "33", "34"], "category": "util", "default": "31"}
   },
   "languages": {
     "fr_FR": 0

@@ -13,12 +13,12 @@
   "games": ["bg2ee", "eet"],
   "categories": ["gameplay"],
   "components": {
-    "0": {"type": "std"},
-    "1": {"type": "std"},
-    "2": {"type": "std"},
-    "3": {"type": "std"},
-    "4": {"type": "std"},
-    "5": {"type": "std"}
+    "0": {"type": "std", "category": "spell"},
+    "1": {"type": "std", "category": "spell"},
+    "2": {"type": "std", "category": "spell"},
+    "3": {"type": "std", "category": "spell"},
+    "4": {"type": "std", "category": "spell"},
+    "5": {"type": "std", "category": "spell"}
   },
   "languages": {
     "fr_FR": 1

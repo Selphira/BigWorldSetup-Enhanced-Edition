@@ -13,8 +13,8 @@
   "games": ["bg2", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
   "categories": ["gameplay"],
   "components": {
-    "0": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["1", "2"]}
+    "0": {"type": "std", "category": "spell"},
+    "choice_0": {"type": "muc", "components": ["1", "2"], "category": "spell", "default": "1"}
   },
   "languages": {
     "fr_FR": 1

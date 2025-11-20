@@ -14,13 +14,13 @@
   "categories": ["gameplay"],
   "components": {
     "1": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["2", "3"]},
+    "choice_0": {"type": "muc", "components": ["2", "3"], "default": "2"},
     "4": {"type": "std"},
     "5": {"type": "std"},
     "6": {"type": "std"},
     "7": {"type": "std"},
-    "choice_1": {"type": "muc", "components": ["8", "9", "10", "11"]},
-    "choice_2": {"type": "muc", "components": ["12", "13", "14", "15"]},
+    "choice_1": {"type": "muc", "components": ["8", "9", "10", "11"], "default": "8"},
+    "choice_2": {"type": "muc", "components": ["12", "13", "14", "15"], "default": "12"},
     "20": {"type": "std"},
     "21": {"type": "std"}
   },

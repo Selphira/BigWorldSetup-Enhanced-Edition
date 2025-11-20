@@ -13,19 +13,19 @@
   "games": ["bgee", "bg2ee", "eet"],
   "categories": ["gameplay"],
   "components": {
-    "100": {"type": "std"},
-    "110": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["121", "122"]},
-    "130": {"type": "std"},
-    "140": {"type": "std"},
-    "choice_1": {"type": "muc", "components": ["151", "152", "153"]},
-    "160": {"type": "std"},
-    "180": {"type": "std"},
-    "200": {"type": "std"},
-    "choice_2": {"type": "muc", "components": ["211", "212", "213"]},
-    "choice_3": {"type": "muc", "components": ["221", "222", "223", "224"]},
-    "choice_4": {"type": "muc", "components": ["231", "232", "233", "234"]},
-    "choice_5": {"type": "muc", "components": ["251", "252"]}
+    "100": {"type": "std", "category": "spell"},
+    "110": {"type": "std", "category": "spell"},
+    "choice_0": {"type": "muc", "components": ["121", "122"], "category": "spell", "default": "121"},
+    "130": {"type": "std", "category": "spell"},
+    "140": {"type": "std", "category": "spell"},
+    "choice_1": {"type": "muc", "components": ["151", "152", "153"], "category": "spell", "default": "151"},
+    "160": {"type": "std", "category": "spell"},
+    "180": {"type": "std", "category": "spell"},
+    "200": {"type": "std", "category": "spell"},
+    "choice_2": {"type": "muc", "components": ["211", "212", "213"], "category": "spell", "default": "211"},
+    "choice_3": {"type": "muc", "components": ["221", "222", "223", "224"], "category": "spell", "default": "221"},
+    "choice_4": {"type": "muc", "components": ["231", "232", "233", "234"], "category": "spell", "default": "231"},
+    "choice_5": {"type": "muc", "components": ["251", "252"], "category": "spell", "default": "251"}
   },
   "languages": {
     "fr_FR": 2

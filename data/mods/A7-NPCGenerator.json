@@ -13,10 +13,10 @@
   "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "sod", "eet", "iwdee"],
   "categories": ["npc", "gameplay"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["1", "2", "3", "4"]},
-    "20": {"type": "std"},
-    "21": {"type": "std"},
-    "choice_1": {"type": "muc", "components": ["100", "101"]}
+    "choice_0": {"type": "muc", "components": ["1", "2", "3", "4"], "category": "spell", "default": "1"},
+    "20": {"type": "std", "category": "spell"},
+    "21": {"type": "std", "category": "spell"},
+    "choice_1": {"type": "muc", "components": ["100", "101"], "category": "spell"}
   },
   "languages": {
     "fr_FR": 3

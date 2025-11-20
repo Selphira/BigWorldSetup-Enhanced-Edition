@@ -13,7 +13,7 @@
   "games": ["bg2", "tutu", "bgt", "bgee", "bg2ee", "eet", "iwdee"],
   "categories": ["kit"],
   "components": {
-    "1": {"type": "std"},
+    "1": {"type": "std", "category": "spell"},
     "30": {"type": "std"},
     "31": {"type": "std"},
     "32": {"type": "std"},

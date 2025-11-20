@@ -14,7 +14,7 @@
   "categories": ["npcx"],
   "components": {
     "0": {"type": "std"},
-    "1": {"type": "std"},
+    "1": {"type": "std", "category": "portrait"},
     "2": {"type": "std"},
     "3": {"type": "std"},
     "4": {"type": "std"}

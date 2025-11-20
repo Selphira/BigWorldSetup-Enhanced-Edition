@@ -14,8 +14,8 @@
   "categories": ["quest"],
   "components": {
     "0": {"type": "std"},
-    "choice_0": {"type": "muc", "components": ["11", "12", "13", "14"]},
-    "20": {"type": "std"}
+    "choice_0": {"type": "muc", "components": ["11", "12", "13", "14"], "default": "12"},
+    "20": {"type": "std", "category": "spell"}
   },
   "languages": {
     "en_US": 0,

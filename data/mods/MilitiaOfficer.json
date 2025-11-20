@@ -14,7 +14,7 @@
   "categories": ["kit"],
   "components": {
     "0": {"type": "std"},
-    "1": {"type": "std"}
+    "1": {"type": "std", "category": "npcx"}
   },
   "languages": {
     "fr_FR": 1

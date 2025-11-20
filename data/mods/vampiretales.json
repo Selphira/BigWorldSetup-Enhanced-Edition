@@ -14,8 +14,8 @@
   "categories": ["npc", "smith"],
   "components": {
     "0": {"type": "std"},
-    "1": {"type": "std"},
-    "2": {"type": "std"},
+    "1": {"type": "std", "category": "tactic"},
+    "2": {"type": "std", "category": "tactic"},
     "3": {"type": "std"}
   },
   "languages": {

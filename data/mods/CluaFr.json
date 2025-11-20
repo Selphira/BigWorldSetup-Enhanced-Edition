@@ -13,7 +13,7 @@
   "games": ["bgee", "sod", "bg2ee", "eet", "iwdee"],
   "categories": ["patch"],
   "components": {
-    "choice_0": {"type": "muc", "components": ["12", "13"]},
+    "choice_0": {"type": "muc", "components": ["12", "13"], "default": "13"},
     "11": {"type": "std"}
   },
   "languages": {

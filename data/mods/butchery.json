@@ -20,7 +20,7 @@
     "21": {"type": "std"},
     "22": {"type": "std"},
     "30": {"type": "std"},
-    "32": {"type": "std"},
+    "32": {"type": "std", "category": "portrait"},
     "40": {"type": "std"},
     "41": {"type": "std"},
     "43": {"type": "std"},
@@ -40,7 +40,7 @@
     "57": {"type": "std"},
     "58": {"type": "std"},
     "80": {"type": "std"},
-    "90": {"type": "std"}
+    "90": {"type": "std", "category": "portrait"}
   },
   "languages": {
     "fr_FR": 1

@@ -13,11 +13,11 @@
   "games": ["bgee", "bg2ee", "eet", "iwdee"],
   "categories": ["gameplay"],
   "components": {
-    "10": {"type": "std"},
-    "30": {"type": "std"},
-    "50": {"type": "std"},
-    "70": {"type": "std"},
-    "90": {"type": "std"}
+    "10": {"type": "std", "category": "spell"},
+    "30": {"type": "std", "category": "spell"},
+    "50": {"type": "std", "category": "spell"},
+    "70": {"type": "std", "category": "spell"},
+    "90": {"type": "std", "category": "spell"}
   },
   "languages": {
     "fr_FR": 2
