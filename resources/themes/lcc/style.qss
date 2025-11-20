@@ -428,11 +428,6 @@ QFrame#category-button[selected="true"] {
     border-radius: 8px;
 }
 
-QFrame#category-button[empty="true"] QLabel {
-    background-color: transparent;
-    color: rgba(255, 255, 255, 0.5);
-}
-
 QFrame#category-button[selected="true"] QLabel#count-badge {
     background-color: rgba(42, 42, 42, 0.4);
 }
@@ -447,4 +442,9 @@ QFrame#category-button QLabel#count-badge {
     color: rgba(255, 255, 255, 0.6);
     border-radius: 9px;
     padding: 0px 10px;
+}
+
+QFrame#category-button[empty="true"] QLabel#count-badge {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 0.5);
 }

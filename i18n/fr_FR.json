@@ -89,7 +89,7 @@
       },
       "selection": {
         "none": "Aucun",
-        "complete": "Tous",
+        "complete": "{count} / {total}",
         "partial": "{count} / {total}"
       }
     }
