@@ -10,7 +10,7 @@
     "size": 215019616,
     "sha256": "8b9f1fc391d8513a721dd61626fbec3cc3deca4d6178d4c7b039c773022d1343"
   },
-  "games": ["bgee", "bg2ee", "sod", "eet"],
+  "games": ["eet"],
   "categories": ["conv"],
   "components": {
     "0": {"type": "std"},

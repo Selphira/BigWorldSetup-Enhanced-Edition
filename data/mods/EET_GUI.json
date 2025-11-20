@@ -4,7 +4,7 @@
   "links": {
     "homepage": "https://github.com/Gibberlings3/EET"
   },
-  "games": ["bgee", "bg2ee", "sod", "eet"],
+  "games": ["eet"],
   "categories": ["conv"],
   "components": {
     "0": {"type": "std"}
