@@ -10,7 +10,7 @@ from enum import Enum, auto
 from typing import Optional, Any
 
 from PySide6.QtCore import QSortFilterProxyModel, QModelIndex, Qt
-from PySide6.QtGui import QStandardItemModel, QStandardItem, QColor
+from PySide6.QtGui import QStandardItemModel, QStandardItem, QColor, QCursor
 from PySide6.QtWidgets import QTreeView
 
 from constants import (
@@ -801,6 +801,8 @@ class ComponentSelector(QTreeView):
     def _setup_ui(self) -> None:
         """Configure UI."""
         self.setEditTriggers(QTreeView.EditTrigger.NoEditTriggers)
+        self.setExpandsOnDoubleClick(False)
+        self.clicked.connect(self._on_item_clicked)
 
     def _configure_header(self) -> None:
         """Configure tree view header."""
@@ -933,6 +935,36 @@ class ComponentSelector(QTreeView):
         self.style().polish(self)
 
         logger.debug(f"Selection changed: {self.get_selected_items()}")
+
+    def _on_item_clicked(self, index: QModelIndex) -> None:
+        """
+        Handle item click to toggle expansion without interfering with checkbox.
+        
+        Expands or collapses tree branches on click, but only if the click is
+        outside the checkbox area. This allows natural checkbox toggling while
+        providing easy branch expansion.
+        
+        Args:
+            index: Model index of the clicked item
+        """
+        source_index = self._proxy_model.mapToSource(index)
+        item = self._model.itemFromIndex(source_index)
+
+        # Ignore items without children (cannot be expanded)
+        if not item or item.rowCount() == 0:
+            return
+
+        # Get visual position of the clicked row
+        rect = self.visualRect(index)
+        click_pos = self.viewport().mapFromGlobal(QCursor.pos())
+
+        # Define checkbox interaction zone
+        checkbox_zone = rect.left() + 25
+
+        # Si on clique après la case, on replie/déplie
+        if click_pos.x() > checkbox_zone:
+            is_expanded = self.isExpanded(index)
+            self.setExpanded(index, not is_expanded)
 
     # ========================================
     # Status Updates
