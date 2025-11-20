@@ -92,6 +92,9 @@
         "complete": "{count} / {total}",
         "partial": "{count} / {total}"
       }
+    },
+    "language_selector": {
+      "tooltip": "Sélectionnez la langue de l'interface"
     }
   },
   "error": {

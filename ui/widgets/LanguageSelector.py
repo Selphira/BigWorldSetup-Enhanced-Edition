@@ -8,7 +8,7 @@ from PySide6.QtGui import QAction, QIcon, QPixmap, QCursor
 from PySide6.QtWidgets import QMenu, QToolButton
 
 from constants import *
-from core.TranslationManager import get_translator
+from core.TranslationManager import get_translator, tr
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +53,6 @@ class LanguageSelector(QToolButton):
         self.setMenu(self._menu)
         self.setPopupMode(QToolButton.ToolButtonPopupMode.InstantPopup)
         self.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
-        self.setToolTip(get_translator().get("tooltip.select_language"))
         self.setIconSize(QSize(ICON_SIZE_LARGE, ICON_SIZE_LARGE))
         self.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
@@ -176,3 +175,10 @@ class LanguageSelector(QToolButton):
             List of language codes
         """
         return list(self._actions.keys())
+
+    # ========================================
+    # Translation Support
+    # ========================================
+
+    def retranslate_ui(self) -> None:
+        self.setToolTip(tr("widget.language_selector.tooltip"))

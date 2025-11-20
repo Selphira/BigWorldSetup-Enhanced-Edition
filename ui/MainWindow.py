@@ -365,6 +365,8 @@ class MainWindow(QMainWindow):
         self.btn_previous.setText(f"← {tr('button.previous')}")
         self.btn_next.setText(f"{tr('button.next')} →")
 
+        self.lang_button.retranslate_ui()
+
         # Notify all pages
         for page in self.pages.values():
             page.retranslate_ui()
