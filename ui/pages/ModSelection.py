@@ -447,15 +447,15 @@ class ModSelectionPage(BasePage):
         # Prepare filter parameters
         text = self._search_input.text()
         game = self.state_manager.get_selected_game()
-        categories = None
+        category = None
 
         if self._current_category != CategoryEnum.ALL:
-            categories = {self._current_category.value}
+            category = self._current_category.value
 
         # Apply filters in one operation
         self._component_selector.apply_filters(
             text=text,
-            categories=categories,
+            category=category,
             game=game
         )
 

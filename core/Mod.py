@@ -54,6 +54,7 @@ class Component:
     """
     key: str
     text: str
+    category: str
     comp_type: ComponentType
     number: int
     forced: bool
@@ -229,6 +230,7 @@ class Mod:
 
         # Common attributes
         text = self._translations.get(key, "")
+        category = raw_data.get("category", "")
         number = raw_data.get("number", 0)
         forced = raw_data.get("forced", False)
 
@@ -244,6 +246,7 @@ class Mod:
             return MucComponent(
                 key=key,
                 text=text,
+                category=category,
                 comp_type=comp_type,
                 number=number,
                 forced=forced,
@@ -283,6 +286,7 @@ class Mod:
             return SubComponent(
                 key=key,
                 text=text,
+                category=category,
                 comp_type=comp_type,
                 number=number,
                 forced=forced,
@@ -294,6 +298,7 @@ class Mod:
         return Component(
             key=key,
             text=text,
+            category=category,
             comp_type=comp_type,
             number=number,
             forced=forced

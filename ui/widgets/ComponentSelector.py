@@ -44,14 +44,12 @@ class FilterCriteria:
     """Encapsulates all filter criteria."""
     text: str = ""
     game: str = ""
-    categories: set[str] = None
+    category: str = ""
     authors: set[str] = None
     languages: set[str] = None
 
     def __post_init__(self):
         """Initialize sets if None."""
-        if self.categories is None:
-            self.categories = set()
         if self.authors is None:
             self.authors = set()
         if self.languages is None:
@@ -60,7 +58,7 @@ class FilterCriteria:
     def has_active_filters(self) -> bool:
         """Check if any filter is active."""
         return bool(
-            self.text or self.game or self.categories
+            self.text or self.game or self.category
             or self.authors or self.languages
         )
 
@@ -68,7 +66,7 @@ class FilterCriteria:
         """Clear all filters."""
         self.text = ""
         self.game = ""
-        self.categories.clear()
+        self.category = ""
         self.authors.clear()
         self.languages.clear()
 
@@ -105,7 +103,7 @@ class FilterEngine:
             return False
 
         # Categories filter
-        if self._criteria.categories and not self._matches_categories(index):
+        if self._criteria.category and not self._matches_category(index):
             return False
 
         # Authors filter
@@ -132,13 +130,20 @@ class FilterEngine:
             return False
         return mod.supports_game(self._criteria.game)
 
-    def _matches_categories(self, index: QModelIndex) -> bool:
+    def _matches_category(self, index: QModelIndex) -> bool:
         """Check if item matches categories filter."""
         mod = index.data(ROLE_MOD)
         component = index.data(ROLE_COMPONENT)
         if not mod:
             return False
-        return bool(set(mod.categories) & self._criteria.categories)
+
+        if self._criteria.category in mod.categories:
+            return True
+
+        if not component:
+            return False
+
+        return self._criteria.category == component.category
 
     def _matches_authors(self, index: QModelIndex) -> bool:
         """Check if item matches authors filter."""
@@ -485,8 +490,9 @@ class RadioTreeModel(QStandardItemModel):
 class SelectionStateManager:
     """Manages selection state and update logic separately from UI."""
 
-    def __init__(self, model: RadioTreeModel):
-        self._model = model
+    def __init__(self, proxy_model: HierarchicalFilterProxyModel):
+        self._proxy_model = proxy_model
+        self._model = self._proxy_model.sourceModel()
         self._updating = False
 
     def handle_item_change(self, item: BaseTreeItem) -> Optional[ModTreeItem]:
@@ -526,6 +532,14 @@ class SelectionStateManager:
 
         for row in range(item.rowCount()):
             child = item.child(row, 0)
+
+            # Only treat visible children (those who pass the filter)
+            child_index = self._model.indexFromItem(child)
+            proxy_index = self._proxy_model.mapFromSource(child_index)
+
+            if not proxy_index.isValid():
+                # The child is filtered, do not modify it.
+                continue
 
             # Don't cascade blindly - handle each child according to its type
             if isinstance(child, BaseTreeItem):
@@ -787,13 +801,14 @@ class ComponentSelector(QTreeView):
     def _setup_model(self) -> None:
         """Configure model and proxy."""
         self._model = RadioTreeModel()
-        self._selection_manager = SelectionStateManager(self._model)
 
         self._proxy_model = HierarchicalFilterProxyModel()
         self._proxy_model.setSourceModel(self._model)
         self._proxy_model.setFilterKeyColumn(-1)
         self._proxy_model.setSortCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
         self._proxy_model.sort(0, Qt.SortOrder.AscendingOrder)
+
+        self._selection_manager = SelectionStateManager(self._proxy_model)
 
         self.setModel(self._proxy_model)
         self._model.itemChanged.connect(self._on_item_changed)
@@ -1022,7 +1037,7 @@ class ComponentSelector(QTreeView):
             self,
             text: str = "",
             game: str = "",
-            categories: Optional[set[str]] = None,
+            category: str = "",
             authors: Optional[set[str]] = None,
             languages: Optional[set[str]] = None
     ) -> None:
@@ -1030,7 +1045,7 @@ class ComponentSelector(QTreeView):
         criteria = FilterCriteria(
             text=text,
             game=game,
-            categories=categories or set(),
+            category=category,
             authors=authors or set(),
             languages=languages or set()
         )
@@ -1060,6 +1075,7 @@ class ComponentSelector(QTreeView):
 
         A mod is counted in each of its categories if it or any of its
         children match the active filters (excluding category filter).
+        A mod is also counted in a category if any of its components has that category.
         """
         counts: dict[str, int] = {}
         criteria = self._proxy_model.get_filter_criteria()
@@ -1068,7 +1084,7 @@ class ComponentSelector(QTreeView):
         filter_no_category = FilterCriteria(
             text=criteria.text,
             game=criteria.game,
-            categories=set(),  # Exclude category
+            category="",  # Exclude category
             authors=criteria.authors.copy(),
             languages=criteria.languages.copy()
         )
@@ -1088,9 +1104,22 @@ class ComponentSelector(QTreeView):
             if self._item_or_children_match(mod_item, engine):
                 mod = mod_item.data(ROLE_MOD)
                 if mod:
-                    for category in mod.categories:
+                    # Collect all categories (mod + components)
+                    all_categories = set(mod.categories)
+
+                    # AAdd component categories
+                    for comp_row in range(mod_item.rowCount()):
+                        comp_item = mod_item.child(comp_row, 0)
+                        if comp_item:
+                            component = comp_item.data(ROLE_COMPONENT)
+                            if component and hasattr(component, 'category') and component.category:
+                                all_categories.add(component.category)
+
+                    # Increment the counters for all categories found
+                    for category in all_categories:
                         counts[category] = counts.get(category, 0) + 1
-                        mods.add(mod)
+
+                    mods.add(mod)
 
         counts[CategoryEnum.ALL.value] = len(mods)
 
