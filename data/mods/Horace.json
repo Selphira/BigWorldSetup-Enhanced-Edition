@@ -21,17 +21,17 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Ce mod ajoute un squelette d'alignement loyal bon en tant que PNJ membre du groupe. Vous pourrez le trouver dans la crypte de Franc-Marché. Il dispose d'un kit spécifique à son état, d'HLA et de sorts en partie issus d'IWD2, ainsi que d'une IA spécifique si vous choisissez de l'activer.|FOR 17, DEX 13, CON 18, INT 13, SAG 16, CHA 9.",
+      "description": "Ce mod ajoute un squelette d'alignement loyal bon en tant que PNJ membre du groupe. Vous pourrez le trouver dans la crypte de Franc-Marché. Il dispose d'un kit spécifique à son état, d'HLA et de sorts en partie issus d'IWD2, ainsi que d'une IA spécifique si vous choisissez de l'activer.\nFOR 17, DEX 13, CON 18, INT 13, SAG 16, CHA 9.",
       "components": {
         "0": "Horace - BGII",
         "1": "Collecteur d'os"
       }
     },
     "en_US": {
-      "description": "This mod adds a skeleton chaotic good as an NPC member of the group. He can be found in the crypt of Trademeet. He has a kit specific to his state, HLA and spells partly taken from IWD2, as well as a specific AI if you choose to activate him.|STR 17, DEX 13, CON 18, INT 13, WIS 16, CHA 9."
+      "description": "This mod adds a skeleton chaotic good as an NPC member of the group. He can be found in the crypt of Trademeet. He has a kit specific to his state, HLA and spells partly taken from IWD2, as well as a specific AI if you choose to activate him.\nSTR 17, DEX 13, CON 18, INT 13, WIS 16, CHA 9."
     },
     "zh_CN": {
-      "description": "这个模组添加了一个守序善良阵营的骷髅作为NPC小队成员。您可以在商贸集会的墓穴中找到他。他拥有一个与他状态相关的特定职业、部分来自冰风谷2的HLA和法术，以及一个如果您选择激活的特定AI。|力量17，敏捷13，体质18，智力13，智慧16，魅力9。"
+      "description": "这个模组添加了一个守序善良阵营的骷髅作为NPC小队成员。您可以在商贸集会的墓穴中找到他。他拥有一个与他状态相关的特定职业、部分来自冰风谷2的HLA和法术，以及一个如果您选择激活的特定AI。\n力量17，敏捷13，体质18，智力13，智慧16，魅力9。"
     }
   },
   "tp2": "horace",

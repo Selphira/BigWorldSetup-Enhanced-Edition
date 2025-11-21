@@ -25,7 +25,7 @@
   },
   "translations": {
     "en_US": {
-      "description": "\"<i>A grieving soul haunts the graveyard of Athkatla... Paladin mowed down by too much casualness, Aidan is doomed to wander between life and death until his ultimate quest finds resolution... Will you be selfless enough to come to his aid?</i> \"|This mod introduces Aidan, a fallen paladin from Amaunator, who has some serious issues for you to consider. One is that he's dead... and the other that he never managed to complete his last quest. Help him, and who knows? Maybe you'll instill in him the courage to face the judgment he's so often avoided.|Fading Promises is a dialog-driven mod. If you like conversations about the meaning of life, death and honor (and aren't allergic to paladins), don't hesitate to download it!",
+      "description": "\"<i>A grieving soul haunts the graveyard of Athkatla... Paladin mowed down by too much casualness, Aidan is doomed to wander between life and death until his ultimate quest finds resolution... Will you be selfless enough to come to his aid?</i> \"\nThis mod introduces Aidan, a fallen paladin from Amaunator, who has some serious issues for you to consider. One is that he's dead... and the other that he never managed to complete his last quest. Help him, and who knows? Maybe you'll instill in him the courage to face the judgment he's so often avoided.\nFading Promises is a dialog-driven mod. If you like conversations about the meaning of life, death and honor (and aren't allergic to paladins), don't hesitate to download it!",
       "components": {
         "0": "Fading Promises"
       }
@@ -33,13 +33,13 @@
     "it_IT": {"components": {"0": "Promesse avvizzite"}},
     "ru_RU": {"components": {"0": "Fading Promises"}},
     "fr_FR": {
-      "description": "« <i>Une âme en peine hante le cimetière d'Athkatla... Paladin fauché par trop de désinvolture, Aidan est condamné à errer entre la vie et la mort tant que son ultime quête ne trouve pas sa résolution... Serez-vous suffisamment désintéressé(e) pour lui venir en aide ?</i> »|Ce mod introduit Aidan, un paladin déchu d'Amaunator, qui a de sérieux problèmes à vous soumettre. L'un d'eux est qu'il est mort... et l'autre qu'il n'est jamais parvenu à mener à bien sa dernière quête. Aidez-le et qui sait ? Peut-être lui insufflerez-vous le courage de faire face au jugement qu'il a tant de fois évité.|Fading Promises est un mod axé dialogues. Si vous aimez les conversations sur le sens de la vie, de la mort et de l'honneur (et n'êtes pas allergique aux paladins) n'hésitez pas à le télécharger !",
+      "description": "« <i>Une âme en peine hante le cimetière d'Athkatla... Paladin fauché par trop de désinvolture, Aidan est condamné à errer entre la vie et la mort tant que son ultime quête ne trouve pas sa résolution... Serez-vous suffisamment désintéressé(e) pour lui venir en aide ?</i> »\nCe mod introduit Aidan, un paladin déchu d'Amaunator, qui a de sérieux problèmes à vous soumettre. L'un d'eux est qu'il est mort... et l'autre qu'il n'est jamais parvenu à mener à bien sa dernière quête. Aidez-le et qui sait ? Peut-être lui insufflerez-vous le courage de faire face au jugement qu'il a tant de fois évité.\nFading Promises est un mod axé dialogues. Si vous aimez les conversations sur le sens de la vie, de la mort et de l'honneur (et n'êtes pas allergique aux paladins) n'hésitez pas à le télécharger !",
       "components": {
         "0": "Fading Promises"
       }
     },
     "zh_CN": {
-      "description": "« <i>一个饱受折磨的灵魂在阿斯卡特拉的墓园中游荡……由于过于轻率，圣武士艾丹被判处生与死之间徘徊，直到他最终的使命得到解决……您会足够无私地帮助他吗？</i> »|这个模组引入了艾丹，一位来自阿默那托的堕落圣武士，他有一些严重的问题需要您解决。其中之一是，他已经死了……另一个是，他从未能完成他最后的使命。帮助他，谁知道呢？也许您会给他勇气去面对他多次逃避的审判。|《褪色的承诺》是一个以对话为核心的模组。如果您喜欢关于生命、死亡和荣誉的对话（并且不排斥圣武士），请毫不犹豫地下载它！"
+      "description": "« <i>一个饱受折磨的灵魂在阿斯卡特拉的墓园中游荡……由于过于轻率，圣武士艾丹被判处生与死之间徘徊，直到他最终的使命得到解决……您会足够无私地帮助他吗？</i> »\n这个模组引入了艾丹，一位来自阿默那托的堕落圣武士，他有一些严重的问题需要您解决。其中之一是，他已经死了……另一个是，他从未能完成他最后的使命。帮助他，谁知道呢？也许您会给他勇气去面对他多次逃避的审判。\n《褪色的承诺》是一个以对话为核心的模组。如果您喜欢关于生命、死亡和荣誉的对话（并且不排斥圣武士），请毫不犹豫地下载它！"
     }
   },
   "tp2": "fadingpromises",

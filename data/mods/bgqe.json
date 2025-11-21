@@ -58,10 +58,10 @@
         "15": "Bodies for a Good Cause",
         "16": "Installation de la quete terminer la quete de Cordyr sans tuer Sil"
       },
-      "description": "This mini-mod adds 17 small quests to the game to spice up the adventure. They'll introduce you to the finer points of adventurous life, including babysitting! A revised version of Slime Quest, offering a small quest in Beregost, is included in this mod. According to the author, these quests add between 30 and 60 minutes to the game's length.|Install it before Ajantis BG1 Expansion Modification to benefit from all its options."
+      "description": "This mini-mod adds 17 small quests to the game to spice up the adventure. They'll introduce you to the finer points of adventurous life, including babysitting! A revised version of Slime Quest, offering a small quest in Beregost, is included in this mod. According to the author, these quests add between 30 and 60 minutes to the game's length.\nInstall it before Ajantis BG1 Expansion Modification to benefit from all its options."
     },
     "fr_FR": {
-      "description": "Ce mini-mod ajoute 17 petites quêtes dans le jeu pour pimenter l'aventure. Elles vous feront découvrir des à-côtés de la vie d'aventuriers, notamment du baby-sitting ! Une version révisée de Slime Quest, qui offre un petite quête à Bérégost, est intégrée à ce mod. D'après l'auteure, ces quêtes ajoutent de 30 à 60 minutes de jeu.|Installez-le avant le Ajantis BG1 Expansion Modification pour bénéficier de toutes ses options.",
+      "description": "Ce mini-mod ajoute 17 petites quêtes dans le jeu pour pimenter l'aventure. Elles vous feront découvrir des à-côtés de la vie d'aventuriers, notamment du baby-sitting ! Une version révisée de Slime Quest, qui offre un petite quête à Bérégost, est intégrée à ce mod. D'après l'auteure, ces quêtes ajoutent de 30 à 60 minutes de jeu.\nInstallez-le avant le Ajantis BG1 Expansion Modification pour bénéficier de toutes ses options.",
       "components": {
         "0": "Installation de la quete de la vase...",
         "1": "Installation de la quete de famille a Beregost...",
@@ -84,7 +84,7 @@
     },
     "it_IT": {"components": {"0": "Slime Quest", "1": "Beregost Family Quest", "2": "Babysitting Quest", "3": "Nashkell Monster Quest", "4": "Fallen Paladin Quest", "5": "Undying Love Quest", "6": "Orcish Lover Encounter", "7": "Unexpected Help Quest", "8": "\"Many Little Paws\"", "9": "Drunk near Beregost Temple", "10": "A Warm Place for Noober", "11": "Brage's Sword", "12": "Legal Seachart Sources", "13": "Additions to the House of the Lady and the Bitch Queen's Temple", "14": "A Worried Farmer", "15": "Bodies for a Good Cause", "16": "Installation de la quete terminer la quete de Cordyr sans tuer Sil"}},
     "zh_CN": {
-      "description": "此小型模组在游戏中添加了17个小任务，以使冒险更加刺激。它们将让您探索冒险者生活的侧面，尤其是保姆工作！一个经过修订的“史莱姆任务”版本，为贝尔苟斯特提供了一个小任务，已整合到此模组中。据作者称，这些任务增加了30到60分钟的游戏时间。|在Ajantis BG1 Expansion Modification之前安装它以使用其所有选项。"
+      "description": "此小型模组在游戏中添加了17个小任务，以使冒险更加刺激。它们将让您探索冒险者生活的侧面，尤其是保姆工作！一个经过修订的“史莱姆任务”版本，为贝尔苟斯特提供了一个小任务，已整合到此模组中。据作者称，这些任务增加了30到60分钟的游戏时间。\n在Ajantis BG1 Expansion Modification之前安装它以使用其所有选项。"
     }
   },
   "tp2": "bgqe",

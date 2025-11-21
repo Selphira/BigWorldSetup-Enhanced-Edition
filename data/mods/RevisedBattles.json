@@ -47,7 +47,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Remix d'Improved Battles, ce mod augmente la difficulté d'un certain nombre de combats (Drizzt, Firkraag, etc...), il augmente également les drops. Il ajoute par ailleurs quatre nouveaux kits de guerrier :|`Bâtard` : immunisé aux attaques sournoises, il gagne des compétences qui le booste de façon provisoire.|`Chevalier Démon` : immunisé à la peur et à l'immobilisation, il possède également 40% de résistance au feu et une résistance à la magie qui augmente au fil des niveaux.|`Maître d'armes` : il améliore son Tac0, ses dégâts ainsi que sa CA au fil des niveaux, il peut utiliser Kai et a un léger bonus de vitesse de déplacement.|`Vengeur des arcanes` : il a un gros bonus de Tac0 et de dégâts contre les mages et les sorciers ainsi qu'à ses jets de sauvegarde contre les sorts. Il dispose également de deux sorts lui permettant de dissiper les invisibilités et de dévier les sorts pendant plusieurs rounds.",
+      "description": "Remix d'Improved Battles, ce mod augmente la difficulté d'un certain nombre de combats (Drizzt, Firkraag, etc...), il augmente également les drops. Il ajoute par ailleurs quatre nouveaux kits de guerrier :\n`Bâtard` : immunisé aux attaques sournoises, il gagne des compétences qui le booste de façon provisoire.\n`Chevalier Démon` : immunisé à la peur et à l'immobilisation, il possède également 40% de résistance au feu et une résistance à la magie qui augmente au fil des niveaux.\n`Maître d'armes` : il améliore son Tac0, ses dégâts ainsi que sa CA au fil des niveaux, il peut utiliser Kai et a un léger bonus de vitesse de déplacement.\n`Vengeur des arcanes` : il a un gros bonus de Tac0 et de dégâts contre les mages et les sorciers ainsi qu'à ses jets de sauvegarde contre les sorts. Il dispose également de deux sorts lui permettant de dissiper les invisibilités et de dévier les sorts pendant plusieurs rounds.",
       "components": {
         "0": "Improved Battles - \"Version patchee\" v6.4",
         "1": "Drizzt ameliore",
@@ -83,10 +83,10 @@
       }
     },
     "en_US": {
-      "description": "A remix of Improved Battles, this mod increases the difficulty of a number of battles (Drizzt, Firkraag, etc.), as well as increasing drops. It also adds four new fighter kits:|`Bastard`: immune to sneak attacks, he gains skills that boost him temporarily.|`Demon Knight`: immune to fear and immobilization, he also has 40% resistance to fire and a resistance to magic that increases with level.|Weapon Master: improves Tac0, damage and AC over levels, can use Kai and has a slight movement speed bonus. Arcane Avenger: has a high Tac0 and damage bonus against mages and sorcerers, as well as to saving throws against spells. He also has two spells enabling him to dispel invisibility and deflect spells for several rounds."
+      "description": "A remix of Improved Battles, this mod increases the difficulty of a number of battles (Drizzt, Firkraag, etc.), as well as increasing drops. It also adds four new fighter kits:\n`Bastard`: immune to sneak attacks, he gains skills that boost him temporarily.\n`Demon Knight`: immune to fear and immobilization, he also has 40% resistance to fire and a resistance to magic that increases with level.\nWeapon Master: improves Tac0, damage and AC over levels, can use Kai and has a slight movement speed bonus. Arcane Avenger: has a high Tac0 and damage bonus against mages and sorcerers, as well as to saving throws against spells. He also has two spells enabling him to dispel invisibility and deflect spells for several rounds."
     },
     "zh_CN": {
-      "description": "Improved Battles的混音版，此模组增加了许多战斗的难度（崔斯特、费尔克拉格等），同时也增加了掉落率。此外，它还添加了四个新的战士宗派：|`私生子`：对偷袭免疫，获得一些能暂时提升他的技能。|`恶魔骑士`：对恐惧和定身免疫，同时拥有40%的火焰抗性，并且魔法抗性会随等级提升。|`武器大师`：随着等级提升，他的THAC0、伤害和AC都会得到改善，他可以使用“凯伊”技能，并拥有轻微的移动速度加成。|`奥术复仇者`：对法师和术士有巨大的THAC0和伤害加成，并且对法术的豁免检定也有加成。他还拥有两个法术，可以驱散隐形效果并在数回合内偏转法术。"
+      "description": "Improved Battles的混音版，此模组增加了许多战斗的难度（崔斯特、费尔克拉格等），同时也增加了掉落率。此外，它还添加了四个新的战士宗派：\n`私生子`：对偷袭免疫，获得一些能暂时提升他的技能。\n`恶魔骑士`：对恐惧和定身免疫，同时拥有40%的火焰抗性，并且魔法抗性会随等级提升。\n`武器大师`：随着等级提升，他的THAC0、伤害和AC都会得到改善，他可以使用“凯伊”技能，并拥有轻微的移动速度加成。\n`奥术复仇者`：对法师和术士有巨大的THAC0和伤害加成，并且对法术的豁免检定也有加成。他还拥有两个法术，可以驱散隐形效果并在数回合内偏转法术。"
     }
   },
   "tp2": "revisedbattles",

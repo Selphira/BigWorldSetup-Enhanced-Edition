@@ -39,7 +39,7 @@
     },
     "ru_RU": {"components": {"0": "Xan NPC MOD for Baldur's Gate II", "choice_0": "Install alternate class for Xan in BG2?", "1": "Change Xan's class to Fighter/Mage", "2": "Change Xan's class to Mage", "3": "Change Xan's class to Sorcerer", "4": "Change Xan's class to Wild Mage (ToB only)", "5": "BG1-like flaming sword animation"}},
     "fr_FR": {
-      "description": "Vous vous souvenez de ce personnage si joyeux et optimiste dans BG (ironie inside pour les connaisseurs) ? Eh bien, le voici de retour dans BG2. Notre magicien dépressif a de nombreuses interactions avec l'ensemble des personnages de BG2, quelques cinématiques et un kit de voix. Il propose même une romance à deux voies si votre personnage est une jolie elfette. Bref, de quoi ravir les fans de cet enchanteur.|Si vous le souhaitez, vous pouvez installer Xan's French Soundset for BG2. Dans ce cas, vous devez l'installer après Xan BG2.",
+      "description": "Vous vous souvenez de ce personnage si joyeux et optimiste dans BG (ironie inside pour les connaisseurs) ? Eh bien, le voici de retour dans BG2. Notre magicien dépressif a de nombreuses interactions avec l'ensemble des personnages de BG2, quelques cinématiques et un kit de voix. Il propose même une romance à deux voies si votre personnage est une jolie elfette. Bref, de quoi ravir les fans de cet enchanteur.\nSi vous le souhaitez, vous pouvez installer Xan's French Soundset for BG2. Dans ce cas, vous devez l'installer après Xan BG2.",
       "components": {
         "0": "PNJ Xan, module pour Baldur's Gate II",
         "choice_0": "Souhaitez-vous modifier la classe de Xan en BG2?",
@@ -52,7 +52,7 @@
       }
     },
     "zh_CN": {
-      "description": "你还记得在博德之门中那个如此快乐和乐观的角色吗（对知情者来说是反讽）？嗯，他现在在博德之门II中回归了。我们这位抑郁的法师与博德之门II中的所有角色都有许多互动，还有一些过场动画和一个语音包。如果你的角色是一个漂亮的精灵女性，他甚至提供双向的浪漫关系。总之，这足以让这位附魔师的粉丝感到高兴。|如果您愿意，可以安装Xan's French Soundset for BG2。在这种情况下，您必须在Xan BG2之后安装它。"
+      "description": "你还记得在博德之门中那个如此快乐和乐观的角色吗（对知情者来说是反讽）？嗯，他现在在博德之门II中回归了。我们这位抑郁的法师与博德之门II中的所有角色都有许多互动，还有一些过场动画和一个语音包。如果你的角色是一个漂亮的精灵女性，他甚至提供双向的浪漫关系。总之，这足以让这位附魔师的粉丝感到高兴。\n如果您愿意，可以安装Xan's French Soundset for BG2。在这种情况下，您必须在Xan BG2之后安装它。"
     }
   },
   "tp2": "xan",

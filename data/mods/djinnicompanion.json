@@ -44,10 +44,10 @@
         "400": "Disable IWD:EE Quest",
         "900": "Add Infinity Animation creatures"
       },
-      "description": "This mod adds a djinn acting as a seventh member of the party. It dialogues with the main character and the members of the party (work in progress) and gives its opinion in other dialogues, just like a classic NPC. He also proposes a number of quests to discover new places. He can be likened to a fighter-mage.|STR 15, DEX 16, CON 13, INT 15, WIS 16, CHA 11."
+      "description": "This mod adds a djinn acting as a seventh member of the party. It dialogues with the main character and the members of the party (work in progress) and gives its opinion in other dialogues, just like a classic NPC. He also proposes a number of quests to discover new places. He can be likened to a fighter-mage.\nSTR 15, DEX 16, CON 13, INT 15, WIS 16, CHA 11."
     },
     "fr_FR": {
-      "description": "Ce mod ajoute un djinn se comportant comme un septième membre du groupe. Il dialogue avec le personnage principal et les membres du groupe (partie en travaux) et donne son avis dans les autres dialogues, comme un PNJ classique. Il propose également plusieurs quêtes faisant découvrir de nouveaux lieux. Il est assimilé à un guerrier-mage.|FOR 15, DEX 16, CON 13, INT 15, SAG 16, CHA 11.",
+      "description": "Ce mod ajoute un djinn se comportant comme un septième membre du groupe. Il dialogue avec le personnage principal et les membres du groupe (partie en travaux) et donne son avis dans les autres dialogues, comme un PNJ classique. Il propose également plusieurs quêtes faisant découvrir de nouveaux lieux. Il est assimilé à un guerrier-mage.\nFOR 15, DEX 16, CON 13, INT 15, SAG 16, CHA 11.",
       "components": {
         "choice_0": "Afaaq, le compagnon Djinn",
         "0": "Version complete (avec quetes, conversations et plus encore)",
@@ -66,7 +66,7 @@
       }
     },
     "zh_CN": {
-      "description": "这个模组添加了一个精灵，他像第七名队员一样行动。他与主角和队员对话（部分内容正在开发中），并在其他对话中像经典NPC一样发表意见。他还提供了几个任务，可以发现新地点。他被归类为一名战士法师。|力量15，敏捷16，体质13，智力15，智慧16，魅力11。"
+      "description": "这个模组添加了一个精灵，他像第七名队员一样行动。他与主角和队员对话（部分内容正在开发中），并在其他对话中像经典NPC一样发表意见。他还提供了几个任务，可以发现新地点。他被归类为一名战士法师。\n力量15，敏捷16，体质13，智力15，智慧16，魅力11。"
     }
   },
   "tp2": "djinnicompanion",

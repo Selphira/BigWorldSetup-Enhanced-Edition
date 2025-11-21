@@ -21,19 +21,19 @@
   },
   "translations": {
     "en_US": {
-      "description": "Finch is a priestess of Deneir, a neutral gnome, a scholar and always with her nose in her parchments and books. Interactions with every character, a voice kit, plus a personal quest. And she won't hesitate to recount her hectic readings if she hasn't already led a life of adventure.|STR 13, DEX 13, CON 16, INT 15, WIS 16, CHA 10.",
+      "description": "Finch is a priestess of Deneir, a neutral gnome, a scholar and always with her nose in her parchments and books. Interactions with every character, a voice kit, plus a personal quest. And she won't hesitate to recount her hectic readings if she hasn't already led a life of adventure.\nSTR 13, DEX 13, CON 16, INT 15, WIS 16, CHA 10.",
       "components": {
         "0": "Finch NPC"
       }
     },
     "fr_FR": {
-      "description": "Finch est une prêtresse de Dénéir, gnome neutre bonne de son état, érudite et toujours le nez dans ses parchemins et ses ouvrages. Des interactions avec chaque personnages, un kit de voix, plus une quête personnelle. Et elle n'hésitera pas à raconter ses lectures trépidantes à défaut d'avoir mené une vie d'aventure.|FOR 13, DEX 13, CON 16, INT 15, SAG 16, CHA 10.",
+      "description": "Finch est une prêtresse de Dénéir, gnome neutre bonne de son état, érudite et toujours le nez dans ses parchemins et ses ouvrages. Des interactions avec chaque personnages, un kit de voix, plus une quête personnelle. Et elle n'hésitera pas à raconter ses lectures trépidantes à défaut d'avoir mené une vie d'aventure.\nFOR 13, DEX 13, CON 16, INT 15, SAG 16, CHA 10.",
       "components": {
         "0": "Finch"
       }
     },
     "zh_CN": {
-      "description": "芬奇是天神妮尔的牧师，生来就是中立善良的侏儒，博学且总是埋头于他的羊皮纸和著作中。她与每个角色都有互动，一个语音包，还有一个个人任务。如果她没有过冒险生活，她也会不厌其烦地向您讲述她读到的惊心动魄的故事。|力量13，敏捷13，体质16，智力15，智慧16，魅力10。"
+      "description": "芬奇是天神妮尔的牧师，生来就是中立善良的侏儒，博学且总是埋头于他的羊皮纸和著作中。她与每个角色都有互动，一个语音包，还有一个个人任务。如果她没有过冒险生活，她也会不厌其烦地向您讲述她读到的惊心动魄的故事。\n力量13，敏捷13，体质16，智力15，智慧16，魅力10。"
     }
   },
   "tp2": "finchnpc",

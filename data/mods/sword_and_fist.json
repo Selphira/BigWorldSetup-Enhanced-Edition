@@ -30,7 +30,7 @@
   },
   "translations": {
     "en_US": {
-      "description": "Originally intended as part of a larger project, \"Lands of Intrigue\", this mod revises the monk class to bring it closer to its paper version in AD&D 3rd, but also adds fighter kits:|- Occultist Champion: evil cross between a fighter and a wizard, and notorious for casting curses.|- Duelist: a quick-witted, intelligent fighter who disdains heavy armor in favor of a better command of dodging, reflexes and combat in general.|- Fist of Order: a brutal, evil fighter who is nonetheless effective and loyal.|- Black Knight: a fighter with a background and skills opposed to those of the paladin.|- Magelame: a fighter who has learned to cast profane magic spells in armor.",
+      "description": "Originally intended as part of a larger project, \"Lands of Intrigue\", this mod revises the monk class to bring it closer to its paper version in AD&D 3rd, but also adds fighter kits:\n- Occultist Champion: evil cross between a fighter and a wizard, and notorious for casting curses.\n- Duelist: a quick-witted, intelligent fighter who disdains heavy armor in favor of a better command of dodging, reflexes and combat in general.\n- Fist of Order: a brutal, evil fighter who is nonetheless effective and loyal.\n- Black Knight: a fighter with a background and skills opposed to those of the paladin.\n- Magelame: a fighter who has learned to cast profane magic spells in armor.",
       "components": {
         "1": "Monk Remix",
         "30": "Install Hexblade fighter kit",
@@ -41,7 +41,7 @@
       }
     },
     "fr_FR": {
-      "description": "À l'origine devant faire partie d'un projet plus vaste, \"Lands of Intrigue\", ce mod propose une révision de la classe de moine afin de la rapprocher de sa version papier de AD&D 3ème du nom, mais rajoute aussi des kits de guerrier :|- Champion occultiste : croisement maléfique entre un guerrier et un magicien et spécialiste notoire dans le lancement de malédictions.|- Duelliste : guerrier vif et intelligent dédaignant les armures lourdes pour une meilleure maîtrise de l'esquive, des réflexes et du combat en général.|- Poing de l'Ordre : guerrier brutal et maléfique, mais néanmoins efficace et loyal.|- Chevalier noir : un combattant avec un background et des aptitudes opposées à celles du paladin.|- Magelame : guerrier qui a appris à lancer des sorts de magie profane en armure.",
+      "description": "À l'origine devant faire partie d'un projet plus vaste, \"Lands of Intrigue\", ce mod propose une révision de la classe de moine afin de la rapprocher de sa version papier de AD&D 3ème du nom, mais rajoute aussi des kits de guerrier :\n- Champion occultiste : croisement maléfique entre un guerrier et un magicien et spécialiste notoire dans le lancement de malédictions.\n- Duelliste : guerrier vif et intelligent dédaignant les armures lourdes pour une meilleure maîtrise de l'esquive, des réflexes et du combat en général.\n- Poing de l'Ordre : guerrier brutal et maléfique, mais néanmoins efficace et loyal.\n- Chevalier noir : un combattant avec un background et des aptitudes opposées à celles du paladin.\n- Magelame : guerrier qui a appris à lancer des sorts de magie profane en armure.",
       "components": {
         "1": "Revision des Moines",
         "30": "Installer le kit de guerrier : Champion Occultiste",
@@ -54,7 +54,7 @@
     "it_IT": {"components": {"1": "Monk Remix", "30": "Installa kit del guerriero 'Lama Maledetta'", "31": "Installa kit del guerriero 'Duellante'", "32": "Installa kit del guerriero 'Pugno dell'Ordine'", "33": "Installa kit del guerriero 'Guardia Nera'", "34": "Installa kit del guerriero 'Lama Crepuscolare' (by ronin69hof, ronin69hof@gmail.com)"}},
     "ru_RU": {"components": {"1": "Monk Remix", "30": "Install Hexblade fighter kit", "31": "Install Duelist fighter kit", "32": "Install Fist of Order fighter kit", "33": "Install Blackguard fighter kit", "34": "Install Duskblade fighter kit (by ronin69hof, ronin69hof@gmail.com"}},
     "zh_CN": {
-      "description": "最初是作为更庞大的项目“阴谋之地”的一部分，这个模组对武僧职业进行了修订，使其更接近其AD&D第三版桌面游戏的版本，但还增加了战士宗派：|- 黑暗冠军：战士和法师之间的邪恶混合体，是施展诅咒的著名专家。|- 决斗者：敏捷而聪明的战士，鄙视重型盔甲，以更好地掌握闪避、反射和战斗技巧。|- 秩序之拳：野蛮而邪恶的战士，但同样高效且忠诚。|- 黑暗卫士：一个与圣武士背景和能力相反的战士。|- 法刃：学会了在盔甲中施展凡间法术的战士。"
+      "description": "最初是作为更庞大的项目“阴谋之地”的一部分，这个模组对武僧职业进行了修订，使其更接近其AD&D第三版桌面游戏的版本，但还增加了战士宗派：\n- 黑暗冠军：战士和法师之间的邪恶混合体，是施展诅咒的著名专家。\n- 决斗者：敏捷而聪明的战士，鄙视重型盔甲，以更好地掌握闪避、反射和战斗技巧。\n- 秩序之拳：野蛮而邪恶的战士，但同样高效且忠诚。\n- 黑暗卫士：一个与圣武士背景和能力相反的战士。\n- 法刃：学会了在盔甲中施展凡间法术的战士。"
     }
   },
   "tp2": "sword_and_fist",

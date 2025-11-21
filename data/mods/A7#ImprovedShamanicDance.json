@@ -35,7 +35,7 @@
       }
     },
     "fr_FR": {
-      "description": "L'un des traits les plus importants de la classe du chaman est la Danse chamanique qui permet au chaman d'invoquer indéfiniment des esprits alliés pour se battre à ses côtés. Cependant, dans la version originale, le chaman se trouve pratiquement désactivé pendant qu'il danse.|Ce mod améliore cette capacité en permettant au chaman de se déplacer à vitesse réduite pendant la danse avec en contrepartie quelques contraintes. La Danse chamanique peut être améliorée par plusieurs composants optionnels. Le dernier composant disperse quelques objets chamaniques dans le jeu.",
+      "description": "L'un des traits les plus importants de la classe du chaman est la Danse chamanique qui permet au chaman d'invoquer indéfiniment des esprits alliés pour se battre à ses côtés. Cependant, dans la version originale, le chaman se trouve pratiquement désactivé pendant qu'il danse.\nCe mod améliore cette capacité en permettant au chaman de se déplacer à vitesse réduite pendant la danse avec en contrepartie quelques contraintes. La Danse chamanique peut être améliorée par plusieurs composants optionnels. Le dernier composant disperse quelques objets chamaniques dans le jeu.",
       "components": {
         "0": "Danse Chamanique amelioree",
         "10": "Danse Chamanique etendue pour les personnages de haut niveau",
@@ -45,7 +45,7 @@
       }
     },
     "zh_CN": {
-      "description": "萨满职业最重要的特征之一是萨满之舞，它允许萨满无限地召唤盟友之灵来并肩作战。然而，在原始版本中，萨满在跳舞时实际上处于瘫痪状态。|这个模组通过允许萨满在跳舞时以减速移动来改进这个能力，但有一些限制。萨满之舞可以通过几个可选组件来增强。最后一个组件在游戏中散布了一些萨满物品。"
+      "description": "萨满职业最重要的特征之一是萨满之舞，它允许萨满无限地召唤盟友之灵来并肩作战。然而，在原始版本中，萨满在跳舞时实际上处于瘫痪状态。\n这个模组通过允许萨满在跳舞时以减速移动来改进这个能力，但有一些限制。萨满之舞可以通过几个可选组件来增强。最后一个组件在游戏中散布了一些萨满物品。"
     }
   },
   "tp2": "a7#improvedshamanicdance",

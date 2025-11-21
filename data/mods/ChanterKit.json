@@ -21,7 +21,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Ce mod ajoute un profil de barde, le chantre, qui lance des sorts divins à la place des sorts arcaniques, peut lancer des sorts en armure et choisir entre plusieurs chants puissants. Pas de vol à la tire. HLAs personnalisées.|Un composant supplémentaire permet désormais au Chantre de gagner la forteresse du Prêtre à la place de celle du Barde.",
+      "description": "Ce mod ajoute un profil de barde, le chantre, qui lance des sorts divins à la place des sorts arcaniques, peut lancer des sorts en armure et choisir entre plusieurs chants puissants. Pas de vol à la tire. HLAs personnalisées.\nUn composant supplémentaire permet désormais au Chantre de gagner la forteresse du Prêtre à la place de celle du Barde.",
       "components": {
         "0": "Kit de Chantre",
         "37": "le Chantre gagne la forteresse du Pretre a la place de celle du Barde [EXPERIMENTAL]"
@@ -31,7 +31,7 @@
       "description": "This mod adds a bard profile, the cantor, who casts divine spells instead of arcane ones, can cast spells in armor and can choose between several powerful chants. No pickpocketing. An additional component now allows the Cantor to win the Priest's fortress instead of the Bard's."
     },
     "zh_CN": {
-      "description": "这个模组添加了一个吟游诗人职业——吟颂者，他施放神术而非奥术，可以穿着盔甲施法，并能在几种强大的咏唱中选择。没有偷窃。自定义高级能力。|一个额外的组件现在允许吟颂者获得牧师的神殿，而不是吟游诗人的神殿。"
+      "description": "这个模组添加了一个吟游诗人职业——吟颂者，他施放神术而非奥术，可以穿着盔甲施法，并能在几种强大的咏唱中选择。没有偷窃。自定义高级能力。\n一个额外的组件现在允许吟颂者获得牧师的神殿，而不是吟游诗人的神殿。"
     }
   },
   "tp2": "chanterkit",

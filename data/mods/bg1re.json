@@ -121,7 +121,7 @@
       "description": "If you're unsatisfied with the interactions available in BG1 this mod should satisfy you. It's the counterpart to its namesake, the Romantic Encounters MOD for Baldur's Gate II, and adds numerous possibilities for fleeting or more intense romance with non-recruitable characters in the game, for both men and women, sometimes with mini-quests thrown in for good measure. Please note: part of this mod is adult content."
     },
     "fr_FR": {
-      "description": "Si vous êtes peu satisfait par les interactions disponibles dans BG1, ce mod devrait vous combler. C'est le pendant de son homonyme Romantic Encounters MOD for Baldur's Gate II.|Il ajoute de nombreuses possibilités de romance passagère ou plus intense avec des personnages non recrutables du jeu, aussi bien pour les hommes que pour les femmes, avec parfois des mini-quêtes à la clé. Attention : une partie de ce mod est à contenu \"adulte\".",
+      "description": "Si vous êtes peu satisfait par les interactions disponibles dans BG1, ce mod devrait vous combler. C'est le pendant de son homonyme Romantic Encounters MOD for Baldur's Gate II.\nIl ajoute de nombreuses possibilités de romance passagère ou plus intense avec des personnages non recrutables du jeu, aussi bien pour les hommes que pour les femmes, avec parfois des mini-quêtes à la clé. Attention : une partie de ce mod est à contenu \"adulte\".",
       "components": {
         "choice_0": "Composant principal : quantite de... hum... details croustillants, et style BG ou textes explicites ! (necessaire)",
         "100": "Version \"adolescent\" et sauter les composants avec avertissement.",
@@ -177,7 +177,7 @@
       }
     },
     "zh_CN": {
-      "description": "如果你对博德之门1中的互动选项不满意，这个模组应该能满足你。它是其同名模组 Romantic Encounters MOD for Baldur's Gate II 的对应作品。||它为游戏中不可招募的角色增加了许多短暂或更深入的恋爱可能性，无论男女，有时还附带了小型任务。注意：该模组的一部分内容为“成人”内容。"
+      "description": "如果你对博德之门1中的互动选项不满意，这个模组应该能满足你。它是其同名模组 Romantic Encounters MOD for Baldur's Gate II 的对应作品。\n\n它为游戏中不可招募的角色增加了许多短暂或更深入的恋爱可能性，无论男女，有时还附带了小型任务。注意：该模组的一部分内容为“成人”内容。"
     }
   },
   "tp2": "bg1re",

@@ -22,7 +22,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Mod contenant 3 kits :||- Kensaizerker (Kit de guerrier) - EE et BG2o|- Adepte de l'épée (Kit de moine) - EE uniquement|- Bouffon cinglant (Kit de barde) - EE et BG2o||Fichier \"config.ini\" présent dans le répertoire du mod :|Mettez la valeur d'un kit à = 0 pour ne pas l'installer",
+      "description": "Mod contenant 3 kits :\n\n- Kensaizerker (Kit de guerrier) - EE et BG2o\n- Adepte de l'épée (Kit de moine) - EE uniquement\n- Bouffon cinglant (Kit de barde) - EE et BG2o\n\nFichier \"config.ini\" présent dans le répertoire du mod :\nMettez la valeur d'un kit à = 0 pour ne pas l'installer",
       "components": {
         "9999": "Installer divers kits créés par Dan_P. \"Kensaizerker, Adepte de l'épée et Bouffon cinglant\"",
         "choice_0": "Choisir la version de la capacité Enragé du Kensaizerker (peut être réinstalle à n'importe quel moment selon vos préférences)",
@@ -32,10 +32,10 @@
       }
     },
     "en_US": {
-      "description": "Mod contains 3 kits:||- Kensaizerker (Fighter Kit) - EE and BG2o|- Monastery Swordsman (Monk Kit) - EE only|- JesterBlade (Bard Kit) - EE and BG2o|||\"config.ini\" file in mod directory:|Set a kit value to = 0 to avoid installing it"
+      "description": "Mod contains 3 kits:\n\n- Kensaizerker (Fighter Kit) - EE and BG2o\n- Monastery Swordsman (Monk Kit) - EE only\n- JesterBlade (Bard Kit) - EE and BG2o\n\n\n\"config.ini\" file in mod directory:\nSet a kit value to = 0 to avoid installing it"
     },
     "zh_CN": {
-      "description": "这个模组包含3个宗派：||- 剑狂战士（战士宗派）- 增强版和博德之门2o|- 剑之 adept（武僧宗派）- 仅增强版|- 尖锐小丑（吟游诗人宗派）- 增强版和博德之门2o||模组目录中存在“config.ini”文件：|将某个宗派的值设为 = 0 即可不安装该宗派"
+      "description": "这个模组包含3个宗派：\n\n- 剑狂战士（战士宗派）- 增强版和博德之门2o\n- 剑之 adept（武僧宗派）- 仅增强版\n- 尖锐小丑（吟游诗人宗派）- 增强版和博德之门2o\n\n模组目录中存在“config.ini”文件：\n将某个宗派的值设为 = 0 即可不安装该宗派"
     }
   },
   "tp2": "d2-randomkits",

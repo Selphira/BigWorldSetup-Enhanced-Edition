@@ -39,7 +39,7 @@
       }
     },
     "fr_FR": {
-      "description": "Vous avez toujours trouvé que la saga BG était surchargée d'objets magiques ? Les descriptions de nombreux objets magiques indiquent qu'ils sont uniques. Et pourtant, vous en trouvez souvent plusieurs exemplaires (comme les bottes de vitesse, l'anneau de protection +2, etc.). Bien que ce problème se manifeste modérément dans le jeu original, il est gravement aggravé par de nombreux mods qui ajoutent de plus en plus de copies de divers objets, sans se soucier de savoir si cela a du sens. Cela brise l'immersion et est quelque peu ennuyeux.|Alors ce mod est pour vous ! Son unique vocation est de réduire la quantité d'équipement magique disponible dans le jeu.",
+      "description": "Vous avez toujours trouvé que la saga BG était surchargée d'objets magiques ? Les descriptions de nombreux objets magiques indiquent qu'ils sont uniques. Et pourtant, vous en trouvez souvent plusieurs exemplaires (comme les bottes de vitesse, l'anneau de protection +2, etc.). Bien que ce problème se manifeste modérément dans le jeu original, il est gravement aggravé par de nombreux mods qui ajoutent de plus en plus de copies de divers objets, sans se soucier de savoir si cela a du sens. Cela brise l'immersion et est quelque peu ennuyeux.\nAlors ce mod est pour vous ! Son unique vocation est de réduire la quantité d'équipement magique disponible dans le jeu.",
       "components": {
         "0": "L'amulette de protection +1 n'est pas unique",
         "1": "L'anneau de protection +2 et la cape de protection +2 ne sont pas uniques",

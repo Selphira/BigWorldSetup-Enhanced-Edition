@@ -49,7 +49,7 @@
       }
     },
     "fr_FR": {
-      "description": "Ce mod importe certains éléments de Icewind Dale dans la série de jeux Baldur's Gate, dont environ 70 sortilèges profanes et divins, les chanson du barde, les haches à deux mains... N'hésitez pas à lire son readme pour plus de détails.|Notez que ce mod est inutile si vous décidez d'installer Sword Coast Stratagems.",
+      "description": "Ce mod importe certains éléments de Icewind Dale dans la série de jeux Baldur's Gate, dont environ 70 sortilèges profanes et divins, les chanson du barde, les haches à deux mains... N'hésitez pas à lire son readme pour plus de détails.\nNotez que ce mod est inutile si vous décidez d'installer Sword Coast Stratagems.",
       "components": {
         "10": "Incantation des sorts style Icewind Dale (Andyr)",
         "20": "Couleurs ternes pour les habits des roturiers",
@@ -74,7 +74,7 @@
       }
     },
     "zh_CN": {
-      "description": "此模组将《冰风谷》中的某些元素导入到《博德之门》系列游戏中，包括大约70个世俗和神圣的法术、吟游诗人的歌曲、双手斧等。请务必阅读其readme文件以获取更多详细信息。|请注意，如果您决定安装Sword Coast Stratagems，则此模组是多余的。"
+      "description": "此模组将《冰风谷》中的某些元素导入到《博德之门》系列游戏中，包括大约70个世俗和神圣的法术、吟游诗人的歌曲、双手斧等。请务必阅读其readme文件以获取更多详细信息。\n请注意，如果您决定安装Sword Coast Stratagems，则此模组是多余的。"
     }
   },
   "tp2": "iwdification",

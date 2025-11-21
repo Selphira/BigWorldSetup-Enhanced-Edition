@@ -20,16 +20,16 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Gilbertus vend une araignée semi-mécanique qui vous suivra comme un 7ème compagnon. Prévoyez beaucoup de pièce d'or. Si vous prévoyez vraiment beaucoup de pièce d'or et si vous êtes persuasif, vous pourrez peut être acheter 'plus'.|Kri'binn : FOR 15, DEX 9, CON 9, INT 9, SAG 9, CHA 9.|Kro'tan : FOR 18/50, DEX 9, CON 9, INT 9, SAG 9, CHA 9.",
+      "description": "Gilbertus vend une araignée semi-mécanique qui vous suivra comme un 7ème compagnon. Prévoyez beaucoup de pièce d'or. Si vous prévoyez vraiment beaucoup de pièce d'or et si vous êtes persuasif, vous pourrez peut être acheter 'plus'.\nKri'binn : FOR 15, DEX 9, CON 9, INT 9, SAG 9, CHA 9.\nKro'tan : FOR 18/50, DEX 9, CON 9, INT 9, SAG 9, CHA 9.",
       "components": {
         "0": "Gilbertus et ses Araignees"
       }
     },
     "en_US": {
-      "description": "Gilbertus sells a semi-mechanical spider that will follow you around like a 7th companion. Expect lots of gold coins. If you really plan to spend a lot of gold and are persuasive, you may be able to buy 'more'.|Kri'binn : STR 15, DEX 9, CON 9, INT 9, WIS 9, CHA 9.|Kro'tan : STR 18/50, DEX 9, CON 9, INT 9, WIS 9, CHA 9."
+      "description": "Gilbertus sells a semi-mechanical spider that will follow you around like a 7th companion. Expect lots of gold coins. If you really plan to spend a lot of gold and are persuasive, you may be able to buy 'more'.\nKri'binn : STR 15, DEX 9, CON 9, INT 9, WIS 9, CHA 9.\nKro'tan : STR 18/50, DEX 9, CON 9, INT 9, WIS 9, CHA 9."
     },
     "zh_CN": {
-      "description": "Gilbertus 出售一个半机械的蜘蛛，它会像第七个同伴一样跟着你。准备很多金币。如果你真的准备了很多金币，并且很有说服力，你也许能买到“更多”。|Kri'binn ：力量 15，敏捷 9，体质 9，智力 9，智慧 9，魅力 9。|Kro'tan ：力量 18/50，敏捷 9，体质 9，智力 9，智慧 9，魅力 9。"
+      "description": "Gilbertus 出售一个半机械的蜘蛛，它会像第七个同伴一样跟着你。准备很多金币。如果你真的准备了很多金币，并且很有说服力，你也许能买到“更多”。\nKri'binn ：力量 15，敏捷 9，体质 9，智力 9，智慧 9，魅力 9。\nKro'tan ：力量 18/50，敏捷 9，体质 9，智力 9，智慧 9，魅力 9。"
     }
   },
   "tp2": "derats_kribinn",

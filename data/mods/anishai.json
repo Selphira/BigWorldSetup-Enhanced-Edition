@@ -20,16 +20,16 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Une moniale chaotique neutre que l'on peut recruter à la guilde de Mae'Var après l'étape du nettoyage.|FOR 14, DEX 17, CON 10, INT 13, SAG 9, CHA 16.",
+      "description": "Une moniale chaotique neutre que l'on peut recruter à la guilde de Mae'Var après l'étape du nettoyage.\nFOR 14, DEX 17, CON 10, INT 13, SAG 9, CHA 16.",
       "components": {
         "0": "Anishai one-day NPC"
       }
     },
     "en_US": {
-      "description": "A neutral chaotic nun that can be recruited from the Mae'Var guild after the cleaning stage.|STR 14, DEX 17, CON 10, INT 13, WIS 9, CHA 16."
+      "description": "A neutral chaotic nun that can be recruited from the Mae'Var guild after the cleaning stage.\nSTR 14, DEX 17, CON 10, INT 13, WIS 9, CHA 16."
     },
     "zh_CN": {
-      "description": "一位混乱中立的女修士，在 Mae'Var 的帮派完成清理阶段后可以招募。|力量 14，敏捷 17，体质 10，智力 13，智慧 9，魅力 16。"
+      "description": "一位混乱中立的女修士，在 Mae'Var 的帮派完成清理阶段后可以招募。\n力量 14，敏捷 17，体质 10，智力 13，智慧 9，魅力 16。"
     }
   },
   "tp2": "anishai",

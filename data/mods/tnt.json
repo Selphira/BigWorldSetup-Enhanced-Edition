@@ -85,7 +85,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Ce mod permet de faire mille et un petits ajustements au jeu, et s'avère être le parfait complément de The Tweaks Anthology. Vous pouvez rendre les familiers plus intelligents, détecter les pièges plus rapidement et permettre à vos PNJ de \"sentir\" leur présence, modifier les effets de certains objets et sorts pour les rendre plus cohérents, faire des changements aux règles, vendre vos objets sans dépréciation de prix dans les magasins, désactiver les sauvegardes automatiques dans certaines transitions, diminuer le temps de chargement des zones dans les jeux originaux (d'environ 10 à 30 % selon l'auteur), et bien d'autres choses que vous trouverez dans le readme.|Il fonctionne avec n'importe quel jeu IE, mais tous ses composants ne sont pas applicables à tous les jeux.",
+      "description": "Ce mod permet de faire mille et un petits ajustements au jeu, et s'avère être le parfait complément de The Tweaks Anthology. Vous pouvez rendre les familiers plus intelligents, détecter les pièges plus rapidement et permettre à vos PNJ de \"sentir\" leur présence, modifier les effets de certains objets et sorts pour les rendre plus cohérents, faire des changements aux règles, vendre vos objets sans dépréciation de prix dans les magasins, désactiver les sauvegardes automatiques dans certaines transitions, diminuer le temps de chargement des zones dans les jeux originaux (d'environ 10 à 30 % selon l'auteur), et bien d'autres choses que vous trouverez dans le readme.\nIl fonctionne avec n'importe quel jeu IE, mais tous ses composants ne sont pas applicables à tous les jeux.",
       "components": {
         "0": "Familiers plus intelligents",
         "1": "Familiers plus resistants",
@@ -188,7 +188,7 @@
       }
     },
     "en_US": {
-      "description": "This mod allows you to make a thousand and one small adjustments to the game, and is the perfect complement to The Tweaks Anthology. You can make pets smarter, detect traps faster and allow your NPCs to \"feel\" their presence, modify the effects of certain items and spells to make them more consistent, make rule changes, sell your items without price depreciation in stores, disable autosaves in certain transitions, decrease the loading time of areas in the original games (by around 10-30% depending on the author), and many other things you'll find in the readme.|It works with any IE game, but not all its components are applicable to all games."
+      "description": "This mod allows you to make a thousand and one small adjustments to the game, and is the perfect complement to The Tweaks Anthology. You can make pets smarter, detect traps faster and allow your NPCs to \"feel\" their presence, modify the effects of certain items and spells to make them more consistent, make rule changes, sell your items without price depreciation in stores, disable autosaves in certain transitions, decrease the loading time of areas in the original games (by around 10-30% depending on the author), and many other things you'll find in the readme.\nIt works with any IE game, but not all its components are applicable to all games."
     },
     "zh_CN": {
       "description": "这个模组可以对游戏进行一千零一处小调整，是The Tweaks Anthology的完美补充。你可以让伙伴更聪明，更快地发现陷阱，让你的NPC能“感知”到他们的存在，修改某些物品和法术的效果使其更合理，对规则进行改动，在商店出售物品时不会贬值，在某些过渡中禁用自动存档，缩短原版游戏的区域加载时间（根据作者的说法，大约减少10%到30%），以及许多其他在自述文件中你会发现的功能。它适用于任何无限引擎游戏，但并非所有组件都适用于所有游戏。"

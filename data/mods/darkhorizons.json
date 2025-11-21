@@ -24,16 +24,16 @@
       "components": {
         "0": "Dark Horizons"
       },
-      "description": "A powerful organization, known as 'The Section', is hunting you for reasons known only to them. They will stop at nothing to achieve their ends. They have numerous agents and influential associates throughout Faerûn. Stop their leaders for the good of the Sword Coast.|This mod adds a large quest, 3 new NPCs with a few personal quests, several encounters (hostile and otherwise) and side quests, stores and new areas to explore. The former BG1 Adventure Pack and BG1 CoM Forge - Item Upgrade mods are now part of Dark Horizons."
+      "description": "A powerful organization, known as 'The Section', is hunting you for reasons known only to them. They will stop at nothing to achieve their ends. They have numerous agents and influential associates throughout Faerûn. Stop their leaders for the good of the Sword Coast.\nThis mod adds a large quest, 3 new NPCs with a few personal quests, several encounters (hostile and otherwise) and side quests, stores and new areas to explore. The former BG1 Adventure Pack and BG1 CoM Forge - Item Upgrade mods are now part of Dark Horizons."
     },
     "fr_FR": {
-      "description": "Une puissante organisation, dénommée `La Section`, vous pourchasse pour des raisons connues d'elle-seule. Ils ne reculeront devant rien pour parvenir à leurs fins. Ils disposent de nombreux agents et d'associés influents à travers Féérune. Stoppez leurs leaders pour le bien de la Côte des Épées.|Ce mod ajoute une large quête, 3 nouveaux PNJ disposant de quelques quêtes personnelles, plusieurs rencontres (hostiles ou non) et quêtes secondaires, des magasins et de nouvelles zones à explorer. Les anciens mods BG1 Adventure Pack et BG1 CoM Forge - Item Upgrade font désormais partie de Dark Horizons.",
+      "description": "Une puissante organisation, dénommée `La Section`, vous pourchasse pour des raisons connues d'elle-seule. Ils ne reculeront devant rien pour parvenir à leurs fins. Ils disposent de nombreux agents et d'associés influents à travers Féérune. Stoppez leurs leaders pour le bien de la Côte des Épées.\nCe mod ajoute une large quête, 3 nouveaux PNJ disposant de quelques quêtes personnelles, plusieurs rencontres (hostiles ou non) et quêtes secondaires, des magasins et de nouvelles zones à explorer. Les anciens mods BG1 Adventure Pack et BG1 CoM Forge - Item Upgrade font désormais partie de Dark Horizons.",
       "components": {
         "0": "Mod \"Dark Horizons\""
       }
     },
     "zh_CN": {
-      "description": "一个名为“部门”的强大组织，出于只有他们自己知道的原因追捕你。他们会不择手段地达成目的。他们在费伦各地有许多特工和有影响力的盟友。为了剑湾之好，阻止他们的首领吧。|此模组增加了一个大型任务，3个拥有个人任务的新NPC，数次遭遇（敌对或非敌对）和次要任务，商店以及新的探索区域。旧模组BG1 Adventure Pack和BG1 CoM Forge - Item Upgrade现已并入《黑暗地平线》。"
+      "description": "一个名为“部门”的强大组织，出于只有他们自己知道的原因追捕你。他们会不择手段地达成目的。他们在费伦各地有许多特工和有影响力的盟友。为了剑湾之好，阻止他们的首领吧。\n此模组增加了一个大型任务，3个拥有个人任务的新NPC，数次遭遇（敌对或非敌对）和次要任务，商店以及新的探索区域。旧模组BG1 Adventure Pack和BG1 CoM Forge - Item Upgrade现已并入《黑暗地平线》。"
     }
   },
   "tp2": "darkhorizons",

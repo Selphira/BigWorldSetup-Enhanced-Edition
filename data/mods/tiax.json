@@ -22,20 +22,20 @@
   },
   "translations": {
     "en_US": {
-      "description": "Surely you remember that demented, megalomaniac priest/thief? Here's your chance to (re)meet him.|STR 9, DEX 16, CON 16, INT 10, WIS 13, CHA 9.",
+      "description": "Surely you remember that demented, megalomaniac priest/thief? Here's your chance to (re)meet him.\nSTR 9, DEX 16, CON 16, INT 10, WIS 13, CHA 9.",
       "components": {
         "0": "Tiax NPC MOD for Baldur's Gate II"
       }
     },
     "ru_RU": {"components": {"0": "Tiax NPC MOD for Baldur's Gate II"}},
     "fr_FR": {
-      "description": "Vous vous souvenez certainement de ce prêtre/voleur dément et mégalomane ? L'occasion de (re)faire sa connaissance.|FOR 9, DEX 16, CON 16, INT 10, SAG 13, CHA 9.",
+      "description": "Vous vous souvenez certainement de ce prêtre/voleur dément et mégalomane ? L'occasion de (re)faire sa connaissance.\nFOR 9, DEX 16, CON 16, INT 10, SAG 13, CHA 9.",
       "components": {
         "0": "Tiax MOD PNJ Pour Baldur's Gate 2"
       }
     },
     "zh_CN": {
-      "description": "你一定还记得那个疯狂且自大的牧师/盗贼吗？这是（重新）认识他的机会。|力量9，敏捷16，体质16，智力10，智慧13，魅力9。"
+      "description": "你一定还记得那个疯狂且自大的牧师/盗贼吗？这是（重新）认识他的机会。\n力量9，敏捷16，体质16，智力10，智慧13，魅力9。"
     }
   },
   "tp2": "tiax",

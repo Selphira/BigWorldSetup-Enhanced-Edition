@@ -23,20 +23,20 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Vous ne manquez jamais d'inclure Jan Jansen dans votre groupe. Vous vous délectez de ses répliques abracadabrantes, mais sa quête personnelle vous laisse sur votre faim. Vous avez envie de connaître la fin de l'histoire concernant l'ancienne compagne du voleur illusionniste le plus loufoque d'Athkatla, et de Vaelag, le mari violent de cette dernière ?|L'Extension de la quête de Jan propose une suite à cette quête originale sous la forme de deux très courtes missions agrémentées de dialogues typiques et de rencontres inopinées avec de nouveaux personnages secondaires. En trame de fond, le mod tente modestement de jeter un éclairage nouveau sur certaines des organisations les plus influentes de la cité.|Découvrez la fin de l'histoire sans avoir besoin de recommencer une partie. La difficulté du mod étant adaptée à des personnages de faible niveau, nous vous conseillons malgré tout d'en profiter sur une partie pas trop avancée.|Le mod comporte entre autres 2 nouvelles missions qui peuvent être faite dans l'ordre de votre choix et 2 nouvelles histoires de Jan.",
+      "description": "Vous ne manquez jamais d'inclure Jan Jansen dans votre groupe. Vous vous délectez de ses répliques abracadabrantes, mais sa quête personnelle vous laisse sur votre faim. Vous avez envie de connaître la fin de l'histoire concernant l'ancienne compagne du voleur illusionniste le plus loufoque d'Athkatla, et de Vaelag, le mari violent de cette dernière ?\nL'Extension de la quête de Jan propose une suite à cette quête originale sous la forme de deux très courtes missions agrémentées de dialogues typiques et de rencontres inopinées avec de nouveaux personnages secondaires. En trame de fond, le mod tente modestement de jeter un éclairage nouveau sur certaines des organisations les plus influentes de la cité.\nDécouvrez la fin de l'histoire sans avoir besoin de recommencer une partie. La difficulté du mod étant adaptée à des personnages de faible niveau, nous vous conseillons malgré tout d'en profiter sur une partie pas trop avancée.\nLe mod comporte entre autres 2 nouvelles missions qui peuvent être faite dans l'ordre de votre choix et 2 nouvelles histoires de Jan.",
       "components": {
         "0": "Extension de la quete de Jan"
       }
     },
     "en_US": {
-      "description": "You never fail to include Jan Jansen in your group. You enjoy his witty retorts, but his personal quest leaves you wanting more. Jan's Quest Extension  offers a sequel to this original quest, in the form of two very short missions featuring typical dialogues and unexpected encounters with new secondary characters. In the background, the mod modestly attempts to shed new light on some of the city's most influential organizations.|Discover the end of the story without needing to start a new game. As the mod's difficulty is suitable for low-level characters, we still recommend that you enjoy it on a game that's not too advanced.|The mod includes 2 new missions that can be done in any order, and 2 new Jan stories.",
+      "description": "You never fail to include Jan Jansen in your group. You enjoy his witty retorts, but his personal quest leaves you wanting more. Jan's Quest Extension  offers a sequel to this original quest, in the form of two very short missions featuring typical dialogues and unexpected encounters with new secondary characters. In the background, the mod modestly attempts to shed new light on some of the city's most influential organizations.\nDiscover the end of the story without needing to start a new game. As the mod's difficulty is suitable for low-level characters, we still recommend that you enjoy it on a game that's not too advanced.\nThe mod includes 2 new missions that can be done in any order, and 2 new Jan stories.",
       "components": {
         "0": "Jan's Extended Quest"
       }
     },
     "ru_RU": {"components": {"0": "Jan's Extended Quest"}},
     "zh_CN": {
-      "description": "您是否总觉得队伍里少不了姚恩·姚森？虽沉醉于他那些天马行空的俏皮话，却对他未完结的个人任务意犹未尽？现在，您将有机会知晓这位阿斯卡特拉最荒诞的幻术盗贼与其旧爱——以及那位施暴成性的丈夫瓦埃拉格——之间的故事结局。|《姚恩任务扩展》通过两段精炼的新任务延续原版剧情，不仅保留了标志性对话风格，更安排了与全新配角们的意外邂逅。该模组还尝试以独特视角，悄然揭示这座都市中某些最具影响力的组织背后不为人知的秘密。|无需重启存档即可体验完整故事线。虽然模组难度适配低等级角色，但仍建议在游戏前期体验以获得最佳效果。|本模组主要包含：2个可自由选择顺序的新任务线，以及2段姚恩的全新背景故事。"
+      "description": "您是否总觉得队伍里少不了姚恩·姚森？虽沉醉于他那些天马行空的俏皮话，却对他未完结的个人任务意犹未尽？现在，您将有机会知晓这位阿斯卡特拉最荒诞的幻术盗贼与其旧爱——以及那位施暴成性的丈夫瓦埃拉格——之间的故事结局。\n《姚恩任务扩展》通过两段精炼的新任务延续原版剧情，不仅保留了标志性对话风格，更安排了与全新配角们的意外邂逅。该模组还尝试以独特视角，悄然揭示这座都市中某些最具影响力的组织背后不为人知的秘密。\n无需重启存档即可体验完整故事线。虽然模组难度适配低等级角色，但仍建议在游戏前期体验以获得最佳效果。\n本模组主要包含：2个可自由选择顺序的新任务线，以及2段姚恩的全新背景故事。"
     }
   },
   "tp2": "janquest",

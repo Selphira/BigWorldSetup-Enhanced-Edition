@@ -28,10 +28,10 @@
         "1": "Keto/Kelsey Interaction (Requires Kelsey-SOA)",
         "2": "Banter Accelerator"
       },
-      "description": "Keto is a neutral good human bard with a penchant for the bottle and stories, whom you'll find at the Five Flagons. Very talkative, she has many dialogues with recruitable NPCs, with a myriad of passing NPCs, and comments on more than one adventure when she's not telling a tale. Considered one of the best NPC modules (two and a half years in the making), Keto also has her own personal quest and her own voice set, plus sets from several speakers (400). The fact that she has no ToB content is a plus, as she can be replaced in ToB by Sarevok or Irenicus (mods Redemption or The Longer Road).|STR 11, DEX 15, CON 16, INT 15, WIS 9, CHA 15."
+      "description": "Keto is a neutral good human bard with a penchant for the bottle and stories, whom you'll find at the Five Flagons. Very talkative, she has many dialogues with recruitable NPCs, with a myriad of passing NPCs, and comments on more than one adventure when she's not telling a tale. Considered one of the best NPC modules (two and a half years in the making), Keto also has her own personal quest and her own voice set, plus sets from several speakers (400). The fact that she has no ToB content is a plus, as she can be replaced in ToB by Sarevok or Irenicus (mods Redemption or The Longer Road).\nSTR 11, DEX 15, CON 16, INT 15, WIS 9, CHA 15."
     },
     "fr_FR": {
-      "description": "Keto est une barde neutre bonne humaine, avec un penchant certain pour la bouteille et les histoires, que vous trouverez aux Cinq Chopes. Très bavarde, elle dispose de nombreux dialogues avec les PNJ recrutables, avec une myriade de PNJ de passage, et commente plus d'une aventure quand elle ne se fend pas d'un conte. Considéré comme un des meilleurs modules de PNJ (deux ans et demi d'élaboration), Keto dispose également de sa quête personnelle et possède son propre set de voix plus des sets de plusieurs intervenants (400). Elle n'est cependant pas romançable et n'est probablement pas le personnage rêvé pour les fêlés d'optimisation.|Qu'elle n'ait pas de contenu pour ToB est un atout, car elle peut sans scrupule être remplacée dans ToB par Sarevok ou Irenicus (mods Redemption ou The Longer Road).|FOR 11, DEX 15, CON 16, INT 15, SAG 9, CHA 15.",
+      "description": "Keto est une barde neutre bonne humaine, avec un penchant certain pour la bouteille et les histoires, que vous trouverez aux Cinq Chopes. Très bavarde, elle dispose de nombreux dialogues avec les PNJ recrutables, avec une myriade de PNJ de passage, et commente plus d'une aventure quand elle ne se fend pas d'un conte. Considéré comme un des meilleurs modules de PNJ (deux ans et demi d'élaboration), Keto dispose également de sa quête personnelle et possède son propre set de voix plus des sets de plusieurs intervenants (400). Elle n'est cependant pas romançable et n'est probablement pas le personnage rêvé pour les fêlés d'optimisation.\nQu'elle n'ait pas de contenu pour ToB est un atout, car elle peut sans scrupule être remplacée dans ToB par Sarevok ou Irenicus (mods Redemption ou The Longer Road).\nFOR 11, DEX 15, CON 16, INT 15, SAG 9, CHA 15.",
       "components": {
         "0": "Keto-SOA NPC",
         "1": "Interactions Keto/Kelsey (Kelsey-SOA doit etre installe)",
@@ -39,7 +39,7 @@
       }
     },
     "zh_CN": {
-      "description": "凯托是一位中立善良的人类吟游诗人，对酒瓶和故事有着明显的偏爱，你可以在五酒壶旅店找到她。她非常健谈，与可招募的NPC、众多过路NPC都有大量对话，并且在不开口讲故事时，也会对多次冒险发表评论。被认为是最好的NPC模组之一（历时两年半开发），凯托也有她自己的个人任务，拥有自己的语音包以及多位参与者的语音包（共400个）。然而，她不可发展浪漫关系，而且可能不是优化爱好者的理想角色。|她没有巴尔王座的内容是一个优点，因为在巴尔王座中，她可以毫无顾忌地被沙洛佛克或艾瑞尼卡斯取代（模组Redemption或The Longer Road）。|力量 11，敏捷 15，体质 16，智力 15，智慧 9，魅力 15。"
+      "description": "凯托是一位中立善良的人类吟游诗人，对酒瓶和故事有着明显的偏爱，你可以在五酒壶旅店找到她。她非常健谈，与可招募的NPC、众多过路NPC都有大量对话，并且在不开口讲故事时，也会对多次冒险发表评论。被认为是最好的NPC模组之一（历时两年半开发），凯托也有她自己的个人任务，拥有自己的语音包以及多位参与者的语音包（共400个）。然而，她不可发展浪漫关系，而且可能不是优化爱好者的理想角色。\n她没有巴尔王座的内容是一个优点，因为在巴尔王座中，她可以毫无顾忌地被沙洛佛克或艾瑞尼卡斯取代（模组Redemption或The Longer Road）。\n力量 11，敏捷 15，体质 16，智力 15，智慧 9，魅力 15。"
     }
   },
   "tp2": "keto",

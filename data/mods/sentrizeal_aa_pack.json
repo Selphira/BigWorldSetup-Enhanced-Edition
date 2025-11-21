@@ -40,10 +40,10 @@
       "description": "This collection of mods corrects some creature animations: it corrects the archmage's dress animation files, which were missing two-handed weapon animations. Modifies the in-game appearance of elven rangers (male or female), adding a cape when wearing leather armor. It modifies the appearance of female fighters wearing chain mail and leather fighters (who now wear pants). A component for fighters in plate armor is under development."
     },
     "fr_FR": {
-      "description": "Cette collection de mods permet de corriger certaines animations de créature.|Il corrige les fichiers de l'animation de la robe de l'archimage à laquelle manquaient des animations d'armes à deux mains. Il modifie l'apparence dans le jeu des rôdeurs elfes (homme ou femme) en leur ajoutant une cape lorsqu'ils portent une armure de cuir. Il modifie l'apparence des guerrières portant une cote de mailles, des guerriers en cuir (qui portent désormais des pantalons). Un composant pour les guerriers en armure de plates est en développement."
+      "description": "Cette collection de mods permet de corriger certaines animations de créature.\nIl corrige les fichiers de l'animation de la robe de l'archimage à laquelle manquaient des animations d'armes à deux mains. Il modifie l'apparence dans le jeu des rôdeurs elfes (homme ou femme) en leur ajoutant une cape lorsqu'ils portent une armure de cuir. Il modifie l'apparence des guerrières portant une cote de mailles, des guerriers en cuir (qui portent désormais des pantalons). Un composant pour les guerriers en armure de plates est en développement."
     },
     "zh_CN": {
-      "description": "这个模组合集修正了一些生物的动画。|它修复了法师长袍的动画文件，该文件缺少双手武器的动画。它修改了游戏中精灵游侠（男性或女性）的外观，当他们穿着皮甲时会添加一件斗篷。它修改了穿着锁子甲的女战士和穿着皮甲的战士（现在他们穿裤子）的外观。一个针对板甲战士的组件正在开发中。"
+      "description": "这个模组合集修正了一些生物的动画。\n它修复了法师长袍的动画文件，该文件缺少双手武器的动画。它修改了游戏中精灵游侠（男性或女性）的外观，当他们穿着皮甲时会添加一件斗篷。它修改了穿着锁子甲的女战士和穿着皮甲的战士（现在他们穿裤子）的外观。一个针对板甲战士的组件正在开发中。"
     }
   },
   "tp2": "sentrizeal_aa_pack",

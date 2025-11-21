@@ -29,14 +29,14 @@
       "description": "This mod modifies the user interface for Baldur's Gate Siege of Dragonspear, Baldur's Gate II Enhanced Edition and Enhanced Edition Trilogy. You can activate them in the Additional Options menu."
     },
     "fr_FR": {
-      "description": "Ce mod modifie l'interface utilisateur pour Baldur's Gate Siege of Dragonspear, Baldur's Gate II Enhanced Edition et Enhanced Edition Trilogy.|Remarques : Nombres de ces nouvelles fonctionnalités sont désactivées par défaut. Vous pouvez les activer dans le menu Options Additionnelles.",
+      "description": "Ce mod modifie l'interface utilisateur pour Baldur's Gate Siege of Dragonspear, Baldur's Gate II Enhanced Edition et Enhanced Edition Trilogy.\nRemarques : Nombres de ces nouvelles fonctionnalités sont désactivées par défaut. Vous pouvez les activer dans le menu Options Additionnelles.",
       "components": {
         "10": "Tipun's User Interface (main component)",
         "20": "Tipun's User Interface (create data tables)"
       }
     },
     "zh_CN": {
-      "description": "此模组修改了博德之门：龙矛围攻、博德之门II增强版和Enhanced Edition Trilogy的用户界面。|注意：许多新功能默认是关闭的。你可以在“附加选项”菜单中启用它们。"
+      "description": "此模组修改了博德之门：龙矛围攻、博德之门II增强版和Enhanced Edition Trilogy的用户界面。\n注意：许多新功能默认是关闭的。你可以在“附加选项”菜单中启用它们。"
     }
   },
   "tp2": "tipun_gui",

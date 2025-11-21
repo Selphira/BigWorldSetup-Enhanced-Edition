@@ -24,16 +24,16 @@
       "components": {
         "0": "Bridge's Block"
       },
-      "description": "This project adds two interior areas inside the great wall that's part of the Bridge District. From now on, you may enter that massive block and see what's inside. There you'll be able to meet new characters and see what they're up to. You'll also be able to take a new job - an investigation, as the Block's caretaker believes she saw a strange monster roaming the halls. Is that true, or was it only a figment of her imagination?|The mod adds 4 new quests, 2 new medium-sized areas, and a few new items and spells."
+      "description": "This project adds two interior areas inside the great wall that's part of the Bridge District. From now on, you may enter that massive block and see what's inside. There you'll be able to meet new characters and see what they're up to. You'll also be able to take a new job - an investigation, as the Block's caretaker believes she saw a strange monster roaming the halls. Is that true, or was it only a figment of her imagination?\nThe mod adds 4 new quests, 2 new medium-sized areas, and a few new items and spells."
     },
     "fr_FR": {
-      "description": "Ce mod ajoute deux nouvelle zones à l'intérieur du grand mur nord du quartier du pont d'Athkatla. Vous pouvez désormais entrer dans ce bloc massif et découvrir ce qui se trouve à l'intérieur. Vous pourrez y rencontrer de nouveaux personnages et voir ce qu'ils font. Vous pourrez également accepter un nouveau travail - une enquête, car la concierge du bloc pense avoir vu un étrange monstre errer dans les couloirs. Est-ce vrai, ou n'était-ce que le fruit de son imagination ?|Le mod ajoute 4 nouvelles quêtes, 2 nouvelles zones de taille moyenne, et quelques nouveaux objets et sorts.",
+      "description": "Ce mod ajoute deux nouvelle zones à l'intérieur du grand mur nord du quartier du pont d'Athkatla. Vous pouvez désormais entrer dans ce bloc massif et découvrir ce qui se trouve à l'intérieur. Vous pourrez y rencontrer de nouveaux personnages et voir ce qu'ils font. Vous pourrez également accepter un nouveau travail - une enquête, car la concierge du bloc pense avoir vu un étrange monstre errer dans les couloirs. Est-ce vrai, ou n'était-ce que le fruit de son imagination ?\nLe mod ajoute 4 nouvelles quêtes, 2 nouvelles zones de taille moyenne, et quelques nouveaux objets et sorts.",
       "components": {
         "0": "Les terres d'Athkatlan : Le Bloc du Pont"
       }
     },
     "zh_CN": {
-      "description": "这个模组在阿斯卡特拉大桥区的北面大墙内添加了两个新区域。您现在可以进入这个庞大的建筑群，并发现其内部。您将能在那里遇到新角色，并观察他们的行为。您还可以接受一项新任务——一项调查，因为该楼的门房认为自己看到一个奇怪的怪物在走廊里游荡。这是真的，还是她想象出来的？|该模组添加了4个新任务、2个中等大小的新区域，以及一些新物品和法术。"
+      "description": "这个模组在阿斯卡特拉大桥区的北面大墙内添加了两个新区域。您现在可以进入这个庞大的建筑群，并发现其内部。您将能在那里遇到新角色，并观察他们的行为。您还可以接受一项新任务——一项调查，因为该楼的门房认为自己看到一个奇怪的怪物在走廊里游荡。这是真的，还是她想象出来的？\n该模组添加了4个新任务、2个中等大小的新区域，以及一些新物品和法术。"
     }
   },
   "tp2": "bridgesblock",

@@ -22,7 +22,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Ce mod permet de débloquer les succès des jeux EE disponibles seulement via le client Steam. Il détecte les succès déverrouillés et les affichent dans le journal pour tout joueur sans avoir besoin d'utiliser le client Steam. De plus, il est possible d'acheter un trophée des succès qui suit l'état de succès débloqués. En plus des succès officiels de Steam, le mod débloque également un petit nombre de succès inutilisés pour SoD qui sont implémentés dans le jeu mais non enregistrés par Steam.|Le mod peut être installé à tout moment. Il n'est pas nécessaire de démarrer une nouvelle partie. Les succès qui ont déjà été débloqués avant l'installation du mod seront détectés et ajoutés au journal.",
+      "description": "Ce mod permet de débloquer les succès des jeux EE disponibles seulement via le client Steam. Il détecte les succès déverrouillés et les affichent dans le journal pour tout joueur sans avoir besoin d'utiliser le client Steam. De plus, il est possible d'acheter un trophée des succès qui suit l'état de succès débloqués. En plus des succès officiels de Steam, le mod débloque également un petit nombre de succès inutilisés pour SoD qui sont implémentés dans le jeu mais non enregistrés par Steam.\nLe mod peut être installé à tout moment. Il n'est pas nécessaire de démarrer une nouvelle partie. Les succès qui ont déjà été débloqués avant l'installation du mod seront détectés et ajoutés au journal.",
       "components": {
         "choice_0": "Realisations Steam ajoutees en tant qu'entrees du journal",
         "0": "Statistiques concises",
@@ -31,10 +31,10 @@
       }
     },
     "en_US": {
-      "description": "This mod unlocks EE game achievements available only via the Steam client. It detects unlocked achievements and displays them in the log for any player without the need to use the Steam client. What's more, it's possible to purchase an achievements trophy that tracks the status of unlocked achievements. In addition to the official Steam achievements, the mod also unlocks a small number of unused achievements for SoD that are implemented in the game but not registered by Steam.|The mod can be installed at any time. There's no need to start a new game. Successes that have already been unlocked prior to mod installation will be detected and added to the log."
+      "description": "This mod unlocks EE game achievements available only via the Steam client. It detects unlocked achievements and displays them in the log for any player without the need to use the Steam client. What's more, it's possible to purchase an achievements trophy that tracks the status of unlocked achievements. In addition to the official Steam achievements, the mod also unlocks a small number of unused achievements for SoD that are implemented in the game but not registered by Steam.\nThe mod can be installed at any time. There's no need to start a new game. Successes that have already been unlocked prior to mod installation will be detected and added to the log."
     },
     "zh_CN": {
-      "description": "此模组可以解锁仅在Steam客户端中可用的EE游戏成就。它会检测已解锁的成就，并在日志中为所有玩家显示，无需使用Steam客户端。此外，还可以购买一个跟随解锁成就状态的成就奖杯。除了Steam的官方成就外，该模组还解锁了少量未使用的SoD成就，这些成就已在游戏中实现但未被Steam记录。|模组可以在任何时候安装。无需开始新游戏。在安装模组之前已经解锁的成就将被检测并添加到日志中。"
+      "description": "此模组可以解锁仅在Steam客户端中可用的EE游戏成就。它会检测已解锁的成就，并在日志中为所有玩家显示，无需使用Steam客户端。此外，还可以购买一个跟随解锁成就状态的成就奖杯。除了Steam的官方成就外，该模组还解锁了少量未使用的SoD成就，这些成就已在游戏中实现但未被Steam记录。\n模组可以在任何时候安装。无需开始新游戏。在安装模组之前已经解锁的成就将被检测并添加到日志中。"
     }
   },
   "tp2": "a7-achievements",

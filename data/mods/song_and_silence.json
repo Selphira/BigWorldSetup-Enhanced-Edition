@@ -49,7 +49,7 @@
       }
     },
     "fr_FR": {
-      "description": "Aimez-vous les bardes et les roublards ? Si c'est le cas, vous serez comblés par ce petit mod qui ajoute plusieurs profils venant s'ajouter à vos désormais classique maître-lames et assassins : Acrobate, Chanteur funèbre, Choriste et Gitan (bardes) ; Aventurier, Cambrioleur, Danseur de l'ombre, Lamesprit et Tireur d'élite (voleurs).|Rencontrez aussi un vieux gitan, Raoul, un rien curieux et toujours accueillant, qui vous proposera de nouveaux objets pour vos personnages favoris. La création des objets par le concepteur est fortement orientée pour qu'ils soient utilisés par des bardes ou des voleurs, mais rien ne vous empêche d'équiper d'autres personnages avec, sauf s'ils sont inutilisables par la classe jouée, bien sûr.",
+      "description": "Aimez-vous les bardes et les roublards ? Si c'est le cas, vous serez comblés par ce petit mod qui ajoute plusieurs profils venant s'ajouter à vos désormais classique maître-lames et assassins : Acrobate, Chanteur funèbre, Choriste et Gitan (bardes) ; Aventurier, Cambrioleur, Danseur de l'ombre, Lamesprit et Tireur d'élite (voleurs).\nRencontrez aussi un vieux gitan, Raoul, un rien curieux et toujours accueillant, qui vous proposera de nouveaux objets pour vos personnages favoris. La création des objets par le concepteur est fortement orientée pour qu'ils soient utilisés par des bardes ou des voleurs, mais rien ne vous empêche d'équiper d'autres personnages avec, sauf s'ils sont inutilisables par la classe jouée, bien sûr.",
       "components": {
         "0": "Changements concernant les bardes et voleurs purs, ainsi que les kits originaux du jeu (necessaire pour les autres composants)",
         "1": "Ajout d'une echoppe pour bardes et voleurs",
@@ -66,7 +66,7 @@
     },
     "ru_RU": {"components": {"0": "Changes to trueclass bards and thieves, and unmodded game kits (required for other components)", "1": "Add new bardic store and thief items", "2": "Install Acrobat bard kit", "3": "Install Chorister bard kit", "4": "Install Dirgesinger bard kit", "5": "Install Gypsy bard kit", "6": "Install Adventurer thief kit", "7": "Install Burglar thief kit", "8": "Install Soulknife thief kit", "9": "Install Sharpshooter thief kit", "10": "Install Shadowdancer thief kit"}},
     "zh_CN": {
-      "description": "你喜欢吟游诗人和盗贼吗？如果是这样，这个小模组会让你心满意足，它添加了几个新的职业，可以补充到你现有的舞剑士和刺客中：杂技演员、哀歌者、合唱团成员和吉普赛人（吟游诗人）；冒险家、窃贼、影舞者、剑灵神射手和神射手（盗贼）。|还会遇到一个老吉普赛人，拉乌尔，他有点好奇，总是很热情，会为你最喜欢的角色提供新物品。设计师制作物品时，强烈倾向于让吟游诗人和盗贼使用它们，但当然，除非该物品无法被你玩的职业使用，否则你完全可以装备其他角色。"
+      "description": "你喜欢吟游诗人和盗贼吗？如果是这样，这个小模组会让你心满意足，它添加了几个新的职业，可以补充到你现有的舞剑士和刺客中：杂技演员、哀歌者、合唱团成员和吉普赛人（吟游诗人）；冒险家、窃贼、影舞者、剑灵神射手和神射手（盗贼）。\n还会遇到一个老吉普赛人，拉乌尔，他有点好奇，总是很热情，会为你最喜欢的角色提供新物品。设计师制作物品时，强烈倾向于让吟游诗人和盗贼使用它们，但当然，除非该物品无法被你玩的职业使用，否则你完全可以装备其他角色。"
     }
   },
   "tp2": "song_and_silence",

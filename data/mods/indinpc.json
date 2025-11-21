@@ -22,21 +22,21 @@
   },
   "translations": {
     "en_US": {
-      "description": "This mod adds a new NPC, a half-elf fighter-mage, lawful good, who can be found in the ruins of Flammevin Bridge. She has piquant interactions with most of the other characters.|STR 14, DEX 17, CON 15, INT 16, WIS 7, CHA 13.",
+      "description": "This mod adds a new NPC, a half-elf fighter-mage, lawful good, who can be found in the ruins of Flammevin Bridge. She has piquant interactions with most of the other characters.\nSTR 14, DEX 17, CON 15, INT 16, WIS 7, CHA 13.",
       "components": {
         "0": "Indira NPC for BGT-WeiDU",
         "2001": "Install Interjections for Indira (BETA)"
       }
     },
     "fr_FR": {
-      "description": "Ce mod ajoute un nouveau PNJ, une demi-elfe guerrier-mage, loyale bonne, que l'on peut trouver dans les ruines du Pont de Flammevin. Elle a des interactions piquantes avec la plupart des autres personnages.|FOR 14, DEX 17, CON 15, INT 16, SAG 7, CHA 13.",
+      "description": "Ce mod ajoute un nouveau PNJ, une demi-elfe guerrier-mage, loyale bonne, que l'on peut trouver dans les ruines du Pont de Flammevin. Elle a des interactions piquantes avec la plupart des autres personnages.\nFOR 14, DEX 17, CON 15, INT 16, SAG 7, CHA 13.",
       "components": {
         "0": "Indira PNJ",
         "2001": "Install Interjections for Indira (BETA)"
       }
     },
     "zh_CN": {
-      "description": "该模组添加了一个新的NPC，一位守序善良的半精灵战士法师，可以在火焰之桥的废墟中找到她。她与大多数其他角色都有俏皮的互动。|力量14，敏捷17，体质15，智力16，智慧7，魅力13。"
+      "description": "该模组添加了一个新的NPC，一位守序善良的半精灵战士法师，可以在火焰之桥的废墟中找到她。她与大多数其他角色都有俏皮的互动。\n力量14，敏捷17，体质15，智力16，智慧7，魅力13。"
     }
   },
   "tp2": "indinpc",

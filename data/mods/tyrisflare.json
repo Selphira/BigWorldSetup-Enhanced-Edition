@@ -21,7 +21,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Rencontrez Tyris Flare, une rouquine amazone botteuse de fesses et contrôlant la magie du feu. Ce nom vous semble familier ? L'auteur s'est en effet inspiré d'un vieux jeu sur Mega Drive (Golden Axe sorti en 1989). Une fois dans votre groupe, Tyris discutera avec tous les PNJ de Bioware et pourra être romancée par un PNJ humain/elfe/demi-elfe.|FOR 15, DEX 17, CON 14, INT 17, SAG 10, CHA 12.",
+      "description": "Rencontrez Tyris Flare, une rouquine amazone botteuse de fesses et contrôlant la magie du feu. Ce nom vous semble familier ? L'auteur s'est en effet inspiré d'un vieux jeu sur Mega Drive (Golden Axe sorti en 1989). Une fois dans votre groupe, Tyris discutera avec tous les PNJ de Bioware et pourra être romancée par un PNJ humain/elfe/demi-elfe.\nFOR 15, DEX 17, CON 14, INT 17, SAG 10, CHA 12.",
       "components": {
         "0": "Tyris Flare NPC",
         "choice_0": "Portraits alternatifs de Tyris",
@@ -35,10 +35,10 @@
       }
     },
     "en_US": {
-      "description": "Meet Tyris Flare, a red-haired amazon who can kick ass and hurl fire! Sound familiar? In fact, the author drew inspiration from an old Mega Drive game (Golden Axe, released in 1989). Once in your party, Tyris will banter with all BioWare NPCs and can be romanced by any human/elf/half-elf male PC.|STR 15, DEX 17, CON 14, INT 17, WIS 10, CHA 12."
+      "description": "Meet Tyris Flare, a red-haired amazon who can kick ass and hurl fire! Sound familiar? In fact, the author drew inspiration from an old Mega Drive game (Golden Axe, released in 1989). Once in your party, Tyris will banter with all BioWare NPCs and can be romanced by any human/elf/half-elf male PC.\nSTR 15, DEX 17, CON 14, INT 17, WIS 10, CHA 12."
     },
     "zh_CN": {
-      "description": "见见泰瑞斯·弗莱尔，一个红发亚马逊女战士，擅长踢屁股并掌控火焰魔法。这个名字听起来耳熟？作者确实受到了一款世嘉MD老游戏（1989年发布的《黄金战斧》）的启发。加入你的队伍后，泰瑞斯会与所有BioWare的NPC对话，并且可以被人类/精灵/半精灵NPC恋爱。|力量15，敏捷17，体质14，智力17，智慧10，魅力12。"
+      "description": "见见泰瑞斯·弗莱尔，一个红发亚马逊女战士，擅长踢屁股并掌控火焰魔法。这个名字听起来耳熟？作者确实受到了一款世嘉MD老游戏（1989年发布的《黄金战斧》）的启发。加入你的队伍后，泰瑞斯会与所有BioWare的NPC对话，并且可以被人类/精灵/半精灵NPC恋爱。\n力量15，敏捷17，体质14，智力17，智慧10，魅力12。"
     }
   },
   "tp2": "tyrisflare",

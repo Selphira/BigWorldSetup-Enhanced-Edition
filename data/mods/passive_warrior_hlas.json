@@ -25,7 +25,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Les capacités de haut niveau (HLA) introduites par Throne of Bhaal ajoutent une complexité et une micro-gestion qui vont à l'encontre du rôle des guerriers, des personnages qui sont restés des participants relativement passifs au combat pendant la majorité des 2 jeux.|Ce mod vise à réduire la complexité des HLA des guerriers en les transformant en bonus passifs.",
+      "description": "Les capacités de haut niveau (HLA) introduites par Throne of Bhaal ajoutent une complexité et une micro-gestion qui vont à l'encontre du rôle des guerriers, des personnages qui sont restés des participants relativement passifs au combat pendant la majorité des 2 jeux.\nCe mod vise à réduire la complexité des HLA des guerriers en les transformant en bonus passifs.",
       "components": {
         "0": "Attaque tournoyante et Attaque tournoyante majeure",
         "1": "Coup mortel et Coup mortel majeur",
@@ -36,10 +36,10 @@
       }
     },
     "en_US": {
-      "description": "The high-level abilities (HLAs) introduced by Throne of Bhaal add a complexity and micromanagement that runs counter to the role of fighters, characters who have remained relatively passive participants in combat for the majority of the 2 games.|This mod aims to reduce the complexity of fighter HLAs by transforming them into passive bonuses."
+      "description": "The high-level abilities (HLAs) introduced by Throne of Bhaal add a complexity and micromanagement that runs counter to the role of fighters, characters who have remained relatively passive participants in combat for the majority of the 2 games.\nThis mod aims to reduce the complexity of fighter HLAs by transforming them into passive bonuses."
     },
     "zh_CN": {
-      "description": "巴尔王座引入的高级能力（HLA）增加了复杂性和微管理，这与战士的角色相悖，因为在两款游戏中，战士大部分时间都是战斗中相对被动的参与者。|此模组旨在通过将战士的HLA转化为被动奖励来降低其复杂性。"
+      "description": "巴尔王座引入的高级能力（HLA）增加了复杂性和微管理，这与战士的角色相悖，因为在两款游戏中，战士大部分时间都是战斗中相对被动的参与者。\n此模组旨在通过将战士的HLA转化为被动奖励来降低其复杂性。"
     }
   },
   "tp2": "passive_warrior_hlas",

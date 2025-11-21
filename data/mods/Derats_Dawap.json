@@ -77,7 +77,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Au menu, uniquement pour les jeux EE, des dizaines d'arcanistes qui vous feront changer votre façon de jouer.||Le détail des kits est disponible en suivant le lien de téléchargement.",
+      "description": "Au menu, uniquement pour les jeux EE, des dizaines d'arcanistes qui vous feront changer votre façon de jouer.\n\nLe détail des kits est disponible en suivant le lien de téléchargement.",
       "components": {
         "19": "Fleau (mage)",
         "109": "Enrage (mage)",
@@ -152,10 +152,10 @@
       }
     },
     "en_US": {
-      "description": "On the menu, for EE games only, are dozens of arcanists who will change the way you play.||Kit details are available by following the download link."
+      "description": "On the menu, for EE games only, are dozens of arcanists who will change the way you play.\n\nKit details are available by following the download link."
     },
     "zh_CN": {
-      "description": "菜单上，仅限EE游戏，数十名奥术师将改变你的游戏方式。||宗派的详细信息可在下载链接中找到。"
+      "description": "菜单上，仅限EE游戏，数十名奥术师将改变你的游戏方式。\n\n宗派的详细信息可在下载链接中找到。"
     }
   },
   "tp2": "derats_dawap",

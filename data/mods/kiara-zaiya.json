@@ -30,7 +30,7 @@
   },
   "translations": {
     "en_US": {
-      "description": "This mod adds 2 new female characters, a Chaotic Good half-elven wild mage (Zaiya) and an Neutral Evil human monk (Kiara). Interactions galore, new enemies, a readjustment of the monks' high-level abilities, improved combat against the golem in the Arnise dungeon and the battles in chapters 2 and 6 against Amaralis (in the same vein as those in Tactics or Ascension for the one in chapter 6), not to mention characters with special abilities and equipment. Last but not least, the icing on the cake is a romance with Kiara that may lead to her redemption. The romances are sometimes quite daring (Zaiya romances Cernd).|Zaiya : STR 9, DEX 16, CON 16, INT 17, WIS 15, CHA 10.|Kiara : STR 14, DEX 17, CON 12, INT 15, WIS 10, CHA 16.",
+      "description": "This mod adds 2 new female characters, a Chaotic Good half-elven wild mage (Zaiya) and an Neutral Evil human monk (Kiara). Interactions galore, new enemies, a readjustment of the monks' high-level abilities, improved combat against the golem in the Arnise dungeon and the battles in chapters 2 and 6 against Amaralis (in the same vein as those in Tactics or Ascension for the one in chapter 6), not to mention characters with special abilities and equipment. Last but not least, the icing on the cake is a romance with Kiara that may lead to her redemption. The romances are sometimes quite daring (Zaiya romances Cernd).\nZaiya : STR 9, DEX 16, CON 16, INT 17, WIS 15, CHA 10.\nKiara : STR 14, DEX 17, CON 12, INT 15, WIS 10, CHA 16.",
       "components": {
         "0": "Kiara-Zaiya for BG2 SOA",
         "1": "Custom Kiara-Zaiya soundset (available separately).",
@@ -43,7 +43,7 @@
       }
     },
     "fr_FR": {
-      "description": "Ce mod ajoute 2 nouveaux personnages féminins, une demi-elfe entropiste chaotique bonne (Zaiya) et une moniale neutre mauvaise (Kiara). Des interactions à foison, de nouveaux ennemis, un réajustement des capacités de haut-niveau des moines, une amélioration du combat contre le golem dans le donjon de'Arnise et des combats des chapitres 2 et 6 contre Amaralis (dans la même veine que ceux de Tactics ou d'Ascension pour celui du chapitre 6), sans oublier des personnages avec des capacités et un équipement spéciaux. Enfin, la cerise sur le gâteau, une romance avec Kiara qui pourra peut-être l'amener à la rédemption. Les romances sont parfois très osées (Zaiya romancera Cernd).|Zaiya : FOR 9, DEX 16, CON 16, INT 17, SAG 15, CHA 10.|Kiara : FOR 14, DEX 17, CON 12, INT 15, SAG 10, CHA 16.",
+      "description": "Ce mod ajoute 2 nouveaux personnages féminins, une demi-elfe entropiste chaotique bonne (Zaiya) et une moniale neutre mauvaise (Kiara). Des interactions à foison, de nouveaux ennemis, un réajustement des capacités de haut-niveau des moines, une amélioration du combat contre le golem dans le donjon de'Arnise et des combats des chapitres 2 et 6 contre Amaralis (dans la même veine que ceux de Tactics ou d'Ascension pour celui du chapitre 6), sans oublier des personnages avec des capacités et un équipement spéciaux. Enfin, la cerise sur le gâteau, une romance avec Kiara qui pourra peut-être l'amener à la rédemption. Les romances sont parfois très osées (Zaiya romancera Cernd).\nZaiya : FOR 9, DEX 16, CON 16, INT 17, SAG 15, CHA 10.\nKiara : FOR 14, DEX 17, CON 12, INT 15, SAG 10, CHA 16.",
       "components": {
         "choice_0": "Kiara-Zaiya pour BG2",
         "0": "Kiara-Zaiya pour BG2 avec les packs de voix du jeu",
@@ -58,7 +58,7 @@
     },
     "ru_RU": {"components": {"0": "Kiara-Zaiya for BG2 SOA", "1": "Custom Kiara-Zaiya soundset (available separately).", "2": "Alternate High level abilities by TG Maestro", "3": "Original Amaralis battles", "4": "Tougher Kiara vampire", "5": "Revised Suldanessellar", "6": "Jao and party for SOA: another tough fight", "7": "Tougher Irenicus at the tree of life"}},
     "zh_CN": {
-      "description": "此模组添加了2个新的女性角色，一位混乱善良的狂乱法师半精灵（扎伊娅）和一位中立邪恶的修女（凯拉）。有大量的互动、新的敌人、对武僧高级能力的重新调整、对德阿尼斯堡魔像战斗的改进，以及第二章和第六章与阿玛拉莉斯的战斗（与Tactics或第六章的Ascension类似），更不用说拥有特殊能力和装备的角色了。最后，点睛之笔，是与凯拉的浪漫关系，也许能让她得到救赎。浪漫关系有时会很大胆（扎伊娅会与瑟恩发展浪漫关系）。|扎伊娅：力量 9，敏捷 16，体质 16，智力 17，智慧 15，魅力 10。|凯拉：力量 14，敏捷 17，体质 12，智力 15，智慧 10，魅力 16。"
+      "description": "此模组添加了2个新的女性角色，一位混乱善良的狂乱法师半精灵（扎伊娅）和一位中立邪恶的修女（凯拉）。有大量的互动、新的敌人、对武僧高级能力的重新调整、对德阿尼斯堡魔像战斗的改进，以及第二章和第六章与阿玛拉莉斯的战斗（与Tactics或第六章的Ascension类似），更不用说拥有特殊能力和装备的角色了。最后，点睛之笔，是与凯拉的浪漫关系，也许能让她得到救赎。浪漫关系有时会很大胆（扎伊娅会与瑟恩发展浪漫关系）。\n扎伊娅：力量 9，敏捷 16，体质 16，智力 17，智慧 15，魅力 10。\n凯拉：力量 14，敏捷 17，体质 12，智力 15，智慧 10，魅力 16。"
     }
   },
   "tp2": "kiara-zaiya",

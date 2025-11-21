@@ -291,7 +291,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Ce mod permet de faire mille et un petits ajustements au jeu. Vous pouvez faire des changements purement esthétiques (comme masquer les casques sur les avatars, utiliser les incantations visuelles d'Icewind Dale, ...), faire des changements aux règles (suppression de la limite d'XP, changement des tables d'expériences, lancement de sorts en armures) et assouplir certains mécanismes du jeu (empilement illimité de munitions, multi-romances, ...).|Il remplace complètement les anciens mods BG Tweaks, BG2 Tweaks Pack, G3 Tweaks, Tutu Tweak Pack, Ease-of-Use Mod Collection, IWD Tweak Pack, Icewind Dale II Tweak et Planescape: Torment Tweak.",
+      "description": "Ce mod permet de faire mille et un petits ajustements au jeu. Vous pouvez faire des changements purement esthétiques (comme masquer les casques sur les avatars, utiliser les incantations visuelles d'Icewind Dale, ...), faire des changements aux règles (suppression de la limite d'XP, changement des tables d'expériences, lancement de sorts en armures) et assouplir certains mécanismes du jeu (empilement illimité de munitions, multi-romances, ...).\nIl remplace complètement les anciens mods BG Tweaks, BG2 Tweaks Pack, G3 Tweaks, Tutu Tweak Pack, Ease-of-Use Mod Collection, IWD Tweak Pack, Icewind Dale II Tweak et Planescape: Torment Tweak.",
       "components": {
         "0": "Batch Installer (Installation groupee) -- EXPERIMENTAL, utilisez à vos propres risques et perils. Vérifiez le readme.",
         "10": "Masquer les casques sur les avatars",
@@ -800,7 +800,7 @@
       "description": "This mod allows you to make a thousand and one small adjustments to the game. You can make purely aesthetic changes (such as masking helmets on avatars, using Icewind Dale's visual incantations, ...), make rule changes (removing the XP limit, changing experience tables, casting spells in armor) and relax certain game mechanics (unlimited ammo stacking, multi-romance, ...).It completely replaces the previous mods BG Tweaks, BG2 Tweaks Pack, G3 Tweaks, Tutu Tweak Pack, Ease-of-Use Mod Collection, IWD Tweak Pack, Icewind Dale II Tweak and Planescape: Torment Tweak."
     },
     "zh_CN": {
-      "description": "这个模组可以对游戏进行一千零一个小调整。你可以进行纯粹的美观更改（例如在头像上隐藏头盔，使用冰风谷的视觉咒语……），进行规则更改（移除经验值上限，更改经验值表，穿着盔甲施法），并放宽游戏的某些机制（弹药无限堆叠，多重恋爱……）。|它完全取代了旧的博德之门微调、BG2 Tweaks Pack、G3微调、Tutu Tweak Pack、Ease-of-Use Mod Collection、IWD Tweak Pack、冰风谷2微调和异度风景：苦难微调等模组。"
+      "description": "这个模组可以对游戏进行一千零一个小调整。你可以进行纯粹的美观更改（例如在头像上隐藏头盔，使用冰风谷的视觉咒语……），进行规则更改（移除经验值上限，更改经验值表，穿着盔甲施法），并放宽游戏的某些机制（弹药无限堆叠，多重恋爱……）。\n它完全取代了旧的博德之门微调、BG2 Tweaks Pack、G3微调、Tutu Tweak Pack、Ease-of-Use Mod Collection、IWD Tweak Pack、冰风谷2微调和异度风景：苦难微调等模组。"
     }
   },
   "tp2": "cdtweaks",

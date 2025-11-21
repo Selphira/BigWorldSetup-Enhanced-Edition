@@ -31,7 +31,7 @@
       "description": "This mod introduces a large number of weapons and accessories from the Planescape universe into the Baldur's Gate series. Several items from Planescape: Torment have been slightly modified to fit in better with the BG series, as items from the Planescape universe are generally more powerful and unique than their counterparts from the Forgotten Realms."
     },
     "fr_FR": {
-      "description": "Ce mod introduit un grand nombre d'armes et d'accessoires de l'univers Planescape dans la série Baldur's Gate. Les objets peuvent être achetés auprès d'un marchand ambulant qui est disponible tout au long du jeu.|Plusieurs objets de Planescape : Torment ont été légèrement modifiés pour mieux s'intégrer à la série BG car les objets de l'univers de Planescape sont généralement plus puissants et uniques que leurs équivalents des Royaumes oubliés.",
+      "description": "Ce mod introduit un grand nombre d'armes et d'accessoires de l'univers Planescape dans la série Baldur's Gate. Les objets peuvent être achetés auprès d'un marchand ambulant qui est disponible tout au long du jeu.\nPlusieurs objets de Planescape : Torment ont été légèrement modifiés pour mieux s'intégrer à la série BG car les objets de l'univers de Planescape sont généralement plus puissants et uniques que leurs équivalents des Royaumes oubliés.",
       "components": {
         "0": "Marchandises venues des plans",
         "100": "Identifier tous les objets du mod (non recommandé)",
@@ -39,7 +39,7 @@
       }
     },
     "zh_CN": {
-      "description": "这个模组将大量来自异度风景宇宙的武器和配件引入到博德之门系列中。物品可以从一个在游戏过程中一直可用的流动商人那里购买。|为了更好地融入博德之门系列，《异度风景：苦难》中的几个物品被略微修改，因为异度风景宇宙的物品通常比被遗忘的国度中的同类物品更强大和独特。"
+      "description": "这个模组将大量来自异度风景宇宙的武器和配件引入到博德之门系列中。物品可以从一个在游戏过程中一直可用的流动商人那里购买。\n为了更好地融入博德之门系列，《异度风景：苦难》中的几个物品被略微修改，因为异度风景宇宙的物品通常比被遗忘的国度中的同类物品更强大和独特。"
     }
   },
   "tp2": "a7-waresoftheplanes",

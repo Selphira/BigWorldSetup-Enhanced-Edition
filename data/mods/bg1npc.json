@@ -102,10 +102,10 @@
         "240": "Kivan uses spears",
         "241": "Kivan uses halberds"
       },
-      "description": "This mod provides character interaction on a par with Baldur's Gate II. Due to the different technical capabilities of Baldur's Gate and its little brother, the mod can only work with Baldur's Gate II, making it mandatory to install BG1Tutu or Baldur's Gate Trilogy in order to enjoy it, or an EE game.|It develops relationships between the main character and his teammates or between members of the party for all Baldur's Gate recruitable characters, as well as romances for Ajantis, Branwen, Coran, Dynahéir, Shar-Teel and Xan. To take full advantage of this, you'll also need to download and install the BG1 NPC Project Music Pack mod (to be installed after BG1 NPC Project)."
+      "description": "This mod provides character interaction on a par with Baldur's Gate II. Due to the different technical capabilities of Baldur's Gate and its little brother, the mod can only work with Baldur's Gate II, making it mandatory to install BG1Tutu or Baldur's Gate Trilogy in order to enjoy it, or an EE game.\nIt develops relationships between the main character and his teammates or between members of the party for all Baldur's Gate recruitable characters, as well as romances for Ajantis, Branwen, Coran, Dynahéir, Shar-Teel and Xan. To take full advantage of this, you'll also need to download and install the BG1 NPC Project Music Pack mod (to be installed after BG1 NPC Project)."
     },
     "fr_FR": {
-      "description": "Ce mod apporte une interaction des personnages tout à fait comparable à celle de Baldur's Gate II. En raison des différences de capacités techniques de Baldur's Gate et de son petit frère, le mod ne peut fonctionner qu'avec Baldur's Gate II, ce qui rend obligatoire l'installation de BG1Tutu ou de Baldur's Gate Trilogy afin d'en profiter, ou d'un jeu EE.|Il développe les relations entre le personnage principal et ses équipiers ou entre membres du groupe pour tous les personnages recrutables de Baldur's Gate, ainsi que des romances pour Ajantis, Branwen, Coran, Dynahéir, Shar-Teel et Xan. Certains personnages ont aussi une quête personnelle à accomplir, et tous ajoutent aussi leur grain de sel dans les discussions avec les personnages que le groupe rencontre.|Pour en bénéficier pleinement, il vous faudra également télécharger et installer le mod BG1 NPC Project Music Pack (à installer après BG1 NPC Project).",
+      "description": "Ce mod apporte une interaction des personnages tout à fait comparable à celle de Baldur's Gate II. En raison des différences de capacités techniques de Baldur's Gate et de son petit frère, le mod ne peut fonctionner qu'avec Baldur's Gate II, ce qui rend obligatoire l'installation de BG1Tutu ou de Baldur's Gate Trilogy afin d'en profiter, ou d'un jeu EE.\nIl développe les relations entre le personnage principal et ses équipiers ou entre membres du groupe pour tous les personnages recrutables de Baldur's Gate, ainsi que des romances pour Ajantis, Branwen, Coran, Dynahéir, Shar-Teel et Xan. Certains personnages ont aussi une quête personnelle à accomplir, et tous ajoutent aussi leur grain de sel dans les discussions avec les personnages que le groupe rencontre.\nPour en bénéficier pleinement, il vous faudra également télécharger et installer le mod BG1 NPC Project Music Pack (à installer après BG1 NPC Project).",
       "components": {
         "0": "BG1 NPC Project : modifications necessaires",
         "10": "BG1 NPC Project : bavardages, quetes et interjections",
@@ -168,7 +168,7 @@
       }
     },
     "zh_CN": {
-      "description": "这个模组带来了与博德之门II完全可比的角色互动。由于博德之门及其“弟弟”在技术能力上的差异，该模组只能在博德之门II上运行，因此必须安装 BG1Tutu 或博德之门三部曲才能使用它，或者安装一个 EE 版游戏。||它发展了主角与其队友或队伍成员之间的关系，涵盖了博德之门中所有可招募的角色，并为阿詹提斯、布朗温、科朗、戴娜黑、莎儿-蒂尔和撒恩提供了恋爱线。一些角色还有个人任务要完成，并且所有角色在与队伍遇到的角色的对话中也会发表自己的看法。||要充分利用它，您还需要下载并安装模组 BG1 NPC Project Music Pack（在 BG1 NPC Project 之后安装）。"
+      "description": "这个模组带来了与博德之门II完全可比的角色互动。由于博德之门及其“弟弟”在技术能力上的差异，该模组只能在博德之门II上运行，因此必须安装 BG1Tutu 或博德之门三部曲才能使用它，或者安装一个 EE 版游戏。\n\n它发展了主角与其队友或队伍成员之间的关系，涵盖了博德之门中所有可招募的角色，并为阿詹提斯、布朗温、科朗、戴娜黑、莎儿-蒂尔和撒恩提供了恋爱线。一些角色还有个人任务要完成，并且所有角色在与队伍遇到的角色的对话中也会发表自己的看法。\n\n要充分利用它，您还需要下载并安装模组 BG1 NPC Project Music Pack（在 BG1 NPC Project 之后安装）。"
     }
   },
   "tp2": "bg1npc",

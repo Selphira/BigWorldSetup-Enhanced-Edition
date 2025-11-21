@@ -21,7 +21,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Alabaster Sands est un petit mod de quête de la série The Athkatlan Grounds, qui ajoute de nouvelles zones et quêtes à la ville principale de Shadow of Amn. Il y a une quête principale, et quelques autres plus petites, toutes orientées autour de la zone titrée, qui n'est rien d'autre que la plage publique d'Athkatla. Visitez donc l'endroit, aidez ceux que vous y rencontrerez et découvrez cette nouvelle partie de la cité de la monnaie.|Le mod ajoute 7 nouvelles quêtes qui introduisent de nouveaux personnages, objets et graphismes d'objets.",
+      "description": "Alabaster Sands est un petit mod de quête de la série The Athkatlan Grounds, qui ajoute de nouvelles zones et quêtes à la ville principale de Shadow of Amn. Il y a une quête principale, et quelques autres plus petites, toutes orientées autour de la zone titrée, qui n'est rien d'autre que la plage publique d'Athkatla. Visitez donc l'endroit, aidez ceux que vous y rencontrerez et découvrez cette nouvelle partie de la cité de la monnaie.\nLe mod ajoute 7 nouvelles quêtes qui introduisent de nouveaux personnages, objets et graphismes d'objets.",
       "components": {
         "choice_0": "Les Sables d'Albâtre : la nouvelle zone d'Athkatla",
         "0": "Oui, mais sans corriger les sauvegardes existantes.",
@@ -29,10 +29,10 @@
       }
     },
     "en_US": {
-      "description": "Alabaster Sands is a small quest mod from the Athkatlan Grounds quest mod series, which adds new areas and quests to Shadow of Amn's main city location. There is one main quest, and a few smaller ones, all oriented around the titular area, which is nothing else but Athkatla's public beach. So visit the place, help those you'll meet there, and see this brand new part of the City of Coin.|The mod adds 7 new quests that introduce new characters, items, and item graphics."
+      "description": "Alabaster Sands is a small quest mod from the Athkatlan Grounds quest mod series, which adds new areas and quests to Shadow of Amn's main city location. There is one main quest, and a few smaller ones, all oriented around the titular area, which is nothing else but Athkatla's public beach. So visit the place, help those you'll meet there, and see this brand new part of the City of Coin.\nThe mod adds 7 new quests that introduce new characters, items, and item graphics."
     },
     "zh_CN": {
-      "description": "阿拉巴斯特沙地是《阿斯卡特拉大地》系列的一个小型任务模组，为安姆阴影的主城添加了新区域和任务。有一个主要任务，还有几个较小的任务，都围绕着标题区域展开，那不过是阿斯卡特拉的公共海滩。所以，去那里吧，帮助你在那里遇到的人，发现这座货币之城的新部分。|该模组添加了7个新任务，引入了新角色、物品和物品图形。"
+      "description": "阿拉巴斯特沙地是《阿斯卡特拉大地》系列的一个小型任务模组，为安姆阴影的主城添加了新区域和任务。有一个主要任务，还有几个较小的任务，都围绕着标题区域展开，那不过是阿斯卡特拉的公共海滩。所以，去那里吧，帮助你在那里遇到的人，发现这座货币之城的新部分。\n该模组添加了7个新任务，引入了新角色、物品和物品图形。"
     }
   },
   "tp2": "alabastersands",

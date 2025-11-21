@@ -24,16 +24,16 @@
       "components": {
         "100": "add access to the Black Pits in BGEE/EET"
       },
-      "description": "Go to the Black Pits during the BG1 campaign, for BGEE, SoD and EET.||This mod adds a few lines of dialog when you first meet Baeloth in BGEE.||If you choose one of the new lines of dialog, then the story changes; Baeloth is on the surface for a recruitment campaign, looking for a group of heroes||It's highly recommended not to go to the Black Pits before level 5, or even level 7. The final battles can be particularly difficult."
+      "description": "Go to the Black Pits during the BG1 campaign, for BGEE, SoD and EET.\n\nThis mod adds a few lines of dialog when you first meet Baeloth in BGEE.\n\nIf you choose one of the new lines of dialog, then the story changes; Baeloth is on the surface for a recruitment campaign, looking for a group of heroes\n\nIt's highly recommended not to go to the Black Pits before level 5, or even level 7. The final battles can be particularly difficult."
     },
     "fr_FR": {
-      "description": "Rendez vous dans les Fosses Noires pendant la campagne de BG1, pour BGEE, SoD et EET.||Ce mod ajoute quelques lignes de dialogue lors de votre première rencontre avec Baeloth dans BGEE.||Si vous choisissez une des nouvelles lignes de dialogue, alors l'histoire est modifiée ; Baeloth est à la surface pour une campagne de recrutement, à la recherche d'un groupe de héros||Il est vivement recommandé de ne pas vous rendre aux Fosses noires avant le niveau 5, voire le niveau 7. Les derniers combats peuvent être particulièrement difficiles.",
+      "description": "Rendez vous dans les Fosses Noires pendant la campagne de BG1, pour BGEE, SoD et EET.\n\nCe mod ajoute quelques lignes de dialogue lors de votre première rencontre avec Baeloth dans BGEE.\n\nSi vous choisissez une des nouvelles lignes de dialogue, alors l'histoire est modifiée ; Baeloth est à la surface pour une campagne de recrutement, à la recherche d'un groupe de héros\n\nIl est vivement recommandé de ne pas vous rendre aux Fosses noires avant le niveau 5, voire le niveau 7. Les derniers combats peuvent être particulièrement difficiles.",
       "components": {
         "100": "Ajouter l'acces aux Fosses noires dans BGEE / EET"
       }
     },
     "zh_CN": {
-      "description": "在博德之门I战役期间，前往黑坑，适用于博德之门增强版、龙矛围攻和增强版三部曲。||此模组在您第一次与贝洛斯在博德之门增强版中相遇时添加了几行对话。||如果您选择其中一条新的对话线，那么故事将被改变；贝洛斯来到地表是为了招募，寻找一群英雄||强烈建议您不要在5级之前，甚至7级之前前往黑坑。最后的战斗可能会特别困难。"
+      "description": "在博德之门I战役期间，前往黑坑，适用于博德之门增强版、龙矛围攻和增强版三部曲。\n\n此模组在您第一次与贝洛斯在博德之门增强版中相遇时添加了几行对话。\n\n如果您选择其中一条新的对话线，那么故事将被改变；贝洛斯来到地表是为了招募，寻找一群英雄\n\n强烈建议您不要在5级之前，甚至7级之前前往黑坑。最后的战斗可能会特别困难。"
     }
   },
   "tp2": "bp_in_bg",

@@ -22,7 +22,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Ce mod est l'embryon d'un projet ambitieux qui voulait répondre aux questions suivantes : pourquoi personne n'a pris le contrôle de la forteresse gnoll ? Pourquoi les seuls quêtes spécifiques à la classe du protagoniste sont-elles données par Narlen Marchombre ? Pourquoi la quête de Mélicamp n'est-elle pas plus développée ?|La réponse fut de développer des quêtes spécifiques à chaque classe. Pour l'instant, une seule, celle du mage, est terminée et est donc ouverte à tous les joueurs en attendant que le mod s'étoffe.|Deux autres composants permettent de résoudre pacifiquement le conflit dans l'île des loups-garous et d'installer le composant `Pack d'objets exotiques` (autrefois partie de Sword Coast Stratagems).",
+      "description": "Ce mod est l'embryon d'un projet ambitieux qui voulait répondre aux questions suivantes : pourquoi personne n'a pris le contrôle de la forteresse gnoll ? Pourquoi les seuls quêtes spécifiques à la classe du protagoniste sont-elles données par Narlen Marchombre ? Pourquoi la quête de Mélicamp n'est-elle pas plus développée ?\nLa réponse fut de développer des quêtes spécifiques à chaque classe. Pour l'instant, une seule, celle du mage, est terminée et est donc ouverte à tous les joueurs en attendant que le mod s'étoffe.\nDeux autres composants permettent de résoudre pacifiquement le conflit dans l'île des loups-garous et d'installer le composant `Pack d'objets exotiques` (autrefois partie de Sword Coast Stratagems).",
       "components": {
         "0": "The Calling (L'appel)",
         "20": "Resolution pacifique a l'ile des loups-garous",
@@ -30,10 +30,10 @@
       }
     },
     "en_US": {
-      "description": "This mod was the embryo of an ambitious project that sought to answer the following questions: why has no one taken control of the Gnoll fortress? Why are the only quests specific to the protagonist's class given by Narlen Marchombre? The answer was to develop class-specific quests. For the time being, only one, the Mage quest, has been completed, and is therefore open to all players until the mod is fleshed out.|Two other components allow us to peacefully resolve the conflict on Werewolf Island and install the `Pack of Exotic Items` component (formerly part of Sword Coast Stratagems)."
+      "description": "This mod was the embryo of an ambitious project that sought to answer the following questions: why has no one taken control of the Gnoll fortress? Why are the only quests specific to the protagonist's class given by Narlen Marchombre? The answer was to develop class-specific quests. For the time being, only one, the Mage quest, has been completed, and is therefore open to all players until the mod is fleshed out.\nTwo other components allow us to peacefully resolve the conflict on Werewolf Island and install the `Pack of Exotic Items` component (formerly part of Sword Coast Stratagems)."
     },
     "zh_CN": {
-      "description": "这个模组是一个雄心勃勃项目的雏形，旨在回答以下问题：为什么没有人占领半人兽要塞？为什么只有主角的职业专属任务是由纳伦·暗影行者给出的？为什么梅利坎普的任务没有得到更深入的发展？|答案是开发每个职业的专属任务。目前，只有法师的那个已经完成，因此对所有玩家开放，等待模组内容进一步丰富。|另外两个组件允许和平解决狼人岛上的冲突，并安装“异物品组件”（曾经是Sword Coast Stratagems的一部分）。"
+      "description": "这个模组是一个雄心勃勃项目的雏形，旨在回答以下问题：为什么没有人占领半人兽要塞？为什么只有主角的职业专属任务是由纳伦·暗影行者给出的？为什么梅利坎普的任务没有得到更深入的发展？\n答案是开发每个职业的专属任务。目前，只有法师的那个已经完成，因此对所有玩家开放，等待模组内容进一步丰富。\n另外两个组件允许和平解决狼人岛上的冲突，并安装“异物品组件”（曾经是Sword Coast Stratagems的一部分）。"
     }
   },
   "tp2": "thecalling",

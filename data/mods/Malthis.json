@@ -20,16 +20,16 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Malthis est un bretteur chaotique bon que vous pouvez trouver près de Cromwell. Il n'est pas comme les autres et porte un lourd secret. Ses caractéristiques et son alignement vont dépendre de vous. Saurez-vous l'adopter et l'aider dans sa guerre contre une sombre organisation ?|Comme le site hébergeant le mod a disparu (rosenranken.org), le lien renvoie à un compte GitHub d'hébergement temporaire.|FOR 17, DEX 18, CON 17, INT 10, SAG 11, CHA 11.",
+      "description": "Malthis est un bretteur chaotique bon que vous pouvez trouver près de Cromwell. Il n'est pas comme les autres et porte un lourd secret. Ses caractéristiques et son alignement vont dépendre de vous. Saurez-vous l'adopter et l'aider dans sa guerre contre une sombre organisation ?\nComme le site hébergeant le mod a disparu (rosenranken.org), le lien renvoie à un compte GitHub d'hébergement temporaire.\nFOR 17, DEX 18, CON 17, INT 10, SAG 11, CHA 11.",
       "components": {
         "0": "Malthis, le bretteur!"
       }
     },
     "en_US": {
-      "description": "Malthis is a chaotic good Swashbuckler who can be found near Cromwell. He's not like the others and carries a dark secret. His characteristics and alignment will depend on you. Will you be able to adopt him and help him in his war against a dark organization?|As the site hosting the mod has disappeared (rosenranken.org), the link goes to a temporary hosting GitHub account.|STR 17, DEX 18, CON 17, INT 10, WIS 11, CHA 11."
+      "description": "Malthis is a chaotic good Swashbuckler who can be found near Cromwell. He's not like the others and carries a dark secret. His characteristics and alignment will depend on you. Will you be able to adopt him and help him in his war against a dark organization?\nAs the site hosting the mod has disappeared (rosenranken.org), the link goes to a temporary hosting GitHub account.\nSTR 17, DEX 18, CON 17, INT 10, WIS 11, CHA 11."
     },
     "zh_CN": {
-      "description": "Malthis是一个守序善良的游荡剑客，你可以在Cromwell附近找到他。他与众不同，背负着一个沉重的秘密。他的属性和阵营将取决于你。你会接纳他，并在他与一个黑暗组织的战争中帮助他吗？|由于托管该模组的网站（rosenranken.org）已消失，链接指向一个临时的GitHub托管账户。|力量17，敏捷18，体质17，智力10，智慧11，魅力11。"
+      "description": "Malthis是一个守序善良的游荡剑客，你可以在Cromwell附近找到他。他与众不同，背负着一个沉重的秘密。他的属性和阵营将取决于你。你会接纳他，并在他与一个黑暗组织的战争中帮助他吗？\n由于托管该模组的网站（rosenranken.org）已消失，链接指向一个临时的GitHub托管账户。\n力量17，敏捷18，体质17，智力10，智慧11，魅力11。"
     }
   },
   "tp2": "malthis",

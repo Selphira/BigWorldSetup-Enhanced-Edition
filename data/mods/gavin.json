@@ -46,10 +46,10 @@
         "9": "Dragon Age style portrait by berelinde",
         "10": "Gavin: Player Initiated Dialogue"
       },
-      "description": "This mod adds a romanticizable Cleric of Lathander for all PJs regardless of race or alignment (although it won't romanticize assassins). Gavin is talkative, idealistic, a bit of a coward, romantic, awkward and a Lathandrite. His difficult past haunts him, and his reasons for accompanying you on this adventure (apart from the usual desire for a better world) will gradually become clear to you... Banters, interjections and a little quest in Beregost. Meet him at the Temple of the Morning Song, not far from Beregost.|STR 16, DEX 12, CON 16, INT 12, WIS 17, CHA 12."
+      "description": "This mod adds a romanticizable Cleric of Lathander for all PJs regardless of race or alignment (although it won't romanticize assassins). Gavin is talkative, idealistic, a bit of a coward, romantic, awkward and a Lathandrite. His difficult past haunts him, and his reasons for accompanying you on this adventure (apart from the usual desire for a better world) will gradually become clear to you... Banters, interjections and a little quest in Beregost. Meet him at the Temple of the Morning Song, not far from Beregost.\nSTR 16, DEX 12, CON 16, INT 12, WIS 17, CHA 12."
     },
     "fr_FR": {
-      "description": "Ce mod ajoute un clerc de Lathandre romançable pour tous les PJs quels que soient leur race et leur alignement (bien qu'il ne romancera pas les assassins). Gavin est bavard, idéaliste, un peu trouillard, romantique, maladroit et lathandrite. Son passé difficile le hante et ses raisons de vous accompagner sur les routes de l'aventure (hormis les habituels désirs d'un monde meilleur) vous apparaîtront petit à petit... Banters, interjections et une petite quête dans Bérégost. Retrouvez-le au Temple de la Chanson du Matin, non loin de Bérégost.|FOR 16, DEX 12, CON 16, INT 12, SAG 17, CHA 12.",
+      "description": "Ce mod ajoute un clerc de Lathandre romançable pour tous les PJs quels que soient leur race et leur alignement (bien qu'il ne romancera pas les assassins). Gavin est bavard, idéaliste, un peu trouillard, romantique, maladroit et lathandrite. Son passé difficile le hante et ses raisons de vous accompagner sur les routes de l'aventure (hormis les habituels désirs d'un monde meilleur) vous apparaîtront petit à petit... Banters, interjections et une petite quête dans Bérégost. Retrouvez-le au Temple de la Chanson du Matin, non loin de Bérégost.\nFOR 16, DEX 12, CON 16, INT 12, SAG 17, CHA 12.",
       "components": {
         "0": "Gavin NPC pour Tutu, BGT et BG:EE",
         "choice_0": "Gavin : Romance (contenu pour adultes)",
@@ -71,7 +71,7 @@
       }
     },
     "zh_CN": {
-      "description": "此模组添加了一位可恋爱的洛山达牧师，对所有种族和阵营的玩家角色开放（尽管他不会与刺客恋爱）。加文健谈、理想主义、有点胆小、浪漫、笨拙且是洛山达的信徒。他痛苦的过去萦绕着他，他陪伴你踏上冒险之路的原因（除了通常的渴望更美好的世界的愿望）将逐渐显现……伙伴闲聊、插话以及在贝尔苟斯特的一个小任务。在贝尔苟斯特附近的晨歌神殿找到他。|力量16，敏捷12，体质16，智力12，智慧17，魅力12。"
+      "description": "此模组添加了一位可恋爱的洛山达牧师，对所有种族和阵营的玩家角色开放（尽管他不会与刺客恋爱）。加文健谈、理想主义、有点胆小、浪漫、笨拙且是洛山达的信徒。他痛苦的过去萦绕着他，他陪伴你踏上冒险之路的原因（除了通常的渴望更美好的世界的愿望）将逐渐显现……伙伴闲聊、插话以及在贝尔苟斯特的一个小任务。在贝尔苟斯特附近的晨歌神殿找到他。\n力量16，敏捷12，体质16，智力12，智慧17，魅力12。"
     }
   },
   "tp2": "gavin",

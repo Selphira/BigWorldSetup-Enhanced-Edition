@@ -21,7 +21,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Ce mod vous permet de recruter sur les quais cette paladine chasseuse de mort-vivants. Pas de romance et des dialogues embryonnaires, mais quelques banters et une surprise spéciale pour Imoen. Efficace comme tank anti-vampire.|FOR 19, DEX 18, CON 18, INT 8, SAG 15, CHA 17.",
+      "description": "Ce mod vous permet de recruter sur les quais cette paladine chasseuse de mort-vivants. Pas de romance et des dialogues embryonnaires, mais quelques banters et une surprise spéciale pour Imoen. Efficace comme tank anti-vampire.\nFOR 19, DEX 18, CON 18, INT 8, SAG 15, CHA 17.",
       "components": {
         "choice_0": "Summon Bhaalspawn (Sandra NPC)",
         "0": "Installer le portrait de Skie (Portrait original du mod)",
@@ -33,10 +33,10 @@
       }
     },
     "en_US": {
-      "description": "This mod lets you recruit this undead-hunting paladin from the docks. No romance and embryonic dialog, but a few banters and a special surprise for Imoen. Effective as an anti-vampire tank.|STR 19, DEX 18, CON 18, INT 8, WIS 15, CHA 17."
+      "description": "This mod lets you recruit this undead-hunting paladin from the docks. No romance and embryonic dialog, but a few banters and a special surprise for Imoen. Effective as an anti-vampire tank.\nSTR 19, DEX 18, CON 18, INT 8, WIS 15, CHA 17."
     },
     "zh_CN": {
-      "description": "此模组允许你在码头招募这位猎杀不死生物的圣武士。没有爱情线，只有一些初步的对话，但有一些闲聊，以及给爱蒙的一个特殊惊喜。作为吸血鬼坦克非常有效。|力量19，敏捷18，体质18，智力8，智慧15，魅力17。"
+      "description": "此模组允许你在码头招募这位猎杀不死生物的圣武士。没有爱情线，只有一些初步的对话，但有一些闲聊，以及给爱蒙的一个特殊惊喜。作为吸血鬼坦克非常有效。\n力量19，敏捷18，体质18，智力8，智慧15，魅力17。"
     }
   },
   "tp2": "sbs",

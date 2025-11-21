@@ -21,7 +21,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "L'accumulateur (pour les jeux Infinity Engine)||Information|Ce kit apprendra toutes les capacités spéciales des classes et des kits présentes dans le jeu, y compris les capacités de haut niveau ainsi que celles ajoutées par les mods.|La table des capacités est construit au moment de l'installation et est basé sur votre installation actuelle.|Peut être installer sur les Enhanced Editions et sur BG2 original||Ce kit s'installe pour les 3 classes suivantes :|Guerrier, Barde et Druide||Fichier \"config.ini\" présent dans le répertoire du mod :|- définir le niveau (level) maximum / les colonnes à contrôler dans les tables des kits (default = 20)|- active ou désactive l'analyse des fichiers clab, hla ou des mods|- active ou désactive l'installation des kits de guerrier, barde, ou druide|- Le paramètre \"level\" acceptera des valeurs de 1 à 50. Tout autre nombre sera par défaut égal à 20.",
+      "description": "L'accumulateur (pour les jeux Infinity Engine)\n\nInformation\nCe kit apprendra toutes les capacités spéciales des classes et des kits présentes dans le jeu, y compris les capacités de haut niveau ainsi que celles ajoutées par les mods.\nLa table des capacités est construit au moment de l'installation et est basé sur votre installation actuelle.\nPeut être installer sur les Enhanced Editions et sur BG2 original\n\nCe kit s'installe pour les 3 classes suivantes :\nGuerrier, Barde et Druide\n\nFichier \"config.ini\" présent dans le répertoire du mod :\n- définir le niveau (level) maximum / les colonnes à contrôler dans les tables des kits (default = 20)\n- active ou désactive l'analyse des fichiers clab, hla ou des mods\n- active ou désactive l'installation des kits de guerrier, barde, ou druide\n- Le paramètre \"level\" acceptera des valeurs de 1 à 50. Tout autre nombre sera par défaut égal à 20.",
       "components": {
         "99": "Recreer la table des capacites",
         "choice_0": "Installer le Kit \"L'accumulateur\"",
@@ -30,10 +30,10 @@
       }
     },
     "en_US": {
-      "description": "The Accumulator (for Infinity Engine games)||Information|This kit will learn all the special abilities of the classes and kits present in the game, including high-level abilities as well as those added by mods.|The ability table is built at the time of installation and is based on your current installation.|Can be installed on Enhanced Editions and original BG2||This kit installs for the following 3 classes:|Fighter, Bard and Druid||File \"config.ini\" file in the mod directory:|- set maximum level / columns to be checked in kit tables (default = 20)|- enable or disable analysis of clab, hla or mod files|- enable or disable installation of fighter, bard or druid kits|- The \"level\" parameter will accept values from 1 to 50. Any other number will default to 20."
+      "description": "The Accumulator (for Infinity Engine games)\n\nInformation\nThis kit will learn all the special abilities of the classes and kits present in the game, including high-level abilities as well as those added by mods.\nThe ability table is built at the time of installation and is based on your current installation.\nCan be installed on Enhanced Editions and original BG2\n\nThis kit installs for the following 3 classes:\nFighter, Bard and Druid\n\nFile \"config.ini\" file in the mod directory:\n- set maximum level / columns to be checked in kit tables (default = 20)\n- enable or disable analysis of clab, hla or mod files\n- enable or disable installation of fighter, bard or druid kits\n- The \"level\" parameter will accept values from 1 to 50. Any other number will default to 20."
     },
     "zh_CN": {
-      "description": "能力收集器（适用于无限引擎游戏）||信息|此宗派将学会游戏中所有职业和宗派的特殊能力，包括高级能力以及模组添加的能力。|能力表在安装时构建，并基于您当前的安装。|可安装在增强版和原版BG2上||此宗派为以下3个职业安装：|战士，吟游诗人和德鲁伊||模组目录下的 \"config.ini\" 文件：|- 设置最高等级（level）/在宗派表中要控制的列（默认 = 20）|- 启用或禁用对clab、hla文件或模组的分析|- 启用或禁用战士、吟游诗人或德鲁伊宗派的安装|- \"level\" 参数接受1到50的值。任何其他数字将默认为20。|"
+      "description": "能力收集器（适用于无限引擎游戏）\n\n信息\n此宗派将学会游戏中所有职业和宗派的特殊能力，包括高级能力以及模组添加的能力。\n能力表在安装时构建，并基于您当前的安装。\n可安装在增强版和原版BG2上\n\n此宗派为以下3个职业安装：\n战士，吟游诗人和德鲁伊\n\n模组目录下的 \"config.ini\" 文件：\n- 设置最高等级（level）/在宗派表中要控制的列（默认 = 20）\n- 启用或禁用对clab、hla文件或模组的分析\n- 启用或禁用战士、吟游诗人或德鲁伊宗派的安装\n- \"level\" 参数接受1到50的值。任何其他数字将默认为20。\n"
     }
   },
   "tp2": "kitmule",

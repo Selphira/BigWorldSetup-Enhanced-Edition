@@ -29,7 +29,7 @@
       "description": "The Stutter Debug Tool is designed to help debug malfunctioning scripts in the game. For example, if an NPC \"stutters\", i.e. takes only a few steps and constantly interrupts any action, or if the NPC's PID (player-initiated dialog) is repeatedly displayed, or if the game suffers a slowdown that could be caused by a script running in a loop."
     },
     "fr_FR": {
-      "description": "Le Stutter Debug Tool est destiné à aider à déboguer les dysfonctionnements des scripts dans le jeu. Par exemple, si un PNJ \"bégaie\", c'est-à-dire qu'il ne fait que quelques pas et interrompt constamment toute action, ou si le PID (dialogue initié par le joueur) du PNJ s'affiche de manière répétée.|De même, si le jeu subit un ralentissement qui pourrait être causé par un script qui tourne en boucle.",
+      "description": "Le Stutter Debug Tool est destiné à aider à déboguer les dysfonctionnements des scripts dans le jeu. Par exemple, si un PNJ \"bégaie\", c'est-à-dire qu'il ne fait que quelques pas et interrompt constamment toute action, ou si le PID (dialogue initié par le joueur) du PNJ s'affiche de manière répétée.\nDe même, si le jeu subit un ralentissement qui pourrait être causé par un script qui tourne en boucle.",
       "components": {
         "choice_0": "Stutter Debug Tool",
         "1": "Patching de tous les scripts a l'exception des blocs NoAction() - choisissez cette option lors de la premiere installation (l'installation peut prendre un certain temps !)",

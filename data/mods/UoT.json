@@ -20,7 +20,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Ce mod organise des combats d'arène contre de puissantes créatures extra planaires. Le but est simple : vaincre ou mourir ! Le combat contre le grand maître est le seul qui peut vous rapporter des objets.|Quelques puissants objets sont également en vente.",
+      "description": "Ce mod organise des combats d'arène contre de puissantes créatures extra planaires. Le but est simple : vaincre ou mourir ! Le combat contre le grand maître est le seul qui peut vous rapporter des objets.\nQuelques puissants objets sont également en vente.",
       "components": {
         "0": "Umbra of Torto"
       }

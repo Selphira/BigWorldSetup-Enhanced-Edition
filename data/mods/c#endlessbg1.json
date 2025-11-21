@@ -35,7 +35,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Pour les jeux EE, le principal but de ce mod est de donner la possibilité au joueur de rester dans le monde de BG1 après avoir vaincu Sarevok. Pour reprendre la progression (ou la fin) originale du jeu, il faut parler au Duc Belt à l'intérieur du palais.|Dans EET, il donne aussi la possibilité de passer SoD et de commencer directement BG2 (notez que certains mods pour BG2 s'attendent à ce que les événements de SoD se soient produits).|Dans BGT, le composant principal du mod ajoute quelques éloges pour le PJ dans les dialogues avec le Duc Belt et supprime certains éléments faisant référence à Sarevok après sa mort.|Des composants optionnels donnent plus de prestige au PJ et préparent les événements de SoD dans toutes les installations.",
+      "description": "Pour les jeux EE, le principal but de ce mod est de donner la possibilité au joueur de rester dans le monde de BG1 après avoir vaincu Sarevok. Pour reprendre la progression (ou la fin) originale du jeu, il faut parler au Duc Belt à l'intérieur du palais.\nDans EET, il donne aussi la possibilité de passer SoD et de commencer directement BG2 (notez que certains mods pour BG2 s'attendent à ce que les événements de SoD se soient produits).\nDans BGT, le composant principal du mod ajoute quelques éloges pour le PJ dans les dialogues avec le Duc Belt et supprime certains éléments faisant référence à Sarevok après sa mort.\nDes composants optionnels donnent plus de prestige au PJ et préparent les événements de SoD dans toutes les installations.",
       "components": {
         "0": "Endless BG1 : Composant principal (requis)",
         "1": "Plus de prestige pour le Heros de la Porte de Baldur (avec la residence du personnage principal dans le palais)",
@@ -58,10 +58,10 @@
       }
     },
     "en_US": {
-      "description": "For EE games, the main purpose of this mod is to allow players to remain in the BG1 world after defeating Sarevok. To resume the game's original progression (or ending), you need to talk to Duke Belt inside the palace.|In EET, it also gives the option of skipping SoD and starting BG2 directly (note that some mods for BG2 expect SoD events to have occurred).|In BGT, the main mod component adds some praise for the player in dialogs with Duke Belt and removes some references to Sarevok after his death.|Optional components give the player more prestige and prepare for SoD events in all installations."
+      "description": "For EE games, the main purpose of this mod is to allow players to remain in the BG1 world after defeating Sarevok. To resume the game's original progression (or ending), you need to talk to Duke Belt inside the palace.\nIn EET, it also gives the option of skipping SoD and starting BG2 directly (note that some mods for BG2 expect SoD events to have occurred).\nIn BGT, the main mod component adds some praise for the player in dialogs with Duke Belt and removes some references to Sarevok after his death.\nOptional components give the player more prestige and prepare for SoD events in all installations."
     },
     "zh_CN": {
-      "description": "对于EE游戏，此模组的主要目的是让玩家在击败沙洛佛克后，能够继续留在博德之门1的世界中。要恢复（或结束）游戏的原始进程，必须在宫殿内与贝尔特公爵交谈。|在EET中，它还提供了跳过龙矛围攻并直接开始博德之门2的可能性（请注意，一些博德之门2的模组期望龙矛围攻的事件已经发生）。|在BGT中，模组的主要组件在与贝尔特公爵的对话中为玩家角色增加了一些赞誉，并在沙洛佛克死后移除了一些与沙洛佛克相关的元素。|可选组件为玩家角色带来更多名誉，并在所有安装中为龙矛围攻的事件做准备。"
+      "description": "对于EE游戏，此模组的主要目的是让玩家在击败沙洛佛克后，能够继续留在博德之门1的世界中。要恢复（或结束）游戏的原始进程，必须在宫殿内与贝尔特公爵交谈。\n在EET中，它还提供了跳过龙矛围攻并直接开始博德之门2的可能性（请注意，一些博德之门2的模组期望龙矛围攻的事件已经发生）。\n在BGT中，模组的主要组件在与贝尔特公爵的对话中为玩家角色增加了一些赞誉，并在沙洛佛克死后移除了一些与沙洛佛克相关的元素。\n可选组件为玩家角色带来更多名誉，并在所有安装中为龙矛围攻的事件做准备。"
     }
   },
   "tp2": "c#endlessbg1",

@@ -21,7 +21,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Ce mod vous permet d'installer un nouveau profil de guerrier spécialisé dans la protection d'autrui.|Un composant optionnel permet d'attribuer le profil d'officier de la milice à Khalid.",
+      "description": "Ce mod vous permet d'installer un nouveau profil de guerrier spécialisé dans la protection d'autrui.\nUn composant optionnel permet d'attribuer le profil d'officier de la milice à Khalid.",
       "components": {
         "0": "Installer le profil d'Officier de la milice pour guerriers.",
         "1": "Khalid, Officier de la milice."
@@ -31,7 +31,7 @@
       "description": "This mod installs a new fighter kit specialized in the protection of others; an optional component assigns the militia officer profile to Khalid."
     },
     "zh_CN": {
-      "description": "此模组允许你安装一个新的战士配置文件，专门从事保护他人。|一个可选组件可以将Khalid分配为民兵军官的配置文件。"
+      "description": "此模组允许你安装一个新的战士配置文件，专门从事保护他人。\n一个可选组件可以将Khalid分配为民兵军官的配置文件。"
     }
   },
   "tp2": "militiaofficer",

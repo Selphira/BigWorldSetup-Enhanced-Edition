@@ -32,7 +32,7 @@
     },
     "ru_RU": {"components": {"choice_0": "Couleurs de l'Infini - La Reine Blanche", "0": "Oui, mais sans corriger les sauvegardes de jeu existantes", "1": "Oui, et corriger les sauvegardes de jeu existantes"}},
     "fr_FR": {
-      "description": "Ce mod est le 3ème opus de la série Colours of Infinity, après Tales of the Deep Gardens et Innershade. Tout commence par un livre acheté auprès d'un marchand de la Promenade de Waukyne. Il vous guidera peut-être dans un des marais étranges où des évènements terribles ont eu lieu un peu plus tôt : un lieu de mystères et de tragédies. Explorez les ruines d'un village oublié, découvrez ce qui se cache sous la boue en allant à la rencontre de la Reine Blanche et de ses adeptes... Pourrez-vous résoudre les conflits enfouis de ce lieu ?|Le mod inclut 8 nouveaux lieux, des dialogues, de nouvelles musiques, des objets, etc. Il est plus orienté vers le combat que les précédents mods de la série.",
+      "description": "Ce mod est le 3ème opus de la série Colours of Infinity, après Tales of the Deep Gardens et Innershade. Tout commence par un livre acheté auprès d'un marchand de la Promenade de Waukyne. Il vous guidera peut-être dans un des marais étranges où des évènements terribles ont eu lieu un peu plus tôt : un lieu de mystères et de tragédies. Explorez les ruines d'un village oublié, découvrez ce qui se cache sous la boue en allant à la rencontre de la Reine Blanche et de ses adeptes... Pourrez-vous résoudre les conflits enfouis de ce lieu ?\nLe mod inclut 8 nouveaux lieux, des dialogues, de nouvelles musiques, des objets, etc. Il est plus orienté vers le combat que les précédents mods de la série.",
       "components": {
         "choice_0": "Couleurs de l'Infini - La Reine Blanche",
         "0": "Oui, mais sans corriger les sauvegardes de jeu existantes",
@@ -40,7 +40,7 @@
       }
     },
     "zh_CN": {
-      "description": "此模组是《无限色彩》系列的第三部作品，继Tales of the Deep Gardens和Innershade之后。一切始于在渥金商场从一个商人那里买到的一本书。它可能会引导你前往一个奇怪的沼泽，那里不久前发生了可怕的事件：一个充满神秘和悲剧的地方。探索一个被遗忘村庄的废墟，在遇见白女王及其追随者时，发现泥泞之下隐藏着什么……你能解决这个地方隐藏的冲突吗？|模组包含8个新地点、对话、新音乐、物品等。它比该系列之前的模组更侧重于战斗。"
+      "description": "此模组是《无限色彩》系列的第三部作品，继Tales of the Deep Gardens和Innershade之后。一切始于在渥金商场从一个商人那里买到的一本书。它可能会引导你前往一个奇怪的沼泽，那里不久前发生了可怕的事件：一个充满神秘和悲剧的地方。探索一个被遗忘村庄的废墟，在遇见白女王及其追随者时，发现泥泞之下隐藏着什么……你能解决这个地方隐藏的冲突吗？\n模组包含8个新地点、对话、新音乐、物品等。它比该系列之前的模组更侧重于战斗。"
     }
   },
   "tp2": "whitequeen",

@@ -22,7 +22,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "C'est un pack de Kits qui comporte actuellement 17 kits + 11 déclinaisons pour multi-classes. Il contient également plus de 30 objets, dont 6 insignes de Chasseur, 12 Runes de Caryll et 17 autres objets divers. Fortement inspiré par les jeux Soulsborne de FromSoft et probablement d'autres sources.||NOTE : Les tables de capacités pour ces kits sont créées au moment de l'installation. Chaque kit clone la table de la classe de base (si elle existe). Cela signifie que toute modification de classe installée au préalable sera incluse dans les kits du mod.||Ce mod dispose de plusieurs kits originaux et plutôt sympas !",
+      "description": "C'est un pack de Kits qui comporte actuellement 17 kits + 11 déclinaisons pour multi-classes. Il contient également plus de 30 objets, dont 6 insignes de Chasseur, 12 Runes de Caryll et 17 autres objets divers. Fortement inspiré par les jeux Soulsborne de FromSoft et probablement d'autres sources.\n\nNOTE : Les tables de capacités pour ces kits sont créées au moment de l'installation. Chaque kit clone la table de la classe de base (si elle existe). Cela signifie que toute modification de classe installée au préalable sera incluse dans les kits du mod.\n\nCe mod dispose de plusieurs kits originaux et plutôt sympas !",
       "components": {
         "choice_0": "Kit Updater (Peut être installé en toute sécurité en fin d'installation et réinstallé à tout moment.)",
         "90": "Toutes les options (Recommandé)",
@@ -41,10 +41,10 @@
       }
     },
     "en_US": {
-      "description": "This is a kitpack currently contains 17 kits + 11 multiclass variants. Also adds 30+ items, including 6 Hunter Badges, 12 Caryll Runes, and 17 other misc items. Heavily inspired by FromSoft's Soulsborne games and probably other sources.||NOTE: The abilities tables for these kits are made at install time. Every kit clones the table of the base class (if it exists). This means that any class revisions installed before this mod will be included with these kits.||This mod features several original and rather cool kits!"
+      "description": "This is a kitpack currently contains 17 kits + 11 multiclass variants. Also adds 30+ items, including 6 Hunter Badges, 12 Caryll Runes, and 17 other misc items. Heavily inspired by FromSoft's Soulsborne games and probably other sources.\n\nNOTE: The abilities tables for these kits are made at install time. Every kit clones the table of the base class (if it exists). This means that any class revisions installed before this mod will be included with these kits.\n\nThis mod features several original and rather cool kits!"
     },
     "zh_CN": {
-      "description": "这是一个包含17个职业宗派和11个多职业分支的宗派包。它还包含30多个物品，包括6个猎人徽章、12个卡里尔符文和17个其他各种物品。深受FromSoft的魂类游戏及其他来源的启发。||注意：这些职业宗派的能力表在安装时创建。每个宗派都会复制基础职业的能力表（如果存在）。这意味着任何预先安装的职业修改都将包含在模组的宗派中。||此模组拥有许多原创且相当不错的宗派！"
+      "description": "这是一个包含17个职业宗派和11个多职业分支的宗派包。它还包含30多个物品，包括6个猎人徽章、12个卡里尔符文和17个其他各种物品。深受FromSoft的魂类游戏及其他来源的启发。\n\n注意：这些职业宗派的能力表在安装时创建。每个宗派都会复制基础职业的能力表（如果存在）。这意味着任何预先安装的职业修改都将包含在模组的宗派中。\n\n此模组拥有许多原创且相当不错的宗派！"
     }
   },
   "tp2": "d2-workshopkits",

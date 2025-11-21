@@ -47,7 +47,7 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Des combinaisons de kits vanilla pour des résultats détonants.|Quelques exemples : Kensai disciple du dragon, Clerc bretteur, Ensorceleur moine...",
+      "description": "Des combinaisons de kits vanilla pour des résultats détonants.\nQuelques exemples : Kensai disciple du dragon, Clerc bretteur, Ensorceleur moine...",
       "components": {
         "99": "Kensai disciple du dragon",
         "109": "Defenseur barbare",
@@ -80,10 +80,10 @@
       }
     },
     "en_US": {
-      "description": "Vanilla kit combinations for cheated results.|Some examples: Dragon Disciple Kensai, Swashbuckler Cleric, Monk sorcerer..."
+      "description": "Vanilla kit combinations for cheated results.\nSome examples: Dragon Disciple Kensai, Swashbuckler Cleric, Monk sorcerer..."
     },
     "zh_CN": {
-      "description": "原版宗派的组合，带来惊人的效果。|一些例子：龙脉术士剑圣，游荡剑客牧师，武僧术士……"
+      "description": "原版宗派的组合，带来惊人的效果。\n一些例子：龙脉术士剑圣，游荡剑客牧师，武僧术士……"
     }
   },
   "tp2": "derats_powerkits",

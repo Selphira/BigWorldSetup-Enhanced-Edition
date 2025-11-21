@@ -30,7 +30,7 @@
   },
   "translations": {
     "en_US": {
-      "description": "This project aims to enhance the realism and interest of Bioware's NPCs by adding interjections, dialogs, banters and friendly relationships. 13 mods have already been developed as part of this ambitious project. They are : |Cernd Friendship, Dorn Friendship, Haer'dalis Friendship, Hexxat Friendship, Imoen Friendship, Jaheira Friendship, Korgan Friendship, Mazzy Friendship, Minsc Friendship, Sarevok Friendship, Valygar Friendship, Viconia Friendship and Yoshimo Friendship.",
+      "description": "This project aims to enhance the realism and interest of Bioware's NPCs by adding interjections, dialogs, banters and friendly relationships. 13 mods have already been developed as part of this ambitious project. They are : \nCernd Friendship, Dorn Friendship, Haer'dalis Friendship, Hexxat Friendship, Imoen Friendship, Jaheira Friendship, Korgan Friendship, Mazzy Friendship, Minsc Friendship, Sarevok Friendship, Valygar Friendship, Viconia Friendship and Yoshimo Friendship.",
       "components": {
         "0": "Extended NPC-NPC Interaction SoA",
         "1": "Extended Minsc/Aerie Interaction ToB",
@@ -49,7 +49,7 @@
     },
     "ru_RU": {"components": {"0": "Extended NPC-NPC Interaction SoA", "1": "Extended Minsc/Aerie Interaction ToB", "2": "Imoen \"Retrospection\" dialogue for BGII: ToB", "3": "Wake-Up dialogue for Anomen Romance (By David Gaider with additions from Kulyok)", "4": "NPC Conflict Revisions", "5": "Restored Aerie/Jaheira/Anomen interjection in Underdark", "choice_0": "Install Banter Accelerator? How much time would you like in between NPC banters in-game?", "6": "10 Minutes", "7": "15 Minutes", "8": "20 Minutes", "9": "30 Minutes", "10": "45 Minutes", "11": "60 Minutes"}},
     "fr_FR": {
-      "description": "Ce projet a pour intention de développer le réalisme et l'intérêt des PNJ de Bioware en les dotant d'interjections, de dialogues, de banters et de relations amicales supplémentaires. 13 mods sont d'ores et déjà issus de ce projet ambitieux. Il s'agit de : |Cernd Friendship, Dorn Friendship, Haer'dalis Friendship, Hexxat Friendship, Imoen Friendship, Jaheira Friendship, Korgan Friendship, Mazzy Friendship, Minsc Friendship, Sarevok Friendship, Valygar Friendship, Viconia Friendship et Yoshimo Friendship.",
+      "description": "Ce projet a pour intention de développer le réalisme et l'intérêt des PNJ de Bioware en les dotant d'interjections, de dialogues, de banters et de relations amicales supplémentaires. 13 mods sont d'ores et déjà issus de ce projet ambitieux. Il s'agit de : \nCernd Friendship, Dorn Friendship, Haer'dalis Friendship, Hexxat Friendship, Imoen Friendship, Jaheira Friendship, Korgan Friendship, Mazzy Friendship, Minsc Friendship, Sarevok Friendship, Valygar Friendship, Viconia Friendship et Yoshimo Friendship.",
       "components": {
         "0": "Interaction entre les PNJs plus developpee dans SoA",
         "1": "Interaction Minsc/Aerie plus developpee dans ToB",
@@ -67,7 +67,7 @@
       }
     },
     "zh_CN": {
-      "description": "此项目的意图是通过为BioWare的非玩家角色增添更多的感叹词、对话、闲谈和友好关系，来提升他们的真实性和趣味性。目前已有13个模组源自这个雄心勃勃的项目。它们是：|Cernd Friendship, Dorn Friendship, Haer'dalis Friendship, Hexxat Friendship, Imoen Friendship, Jaheira Friendship, Korgan Friendship, Mazzy Friendship, Minsc Friendship, Sarevok Friendship, Valygar Friendship, Viconia Friendship 和 Yoshimo Friendship。"
+      "description": "此项目的意图是通过为BioWare的非玩家角色增添更多的感叹词、对话、闲谈和友好关系，来提升他们的真实性和趣味性。目前已有13个模组源自这个雄心勃勃的项目。它们是：\nCernd Friendship, Dorn Friendship, Haer'dalis Friendship, Hexxat Friendship, Imoen Friendship, Jaheira Friendship, Korgan Friendship, Mazzy Friendship, Minsc Friendship, Sarevok Friendship, Valygar Friendship, Viconia Friendship 和 Yoshimo Friendship。"
     }
   },
   "tp2": "iepbanters",

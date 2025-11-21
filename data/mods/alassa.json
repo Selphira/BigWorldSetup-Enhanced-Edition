@@ -20,16 +20,16 @@
   },
   "translations": {
     "fr_FR": {
-      "description": "Une voleuse neutre mauvaise avec voix, quelques banters légers et un portrait original. Vous pouvez la trouver dans les Bas Quartiers.|FOR 10, DEX 15, CON 9, INT 14, SAG 12, CHA 16.",
+      "description": "Une voleuse neutre mauvaise avec voix, quelques banters légers et un portrait original. Vous pouvez la trouver dans les Bas Quartiers.\nFOR 10, DEX 15, CON 9, INT 14, SAG 12, CHA 16.",
       "components": {
         "0": "Alassa NPC"
       }
     },
     "en_US": {
-      "description": "A neutral evil thief with voice, some light banters and an original portrait. You can find her in the Slums.|STR 10, DEX 15, CON 9, INT 14, WIS 12, CHA 16."
+      "description": "A neutral evil thief with voice, some light banters and an original portrait. You can find her in the Slums.\nSTR 10, DEX 15, CON 9, INT 14, WIS 12, CHA 16."
     },
     "zh_CN": {
-      "description": "一个中立邪恶的女盗贼，有配音、一些轻松的闲聊和一张原创肖像。你可以在贫民区找到她。|力量10，敏捷15，体质9，智力14，智慧12，魅力16。"
+      "description": "一个中立邪恶的女盗贼，有配音、一些轻松的闲聊和一张原创肖像。你可以在贫民区找到她。\n力量10，敏捷15，体质9，智力14，智慧12，魅力16。"
     }
   },
   "tp2": "alassa",
