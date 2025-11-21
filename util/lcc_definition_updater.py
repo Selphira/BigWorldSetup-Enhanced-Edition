@@ -13,7 +13,7 @@ DONNÉES RÉCUPÉRÉES:
 - TP2 (nom du fichier .tp2)
 
 USAGE:
-    python lcc_definition_updater.py <json_dir_or_file>
+     python -m util.lcc_definition_updater <json_dir_or_file>
 """
 
 import json
@@ -23,7 +23,7 @@ from typing import Dict, Any, Optional
 from urllib.error import URLError, HTTPError
 
 from constants import *
-from ini_to_json_converter import CompactJSONEncoder
+from util.ini_to_json_converter import CompactJSONEncoder
 
 
 class LCCDataFetcher:
@@ -58,7 +58,7 @@ class LCCDataFetcher:
     }
 
     def __init__(self, cache_dir: Path = LCC_CACHE_DIR):
-        self.cache_dir = cache_dir / "lcc"
+        self.cache_dir = cache_dir
         self.cache_dir.mkdir(exist_ok=True)
         self.data = {}
         self.tp2_index = {}  # Index: tp2 -> mod_data
@@ -248,6 +248,8 @@ class LCCDataFetcher:
 
         # Pattern pour trouver [[nombre]]
         pattern = r'\[\[(\d+)\]\]'
+
+        description = description.replace("|", "\n")
 
         def replace_reference(match):
             mod_id = match.group(1)
@@ -460,7 +462,7 @@ def print_usage():
 ╚══════════════════════════════════════════════════════════════╝
 
 USAGE:
-    python lcc_definition_updater.py <fichier_ou_dossier> [--refresh]
+     python -m util.lcc_definition_updater <fichier_ou_dossier> [--refresh]
 
 ARGUMENTS:
     fichier_ou_dossier   Fichier .json OU dossier contenant des .json
@@ -468,13 +470,13 @@ ARGUMENTS:
 
 EXEMPLES:
     # Compléter un fichier
-    python lcc_definition_updater.py bp-bgt-worldmap.json
+     python -m util.lcc_definition_updater bp-bgt-worldmap.json
 
     # Compléter un dossier
-    python lcc_definition_updater.py mods_json/
+     python -m util.lcc_definition_updater mods_json/
 
     # Forcer le refresh du cache
-    python lcc_definition_updater.py mods_json/ --refresh
+     python -m util.lcc_definition_updater mods_json/ --refresh
 
 DONNÉES RÉCUPÉRÉES:
     • tp2          : Nom du fichier .tp2
