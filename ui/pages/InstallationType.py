@@ -241,6 +241,7 @@ class InstallationTypePage(BasePage):
 
         self.folders_content = QWidget()
         self.folders_layout = QVBoxLayout(self.folders_content)
+        self.folders_layout.setContentsMargins(0, 0, 0, 0)
         self.folders_layout.setSpacing(15)
         self.folders_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
 
