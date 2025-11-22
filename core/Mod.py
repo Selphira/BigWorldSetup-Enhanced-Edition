@@ -5,6 +5,8 @@ Optimized for handling 2000 mods and 15000 components with lazy instantiation
 and minimal memory footprint.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Optional, Iterable, Union
@@ -56,6 +58,8 @@ class Component:
     text: str
     category: str
     comp_type: ComponentType
+    games: list[str]
+    mod: Mod
     number: int
     forced: bool
 
@@ -74,6 +78,13 @@ class Component:
     def is_sub(self) -> bool:
         """Check if component is SUB type."""
         return self.comp_type == ComponentType.SUB
+
+    def supports_game(self, game: str) -> bool:
+        """Check if mod supports a game."""
+        if self.games:
+            return game in self.games
+
+        return game in self.mod.games
 
     def __hash__(self) -> int:
         """Make component hashable for use in sets/dicts."""
@@ -240,6 +251,7 @@ class Mod:
         category = raw_data.get("category", "")
         number = raw_data.get("number", 0)
         forced = raw_data.get("forced", False)
+        games = raw_data.get("games", [])
 
         # MUC Component
         if comp_type == ComponentType.MUC:
@@ -255,6 +267,8 @@ class Mod:
                 text=text,
                 category=category,
                 comp_type=comp_type,
+                games=games,
+                mod=self,
                 number=number,
                 forced=forced,
                 default=default,
@@ -295,6 +309,8 @@ class Mod:
                 text=text,
                 category=category,
                 comp_type=comp_type,
+                games=games,
+                mod=self,
                 number=number,
                 forced=forced,
                 prompts=prompts,
@@ -307,6 +323,8 @@ class Mod:
             text=text,
             category=category,
             comp_type=comp_type,
+            games=games,
+            mod=self,
             number=number,
             forced=forced
         )
