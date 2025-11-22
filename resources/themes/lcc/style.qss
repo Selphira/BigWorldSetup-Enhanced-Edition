@@ -393,11 +393,7 @@ QRadioButton::indicator {
  * ============================================================================ */
 
 QSplitter::handle {
-    background-color: #404040;
-}
-
-QSplitter::handle:hover {
-    background-color: #655949;
+    background-color: #2a2a2a;
 }
 
 QSplitter::handle:horizontal {
@@ -451,4 +447,25 @@ QFrame#category-button[empty="true"] QLabel {
 QFrame#category-button[empty="true"] QLabel#count-badge {
     background-color: transparent;
     color: rgba(255, 255, 255, 0.5);
+}
+
+QScrollArea#mod-detail-panel QLabel#mod-detail-section {
+    font-weight: bold;
+    font-size: 11pt;
+    color: #ffffff;
+}
+
+QScrollArea#mod-detail-panel QLabel {
+    color: #cccccc;
+}
+
+/* ============================================================================
+ * Badge
+ * ============================================================================ */
+
+QLabel#badge {
+    color: #ffffff;
+    background-color: #2a2a2a;
+    border-radius: 9px;
+    padding: 0px 10px;
 }

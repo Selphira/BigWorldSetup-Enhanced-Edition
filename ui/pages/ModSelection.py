@@ -6,7 +6,7 @@ search functionality, and hierarchical component selection.
 """
 import logging
 
-from PySide6.QtCore import QEvent, QModelIndex, QTimer
+from PySide6.QtCore import QEvent, QModelIndex, QTimer, QByteArray
 from PySide6.QtGui import QTextDocument
 from PySide6.QtWidgets import (
     QFrame,
@@ -18,7 +18,9 @@ from PySide6.QtWidgets import (
     QStyledItemDelegate,
     QStyle,
     QToolTip,
-    QStyleOptionViewItem
+    QStyleOptionViewItem,
+    QSplitter,
+    QToolButton
 )
 
 from constants import *
@@ -28,6 +30,7 @@ from core.enums.CategoryEnum import CategoryEnum
 from ui.pages.BasePage import BasePage, ButtonConfig
 from ui.widgets.CategoryButton import CategoryButton
 from ui.widgets.ComponentSelector import ComponentSelector
+from ui.widgets.ModDetailsPanel import ModDetailsPanel
 
 logger = logging.getLogger(__name__)
 
@@ -237,6 +240,7 @@ class ModSelectionPage(BasePage):
     - Text search with highlighting
     - Hierarchical component selection
     - Real-time statistics
+    - Collapsible mod details panel
     """
 
     # Layout constants
@@ -248,6 +252,10 @@ class ModSelectionPage(BasePage):
         self._mod_manager = self.state_manager.get_mod_manager()
         self._category_buttons: dict[CategoryEnum, CategoryButton] = {}
         self._current_category = CategoryEnum.ALL
+
+        # Splitter state for collapsible panel
+        self._details_collapsed = False
+        self._splitter_state = QByteArray()
 
         # Search debouncing
         self._search_timer = QTimer()
@@ -274,9 +282,9 @@ class ModSelectionPage(BasePage):
         left_panel = self._create_left_panel()
         layout.addWidget(left_panel)
 
-        # Center: Component selection
-        center_panel = self._create_center_panel()
-        layout.addWidget(center_panel)
+        # Center/Right: Splitter with component selector and details panel
+        self._splitter = self._create_splitter_with_panels()
+        layout.addWidget(self._splitter)
 
     def _create_left_panel(self) -> QWidget:
         """Create left panel with category buttons."""
@@ -338,6 +346,51 @@ class ModSelectionPage(BasePage):
         self._category_buttons[category] = button
         return button
 
+    def _create_splitter_with_panels(self) -> QSplitter:
+        """Create splitter containing center panel and details panel."""
+        splitter = QSplitter(Qt.Orientation.Horizontal)
+        splitter.setHandleWidth(20)
+
+        # Center panel (component selector)
+        center_panel = self._create_center_panel()
+        splitter.addWidget(center_panel)
+
+        # Right panel (mod details)
+        self._details_panel = ModDetailsPanel(self._mod_manager)
+        splitter.addWidget(self._details_panel)
+
+        # Configure collapsibility
+        splitter.setCollapsible(0, False)  # Center panel cannot collapse
+        splitter.setCollapsible(1, True)  # Details panel can collapse
+
+        # Set initial sizes (70% - 30%)
+        splitter.setStretchFactor(0, 7)
+        splitter.setStretchFactor(1, 3)
+
+        # Add collapse button in handle
+        self._setup_collapse_button(splitter)
+
+        return splitter
+
+    def _setup_collapse_button(self, splitter: QSplitter) -> None:
+        """Add collapse button to splitter handle."""
+        splitter_handle = splitter.handle(1)
+        handle_layout = QVBoxLayout()
+        handle_layout.setContentsMargins(0, 0, 0, 0)
+
+        self._collapse_button = QToolButton(splitter_handle)
+        self._collapse_button.setAutoRaise(True)
+        self._collapse_button.setFixedSize(20, 40)
+        self._collapse_button.setCursor(Qt.CursorShape.PointingHandCursor)
+        self._collapse_button.setArrowType(Qt.ArrowType.RightArrow)
+        self._collapse_button.setToolTip(tr("widget.mod_details.collapse"))
+
+        handle_layout.addWidget(self._collapse_button)
+        handle_layout.addStretch()
+        splitter_handle.setLayout(handle_layout)
+
+        self._collapse_button.clicked.connect(self._toggle_details_panel)
+
     def _create_center_panel(self) -> QWidget:
         """Create center panel with filters and selector."""
         panel = QFrame()
@@ -373,6 +426,9 @@ class ModSelectionPage(BasePage):
             self._on_selection_changed
         )
 
+        # Connect clicks to update details panel
+        self._component_selector.selectionModel().currentChanged.connect(self._on_component_changed)
+
         layout.addWidget(self._component_selector)
 
         return panel
@@ -395,6 +451,40 @@ class ModSelectionPage(BasePage):
         filters_layout.addWidget(self._search_input)
 
         return filters_widget
+
+    # ========================================
+    # Details Panel Management
+    # ========================================
+
+    def _toggle_details_panel(self) -> None:
+        """Toggle visibility of details panel."""
+        if self._details_collapsed:
+            # Restore
+            self._splitter.restoreState(self._splitter_state)
+            self._collapse_button.setArrowType(Qt.ArrowType.RightArrow)
+            self._collapse_button.setToolTip(tr("widget.mod_details.collapse"))
+        else:
+            # Save and collapse
+            self._splitter_state = self._splitter.saveState()
+            self._splitter.setSizes([1, 0])
+            self._collapse_button.setArrowType(Qt.ArrowType.LeftArrow)
+            self._collapse_button.setToolTip(tr("widget.mod_details.expand"))
+
+        self._details_collapsed = not self._details_collapsed
+
+    def _on_component_changed(self, index: QModelIndex) -> None:
+        """Handle component click to update details panel."""
+        # Get source index
+        source_index = self._component_selector._proxy_model.mapToSource(index)
+        item = self._component_selector._model.itemFromIndex(source_index.siblingAtColumn(0))
+
+        if not item:
+            return
+
+        # Get mod from item
+        mod = item.data(ROLE_MOD)
+        if mod:
+            self._details_panel.update_mod(mod)
 
     # ========================================
     # Event Handlers
@@ -520,6 +610,9 @@ class ModSelectionPage(BasePage):
 
         # Update component selector
         self._component_selector.retranslate_ui()
+
+        # Update details panel
+        self._details_panel.retranslate_ui()
 
         # Reapply filters to update display
         self._apply_all_filters()

@@ -142,6 +142,10 @@ MARGIN_SMALL = 10
 MARGIN_STANDARD = 15
 MARGIN_LARGE = 20
 
+# Badge constants
+BADGE_MIN_WIDTH = 35
+BADGE_HEIGHT = 18
+
 # ============================================================================
 # FONT SETTINGS
 # ============================================================================

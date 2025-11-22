@@ -95,6 +95,27 @@
     },
     "language_selector": {
       "tooltip": "Sélectionnez la langue de l'interface"
+    },
+    "mod_details": {
+      "description": "Description",
+      "no_description": "Aucune description disponible",
+      "languages": "Langues",
+      "authors": "Auteurs",
+      "categories": "Catégories",
+      "games": "Jeux supportés",
+      "collapse": "Masquer les détails",
+      "expand": "Afficher les détails",
+      "links": "Liens",
+      "link": {
+        "homepage": "Page d'accueil",
+        "download": "Téléchargement",
+        "readme": "Documentation"
+      },
+      "quality": {
+        "safe": "Mod de qualité",
+        "caution": "Mod pouvant poser des problèmes",
+        "avoid": "Mod à éviter ou obsolète"
+      }
     }
   },
   "error": {

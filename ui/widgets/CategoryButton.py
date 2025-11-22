@@ -6,7 +6,7 @@ from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QFont
 from PySide6.QtWidgets import QFrame, QHBoxLayout, QLabel, QWidget
 
-from constants import ICON_SIZE_MEDIUM
+from constants import BADGE_HEIGHT, BADGE_MIN_WIDTH, ICON_SIZE_MEDIUM
 from core.enums.CategoryEnum import CategoryEnum
 
 logger = logging.getLogger(__name__)
@@ -24,8 +24,6 @@ class CategoryButton(QWidget):
 
     # Visual constants
     MIN_HEIGHT = 30
-    BADGE_MIN_WIDTH = 35
-    BADGE_HEIGHT = 18
 
     def __init__(
             self,
@@ -93,8 +91,8 @@ class CategoryButton(QWidget):
         self.count_label = QLabel(str(self._count))
         self.count_label.setObjectName("count-badge")
         self.count_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.count_label.setMinimumWidth(self.BADGE_MIN_WIDTH)
-        self.count_label.setFixedHeight(self.BADGE_HEIGHT)
+        self.count_label.setMinimumWidth(BADGE_MIN_WIDTH)
+        self.count_label.setFixedHeight(BADGE_HEIGHT)
         layout.addWidget(self.count_label)
 
         # Widget configuration

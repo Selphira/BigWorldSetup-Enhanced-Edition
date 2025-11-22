@@ -57,6 +57,27 @@
         "complete": "Complete",
         "partial": "Partial ({count}/{total})"
       }
+    },
+    "mod_details": {
+      "description": "Description",
+      "no_description": "No description available",
+      "languages": "Languages",
+      "authors": "Authors",
+      "categories": "Categories",
+      "games": "Supported games",
+      "collapse": "Hide details",
+      "expand": "Show details",
+      "links": "Links",
+      "link": {
+        "homepage": "Homepage",
+        "download": "Download",
+        "readme": "Documentation"
+      },
+      "quality": {
+        "safe": "Quality mod",
+        "caution": "Mod that could cause problem",
+        "avoid": "Mod to avoid or obsolete"
+      }
     }
   }
 }
