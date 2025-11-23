@@ -7,7 +7,7 @@ supporting different component types (STD, MUC, SUB) with their specific behavio
 import logging
 from dataclasses import dataclass
 from enum import Enum, auto
-from typing import Optional, Any, cast
+from typing import Optional, Any, cast, Generator
 
 from PySide6.QtCore import QSortFilterProxyModel, QModelIndex, Qt
 from PySide6.QtGui import QStandardItemModel, QStandardItem, QColor, QCursor
@@ -37,6 +37,52 @@ class ItemType(Enum):
     MUC_OPTION = auto()
     SUB_PROMPT = auto()
     SUB_PROMPT_OPTION = auto()
+
+
+@dataclass(frozen=True)
+class VisibilityStats:
+    """Statistics about visible and checked children items.
+
+    Attributes:
+        total_visible: Total number of visible children
+        checked_count: Number of visible children that are checked
+    """
+    total_visible: int
+    checked_count: int
+
+    @property
+    def has_visible_children(self) -> bool:
+        """Check if there are any visible children."""
+        return self.total_visible > 0
+
+    @property
+    def all_checked(self) -> bool:
+        """Check if all visible children are checked."""
+        return 0 < self.total_visible == self.checked_count
+
+    @property
+    def none_checked(self) -> bool:
+        """Check if no visible children are checked."""
+        return self.checked_count == 0
+
+    @property
+    def partially_checked(self) -> bool:
+        """Check if some but not all visible children are checked."""
+        return 0 < self.checked_count < self.total_visible
+
+
+@dataclass(frozen=True)
+class StatusConfig:
+    """Configuration for status display.
+
+    Attributes:
+        text_key: Translation key for the status text
+        color: Color to use for the status
+        check_state: Check state to apply to the parent item
+    """
+    text_key: str
+    color: str
+    check_state: Qt.CheckState
 
 
 @dataclass
@@ -125,10 +171,15 @@ class FilterEngine:
 
     def _matches_game(self, index: QModelIndex) -> bool:
         """Check if item matches game filter."""
+        component = index.data(ROLE_COMPONENT)
+        if component:
+            return component.supports_game(self._criteria.game)
+
         mod = index.data(ROLE_MOD)
-        if not mod:
-            return False
-        return mod.supports_game(self._criteria.game)
+        if mod:
+            return mod.supports_game(self._criteria.game)
+
+        return False
 
     def _matches_category(self, index: QModelIndex) -> bool:
         """Check if item matches categories filter."""
@@ -230,10 +281,6 @@ class HierarchicalFilterProxyModel(QSortFilterProxyModel):
         if self._has_matching_child(index):
             return True
 
-        # Check if any parent matches
-        if self._has_matching_parent(source_parent):
-            return True
-
         return False
 
     def _has_matching_child(self, parent_index: QModelIndex) -> bool:
@@ -250,15 +297,6 @@ class HierarchicalFilterProxyModel(QSortFilterProxyModel):
             if self._has_matching_child(child_index):
                 return True
 
-        return False
-
-    def _has_matching_parent(self, index: QModelIndex) -> bool:
-        """Check if any parent matches filters."""
-        current = index
-        while current.isValid():
-            if self._filter_engine.matches_item(current):
-                return True
-            current = current.parent()
         return False
 
 
@@ -475,6 +513,198 @@ class RadioTreeModel(QStandardItemModel):
                     )
         finally:
             self._updating = False
+
+
+# ============================================================================
+# Mod Status Manager
+# ============================================================================
+
+class ModStatusManager:
+    """Manages status updates for mod items in the tree.
+
+    This class handles the calculation and display of mod selection status
+    based on the visibility and check state of its components.
+    """
+
+    # Status configurations for different states
+    _STATUS_CONFIGS = {
+        'none': StatusConfig(
+            text_key="widget.component_selector.selection.none",
+            color=COLOR_STATUS_NONE,
+            check_state=Qt.CheckState.Unchecked
+        ),
+        'partial': StatusConfig(
+            text_key="widget.component_selector.selection.partial",
+            color=COLOR_STATUS_PARTIAL,
+            check_state=Qt.CheckState.PartiallyChecked
+        ),
+        'complete': StatusConfig(
+            text_key="widget.component_selector.selection.complete",
+            color=COLOR_STATUS_COMPLETE,
+            check_state=Qt.CheckState.Checked
+        )
+    }
+
+    def __init__(self, model: QStandardItemModel, proxy_model: QSortFilterProxyModel):
+        """Initialize the status manager.
+
+        Args:
+            model: The source tree model
+            proxy_model: The proxy model used for filtering
+        """
+        self._model = model
+        self._proxy_model = proxy_model
+
+    def update_mod_status(self, mod_item: ModTreeItem) -> None:
+        """Update status column for a mod item.
+
+        Calculates the visibility and check state of all child components,
+        then updates the mod's status text, color, and check state accordingly.
+
+        Args:
+            mod_item: The mod item to update
+        """
+        stats = self._calculate_visibility_stats(mod_item)
+
+        if not stats.has_visible_children:
+            self._apply_status(mod_item, 'none')
+            return
+
+        status_type = self._determine_status_type(stats)
+        self._apply_status(mod_item, status_type, stats)
+
+    def _calculate_visibility_stats(self, parent_item: QStandardItem) -> VisibilityStats:
+        """Calculate visibility and check statistics for child items.
+
+        Args:
+            parent_item: Parent item whose children to analyze
+
+        Returns:
+            Statistics about visible and checked children
+        """
+        total_visible = 0
+        checked_count = 0
+
+        for child in self._iter_visible_children(parent_item):
+            total_visible += 1
+            if child.checkState() == Qt.CheckState.Checked:
+                checked_count += 1
+
+        return VisibilityStats(total_visible, checked_count)
+
+    def _iter_visible_children(
+            self,
+            parent_item: QStandardItem
+    ) -> Generator[QStandardItem, None, None]:
+        """Iterate over visible children of a parent item.
+
+        A child is considered visible if it passes the proxy model's filters.
+
+        Args:
+            parent_item: Parent item whose children to iterate
+
+        Yields:
+            Visible child items
+        """
+        for row in range(parent_item.rowCount()):
+            child = parent_item.child(row, 0)
+            if not child:
+                continue
+
+            if self._is_item_visible(child):
+                yield child
+
+    def _is_item_visible(self, item: QStandardItem) -> bool:
+        """Check if an item is visible through the proxy model.
+
+        Args:
+            item: Item to check
+
+        Returns:
+            True if the item passes the proxy filter, False otherwise
+        """
+        source_index = self._model.indexFromItem(item)
+        proxy_index = self._proxy_model.mapFromSource(source_index)
+        return proxy_index.isValid()
+
+    def _determine_status_type(self, stats: VisibilityStats) -> str:
+        """Determine the status type based on visibility statistics.
+
+        Args:
+            stats: Visibility statistics
+
+        Returns:
+            Status type: 'none', 'partial', or 'complete'
+        """
+        if stats.none_checked:
+            return 'none'
+        elif stats.all_checked:
+            return 'complete'
+        else:
+            return 'partial'
+
+    def _apply_status(
+            self,
+            mod_item: ModTreeItem,
+            status_type: str,
+            stats: VisibilityStats | None = None
+    ) -> None:
+        """Apply status configuration to a mod item.
+
+        Args:
+            mod_item: Mod item to update
+            status_type: Type of status ('none', 'partial', 'complete')
+            stats: Optional visibility statistics for text formatting
+        """
+        config = self._STATUS_CONFIGS[status_type]
+
+        # Update check state
+        mod_item.setCheckState(config.check_state)
+
+        # Update status column
+        status_item = self._get_status_item(mod_item)
+        if not status_item:
+            logger.warning(f"Status item not found for mod : {mod_item.text()}")
+            return
+
+        # Format status text
+        status_text = self._format_status_text(config.text_key, stats)
+
+        # Apply visual updates
+        status_item.setText(status_text)
+        status_item.setForeground(QColor(config.color))
+
+    def _format_status_text(
+            self,
+            text_key: str,
+            stats: VisibilityStats | None
+    ) -> str:
+        """Format status text with optional statistics.
+
+        Args:
+            text_key: Translation key for the status text
+            stats: Optional statistics for formatting
+
+        Returns:
+            Formatted status text
+        """
+        if stats and not stats.none_checked and stats.has_visible_children:
+            return tr(text_key, count=stats.checked_count, total=stats.total_visible)
+        return tr(text_key)
+
+    def _get_status_item(self, mod_item: ModTreeItem) -> QStandardItem | None:
+        """Get the status column item for a mod.
+
+        Args:
+            mod_item: Mod item
+
+        Returns:
+            Status item or None if not found
+        """
+        parent = mod_item.parent()
+        if parent:
+            return parent.child(mod_item.row(), 1)
+        return self._model.item(mod_item.row(), 1)
 
 
 # ============================================================================
@@ -781,6 +1011,7 @@ class ComponentSelector(QTreeView):
 
         # Setup
         self._setup_model()
+        self._status_manager = ModStatusManager(self._model, self._proxy_model)
         self._setup_ui()
         self._load_data()
         self.setColumnWidth(0, 400)
@@ -923,6 +1154,92 @@ class ComponentSelector(QTreeView):
         item.setForeground(QColor(COLOR_STATUS_NONE))
         return item
 
+    def _uncheck_incompatible_with_game(self, game: str) -> None:
+        """Uncheck all mods/components incompatible with the selected game.
+
+        This method iterates through all mods and their components in the tree,
+        unchecking any items that do not support the specified game.
+        Signals are temporarily blocked during the operation to prevent
+        excessive UI updates.
+
+        Args:
+            game: Game identifier (e.g., 'bg2ee', 'eet')
+        """
+        logger.info(f"Unchecking items incompatible with game: {game}")
+
+        self._model.blockSignals(True)
+        try:
+            root = self._model.invisibleRootItem()
+
+            for row in range(root.rowCount()):
+                mod_item = root.child(row, 0)
+                self._uncheck_incompatible_mod_with_game(mod_item, game)
+                self._update_mod_status(mod_item)
+
+        finally:
+            self._model.blockSignals(False)
+            self.style().unpolish(self)
+            self.style().polish(self)
+
+    def _uncheck_incompatible_mod_with_game(self, mod_item: QStandardItem, game: str) -> None:
+        """Process a mod item and its components for game compatibility.
+
+        Args:
+            mod_item: The mod tree item to process
+            game: Game identifier
+        """
+        mod = mod_item.data(ROLE_MOD)
+        if not mod:
+            return
+
+        # Check mod compatibility
+        if not mod.supports_game(game):
+            self._uncheck_item_if_needed(mod_item, mod.name, is_mod=True)
+            return
+
+        # Check individual components even if mod is compatible
+        self._uncheck_incompatible_components_with_game(mod_item, game)
+
+    def _uncheck_incompatible_components_with_game(self, mod_item: QStandardItem, game: str) -> None:
+        """Process all components of a mod for game compatibility.
+
+        Args:
+            mod_item: The parent mod item
+            game: Game identifier
+        """
+        for comp_row in range(mod_item.rowCount()):
+            comp_item = mod_item.child(comp_row, 0)
+            component = comp_item.data(ROLE_COMPONENT)
+            if not component:
+                continue
+
+            if not component.supports_game(game):
+                self._uncheck_item_if_needed(comp_item, component.text, is_mod=False)
+
+    def _uncheck_item_if_needed(
+            self,
+            item: QStandardItem,
+            item_name: str,
+            is_mod: bool
+    ) -> None:
+        """Uncheck an item if it's currently checked.
+
+        Args:
+            item: The tree item to uncheck
+            item_name: Display name for logging
+            is_mod: True if item is a mod, False if it's a component
+        """
+        if item.checkState() == Qt.CheckState.Unchecked:
+            return
+
+        item_type = "mod" if is_mod else "component"
+        logger.debug(f"Unchecking incompatible {item_type}: {item_name}")
+
+        item.setCheckState(Qt.CheckState.Unchecked)
+
+        if is_mod:
+            self._update_mod_status(item)
+
     # ========================================
     # Event Handlers
     # ========================================
@@ -980,48 +1297,7 @@ class ComponentSelector(QTreeView):
     # ========================================
 
     def _update_mod_status(self, mod_item: ModTreeItem) -> None:
-        """Update status column for mod."""
-        total = mod_item.rowCount()
-        if total == 0:
-            return
-
-        checked_count = sum(
-            1 for row in range(total)
-            if mod_item.child(row, 0).checkState() == Qt.CheckState.Checked
-        )
-
-        # Determine status
-        if checked_count == 0:
-            status_text = tr("widget.component_selector.selection.none")
-            color = QColor(COLOR_STATUS_NONE)
-        elif checked_count == total:
-            status_text = tr(
-                "widget.component_selector.selection.complete",
-                count=checked_count,
-                total=total
-            )
-            color = QColor(COLOR_STATUS_COMPLETE)
-        else:
-            status_text = tr(
-                "widget.component_selector.selection.partial",
-                count=checked_count,
-                total=total
-            )
-            color = QColor(COLOR_STATUS_PARTIAL)
-
-        # Update status item
-        status_item = self._get_status_item(mod_item)
-        if status_item:
-            status_item.setText(status_text)
-            status_item.setForeground(color)
-            pass
-
-    def _get_status_item(self, mod_item: ModTreeItem) -> Optional[QStandardItem]:
-        """Get status item (column 1) for mod."""
-        parent = mod_item.parent()
-        if parent:
-            return parent.child(mod_item.row(), 1)
-        return self._model.item(mod_item.row(), 1)
+        self._status_manager.update_mod_status(mod_item)
 
     # ========================================
     # Filtering API
@@ -1036,6 +1312,9 @@ class ComponentSelector(QTreeView):
             languages: Optional[set[str]] = None
     ) -> None:
         """Apply all filters at once for better performance."""
+        old_criteria = self._proxy_model.get_filter_criteria()
+        old_game = old_criteria.game
+
         criteria = FilterCriteria(
             text=text,
             game=game,
@@ -1044,6 +1323,9 @@ class ComponentSelector(QTreeView):
             languages=languages or set()
         )
         self._proxy_model.set_filter_criteria(criteria)
+
+        if game != old_game and game:
+            self._uncheck_incompatible_with_game(game)
 
     def clear_filters(self) -> None:
         """Clear all filters."""
@@ -1251,7 +1533,6 @@ class ComponentSelector(QTreeView):
                                     opt.setCheckState(Qt.CheckState.Checked)
                                 else:
                                     opt.setCheckState(Qt.CheckState.Unchecked)
-                self._selection_manager.update_check_state(mod_item)
                 self._update_mod_status(cast(ModTreeItem, mod_item))
 
         finally:
