@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Optional
 
 from constants import GAMES_DIR
-from core.GameModels import GameDefinition, GameSequence
+from core.GameModels import GameDefinition
 
 logger = logging.getLogger(__name__)
 
@@ -56,16 +56,4 @@ class GameManager:
         with open(path, "r", encoding="utf-8") as f:
             raw = json.load(f)
 
-        # Extract fields
-        game_id = raw["id"]
-        name = raw.get("name", game_id)
-
-        sequences = []
-        for seq in raw.get("sequences", []):
-            sequences.append(GameSequence.from_dict(seq))
-
-        return GameDefinition(
-            id=game_id,
-            name=name,
-            sequences=sequences
-        )
+        return GameDefinition.from_dict(raw)

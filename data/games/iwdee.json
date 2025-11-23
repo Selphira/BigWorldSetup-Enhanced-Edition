@@ -3,7 +3,7 @@
   "name": "Icewind Dale: Enhanced Edition",
   "sequences": [
     {
-      "id": "iwdee",
+      "game": "iwdee",
       "required_files": ["chitin.key", "icewind.exe"],
       "lua_checks": {"engine_mode": 2}
     }

@@ -3,8 +3,7 @@
   "name": "Enhanced Edition Trilogy",
   "sequences": [
     {
-      "id": "sod",
-      "game_folder": "sod",
+      "game": "sod",
       "required_files": ["chitin.key", "Baldur.exe"],
       "lua_checks": {"engine_mode": 0},
       "allowed_mods": [
@@ -20,8 +19,7 @@
       }
     },
     {
-      "id": "bg2ee",
-      "game_folder": "bg2ee",
+      "game": "bg2ee",
       "required_files": ["chitin.key", "Baldur.exe"],
       "lua_checks": {"engine_mode": 1},
       "blocked_mods": ["DlcMerger", "correctfrbg1ee", "soa", "drizztsaga", "bg1ub"],
