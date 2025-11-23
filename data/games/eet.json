@@ -7,7 +7,9 @@
       "game_folder": "sod",
       "required_files": ["chitin.key", "Baldur.exe"],
       "lua_checks": {"engine_mode": 0},
-      "allowed_mods": ["DlcMerger", "correctfrbg1ee", "soa", "drizztsaga", "bg1ub", "plasmobg1bg2", "da_portraits"],
+      "allowed_mods": [
+        "BWS-FR-Fixpack", "DlcMerger", "correctfrbg1ee", "soa", "drizztsaga", "bg1ub", "plasmobg1bg2", "da_portraits"
+      ],
       "allowed_components": {
         "plasmobg1bg2": ["1001", "1002", "1003", "1004", "1005"],
         "da_portraits": [
