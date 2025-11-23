@@ -3,7 +3,6 @@
 import logging
 from abc import ABCMeta, abstractmethod
 from dataclasses import dataclass
-from typing import Optional
 
 from PySide6.QtCore import Signal
 from PySide6.QtWidgets import QFrame, QWidget, QLabel
@@ -28,7 +27,7 @@ class ButtonConfig:
     visible: bool = True
     enabled: bool = True
     text: str = ""
-    icon: Optional[str] = None
+    icon: str | None = None
 
 
 class QWidgetABCMeta(type(QWidget), ABCMeta):
@@ -124,7 +123,7 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
         """
         return ""
 
-    def get_page_icon(self) -> Optional[str]:
+    def get_page_icon(self) -> str | None:
         """Get optional icon for the page (for tabs/sidebar navigation).
 
         Returns:
@@ -184,7 +183,7 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
     # CONDITIONAL NAVIGATION
     # ========================================
 
-    def get_next_page_id(self) -> Optional[str]:
+    def get_next_page_id(self) -> str | None:
         """Get the ID of the next page for conditional navigation.
 
         Enables dynamic navigation flow based on user choices:
@@ -197,7 +196,7 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
         """
         return None
 
-    def get_previous_page_id(self) -> Optional[str]:
+    def get_previous_page_id(self) -> str | None:
         """Get the ID of the previous page for conditional navigation.
 
         Less commonly needed than get_next_page_id(), but useful for

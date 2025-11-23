@@ -1,7 +1,6 @@
 """Sortable language icons widget with drag-and-drop support."""
 
 import logging
-from typing import Optional
 
 from PySide6.QtCore import QMimeData, QPoint, Signal
 from PySide6.QtGui import QDrag, QPixmap
@@ -25,7 +24,7 @@ class SortableIcon(QLabel):
             code: str,
             image_path: Path,
             tooltip: str,
-            parent: Optional[QWidget] = None
+            parent: QWidget | None = None
     ) -> None:
         """
         Initialize sortable icon.
@@ -108,7 +107,7 @@ class SortableLanguages(QFrame):
     INDICATOR_MARGIN = 5
     INDICATOR_WIDTH = 2
 
-    def __init__(self, parent: Optional[QWidget] = None) -> None:
+    def __init__(self, parent: QWidget | None = None) -> None:
         """
         Initialize sortable icons container.
 

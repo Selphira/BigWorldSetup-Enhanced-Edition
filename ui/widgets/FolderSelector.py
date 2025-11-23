@@ -1,7 +1,6 @@
 """Folder selector widget with validation and visual feedback."""
 
 import logging
-from typing import Optional
 
 from PySide6.QtCore import Signal
 from PySide6.QtGui import QAction, QColor, QFont, QIcon, QPainter, QPixmap
@@ -40,8 +39,8 @@ class FolderSelector(QWidget):
             self,
             label_key: str,
             select_title_key: str,
-            validator: Optional[FolderValidator] = None,
-            parent: Optional[QWidget] = None
+            validator: FolderValidator | None = None,
+            parent: QWidget | None = None
     ) -> None:
         """Initialize folder selector.
 
@@ -60,10 +59,10 @@ class FolderSelector(QWidget):
         self._error_message = ""
 
         # UI components (initialized in _create_widgets)
-        self.label: Optional[QLabel] = None
-        self.path_input: Optional[QLineEdit] = None
-        self.icon_action: Optional[QAction] = None
-        self.browse_btn: Optional[QPushButton] = None
+        self.label: QLabel | None = None
+        self.path_input: QLineEdit | None = None
+        self.icon_action: QAction | None = None
+        self.browse_btn: QPushButton | None = None
 
         self._create_widgets()
         self._connect_signals()
@@ -353,8 +352,8 @@ class GameFolderSelector(FolderSelector):
             label_key: str,
             select_title_key: str,
             game: GameDefinition,
-            validator: Optional[FolderValidator] = None,
-            parent: Optional[QWidget] = None
+            validator: FolderValidator | None = None,
+            parent: QWidget | None = None
     ) -> None:
         """Initialize game folder selector.
 

@@ -1,5 +1,3 @@
-from typing import Optional
-
 from PySide6.QtCore import Signal
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import (
@@ -25,8 +23,8 @@ class GameButton(QWidget):
     def __init__(
             self,
             game: GameDefinition,
-            icon_path: Optional[Path] = None,
-            parent: Optional[QWidget] = None
+            icon_path: Path | None = None,
+            parent: QWidget | None = None
     ) -> None:
         """Initialize game button.
 
@@ -41,16 +39,16 @@ class GameButton(QWidget):
         self._is_selected = False
 
         # UI components
-        self.container: Optional[QFrame] = None
-        self.icon_label: Optional[QLabel] = None
-        self.name_label: Optional[QLabel] = None
+        self.container: QFrame | None = None
+        self.icon_label: QLabel | None = None
+        self.name_label: QLabel | None = None
 
         self._create_widgets(icon_path)
         self.container.setProperty("selected", False)
         self.setFixedHeight(GAME_BUTTON_HEIGHT)
         self.setCursor(Qt.CursorShape.PointingHandCursor)
 
-    def _create_widgets(self, icon_path: Optional[Path]) -> None:
+    def _create_widgets(self, icon_path: Path | None) -> None:
         """Create UI widgets.
 
         Args:
@@ -82,7 +80,7 @@ class GameButton(QWidget):
 
         self._update_style()
 
-    def _create_icon_label(self, icon_path: Optional[Path]) -> QLabel:
+    def _create_icon_label(self, icon_path: Path | None) -> QLabel:
         """Create icon label with image or emoji fallback.
 
         Args:

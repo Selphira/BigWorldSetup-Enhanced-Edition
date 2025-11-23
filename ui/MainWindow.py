@@ -1,7 +1,6 @@
 """Main application window with page navigation system."""
 
 import logging
-from typing import Optional
 
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import (
@@ -43,15 +42,15 @@ class MainWindow(QMainWindow):
         # Page management
         self.pages: dict[str, BasePage] = {}
         self.page_order: list[str] = []
-        self.current_page_id: Optional[str] = None
+        self.current_page_id: str | None = None
 
         # UI components (initialized in create_widgets)
-        self.stack: Optional[QStackedWidget] = None
-        self.page_title: Optional[QLabel] = None
-        self.page_step: Optional[QLabel] = None
-        self.btn_previous: Optional[QPushButton] = None
-        self.btn_next: Optional[QPushButton] = None
-        self.lang_button: Optional[LanguageSelector] = None
+        self.stack: QStackedWidget | None = None
+        self.page_title: QLabel | None = None
+        self.page_step: QLabel | None = None
+        self.btn_previous: QPushButton | None = None
+        self.btn_next: QPushButton | None = None
+        self.lang_button: LanguageSelector | None = None
 
         self._setup_window()
         self._create_widgets()
@@ -271,7 +270,7 @@ class MainWindow(QMainWindow):
     # NAVIGATION LOGIC
     # ========================================
 
-    def get_next_page_id(self, current_id: str) -> Optional[str]:
+    def get_next_page_id(self, current_id: str) -> str | None:
         """Get next non-skipped page ID.
 
         Args:
@@ -298,7 +297,7 @@ class MainWindow(QMainWindow):
             logger.error(f"Page not in order: {current_id}")
             return None
 
-    def get_previous_page_id(self, current_id: str) -> Optional[str]:
+    def get_previous_page_id(self, current_id: str) -> str | None:
         """Get previous non-skipped page ID.
 
         Args:

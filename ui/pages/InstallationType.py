@@ -1,7 +1,6 @@
 """Installation type selection page with game-based validation."""
 
 import logging
-from typing import Optional
 
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
@@ -55,7 +54,7 @@ class InstallationTypePage(BasePage):
         super().__init__(state_manager)
 
         # UI state
-        self.selected_game: Optional[GameDefinition] = None
+        self.selected_game: GameDefinition | None = None
         self.game_buttons: dict[str, GameButton] = {}
 
         # Folder widgets indexed by folder key (not game)
@@ -63,12 +62,12 @@ class InstallationTypePage(BasePage):
         self.folder_widgets: dict[str, GameFolderSelector] = {}
 
         # UI components
-        self.right_panel: Optional[QWidget] = None
-        self.folders_content: Optional[QWidget] = None
-        self.folders_layout: Optional[QVBoxLayout] = None
-        self.download_folder: Optional[FolderSelector] = None
-        self.backup_folder: Optional[FolderSelector] = None
-        self.languages_order: Optional[SortableLanguages] = None
+        self.right_panel: QWidget | None = None
+        self.folders_content: QWidget | None = None
+        self.folders_layout: QVBoxLayout | None = None
+        self.download_folder: FolderSelector | None = None
+        self.backup_folder: FolderSelector | None = None
+        self.languages_order: SortableLanguages | None = None
 
         # Create UI
         self._create_widgets()

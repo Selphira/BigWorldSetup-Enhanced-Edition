@@ -3,7 +3,6 @@ Cache building dialog for UI layer.
 """
 
 import logging
-from typing import Optional
 
 from PySide6.QtCore import QEventLoop, Qt
 from PySide6.QtWidgets import QApplication, QMessageBox, QProgressDialog
@@ -29,8 +28,8 @@ class CacheDialog:
             parent: Parent widget (optional)
         """
         self.parent = parent
-        self._dialog: Optional[QProgressDialog] = None
-        self._event_loop: Optional[QEventLoop] = None
+        self._dialog: QProgressDialog | None = None
+        self._event_loop: QEventLoop | None = None
         self._result = {"success": False, "finished": False}
 
     def show_and_wait(self, mod_manager: ModManager) -> bool:

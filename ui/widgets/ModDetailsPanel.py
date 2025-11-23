@@ -5,7 +5,6 @@ This module provides a collapsible panel showing mod metadata including
 name, description, links, supported languages, authors, and quality indicators.
 """
 import logging
-from typing import Optional
 
 from PySide6.QtCore import QUrl
 from PySide6.QtGui import QDesktopServices, QPixmap
@@ -33,7 +32,7 @@ class ModDetailsPanel(QWidget):
     def __init__(self, mod_manager: ModManager, parent=None):
         super().__init__(parent)
         self._mod_manager: ModManager = mod_manager
-        self._current_mod: Optional[Mod] = None
+        self._current_mod: Mod | None = None
         self._setup_ui()
 
     def _setup_ui(self) -> None:
@@ -235,7 +234,7 @@ class ModDetailsPanel(QWidget):
         label.setToolTip(url)
         return label
 
-    def _update_quality_indicator(self, safe_value: Optional[int]) -> None:
+    def _update_quality_indicator(self, safe_value: int | None) -> None:
         """Update quality indicator badge."""
 
         quality_map = {

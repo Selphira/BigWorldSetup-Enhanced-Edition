@@ -7,7 +7,7 @@ supporting different component types (STD, MUC, SUB) with their specific behavio
 import logging
 from dataclasses import dataclass
 from enum import Enum, auto
-from typing import Optional, Any, cast, Generator
+from typing import Any, cast, Generator
 
 from PySide6.QtCore import QSortFilterProxyModel, QModelIndex, Qt
 from PySide6.QtGui import QStandardItemModel, QStandardItem, QColor, QCursor
@@ -315,7 +315,7 @@ class BaseTreeItem(QStandardItem):
         """Get the type of this item."""
         return self._item_type
 
-    def get_selected_component(self) -> Optional[Any]:
+    def get_selected_component(self) -> Any | None:
         """Get selected component data. Override in subclasses."""
         return None
 
@@ -349,7 +349,7 @@ class StdTreeItem(BaseTreeItem):
         self.setData(mod, ROLE_MOD)
         self.setData(component, ROLE_COMPONENT)
 
-    def get_selected_component(self) -> Optional[str]:
+    def get_selected_component(self) -> str | None:
         """Return component key if checked."""
         if self.checkState() == Qt.CheckState.Checked:
             component = self.data(ROLE_COMPONENT)
@@ -369,7 +369,7 @@ class MucTreeItem(BaseTreeItem):
         self.setData(mod, ROLE_MOD)
         self.setData(component, ROLE_COMPONENT)
 
-    def get_selected_component(self) -> Optional[str]:
+    def get_selected_component(self) -> str | None:
         """Return selected option key."""
         for row in range(self.rowCount()):
             option_item = self.child(row, 0)
@@ -390,7 +390,7 @@ class SubTreeItem(BaseTreeItem):
         self.setData(mod, ROLE_MOD)
         self.setData(component, ROLE_COMPONENT)
 
-    def get_selected_component(self) -> Optional[dict[str, Any]]:
+    def get_selected_component(self) -> dict[str, Any] | None:
         """Return selected prompts dictionary."""
         if self.checkState() != Qt.CheckState.Checked:
             return None
@@ -719,7 +719,7 @@ class SelectionStateManager:
         self._model = self._proxy_model.sourceModel()
         self._updating = False
 
-    def handle_item_change(self, item: BaseTreeItem) -> Optional[ModTreeItem]:
+    def handle_item_change(self, item: BaseTreeItem) -> ModTreeItem | None:
         """Handle item change and return the affected mod item."""
         if self._updating:
             return None
@@ -730,7 +730,7 @@ class SelectionStateManager:
         finally:
             self._updating = False
 
-    def _handle_item_by_type(self, item: BaseTreeItem) -> Optional[ModTreeItem]:
+    def _handle_item_by_type(self, item: BaseTreeItem) -> ModTreeItem | None:
         """Route handling based on item type."""
         item_type = item.get_item_type()
 
@@ -815,11 +815,11 @@ class SelectionStateManager:
         if component.rowCount() > 0:
             self._uncheck_all_children_recursive(component)
 
-    def _handle_std_component(self, item: StdTreeItem) -> Optional[ModTreeItem]:
+    def _handle_std_component(self, item: StdTreeItem) -> ModTreeItem | None:
         """Handle standard component change."""
         return self._update_parent_chain(item)
 
-    def _handle_muc_component(self, item: MucTreeItem) -> Optional[ModTreeItem]:
+    def _handle_muc_component(self, item: MucTreeItem) -> ModTreeItem | None:
         """Handle MUC component change."""
         check_state = item.checkState()
 
@@ -832,7 +832,7 @@ class SelectionStateManager:
 
         return self._update_parent_chain(item)
 
-    def _handle_sub_component(self, item: SubTreeItem) -> Optional[ModTreeItem]:
+    def _handle_sub_component(self, item: SubTreeItem) -> ModTreeItem | None:
         """Handle SUB component change."""
         check_state = item.checkState()
 
@@ -848,7 +848,7 @@ class SelectionStateManager:
 
         return self._update_parent_chain(item)
 
-    def _handle_muc_option(self, item: MucOptionTreeItem) -> Optional[ModTreeItem]:
+    def _handle_muc_option(self, item: MucOptionTreeItem) -> ModTreeItem | None:
         """Handle MUC option change."""
         parent = item.parent()
         if parent:
@@ -856,7 +856,7 @@ class SelectionStateManager:
             return self._update_parent_chain(parent)
         return None
 
-    def _handle_sub_prompt(self, item: PromptTreeItem) -> Optional[ModTreeItem]:
+    def _handle_sub_prompt(self, item: PromptTreeItem) -> ModTreeItem | None:
         """Handle SUB prompt change."""
         sub_parent = self._find_parent_by_type(item, ItemType.COMPONENT_SUB)
         if not sub_parent:
@@ -875,7 +875,7 @@ class SelectionStateManager:
 
         return self._update_parent_chain(sub_parent)
 
-    def _handle_sub_prompt_option(self, item: PromptOptionTreeItem) -> Optional[ModTreeItem]:
+    def _handle_sub_prompt_option(self, item: PromptOptionTreeItem) -> ModTreeItem | None:
         """Handle SUB prompt option change."""
         prompt_parent = item.parent()
         if not prompt_parent:
@@ -943,7 +943,7 @@ class SelectionStateManager:
         else:
             parent.setCheckState(Qt.CheckState.PartiallyChecked)
 
-    def _update_parent_chain(self, item: QStandardItem) -> Optional[ModTreeItem]:
+    def _update_parent_chain(self, item: QStandardItem) -> ModTreeItem | None:
         """Update check state up the parent chain."""
         current = item
         mod_item = None
@@ -987,7 +987,7 @@ class SelectionStateManager:
 
         return False
 
-    def _find_parent_by_type(self, item: QStandardItem, item_type: ItemType) -> Optional[BaseTreeItem]:
+    def _find_parent_by_type(self, item: QStandardItem, item_type: ItemType) -> BaseTreeItem | None:
         """Find parent of specific type."""
         current = item.parent()
         while current:
@@ -1308,8 +1308,8 @@ class ComponentSelector(QTreeView):
             text: str = "",
             game: str = "",
             category: str = "",
-            authors: Optional[set[str]] = None,
-            languages: Optional[set[str]] = None
+            authors: set[str] | None = None,
+            languages: set[str] | None = None
     ) -> None:
         """Apply all filters at once for better performance."""
         old_criteria = self._proxy_model.get_filter_criteria()
@@ -1548,7 +1548,7 @@ class ComponentSelector(QTreeView):
             comp_item: BaseTreeItem,
             component,
             saved_components: list[Any]
-    ) -> Optional[Any]:
+    ) -> Any | None:
         """Find the saved selection data for a component.
 
         Args:

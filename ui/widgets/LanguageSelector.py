@@ -1,7 +1,6 @@
 """Language selection button for the application toolbar."""
 
 import logging
-from typing import Optional
 
 from PySide6.QtCore import Signal, QSize
 from PySide6.QtGui import QAction, QIcon, QPixmap, QCursor
@@ -29,7 +28,7 @@ class LanguageSelector(QToolButton):
     def __init__(
             self,
             available_languages: list[str],
-            parent: Optional[QToolButton] = None
+            parent: QToolButton | None = None
     ) -> None:
         """
         Initialize the language menu button.
@@ -41,7 +40,7 @@ class LanguageSelector(QToolButton):
         super().__init__(parent)
 
         self._available_languages = available_languages
-        self._current_lang: Optional[str] = None
+        self._current_lang: str | None = None
         self._actions: dict[str, QAction] = {}
         self._menu = QMenu(self)
 
@@ -158,7 +157,7 @@ class LanguageSelector(QToolButton):
         # Fallback to default icon
         logger.debug(f"Flag icon not found: {icon_path}")
 
-    def current_language(self) -> Optional[str]:
+    def current_language(self) -> str | None:
         """
         Get currently selected language code.
 

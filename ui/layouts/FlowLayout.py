@@ -4,7 +4,6 @@ FlowLayout - Custom layout that arranges widgets in a flowing manner.
 Widgets are laid out horizontally until the available width is filled,
 then wraps to the next line. Similar to CSS flexbox with flex-wrap.
 """
-from typing import List, Optional
 
 from PySide6.QtCore import QPoint, QRect, QSize, Qt
 from PySide6.QtWidgets import QLayout, QLayoutItem, QWidget
@@ -30,7 +29,7 @@ class FlowLayout(QLayout):
 
     def __init__(
             self,
-            parent: Optional[QWidget] = None,
+            parent: QWidget | None = None,
             margin: int = DEFAULT_MARGIN,
             spacing: int = DEFAULT_SPACING
     ):
@@ -42,7 +41,7 @@ class FlowLayout(QLayout):
             spacing: Space between items in pixels
         """
         super().__init__(parent)
-        self._item_list: List[QLayoutItem] = []
+        self._item_list: list[QLayoutItem] = []
 
         self.setContentsMargins(margin, margin, margin, margin)
         self.setSpacing(spacing)
@@ -67,7 +66,7 @@ class FlowLayout(QLayout):
         """
         return len(self._item_list)
 
-    def itemAt(self, index: int) -> Optional[QLayoutItem]:
+    def itemAt(self, index: int) -> QLayoutItem | None:
         """Return the item at the specified index.
 
         Args:
@@ -80,7 +79,7 @@ class FlowLayout(QLayout):
             return self._item_list[index]
         return None
 
-    def takeAt(self, index: int) -> Optional[QLayoutItem]:
+    def takeAt(self, index: int) -> QLayoutItem | None:
         """Remove and return the item at the specified index.
 
         Args:
@@ -231,7 +230,7 @@ class FlowLayout(QLayout):
             if item and item.widget():
                 item.widget().setParent(None)
 
-    def get_items(self) -> List[QLayoutItem]:
+    def get_items(self) -> list[QLayoutItem]:
         """Get a copy of all layout items.
 
         Returns:
