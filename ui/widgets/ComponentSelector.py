@@ -1071,7 +1071,6 @@ class ComponentSelector(QTreeView):
                 comp_item = self._create_component_item(mod, component)
                 mod_item.appendRow([comp_item, QStandardItem("")])
 
-            self._update_mod_status(mod_item)
             self._model.appendRow([mod_item, status_item])
 
     def _create_component_item(self, mod, component) -> BaseTreeItem:
