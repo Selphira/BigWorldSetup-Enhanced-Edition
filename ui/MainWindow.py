@@ -91,9 +91,7 @@ class MainWindow(QMainWindow):
         """
         frame = QFrame()
         frame.setFixedHeight(HEADER_HEIGHT)
-        frame.setStyleSheet(
-            f"background-color: {COLOR_BACKGROUND_SECONDARY};"
-        )
+        frame.setObjectName("header")
 
         layout = QHBoxLayout(frame)
         layout.setContentsMargins(30, 10, 10, 10)
@@ -150,9 +148,7 @@ class MainWindow(QMainWindow):
         frame = QFrame()
         frame.setFixedHeight(FOOTER_HEIGHT)
         frame.setAutoFillBackground(True)
-        frame.setStyleSheet(
-            f"background-color: {COLOR_BACKGROUND_SECONDARY};"
-        )
+        frame.setObjectName("footer")
 
         # Set background color
         palette = frame.palette()
@@ -399,6 +395,9 @@ class MainWindow(QMainWindow):
             return
 
         page = self.pages[self.current_page_id]
+
+        # Save page data
+        page.save_state()
 
         # Check for custom previous page
         prev_id = page.get_previous_page_id()
