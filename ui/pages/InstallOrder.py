@@ -974,7 +974,7 @@ class InstallOrderPage(BasePage):
             display_text = f"{mod_id}: {comp_key}"
         else:
             comp_text = mod.get_component_text(comp_key)
-            display_text = f"{mod.name}: {comp_text}"
+            display_text = f"{mod.name} - [{comp_key}] {comp_text}"
 
         item = QListWidgetItem(display_text)
         item.setData(Qt.ItemDataRole.UserRole, mod_id)
