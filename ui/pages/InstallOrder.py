@@ -560,7 +560,7 @@ class InstallOrderPage(BasePage):
         # Load default order
         self._btn_default = QPushButton()
         self._btn_default.setCursor(Qt.CursorShape.PointingHandCursor)
-        self._btn_default.clicked.connect(self._load_default_order)
+        self._btn_default.clicked.connect(self._load_default_order_current_tab)
         layout.addWidget(self._btn_default)
 
         # Load from WeiDU.log
@@ -850,6 +850,13 @@ class InstallOrderPage(BasePage):
                  not step.is_annotation and not not step.is_install]
 
         self._apply_order_from_list(seq_idx, order)
+
+    def _load_default_order_current_tab(self) -> None:
+        """Load default order from game definition for current tab."""
+        index = self._current_sequence_idx
+        self._apply_sequence_order(index, self._game_def.get_sequence(index).order)
+
+        logger.info(f"Order tab changed: {index}")
 
     def _load_default_order(self) -> None:
         """Load default order from game definition."""
