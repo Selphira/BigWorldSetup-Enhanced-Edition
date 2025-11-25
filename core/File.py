@@ -1,6 +1,5 @@
 import logging
 from pathlib import Path
-from typing import List
 
 logger = logging.getLogger(__name__)
 
@@ -9,7 +8,7 @@ logger = logging.getLogger(__name__)
 # ------------------------------
 
 # Default encoding attempts (ordered by frequency in mod files)
-DEFAULT_ENCODINGS: List[str] = [
+DEFAULT_ENCODINGS: list[str] = [
     "utf-8",  # Most common modern encoding
     "utf-8-sig",  # UTF-8 with BOM (common in Windows files)
     "cp1252",  # Windows Western European
