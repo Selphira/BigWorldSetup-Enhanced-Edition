@@ -367,6 +367,8 @@ class ModSelectionPage(BasePage):
         splitter.setStretchFactor(0, 7)
         splitter.setStretchFactor(1, 3)
 
+        splitter.splitterMoved.connect(self._on_splitter_moved)
+
         # Add collapse button in handle
         self._setup_collapse_button(splitter)
 
@@ -527,6 +529,22 @@ class ModSelectionPage(BasePage):
     def _on_selection_changed(self) -> None:
         """Handle component selection change."""
         self.notify_navigation_changed()
+
+    def _on_splitter_moved(self):
+        """Detect manual collapse or expansion by the user."""
+        sizes = self._splitter.sizes()
+        right_size = sizes[1]
+
+        collapsed = right_size < 10
+
+        if collapsed != self._details_collapsed:
+            self._details_collapsed = collapsed
+            self._splitter_state = QByteArray(
+                b'\x00\x00\x00\xff\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x07\xaf\x00\x00\x01\xb6\x01\x00\x00\x00\x14\x01\x00\x00\x00\x01\x00')
+            if collapsed:
+                self._collapse_button.setArrowType(Qt.ArrowType.LeftArrow)
+            else:
+                self._collapse_button.setArrowType(Qt.ArrowType.RightArrow)
 
     # ========================================
     # Filtering
