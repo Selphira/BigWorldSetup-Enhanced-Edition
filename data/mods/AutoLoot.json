@@ -1,14 +1,14 @@
 {
   "name": "Bubb's Auto Loot",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "links": {
     "homepage": "https://github.com/LCA-EET/AutoLoot",
-    "download": "https://github.com/LCA-EET/AutoLoot/releases/download/v1.2.4/AutoLoot.zip"
+    "download": "https://github.com/LCA-EET/AutoLoot/releases/download/v1.2.5/AutoLoot.zip"
   },
   "file": {
     "filename": "AutoLoot.zip",
-    "size": 1273304,
-    "sha256": "67d3dea6d63db969d3a6b394b3df3d7c3a3dce0848f5ae018847745fcc85b003"
+    "size": 1273388,
+    "sha256": "77db4a1f8c00c39331f0c6cd9d6ef4dcd35180f0d806066cd0d8a8ea18e0b69a"
   },
   "games": ["bgee", "sod", "bg2ee", "eet"],
   "categories": ["gameplay"],
