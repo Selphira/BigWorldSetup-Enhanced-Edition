@@ -317,13 +317,14 @@ class DownloadWorker(QObject):
 
         self._network_manager = QNetworkAccessManager(self)
         self._reply = self._network_manager.get(request)
+
         self._reply.downloadProgress.connect(self._on_download_progress)
         self._reply.finished.connect(self._on_download_finished)
         self._reply.errorOccurred.connect(self._on_download_error)
 
-        # Prepare output file
-        output_path = self.download_path / self.archive_info.filename
-        self._output_file = open(output_path, 'wb')
+        # Prepare temporary file
+        self._temp_path = self.download_path / (self.archive_info.filename + ".part")
+        self._output_file = open(self._temp_path, 'wb')
 
         # Connect data ready signal
         self._reply.readyRead.connect(self._on_ready_read)
@@ -334,10 +335,21 @@ class DownloadWorker(QObject):
         logger.info(f"Started download: {self.archive_info.filename}")
 
     def cancel(self) -> None:
-        """Cancel the download."""
+        """Cancel the download and delete partial file."""
         if self._reply:
             self._reply.abort()
-            logger.info(f"Cancelled download: {self.archive_info.filename}")
+
+        logger.info(f"Cancelled download: {self.archive_info.filename}")
+
+        # Delete partial file
+        try:
+            if self._output_file:
+                self._output_file.close()
+                self._output_file = None
+            if self._temp_path and self._temp_path.exists():
+                self._temp_path.unlink()
+        except Exception as e:
+            logger.warning(f"Failed to remove partial file: {e}")
 
     def _on_ready_read(self) -> None:
         """Handle data ready to be read."""
@@ -367,10 +379,18 @@ class DownloadWorker(QObject):
             self._output_file.close()
             self._output_file = None
 
-        output_path = self.download_path / self.archive_info.filename
-
         if self._reply and self._reply.error() == QNetworkReply.NetworkError.NoError:
+            final_path = self.download_path / self.archive_info.filename
+            try:
+                if self._temp_path.exists():
+                    self._temp_path.rename(final_path)
+            except Exception as e:
+                logger.error(f"Failed to rename file: {e}")
+                self.error.emit(str(e))
+                return
+
             logger.info(f"Download completed: {self.archive_info.filename}")
+            self.finished.emit(str(final_path))
 
         if self._reply:
             self._reply.deleteLater()
@@ -379,8 +399,6 @@ class DownloadWorker(QObject):
         if self._network_manager:
             self._network_manager.deleteLater()
             self._network_manager = None
-
-        self.finished.emit(str(output_path))
 
     def _on_download_error(self, error_code) -> None:
         """Handle download error.
@@ -395,13 +413,12 @@ class DownloadWorker(QObject):
         error_string = self._reply.errorString() if self._reply else "Unknown error"
         logger.error(f"Download error for {self.archive_info.filename}: {error_string}")
 
-        # Clean up partial file
-        output_path = self.download_path / self.archive_info.filename
-        if output_path.exists():
-            try:
-                output_path.unlink()
-            except Exception as e:
-                logger.warning(f"Failed to delete partial file: {e}")
+        # Clean up .part file
+        try:
+            if self._temp_path and self._temp_path.exists():
+                self._temp_path.unlink()
+        except Exception as e:
+            logger.warning(f"Failed to delete partial file: {e}")
 
         if self._network_manager:
             self._network_manager.deleteLater()

@@ -850,7 +850,7 @@ class DownloadPage(BasePage):
         """Handle download progress update."""
         pass  # Handled by timer
 
-    def _on_download_canceled(self, mod_id: str, file_path: str) -> None:
+    def _on_download_canceled(self, mod_id: str) -> None:
         """Handle download cancelation."""
         logger.info(f"Download canceled: {mod_id}")
         self._update_after_download(mod_id)
