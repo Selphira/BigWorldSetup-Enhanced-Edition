@@ -60,3 +60,12 @@ def safe_read(
 
     with open(path, "rb") as f:
         return f.read().decode("utf-8", errors="replace")
+
+
+def format_size(bytes_count: int) -> str:
+    """Format byte size for display."""
+    for unit in ['B', 'KB', 'MB', 'GB']:
+        if bytes_count < 1024.0:
+            return f"{bytes_count:.1f} {unit}"
+        bytes_count /= 1024.0
+    return f"{bytes_count:.1f} TB"
