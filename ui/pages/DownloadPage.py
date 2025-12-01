@@ -300,15 +300,17 @@ class ArchiveTableWidget(QTableWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self._hover_row = -1
-        self.setMouseTracking(True)
-        self.setSortingEnabled(True)
-        self._setup_hover_style()
+        self._setup_table()
 
-    def _setup_hover_style(self) -> None:
+    def _setup_table(self) -> None:
         """Setup hover highlighting style."""
         self.setAlternatingRowColors(True)
         self.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
+        self.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.verticalHeader().setVisible(False)
+        self.setMouseTracking(True)
+        self.setSortingEnabled(True)
 
     def mouseMoveEvent(self, event) -> None:
         """Handle mouse move for row hover effect."""
@@ -478,9 +480,6 @@ class DownloadPage(BasePage):
             tr("page.download.col_filename"),
             tr("page.download.col_status")
         ])
-
-        self._archive_table.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
-        self._archive_table.verticalHeader().setVisible(False)
 
         # Column resize modes
         header = self._archive_table.horizontalHeader()
