@@ -190,7 +190,7 @@ def print_results(results: list[ValidationResult]) -> int:
     total = len(results)
     passed = total - failed_count
 
-    if total > 0:
+    if total > 1:
         print(f"\n{'=' * 60}")
         print(f"Summary: {passed}/{total} files passed validation")
         if failed_count > 0:
