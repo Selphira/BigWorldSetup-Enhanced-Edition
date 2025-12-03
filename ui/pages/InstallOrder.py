@@ -5,20 +5,25 @@ This module provides an interface for organizing mod installation order
 with drag-and-drop support, automatic ordering, and validation rules.
 Supports EET dual-sequence installation (BG1 and BG2 phases).
 """
+from __future__ import annotations
+
 import logging
 from dataclasses import dataclass
+from typing import cast
 
-from PySide6.QtCore import QPoint, QTimer, Qt, QRect, Signal
-from PySide6.QtGui import QColor, QFontMetrics, QPainter, QPen
+from PySide6.QtCore import QPoint, QTimer, Qt, Signal, QMimeData
+from PySide6.QtGui import QColor, QDrag, QPainter, QPen
 from PySide6.QtWidgets import (
-    QCheckBox, QFileDialog, QFrame, QHBoxLayout, QListWidget,
-    QListWidgetItem, QMessageBox, QPushButton, QSplitter,
-    QStyledItemDelegate, QStyle, QTabWidget, QVBoxLayout, QWidget
+    QAbstractItemView, QCheckBox, QFileDialog, QFrame, QHBoxLayout,
+    QHeaderView, QMessageBox, QPushButton, QSplitter, QTabWidget,
+    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget
 )
 
 from constants import (
-    COLOR_ACCENT, COLOR_TEXT, COLOR_TEXT_DISABLED,
-    MARGIN_SMALL, MARGIN_STANDARD, SPACING_MEDIUM, SPACING_SMALL
+    COLOR_ACCENT, COLOR_BACKGROUND_SECONDARY, COLOR_BACKGROUND_WARNING,
+    COLOR_BACKGROUND_ERROR, ICON_ERROR, MARGIN_SMALL,
+    MARGIN_STANDARD, SPACING_MEDIUM, SPACING_SMALL, ICON_WARNING,
+    ROLE_MOD, ROLE_COMPONENT, ROLE_BACKGROUND
 )
 from core.GameModels import GameDefinition, InstallStep
 from core.StateManager import StateManager
@@ -27,6 +32,27 @@ from core.WeiDULogParser import WeiDULogParser
 from ui.pages.BasePage import BasePage
 
 logger = logging.getLogger(__name__)
+
+# ============================================================================
+# Constants
+# ============================================================================
+
+# Ordered table columns
+COL_ORDERED_MOD = 0
+COL_ORDERED_COMPONENT = 1
+ORDERED_COLUMN_COUNT = 2
+
+# Unordered table columns
+COL_UNORDERED_MOD = 0
+COL_UNORDERED_COMPONENT = 1
+UNORDERED_COLUMN_COUNT = 2
+
+# Drag & drop
+MIME_TYPE_COMPONENT = "application/x-bws-component"
+
+# Auto-scroll
+AUTO_SCROLL_MARGIN = 30
+AUTO_SCROLL_SPEED = 5
 
 
 # ============================================================================
@@ -55,9 +81,9 @@ class ValidationResult:
     """
 
     # Color constants for validation
-    COLOR_VALID = QColor("#2ecc71")
-    COLOR_WARNING = QColor("#f39c12")
-    COLOR_ERROR = QColor("#e74c3c")
+    COLOR_VALID = QColor("transparent")
+    COLOR_WARNING = QColor(COLOR_BACKGROUND_WARNING)
+    COLOR_ERROR = QColor(COLOR_BACKGROUND_ERROR)
 
     def __init__(self):
         self._issues: list[ComponentIssue] = []
@@ -88,6 +114,15 @@ class ValidationResult:
             True if no errors exist, False otherwise
         """
         return not any(issue.is_error for issue in self._issues)
+
+    @property
+    def has_errors(self) -> bool:
+        """Check if order has errors.
+
+        Returns:
+            True if errors exist, False otherwise
+        """
+        return any(issue.is_error for issue in self._issues)
 
     @property
     def has_warnings(self) -> bool:
@@ -127,7 +162,7 @@ class ValidationResult:
         """
         return [issue for issue in self._issues if issue.component_id == component_id]
 
-    def get_component_color(self, component_id: str) -> QColor:
+    def get_component_indicator(self, component_id: str) -> tuple[QColor, str]:
         """Get color for a component based on its issues.
 
         Args:
@@ -138,10 +173,10 @@ class ValidationResult:
         """
         issues = self.get_component_issues(component_id)
         if not issues:
-            return self.COLOR_VALID
+            return self.COLOR_VALID, ""
 
         has_error = any(issue.is_error for issue in issues)
-        return self.COLOR_ERROR if has_error else self.COLOR_WARNING
+        return self.COLOR_ERROR if has_error else self.COLOR_WARNING, ICON_ERROR if has_error else ICON_WARNING
 
     def clear(self) -> None:
         """Clear all validation issues."""
@@ -200,40 +235,63 @@ class SequenceData:
 
 
 # ============================================================================
-# Draggable List Widget
+# Draggable Table Widget
 # ============================================================================
 
-class DraggableListWidget(QListWidget):
-    """List widget with enhanced drag-and-drop support.
+class DraggableTableWidget(QTableWidget):
+    """Table widget with enhanced drag-and-drop support.
 
     Features:
-    - Multi-selection (Ctrl/Shift)
+    - Multi-row selection (Ctrl/Shift)
     - Visual drop indicator
     - Auto-scroll during drag
-    - Bidirectional drag between lists
+    - Bidirectional drag between tables
+    - Row hover highlighting
     """
 
     # Signals
     orderChanged = Signal()
 
-    # Auto-scroll constants
-    AUTO_SCROLL_MARGIN = 30
-    AUTO_SCROLL_SPEED = 5
-
-    def __init__(self, parent=None, accept_from_other: bool = False):
-        """Initialize draggable list widget.
+    def __init__(
+            self,
+            parent=None,
+            column_count: int = 2,
+            accept_from_other: bool = False,
+            table_role: str | None = None
+    ):
+        """Initialize draggable table widget.
 
         Args:
             parent: Parent widget
-            accept_from_other: If True, accept drops from other list widgets
+            column_count: Number of columns
+            accept_from_other: Accept drops from other tables
         """
         super().__init__(parent)
-        self._dragged_items: list[QListWidgetItem] | None = None
-        self._accept_from_other = accept_from_other
-        self._drop_indicator_row = -1
 
+        self._column_count = column_count
+        self._accept_from_other = accept_from_other
+        self._table_role = table_role
+        self._auto_scroll_direction = None
+        self._drop_indicator_row = -1
+        self._dragged_rows: list[int] = []
+        self._hover_row = -1
+
+        self._setup_table()
         self._setup_drag_drop()
         self._setup_auto_scroll()
+
+    def _setup_table(self) -> None:
+        """Configure table settings."""
+        self.setColumnCount(self._column_count)
+        self.setAlternatingRowColors(True)
+        self.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
+        self.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
+        self.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.verticalHeader().setVisible(False)
+        self.setMouseTracking(True)
+
+        # Hide grid lines for cleaner look
+        self.setShowGrid(False)
 
     def _setup_drag_drop(self) -> None:
         """Configure drag and drop settings."""
@@ -241,8 +299,7 @@ class DraggableListWidget(QListWidget):
         self.setAcceptDrops(True)
         self.setDropIndicatorShown(False)
         self.setDefaultDropAction(Qt.DropAction.MoveAction)
-        self.setSelectionMode(QListWidget.SelectionMode.ExtendedSelection)
-        self.setAlternatingRowColors(True)
+        self.setDragDropMode(QAbstractItemView.DragDropMode.DragDrop)
 
     def _setup_auto_scroll(self) -> None:
         """Configure auto-scroll timer."""
@@ -251,10 +308,49 @@ class DraggableListWidget(QListWidget):
         self._auto_scroll_timer.timeout.connect(self._perform_auto_scroll)
         self._auto_scroll_direction = 0
 
+    def startDrag(self, supported_actions):
+        """Start drag operation."""
+        self._dragged_rows = [item.row() for item in self.selectedItems()
+                              if item.column() == 0]
+        self._dragged_rows = sorted(set(self._dragged_rows))
+
+        if not self._dragged_rows:
+            return
+
+        # Create drag with MIME data
+        drag = QDrag(self)
+        mime_data = self._create_mime_data()
+        drag.setMimeData(mime_data)
+
+        drag.exec(Qt.DropAction.MoveAction)
+
+    def _create_mime_data(self):
+        """Create MIME data for drag operation."""
+        mime = QMimeData()
+
+        # Store component data with metadata
+        components = []
+        for row in self._dragged_rows:
+            # Get data from first column (always contains UserRole data)
+            first_item = self.item(row, 0)
+            if not first_item:
+                continue
+
+            mod_id = first_item.data(ROLE_MOD)
+            comp_key = first_item.data(ROLE_COMPONENT)
+
+            components.append(f"{mod_id}|{comp_key}")
+
+        data = "\n".join(components)
+        mime.setText(data)
+        mime.setData(MIME_TYPE_COMPONENT, data.encode())
+
+        return mime
+
     def dragEnterEvent(self, event):
         """Handle drag enter event."""
         if self._should_accept_drag(event):
-            event.accept()
+            event.acceptProposedAction()
         else:
             event.ignore()
 
@@ -264,43 +360,135 @@ class DraggableListWidget(QListWidget):
             event.ignore()
             self._drop_indicator_row = -1
             self._auto_scroll_timer.stop()
+            self.viewport().update()
             return
 
-        event.accept()
-        self._update_drop_indicator(event.pos())
-        self._update_auto_scroll(event.pos())
+        event.acceptProposedAction()
+        self._update_drop_indicator(event.position().toPoint())
+        self._update_auto_scroll(event.position().toPoint())
+        self.viewport().update()
 
     def dragLeaveEvent(self, event):
         """Handle drag leave event."""
         self._drop_indicator_row = -1
         self._auto_scroll_timer.stop()
+        self._auto_scroll_direction = 0
         self.viewport().update()
-
-    def startDrag(self, supported_actions):
-        """Start drag operation."""
-        self._dragged_items = list(self.selectedItems())
-        super().startDrag(supported_actions)
 
     def dropEvent(self, event):
         """Handle drop event with multi-item support."""
+        self._auto_scroll_timer.stop()
+        self._auto_scroll_direction = 0
+
+        if not self._should_accept_drag(event):
+            event.ignore()
+            return
+
+        source = cast(DraggableTableWidget, event.source())
+        drop_row = self._drop_indicator_row
+
+        if drop_row < 0:
+            drop_row = self.rowCount()
+
+        # Parse MIME data
+        mime_data = event.mimeData()
+        if not mime_data.hasFormat(MIME_TYPE_COMPONENT):
+            event.ignore()
+            return
+
+        # Decode component data: mod_id|comp_key format
+        components_data = mime_data.data(MIME_TYPE_COMPONENT).data().decode().split("\n")
+
+        # Get the page to rebuild rows properly
+        page = self._get_parent_page()
+        if not page:
+            event.ignore()
+            return
+
+        # Block signals during operation
+        self.blockSignals(True)
+
+        try:
+            # Insert rows at drop position
+            for i, comp_data in enumerate(components_data):
+                parts = comp_data.split("|")
+                if len(parts) != 2:
+                    continue
+
+                mod_id = parts[0]
+                comp_key = parts[1]
+
+                insert_row = drop_row + i
+
+                if self._table_role == "ordered":
+                    page.insert_row_to_ordered_table(self, insert_row, mod_id, comp_key)
+                else:
+                    page.insert_row_to_unordered_table(self, insert_row, mod_id, comp_key)
+
+            # Remove from source if dropping from another table
+            if source and source is not self:
+                if hasattr(source, '_dragged_rows'):
+                    # Remove in reverse order to maintain indices
+                    for row in sorted(source._dragged_rows, reverse=True):
+                        source.removeRow(row)
+                    source._dragged_rows = []
+                    source.orderChanged.emit()
+            elif source is self:
+                # Same table - remove original rows (adjust for inserted rows)
+                adjusted_rows = []
+                for row in self._dragged_rows:
+                    if row < drop_row:
+                        adjusted_rows.append(row)
+                    else:
+                        adjusted_rows.append(row + len(components_data))
+
+                for row in sorted(adjusted_rows, reverse=True):
+                    self.removeRow(row)
+
+        finally:
+            self.blockSignals(False)
+
         self._drop_indicator_row = -1
-        source = event.source()
-
-        # Let Qt handle same-list moves
-        super().dropEvent(event)
-
-        # Remove items from source if dropping from another list
-        if source is not None and source is not self and hasattr(source, '_dragged_items'):
-            if source._dragged_items:
-                for item in source._dragged_items:
-                    row = source.row(item)
-                    if row >= 0:
-                        source.takeItem(row)
-                source._dragged_items = None
-            source.orderChanged.emit()
-
+        self._dragged_rows = []
         self.orderChanged.emit()
-        event.accept()
+        event.acceptProposedAction()
+
+    def _get_parent_page(self) -> InstallOrderPage | None:
+        """Get parent InstallOrderPage instance."""
+        parent = self.parent()
+        while parent:
+            if parent.__class__.__name__ == 'InstallOrderPage':
+                return cast(InstallOrderPage, parent)
+            parent = parent.parent()
+        return None
+
+    def mouseMoveEvent(self, event) -> None:
+        """Handle mouse move for row hover effect."""
+        row = self.rowAt(event.pos().y())
+
+        if row != self._hover_row:
+            # Clear previous hover
+            if self._hover_row >= 0:
+                self._clear_row_hover(self._hover_row)
+
+            # Set new hover
+            self._hover_row = row
+            if self._hover_row >= 0:
+                self._set_row_hover(self._hover_row)
+
+        super().mouseMoveEvent(event)
+
+    def mouseReleaseEvent(self, event):
+        self._auto_scroll_timer.stop()
+        self._auto_scroll_direction = 0
+        super().mouseReleaseEvent(event)
+
+    def leaveEvent(self, event):
+        """Clear hover when mouse leaves table."""
+        if self._hover_row >= 0:
+            self._clear_row_hover(self._hover_row)
+            self._hover_row = -1
+        super().leaveEvent(event)
 
     def paintEvent(self, event):
         """Custom paint to draw drop indicator."""
@@ -308,11 +496,6 @@ class DraggableListWidget(QListWidget):
 
         if self._drop_indicator_row >= 0:
             self._draw_drop_indicator()
-
-    def mouseDoubleClickEvent(self, event):
-        """Handle double-click event."""
-        # Parent will connect to itemDoubleClicked signal
-        super().mouseDoubleClickEvent(event)
 
     def _should_accept_drag(self, event) -> bool:
         """Check if drag should be accepted.
@@ -331,18 +514,16 @@ class DraggableListWidget(QListWidget):
         Args:
             pos: Mouse position
         """
-        index = self.indexAt(pos)
+        row = self.rowAt(pos.y())
 
-        if index.isValid():
-            rect = self.visualRect(index)
+        if row >= 0:
+            rect = self.visualRect(self.model().index(row, 0))
             if pos.y() < rect.center().y():
-                self._drop_indicator_row = index.row()
+                self._drop_indicator_row = row
             else:
-                self._drop_indicator_row = index.row() + 1
+                self._drop_indicator_row = row + 1
         else:
-            self._drop_indicator_row = self.count()
-
-        self.viewport().update()
+            self._drop_indicator_row = self.rowCount()
 
     def _update_auto_scroll(self, pos: QPoint) -> None:
         """Update auto-scroll based on cursor position.
@@ -352,11 +533,11 @@ class DraggableListWidget(QListWidget):
         """
         viewport_height = self.viewport().height()
 
-        if pos.y() < self.AUTO_SCROLL_MARGIN:
+        if pos.y() < AUTO_SCROLL_MARGIN:
             self._auto_scroll_direction = -1
             if not self._auto_scroll_timer.isActive():
                 self._auto_scroll_timer.start()
-        elif pos.y() > viewport_height - self.AUTO_SCROLL_MARGIN:
+        elif pos.y() > viewport_height - AUTO_SCROLL_MARGIN:
             self._auto_scroll_direction = 1
             if not self._auto_scroll_timer.isActive():
                 self._auto_scroll_timer.start()
@@ -369,7 +550,7 @@ class DraggableListWidget(QListWidget):
         if self._auto_scroll_direction != 0:
             scrollbar = self.verticalScrollBar()
             current = scrollbar.value()
-            new_value = current + (self._auto_scroll_direction * self.AUTO_SCROLL_SPEED)
+            new_value = current + (self._auto_scroll_direction * AUTO_SCROLL_SPEED)
             scrollbar.setValue(new_value)
 
     def _draw_drop_indicator(self) -> None:
@@ -379,90 +560,39 @@ class DraggableListWidget(QListWidget):
         painter.setPen(pen)
 
         # Calculate y position
-        if self._drop_indicator_row < self.count():
-            rect = self.visualRect(self.indexFromItem(self.item(self._drop_indicator_row)))
+        if self._drop_indicator_row < self.rowCount():
+            rect = self.visualRect(self.model().index(self._drop_indicator_row, 0))
             y = rect.top()
-        elif self.count() > 0:
-            last_rect = self.visualRect(self.indexFromItem(self.item(self.count() - 1)))
+        elif self.rowCount() > 0:
+            last_rect = self.visualRect(self.model().index(self.rowCount() - 1, 0))
             y = last_rect.bottom()
         else:
             y = 0
 
         painter.drawLine(0, y, self.viewport().width(), y)
+        painter.end()
 
+    def _set_row_hover(self, row: int) -> None:
+        """Apply hover style to row."""
+        for col in range(self.columnCount()):
+            item = self.item(row, col)
+            if item:
+                # Store original background
+                if not item.data(ROLE_BACKGROUND):
+                    original_bg = item.background()
+                    item.setData(ROLE_BACKGROUND, original_bg)
 
-# ============================================================================
-# Custom Item Delegate
-# ============================================================================
+                item.setBackground(QColor(COLOR_BACKGROUND_SECONDARY))
 
-class ArrowDelegate(QStyledItemDelegate):
-    """Item delegate that adds arrow prefix to unordered items."""
-
-    def __init__(self, parent=None, prefix: str = "🞀"):
-        """Initialize arrow delegate.
-
-        Args:
-            parent: Parent widget
-            prefix: Prefix character/string to display
-        """
-        super().__init__(parent)
-        self.prefix = prefix + " "
-
-    def paint(self, painter: QPainter, option, index):
-        """Paint item with arrow prefix.
-
-        Args:
-            painter: QPainter instance
-            option: Style options
-            index: Model index
-        """
-        painter.save()
-
-        # Draw background/selection
-        style = option.widget.style() if option.widget else QStyle()
-        style.drawPrimitive(QStyle.PE_PanelItemViewItem, option, painter, option.widget)
-
-        text = index.data(Qt.ItemDataRole.DisplayRole) or ""
-        rect = option.rect
-        fm = QFontMetrics(option.font)
-        prefix_width = fm.horizontalAdvance(self.prefix)
-
-        # Draw prefix
-        painter.setPen(QColor(COLOR_TEXT_DISABLED))
-        painter.setFont(option.font)
-        painter.drawText(
-            rect.left() + 6, rect.top(), prefix_width, rect.height(),
-            Qt.AlignmentFlag.AlignVCenter | Qt.TextFlag.TextSingleLine,
-            self.prefix
-        )
-
-        # Draw text
-        painter.setPen(QColor(COLOR_TEXT))
-        text_rect = QRect(
-            rect.left() + 20 + prefix_width, rect.top(),
-            rect.width() - 20 - prefix_width, rect.height()
-        )
-        painter.drawText(
-            text_rect,
-            Qt.AlignmentFlag.AlignVCenter | Qt.TextFlag.TextSingleLine,
-            text
-        )
-
-        painter.restore()
-
-    def sizeHint(self, option, index):
-        """Calculate size hint for item.
-
-        Args:
-            option: Style options
-            index: Model index
-
-        Returns:
-            Size hint
-        """
-        size = super().sizeHint(option, index)
-        size.setHeight(size.height() + 2)
-        return size
+    def _clear_row_hover(self, row: int) -> None:
+        """Clear hover style from row."""
+        for col in range(self.columnCount()):
+            item = self.item(row, col)
+            if item:
+                original_bg = item.data(ROLE_BACKGROUND)
+                if original_bg:
+                    item.setBackground(original_bg)
+                    item.setData(ROLE_BACKGROUND, None)
 
 
 # ============================================================================
@@ -491,6 +621,7 @@ class InstallOrderPage(BasePage):
 
         self._mod_manager = self.state_manager.get_mod_manager()
         self._game_manager = self.state_manager.get_game_manager()
+        self._rule_manager = self.state_manager.get_rule_manager()
         self._weidu_parser = WeiDULogParser()
 
         # Game state
@@ -503,13 +634,14 @@ class InstallOrderPage(BasePage):
 
         # Validation
         self._ignore_warnings = False
+        self._ignore_errors = False
 
         # Widget containers
         self._main_container: QWidget | None = None
         self._main_layout: QVBoxLayout | None = None
         self._phase_tabs: QTabWidget | None = None
-        self._ordered_widgets: dict[int, dict] = {}
-        self._unordered_widgets: dict[int, dict] = {}
+        self._ordered_tables: dict[int, dict] = {}
+        self._unordered_tables: dict[int, dict] = {}
 
         # Action buttons
         self._btn_default: QPushButton | None = None
@@ -517,6 +649,7 @@ class InstallOrderPage(BasePage):
         self._btn_import: QPushButton | None = None
         self._btn_export: QPushButton | None = None
         self._chk_ignore_warnings: QCheckBox | None = None
+        self._chk_ignore_errors: QCheckBox | None = None
 
         self._create_widgets()
 
@@ -535,7 +668,7 @@ class InstallOrderPage(BasePage):
             MARGIN_STANDARD, MARGIN_STANDARD
         )
 
-        # Main container (populated dynamically)
+        # Main container
         self._main_container = QWidget()
         self._main_layout = QVBoxLayout(self._main_container)
         self._main_layout.setContentsMargins(0, 0, 0, 0)
@@ -587,6 +720,9 @@ class InstallOrderPage(BasePage):
         self._chk_ignore_warnings = QCheckBox()
         self._chk_ignore_warnings.stateChanged.connect(self._on_ignore_warnings_changed)
         layout.addWidget(self._chk_ignore_warnings)
+        self._chk_ignore_errors = QCheckBox()
+        self._chk_ignore_errors.stateChanged.connect(self._on_ignore_errors_changed)
+        layout.addWidget(self._chk_ignore_errors)
 
         return container
 
@@ -599,7 +735,7 @@ class InstallOrderPage(BasePage):
         self._game_def = self._game_manager.get(selected_game)
 
         if not self._game_def:
-            logger.error(f"Game definition not found for {selected_game}")
+            logger.error(f"Game definition not found: {selected_game}")
             return
 
         logger.info(f"Rebuilding UI for {selected_game}: {self._game_def.sequence_count} sequence(s)")
@@ -621,8 +757,8 @@ class InstallOrderPage(BasePage):
 
     def _reset_widget_references(self) -> None:
         """Reset all widget reference dictionaries."""
-        self._ordered_widgets.clear()
-        self._unordered_widgets.clear()
+        self._ordered_tables.clear()
+        self._unordered_tables.clear()
         self._phase_tabs = None
 
     def _create_multi_sequence_tabs(self) -> QWidget:
@@ -688,21 +824,36 @@ class InstallOrderPage(BasePage):
         title = self._create_section_title()
         layout.addWidget(title)
 
-        # List widget
-        list_widget = DraggableListWidget(accept_from_other=True)
-        list_widget.orderChanged.connect(lambda: self._on_order_changed(seq_idx))
-        layout.addWidget(list_widget)
+        # Table widget
+        table = DraggableTableWidget(
+            column_count=ORDERED_COLUMN_COUNT,
+            accept_from_other=True,
+            table_role="ordered"
+        )
+
+        # Configure columns
+        table.setHorizontalHeaderLabels([
+            tr("page.order.col_mod"),
+            tr("page.order.col_component")
+        ])
+
+        header = table.horizontalHeader()
+        header.setSectionResizeMode(COL_ORDERED_MOD, QHeaderView.ResizeMode.Stretch)
+        header.setSectionResizeMode(COL_ORDERED_COMPONENT, QHeaderView.ResizeMode.Stretch)
+
+        table.orderChanged.connect(lambda: self._on_order_changed(seq_idx))
+        layout.addWidget(table)
 
         # Store references
-        self._ordered_widgets[seq_idx] = {
+        self._ordered_tables[seq_idx] = {
             'title': title,
-            'list': list_widget
+            'table': table
         }
 
         return panel
 
     def _create_unordered_panel(self, seq_idx: int) -> QWidget:
-        """Create right panel with unordered components.
+        """Create right panel with unordered components table.
 
         Args:
             seq_idx: Sequence index
@@ -721,23 +872,34 @@ class InstallOrderPage(BasePage):
         title = self._create_section_title()
         layout.addWidget(title)
 
-        # List widget
-        list_widget = DraggableListWidget(accept_from_other=True)
-        list_widget.orderChanged.connect(lambda: self._on_order_changed(seq_idx))
-        list_widget.itemDoubleClicked.connect(
+        # Table widget
+        table = DraggableTableWidget(
+            column_count=UNORDERED_COLUMN_COUNT,
+            accept_from_other=True,
+            table_role="unordered"
+        )
+
+        # Configure columns
+        table.setHorizontalHeaderLabels([
+            tr("page.order.col_mod"),
+            tr("page.order.col_component")
+        ])
+
+        header = table.horizontalHeader()
+        header.setSectionResizeMode(COL_UNORDERED_MOD, QHeaderView.ResizeMode.Stretch)
+        header.setSectionResizeMode(COL_UNORDERED_COMPONENT, QHeaderView.ResizeMode.Stretch)
+
+        table.orderChanged.connect(lambda: self._on_order_changed(seq_idx))
+        table.itemDoubleClicked.connect(
             lambda item: self._on_unordered_double_click(seq_idx, item)
         )
 
-        # Add arrow delegate
-        delegate = ArrowDelegate(parent=list_widget)
-        list_widget.setItemDelegate(delegate)
-
-        layout.addWidget(list_widget)
+        layout.addWidget(table)
 
         # Store references
-        self._unordered_widgets[seq_idx] = {
+        self._unordered_tables[seq_idx] = {
             'title': title,
-            'list': list_widget
+            'table': table
         }
 
         return panel
@@ -773,7 +935,7 @@ class InstallOrderPage(BasePage):
                 comp_key = comp["key"] if isinstance(comp, dict) else comp
                 self._place_component_in_sequences(mod_id, comp_key)
 
-        self._refresh_all_lists()
+        self._refresh_all_tables()
 
     def _place_component_in_sequences(self, mod_id: str, comp_key: str) -> None:
         """Place a component in allowed sequences.
@@ -795,10 +957,7 @@ class InstallOrderPage(BasePage):
             placed = True
 
         if not placed:
-            logger.info(
-                f"Component discarded (not allowed in any sequence): "
-                f"{mod_id}:{comp_key}"
-            )
+            logger.debug(f"Component not allowed in any sequence: {mod_id}:{comp_key}")
 
     def _apply_order_from_list(self, seq_idx: int, order: list[str]) -> None:
         """Apply order from a list of component IDs.
@@ -830,10 +989,10 @@ class InstallOrderPage(BasePage):
         seq_data.ordered = new_ordered
         seq_data.unordered = new_unordered
 
-        self._refresh_sequence_lists(seq_idx)
+        self._refresh_sequence_tables(seq_idx)
         self._validate_sequence(seq_idx)
 
-        logger.info(f"{len(seq_data.ordered)} ordered, {len(seq_data.unordered)} unordered")
+        logger.info(f"Sequence {seq_idx}: {len(new_ordered)} ordered, {len(new_unordered)} unordered")
 
     def _apply_sequence_order(
             self,
@@ -846,17 +1005,23 @@ class InstallOrderPage(BasePage):
             seq_idx: Sequence index
             install_steps: Tuple of installation steps
         """
-        order = [f"{step.mod}:{step.comp}" for step in install_steps if
-                 not step.is_annotation and not not step.is_install]
-
+        order = [
+            f"{step.mod}:{step.comp}"
+            for step in install_steps
+            if not step.is_annotation and step.is_install
+        ]
         self._apply_order_from_list(seq_idx, order)
 
     def _load_default_order_current_tab(self) -> None:
-        """Load default order from game definition for current tab."""
-        index = self._current_sequence_idx
-        self._apply_sequence_order(index, self._game_def.get_sequence(index).order)
+        """Load default order for current tab."""
+        if not self._game_def:
+            return
 
-        logger.info(f"Order tab changed: {index}")
+        index = self._current_sequence_idx
+        sequence = self._game_def.get_sequence(index)
+        if sequence:
+            self._apply_sequence_order(index, sequence.order)
+            logger.info(f"Loaded default order for sequence {index}")
 
     def _load_default_order(self) -> None:
         """Load default order from game definition."""
@@ -867,7 +1032,7 @@ class InstallOrderPage(BasePage):
             if seq_idx in self._sequences_data:
                 self._apply_sequence_order(seq_idx, sequence.order)
 
-        logger.info(f"Loaded default order")
+        logger.info("Loaded default order for all sequences")
 
     def _load_from_weidu_log(self) -> None:
         """Load order from WeiDU.log file."""
@@ -885,15 +1050,16 @@ class InstallOrderPage(BasePage):
             component_ids = self._weidu_parser.parse_file_simple(file_path)
             self._apply_order_from_list(self._current_sequence_idx, component_ids)
 
+            seq_data = self._sequences_data[self._current_sequence_idx]
             QMessageBox.information(
                 self,
                 tr("page.order.apply_success_title"),
                 tr("page.order.apply_success_message",
-                   ordered=len(self._sequences_data[self._current_sequence_idx].ordered),
-                   unordered=len(self._sequences_data[self._current_sequence_idx].unordered))
+                   ordered=len(seq_data.ordered),
+                   unordered=len(seq_data.unordered))
             )
         except Exception as e:
-            logger.error(f"Error parsing WeiDU.log: {e}")
+            logger.error(f"Error parsing WeiDU.log: {e}", exc_info=True)
             QMessageBox.critical(
                 self,
                 tr("page.order.parse_error_title"),
@@ -920,13 +1086,13 @@ class InstallOrderPage(BasePage):
     # UI Updates
     # ========================================
 
-    def _refresh_all_lists(self) -> None:
-        """Refresh lists for all sequences."""
+    def _refresh_all_tables(self) -> None:
+        """Refresh tables for all sequences."""
         for seq_idx in self._sequences_data.keys():
-            self._refresh_sequence_lists(seq_idx)
+            self._refresh_sequence_tables(seq_idx)
 
-    def _refresh_sequence_lists(self, seq_idx: int) -> None:
-        """Refresh lists for a specific sequence.
+    def _refresh_sequence_tables(self, seq_idx: int) -> None:
+        """Refresh tables for a specific sequence.
 
         Args:
             seq_idx: Sequence index
@@ -935,59 +1101,82 @@ class InstallOrderPage(BasePage):
         if not seq_data:
             return
 
-        # Check if widgets exist
-        if seq_idx not in self._ordered_widgets or seq_idx not in self._unordered_widgets:
+        if seq_idx not in self._ordered_tables or seq_idx not in self._unordered_tables:
             return
 
-        ordered_list = self._ordered_widgets[seq_idx]['list']
-        unordered_list = self._unordered_widgets[seq_idx]['list']
+        ordered_table = self._ordered_tables[seq_idx]['table']
+        unordered_table = self._unordered_tables[seq_idx]['table']
 
         # Block signals during refresh
-        ordered_list.blockSignals(True)
-        unordered_list.blockSignals(True)
+        ordered_table.blockSignals(True)
+        unordered_table.blockSignals(True)
 
         try:
-            ordered_list.clear()
-            unordered_list.clear()
+            # Clear tables
+            ordered_table.setRowCount(0)
+            unordered_table.setRowCount(0)
 
-            # Populate ordered list
+            # Populate ordered table (3 columns)
             for mod_id, comp_key in seq_data.ordered:
-                item = self._create_list_item(mod_id, comp_key)
-                ordered_list.addItem(item)
+                self._add_row_to_ordered_table(ordered_table, mod_id, comp_key)
 
-            # Populate unordered list
+            # Populate unordered table (2 columns)
             for mod_id, comp_key in seq_data.unordered:
-                item = self._create_list_item(mod_id, comp_key)
-                unordered_list.addItem(item)
+                self._add_row_to_unordered_table(unordered_table, mod_id, comp_key)
 
         finally:
-            ordered_list.blockSignals(False)
-            unordered_list.blockSignals(False)
+            ordered_table.blockSignals(False)
+            unordered_table.blockSignals(False)
 
         self._update_sequence_counters(seq_idx)
 
-    def _create_list_item(self, mod_id: str, comp_key: str) -> QListWidgetItem:
-        """Create a list item for a component.
+    def _add_row_to_ordered_table(
+            self,
+            table: QTableWidget,
+            mod_id: str,
+            comp_key: str
+    ) -> None:
+        """Add a row to the ordered table."""
+        row = table.rowCount()
+        table.insertRow(row)
 
-        Args:
-            mod_id: Mod identifier
-            comp_key: Component key
-
-        Returns:
-            List widget item
-        """
         mod = self._mod_manager.get_mod_by_id(mod_id)
-        if not mod:
-            display_text = f"{mod_id}: {comp_key}"
-        else:
-            comp_text = mod.get_component_text(comp_key)
-            display_text = f"{mod.name} - [{comp_key}] {comp_text}"
+        mod_name = mod.name if mod else mod_id
+        comp_text = mod.get_component_text(comp_key) if mod else comp_key
 
-        item = QListWidgetItem(display_text)
-        item.setData(Qt.ItemDataRole.UserRole, mod_id)
-        item.setData(Qt.ItemDataRole.UserRole + 1, comp_key)
+        # Column 0: Mod name
+        mod_item = QTableWidgetItem(f"[{mod.tp2}] {mod_name}")
+        mod_item.setData(ROLE_MOD, mod_id)
+        mod_item.setData(ROLE_COMPONENT, comp_key)
+        table.setItem(row, COL_ORDERED_MOD, mod_item)
 
-        return item
+        # Column 1: Component text
+        comp_item = QTableWidgetItem(f"[{comp_key}] {comp_text}")
+        table.setItem(row, COL_ORDERED_COMPONENT, comp_item)
+
+    def _add_row_to_unordered_table(
+            self,
+            table: QTableWidget,
+            mod_id: str,
+            comp_key: str
+    ) -> None:
+        """Add a row to the unordered table."""
+        row = table.rowCount()
+        table.insertRow(row)
+
+        mod = self._mod_manager.get_mod_by_id(mod_id)
+        mod_name = mod.name if mod else mod_id
+        comp_text = mod.get_component_text(comp_key) if mod else comp_key
+
+        # Column 0: Mod name
+        mod_item = QTableWidgetItem(f"[{mod.tp2}] {mod_name}")
+        mod_item.setData(ROLE_MOD, mod_id)
+        mod_item.setData(ROLE_COMPONENT, comp_key)
+        table.setItem(row, COL_UNORDERED_MOD, mod_item)
+
+        # Column 1: Component text
+        comp_item = QTableWidgetItem(f"[{comp_key}] {comp_text}")
+        table.setItem(row, COL_UNORDERED_COMPONENT, comp_item)
 
     def _update_sequence_counters(self, seq_idx: int) -> None:
         """Update component counters for a sequence.
@@ -999,17 +1188,17 @@ class InstallOrderPage(BasePage):
         if not seq_data:
             return
 
-        if seq_idx not in self._ordered_widgets or seq_idx not in self._unordered_widgets:
+        if seq_idx not in self._ordered_tables or seq_idx not in self._unordered_tables:
             return
 
         ordered_count = len(seq_data.ordered)
         unordered_count = len(seq_data.unordered)
         total = seq_data.total_count
 
-        self._ordered_widgets[seq_idx]['title'].setText(
+        self._ordered_tables[seq_idx]['title'].setText(
             tr("page.order.ordered_title", count=ordered_count, total=total)
         )
-        self._unordered_widgets[seq_idx]['title'].setText(
+        self._unordered_tables[seq_idx]['title'].setText(
             tr("page.order.unordered_title", count=unordered_count)
         )
 
@@ -1018,11 +1207,7 @@ class InstallOrderPage(BasePage):
     # ========================================
 
     def _validate_sequence(self, seq_idx: int) -> None:
-        """Validate order for a specific sequence.
-
-        Args:
-            seq_idx: Sequence index
-        """
+        """Validate order for a sequence."""
         seq_data = self._sequences_data.get(seq_idx)
         if not seq_data:
             return
@@ -1032,37 +1217,69 @@ class InstallOrderPage(BasePage):
         if not seq_data.ordered:
             return
 
-        if seq_idx not in self._ordered_widgets:
+        # Validate order
+        order_violations = self._rule_manager.validate_order(seq_data.ordered)
+
+        for violation in order_violations:
+            for mod_id, comp_key in violation.affected_components:
+                comp_id = f"{mod_id}:{comp_key}"
+                if violation.is_error:
+                    seq_data.validation.add_error(comp_id, violation.message)
+                elif violation.is_warning:
+                    seq_data.validation.add_warning(comp_id, violation.message)
+
+        self._apply_visual_indicators(seq_idx)
+        self.notify_navigation_changed()
+
+    def _apply_visual_indicators(self, seq_idx: int) -> None:
+        """Apply visual indicators to ordered table."""
+        seq_data = self._sequences_data.get(seq_idx)
+        if not seq_data or seq_idx not in self._ordered_tables:
             return
 
-        # TODO: Implement actual validation rules
-        # For now, just ensure all components are valid
+        ordered_table = self._ordered_tables[seq_idx]['table']
 
-        # Apply visual indicators
-        ordered_list = self._ordered_widgets[seq_idx]['list']
-        for idx in range(ordered_list.count()):
-            item = ordered_list.item(idx)
-            if not item:
+        for row in range(ordered_table.rowCount()):
+            mod_item = ordered_table.item(row, COL_ORDERED_MOD)
+            if not mod_item:
                 continue
 
-            mod_id = item.data(Qt.ItemDataRole.UserRole)
-            comp_key = item.data(Qt.ItemDataRole.UserRole + 1)
-            comp_id = f"{mod_id}:{comp_key}"
+            mod_id = mod_item.data(ROLE_MOD)
+            comp_key = mod_item.data(ROLE_COMPONENT)
 
-            color = seq_data.validation.get_component_color(comp_id)
-            if color != ValidationResult.COLOR_VALID:
-                item.setBackground(color)
+            # Get violations
+            violations = self._rule_manager.get_violations_for_component(mod_id, comp_key)
+
+            mod_item.setText(mod_item.text().replace(f"{ICON_ERROR} ", "").replace(f"{ICON_WARNING} ", ""))
+
+            if violations:
+                tooltip_lines = []
+                for v in violations:
+                    tooltip_lines.append(f"{v.icon} {v.message}")
+
+                color, icon = seq_data.validation.get_component_indicator(f"{mod_id}:{comp_key}")
+                mod_item.setText(f"{icon} {mod_item.text()}")
+                mod_item.setToolTip("\n".join(tooltip_lines))
+
+                for col in range(ordered_table.columnCount()):
+                    item = ordered_table.item(row, col)
+                    if item:
+                        item.setBackground(color)
+
             else:
-                item.setBackground(Qt.GlobalColor.transparent)
+                mod_item.setToolTip("")
 
-        self.notify_navigation_changed()
+                for col in range(ordered_table.columnCount()):
+                    item = ordered_table.item(row, col)
+                    if item:
+                        item.setBackground(Qt.GlobalColor.transparent)
 
     # ========================================
     # Event Handlers
     # ========================================
 
     def _on_order_changed(self, seq_idx: int) -> None:
-        """Handle order change in lists for a sequence.
+        """Handle order change in tables for a sequence.
 
         Args:
             seq_idx: Sequence index
@@ -1071,67 +1288,126 @@ class InstallOrderPage(BasePage):
         if not seq_data:
             return
 
-        if seq_idx not in self._ordered_widgets or seq_idx not in self._unordered_widgets:
+        if seq_idx not in self._ordered_tables or seq_idx not in self._unordered_tables:
             return
 
-        ordered_list = self._ordered_widgets[seq_idx]['list']
-        unordered_list = self._unordered_widgets[seq_idx]['list']
+        ordered_table = self._ordered_tables[seq_idx]['table']
+        unordered_table = self._unordered_tables[seq_idx]['table']
 
-        # Rebuild from widgets
-        seq_data.ordered = [
-            (ordered_list.item(i).data(Qt.ItemDataRole.UserRole),
-             ordered_list.item(i).data(Qt.ItemDataRole.UserRole + 1))
-            for i in range(ordered_list.count())
-        ]
+        # Rebuild from tables
+        seq_data.ordered = []
+        for row in range(ordered_table.rowCount()):
+            mod_item = ordered_table.item(row, COL_ORDERED_MOD)
+            if mod_item:
+                mod_id = mod_item.data(ROLE_MOD)
+                comp_key = mod_item.data(ROLE_COMPONENT)
+                seq_data.ordered.append((mod_id, comp_key))
 
-        seq_data.unordered = [
-            (unordered_list.item(i).data(Qt.ItemDataRole.UserRole),
-             unordered_list.item(i).data(Qt.ItemDataRole.UserRole + 1))
-            for i in range(unordered_list.count())
-        ]
+        seq_data.unordered = []
+        for row in range(unordered_table.rowCount()):
+            mod_item = unordered_table.item(row, COL_UNORDERED_MOD)
+            if mod_item:
+                mod_id = mod_item.data(ROLE_MOD)
+                comp_key = mod_item.data(ROLE_COMPONENT)
+                seq_data.unordered.append((mod_id, comp_key))
 
         self._update_sequence_counters(seq_idx)
         self._validate_sequence(seq_idx)
 
-    def _on_unordered_double_click(self, seq_idx: int, item: QListWidgetItem) -> None:
-        """Handle double-click on unordered item to move it to ordered list.
+    def _on_unordered_double_click(self, seq_idx: int, item: QTableWidgetItem) -> None:
+        """Handle double-click on unordered item to move it to ordered table.
 
         Args:
             seq_idx: Sequence index
-            item: Clicked list item
+            item: Clicked table item
         """
-        if seq_idx not in self._ordered_widgets or seq_idx not in self._unordered_widgets:
+        if seq_idx not in self._ordered_tables or seq_idx not in self._unordered_tables:
             return
 
-        ordered_list = self._ordered_widgets[seq_idx]['list']
-        unordered_list = self._unordered_widgets[seq_idx]['list']
+        ordered_table = self._ordered_tables[seq_idx]['table']
+        unordered_table = self._unordered_tables[seq_idx]['table']
 
-        # Determine target position
-        selected_items = ordered_list.selectedItems()
-        target_row = ordered_list.row(selected_items[-1]) + 1 if selected_items else ordered_list.count()
+        row = item.row()
+        mod_item = unordered_table.item(row, COL_UNORDERED_MOD)
+        if not mod_item:
+            return
 
-        # Block signals during operation
-        ordered_list.blockSignals(True)
-        unordered_list.blockSignals(True)
+        mod_id = mod_item.data(ROLE_MOD)
+        comp_key = mod_item.data(ROLE_COMPONENT)
+
+        # Determine target position in ordered table
+        selected = ordered_table.selectedItems()
+        if selected:
+            selected_rows = sorted(set(item.row() for item in selected))
+            target_row = selected_rows[-1] + 1
+        else:
+            target_row = ordered_table.rowCount()
+
+        # Block signals
+        ordered_table.blockSignals(True)
+        unordered_table.blockSignals(True)
 
         try:
-            # Create new item in ordered list
-            new_item = QListWidgetItem(item.text())
-            new_item.setData(Qt.ItemDataRole.UserRole, item.data(Qt.ItemDataRole.UserRole))
-            new_item.setData(Qt.ItemDataRole.UserRole + 1, item.data(Qt.ItemDataRole.UserRole + 1))
-            ordered_list.insertItem(target_row, new_item)
+            # Add to ordered table
+            self.insert_row_to_ordered_table(ordered_table, target_row, mod_id, comp_key)
 
-            # Remove from unordered list
-            unordered_list.takeItem(unordered_list.row(item))
+            # Remove from unordered table
+            unordered_table.removeRow(row)
 
-            # Select new item
-            new_item.setSelected(True)
         finally:
-            ordered_list.blockSignals(False)
-            unordered_list.blockSignals(False)
+            ordered_table.blockSignals(False)
+            unordered_table.blockSignals(False)
 
         # Trigger update
         self._on_order_changed(seq_idx)
+
+    def insert_row_to_ordered_table(
+            self,
+            table: QTableWidget,
+            row: int,
+            mod_id: str,
+            comp_key: str
+    ) -> None:
+        """Insert a row at specific position in ordered table."""
+        table.insertRow(row)
+
+        mod = self._mod_manager.get_mod_by_id(mod_id)
+        mod_name = mod.name if mod else mod_id
+        comp_text = mod.get_component_text(comp_key) if mod else comp_key
+
+        # Column 0: Mod name
+        mod_item = QTableWidgetItem(f"[{mod.tp2}] {mod_name}")
+        mod_item.setData(ROLE_MOD, mod_id)
+        mod_item.setData(ROLE_COMPONENT, comp_key)
+        table.setItem(row, COL_ORDERED_MOD, mod_item)
+
+        # Column 1: Component
+        comp_item = QTableWidgetItem(f"[{comp_key}] {comp_text}")
+        table.setItem(row, COL_ORDERED_COMPONENT, comp_item)
+
+    def insert_row_to_unordered_table(
+            self,
+            table: QTableWidget,
+            row: int,
+            mod_id: str,
+            comp_key: str
+    ) -> None:
+        """Insert a row at specific position in unordered table."""
+        table.insertRow(row)
+
+        mod = self._mod_manager.get_mod_by_id(mod_id)
+        mod_name = mod.name if mod else mod_id
+        comp_text = mod.get_component_text(comp_key) if mod else comp_key
+
+        # Column 0: Mod name
+        mod_item = QTableWidgetItem(f"[{mod.tp2}] {mod_name}")
+        mod_item.setData(ROLE_MOD, mod_id)
+        mod_item.setData(ROLE_COMPONENT, comp_key)
+        table.setItem(row, COL_UNORDERED_MOD, mod_item)
+
+        # Column 1: Component text
+        comp_item = QTableWidgetItem(f"[{comp_key}] {comp_text}")
+        table.setItem(row, COL_UNORDERED_COMPONENT, comp_item)
 
     def _on_sequence_tab_changed(self, index: int) -> None:
         """Handle sequence tab change.
@@ -1152,6 +1428,16 @@ class InstallOrderPage(BasePage):
         self._ignore_warnings = (state == Qt.CheckState.Checked.value)
         self.notify_navigation_changed()
         logger.debug(f"Ignore warnings: {self._ignore_warnings}")
+
+    def _on_ignore_errors_changed(self, state: int) -> None:
+        """Handle ignore errors checkbox change.
+
+        Args:
+            state: Checkbox state
+        """
+        self._ignore_errors = (state == Qt.CheckState.Checked.value)
+        self.notify_navigation_changed()
+        logger.debug(f"Ignore errors: {self._ignore_errors}")
 
     # ========================================
     # BasePage Implementation
@@ -1190,7 +1476,7 @@ class InstallOrderPage(BasePage):
                 return False
 
             # Check validation
-            if not seq_data.validation.is_valid:
+            if seq_data.validation.has_errors and not self._ignore_errors:
                 return False
 
             if seq_data.validation.has_warnings and not self._ignore_warnings:
@@ -1206,7 +1492,7 @@ class InstallOrderPage(BasePage):
 
         # Check if game has changed
         if selected_game != self._current_game:
-            logger.info(f"Game changed from {self._current_game} to {selected_game}, rebuilding UI")
+            logger.info(f"Game changed: {self._current_game} → {selected_game}")
             self._current_game = selected_game
 
             # Rebuild UI for new game
@@ -1249,8 +1535,9 @@ class InstallOrderPage(BasePage):
         self._btn_import.setText(tr("page.order.btn_import"))
         self._btn_export.setText(tr("page.order.btn_export"))
         self._chk_ignore_warnings.setText(tr("page.order.ignore_warnings"))
+        self._chk_ignore_errors.setText(tr("page.order.ignore_errors"))
 
-        # Update sequence labels
+        # Update sequence counters
         for seq_idx in self._sequences_data.keys():
             self._update_sequence_counters(seq_idx)
 
@@ -1264,6 +1551,21 @@ class InstallOrderPage(BasePage):
                     game_name = self._game_manager.get(sequence.game).name
                     tab_name = tr("page.order.phase_tab", name=game_name)
                     self._phase_tabs.setTabText(seq_idx, tab_name)
+
+        # Update table headers
+        for seq_idx in self._ordered_tables.keys():
+            table = self._ordered_tables[seq_idx]['table']
+            table.setHorizontalHeaderLabels([
+                tr("page.order.col_mod"),
+                tr("page.order.col_component")
+            ])
+
+        for seq_idx in self._unordered_tables.keys():
+            table = self._unordered_tables[seq_idx]['table']
+            table.setHorizontalHeaderLabels([
+                tr("page.order.col_mod"),
+                tr("page.order.col_component")
+            ])
 
     def save_state(self) -> None:
         """Save page data to state manager."""

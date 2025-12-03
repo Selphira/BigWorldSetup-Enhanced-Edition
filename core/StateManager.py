@@ -9,9 +9,10 @@ from typing import Any
 
 from PySide6.QtCore import QSettings
 
-from constants import CACHE_DIR, MODS_DIR
+from constants import CACHE_DIR, MODS_DIR, RULES_DIR
 from core.GameManager import GameManager
 from core.ModManager import ModManager
+from core.RuleManager import RuleManager
 
 logger = logging.getLogger(__name__)
 
@@ -93,14 +94,15 @@ class StateManager:
 
     # QSettings configuration
     SETTINGS_ORG = "Selphira"
-    SETTINGS_APP = "BigWorldSetupNextGen"
+    SETTINGS_APP = "BigWorldSetupEnhanced"
 
     def __init__(self) -> None:
         """Initialize state manager with QSettings and JSON state."""
         self.settings = QSettings(self.SETTINGS_ORG, self.SETTINGS_APP)
         self.installation_state = self._load_installation_state()
-        self._game_manager: GameManager = None
-        self._mod_manager: ModManager = None
+        self._game_manager: GameManager | None = None
+        self._mod_manager: ModManager | None = None
+        self._rule_manager: RuleManager | None = None
 
     # ========================================
     # UI PREFERENCES (QSettings)
@@ -486,3 +488,10 @@ class StateManager:
             logger.debug("ModManager initialized")
 
         return self._mod_manager
+
+    def get_rule_manager(self) -> RuleManager:
+        """Get rule manager instance."""
+        if self._rule_manager is None:
+            self._rule_manager = RuleManager(Path(RULES_DIR))
+            logger.debug("RuleManager initialized")
+        return self._rule_manager

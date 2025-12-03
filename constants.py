@@ -204,6 +204,7 @@ ROLE_AUTHOR = Qt.ItemDataRole.UserRole + 12
 ROLE_LANGUAGES = Qt.ItemDataRole.UserRole + 13
 
 ROLE_RADIO = Qt.ItemDataRole.UserRole + 100
+ROLE_BACKGROUND = Qt.ItemDataRole.UserRole + 101
 
 # ============================================================================
 # INSTALLATION CONFIGURATION
