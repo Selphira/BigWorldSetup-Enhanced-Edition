@@ -64,7 +64,7 @@ class JSONValidator:
         self.schema = self._load_schema()
         self.validator = Draft7Validator(self.schema)
 
-        logger.info(f"Schema loaded: {schema_path}")
+        logger.debug(f"Schema loaded: {schema_path}")
 
     def _load_schema(self) -> Dict:
         """Load and parse JSON schema file.
@@ -181,16 +181,16 @@ def print_results(results: list[ValidationResult]) -> int:
             print(f"✅ {result.file_path}")
         else:
             failed_count += 1
-            print(f"❌ {result.file_path}")
+            print(f"❌ {result.file_path}", file=sys.stderr)
             for error in result.errors:
-                print(f"  → {error}")
-            print()  # Empty line between files
+                print(f"  → {error}", file=sys.stderr)
+            print(file=sys.stderr)
 
     # Summary
     total = len(results)
     passed = total - failed_count
 
-    if total > 1:
+    if total > 0:
         print(f"\n{'=' * 60}")
         print(f"Summary: {passed}/{total} files passed validation")
         if failed_count > 0:
