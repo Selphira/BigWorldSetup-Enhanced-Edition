@@ -64,7 +64,7 @@ jobs:
             status=$?
           
             if [ $status -ne 0 ]; then
-              errors="$errors$output"
+              errors="$errors$output\n"
             else
               results="$results\n✅ $file passed validation."
             fi
