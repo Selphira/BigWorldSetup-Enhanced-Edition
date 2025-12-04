@@ -264,12 +264,15 @@ class InstallationTypePage(BasePage):
         created/reused rather than creating EET-specific widgets.
         """
         # Collect all unique folder keys across all games
-        unique_folder_keys = set()
         game_manager = self.state_manager.get_game_manager()
+        unique_folder_keys = {
+            folder_keys
+            for game in game_manager.get_all()
+            for folder_keys in game.get_folder_keys()
+        }
 
-        for game in game_manager.get_all():
-            folder_keys = game.get_folder_keys()
-            unique_folder_keys.update(folder_keys)
+        order_map = {game.value: i for i, game in enumerate(GameEnum)}
+        unique_folder_keys = sorted(unique_folder_keys, key=order_map.get)
 
         # Create one widget per unique folder key
         for folder_key in unique_folder_keys:
