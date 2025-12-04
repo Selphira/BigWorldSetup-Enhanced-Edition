@@ -72,7 +72,6 @@ class InstallationTypePage(BasePage):
         # Create UI
         self._create_widgets()
         self._initialize_folder_widgets()
-        self._load_saved_state()
 
         logger.info("InstallationTypePage initialized")
 
@@ -331,6 +330,7 @@ class InstallationTypePage(BasePage):
         self.selected_game = game
         self._update_visible_folder_selectors()
         self.notify_navigation_changed()
+        self.game_changed.emit(game)
 
         logger.info(f"Game selected: {game.id}")
 
@@ -368,48 +368,6 @@ class InstallationTypePage(BasePage):
         """
         self.notify_navigation_changed()
         logger.debug(f"Folder validation changed: {is_valid}")
-
-    # ========================================
-    # STATE MANAGEMENT
-    # ========================================
-
-    def _load_saved_state(self) -> None:
-        """Load saved configuration from state manager."""
-        # Load selected game
-        saved_game_code = self.state_manager.get_selected_game()
-        if saved_game_code:
-            try:
-                game = self.state_manager.get_game_manager().get(saved_game_code)
-                self._on_game_selected(game)
-            except ValueError:
-                logger.warning(f"Unknown game code in saved state: {saved_game_code}")
-
-        # Load game folder paths
-        saved_folders = self.state_manager.get_game_folders()
-        for folder_key, path in saved_folders.items():
-            selector = self.folder_widgets.get(folder_key)
-            if selector and path:
-                selector.set_path(path)
-                logger.debug(f"Restored path for '{folder_key}': {path}")
-            else:
-                logger.warning(f"No widget for saved folder key: {folder_key}")
-
-        # Load download folder
-        download_path = self.state_manager.get_download_folder()
-        if download_path:
-            self.download_folder.set_path(download_path)
-
-        # Load backup folder
-        backup_path = self.state_manager.get_backup_folder()
-        if backup_path:
-            self.backup_folder.set_path(backup_path)
-
-        # Load languages order
-        languages_order = self.state_manager.get_languages_order()
-        if languages_order:
-            self.languages_order.set_order(languages_order)
-
-        logger.info("Saved state loaded")
 
     # ========================================
     # BasePage Implementation
@@ -491,6 +449,48 @@ class InstallationTypePage(BasePage):
             True if validation passes
         """
         return self.can_proceed()
+
+    # ========================================
+    # STATE MANAGEMENT
+    # ========================================
+
+    def load_state(self) -> None:
+        """Load saved configuration from state manager."""
+        # Load selected game
+        saved_game_code = self.state_manager.get_selected_game()
+        if saved_game_code:
+            try:
+                game = self.state_manager.get_game_manager().get(saved_game_code)
+                self._on_game_selected(game)
+            except ValueError:
+                logger.warning(f"Unknown game code in saved state: {saved_game_code}")
+
+        # Load game folder paths
+        saved_folders = self.state_manager.get_game_folders()
+        for folder_key, path in saved_folders.items():
+            selector = self.folder_widgets.get(folder_key)
+            if selector and path:
+                selector.set_path(path)
+                logger.debug(f"Restored path for '{folder_key}': {path}")
+            else:
+                logger.warning(f"No widget for saved folder key: {folder_key}")
+
+        # Load download folder
+        download_path = self.state_manager.get_download_folder()
+        if download_path:
+            self.download_folder.set_path(download_path)
+
+        # Load backup folder
+        backup_path = self.state_manager.get_backup_folder()
+        if backup_path:
+            self.backup_folder.set_path(backup_path)
+
+        # Load languages order
+        languages_order = self.state_manager.get_languages_order()
+        if languages_order:
+            self.languages_order.set_order(languages_order)
+
+        logger.info("Saved state loaded")
 
     def save_state(self) -> None:
         """Save page data to state manager."""

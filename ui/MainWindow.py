@@ -2,7 +2,7 @@
 
 import logging
 
-from PySide6.QtGui import QColor
+from PySide6.QtGui import QColor, QPixmap
 from PySide6.QtWidgets import (
     QFrame,
     QHBoxLayout,
@@ -15,6 +15,7 @@ from PySide6.QtWidgets import (
 )
 
 from constants import *
+from core.GameModels import GameDefinition
 from core.StateManager import StateManager
 from core.TranslationManager import get_translator, tr
 from ui.pages.BasePage import BasePage
@@ -95,6 +96,10 @@ class MainWindow(QMainWindow):
 
         layout = QHBoxLayout(frame)
         layout.setContentsMargins(30, 10, 10, 10)
+
+        self.game_label = QLabel()
+        self.game_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        layout.addWidget(self.game_label)
 
         # Left side: Title and step
         left_layout = self._create_title_section()
@@ -209,6 +214,9 @@ class MainWindow(QMainWindow):
             logger.warning(f"Page already registered: {page_id}")
             return
 
+        page.navigation_changed.connect(self._on_page_navigation_changed)
+        page.game_changed.connect(self._on_game_changed)
+
         page.load_state()
         # Initial ui translation
         page.retranslate_ui()
@@ -216,8 +224,6 @@ class MainWindow(QMainWindow):
         self.pages[page_id] = page
         self.page_order.append(page_id)
         self.stack.addWidget(page)
-
-        page.navigation_changed.connect(self._on_page_navigation_changed)
 
         logger.debug(f"Page registered: {page_id}")
 
@@ -373,6 +379,24 @@ class MainWindow(QMainWindow):
     # ========================================
     # EVENT HANDLERS
     # ========================================
+
+    def _on_game_changed(self, game: GameDefinition) -> None:
+        """Handle game change"""
+        icon_path = ICONS_DIR / f"{game.id}.png"
+
+        if icon_path and icon_path.exists():
+            pixmap = QPixmap(str(icon_path))
+            scaled_pixmap = pixmap.scaled(
+                GAME_BUTTON_ICON_SIZE, GAME_BUTTON_ICON_SIZE,
+                Qt.AspectRatioMode.KeepAspectRatio,
+                Qt.TransformationMode.SmoothTransformation
+            )
+            self.game_label.setPixmap(scaled_pixmap)
+        else:
+            self.game_label.setText(ICON_GAME_DEFAULT)
+            font = self.game_label.font()
+            font.setPointSize(GAME_BUTTON_ICON_SIZE)
+            self.game_label.setFont(font)
 
     def _on_page_navigation_changed(self) -> None:
         """Handle navigation state change from current page.

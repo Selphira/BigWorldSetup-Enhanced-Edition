@@ -8,6 +8,7 @@ from PySide6.QtCore import Signal
 from PySide6.QtWidgets import QFrame, QWidget, QLabel
 
 from constants import *
+from core.GameModels import GameDefinition
 from core.StateManager import StateManager
 from core.TranslationManager import tr
 
@@ -43,12 +44,12 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
 
     Signals:
         navigation_changed: Emitted when navigation state changes
-        data_changed: Emitted when page data is modified
+        game_changed: Emitted when selected game changes
     """
 
     # Signals
     navigation_changed = Signal()
-    data_changed = Signal()
+    game_changed = Signal(GameDefinition)
 
     def __init__(self, state_manager: StateManager) -> None:
         """Initialize the base page.
@@ -304,14 +305,6 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
         (e.g., required field filled, selection made).
         """
         self.navigation_changed.emit()
-
-    def notify_data_changed(self) -> None:
-        """Emit signal to notify page data has changed.
-
-        Call this when user modifies data that should trigger
-        auto-save or update other UI elements.
-        """
-        self.data_changed.emit()
 
     def __repr__(self) -> str:
         """String representation for debugging."""
