@@ -6,14 +6,14 @@ from PySide6.QtGui import QColor, QDesktopServices
 from PySide6.QtWidgets import (
     QComboBox, QFrame, QHBoxLayout, QLabel,
     QMessageBox, QProgressBar, QPushButton, QSplitter,
-    QVBoxLayout, QWidget, QTableWidget, QTableWidgetItem,
-    QHeaderView, QAbstractItemView, QScrollArea, QTextEdit
+    QVBoxLayout, QWidget, QTableWidgetItem,
+    QHeaderView, QScrollArea, QTextEdit
 )
 
 from constants import (
     COLOR_STATUS_COMPLETE, COLOR_ERROR, COLOR_STATUS_NONE,
     COLOR_STATUS_PARTIAL, COLOR_WARNING, MARGIN_SMALL, MARGIN_STANDARD,
-    COLOR_BACKGROUND_SECONDARY, COLOR_TEXT, SPACING_SMALL, SPACING_LARGE
+    COLOR_TEXT, SPACING_SMALL, SPACING_LARGE
 )
 from core.DownloadManager import (
     ArchiveInfo, ArchiveStatus, ArchiveVerifier, DownloadManager,
@@ -23,6 +23,7 @@ from core.File import format_size
 from core.StateManager import StateManager
 from core.TranslationManager import tr
 from ui.pages.BasePage import BasePage
+from ui.widgets.HoverTableWidget import HoverTableWidget
 
 logger = logging.getLogger(__name__)
 
@@ -294,70 +295,6 @@ class ArchiveDetailsPanel(QFrame):
 # Sortable Table Widget with Row Hover
 # ============================================================================
 
-class ArchiveTableWidget(QTableWidget):
-    """Custom table widget with row hover highlighting."""
-
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self._hover_row = -1
-        self._setup_table()
-
-    def _setup_table(self) -> None:
-        """Configure table settings."""
-        self.setAlternatingRowColors(True)
-        self.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
-        self.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
-        self.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.verticalHeader().setVisible(False)
-        self.setMouseTracking(True)
-        self.setSortingEnabled(True)
-
-    def mouseMoveEvent(self, event) -> None:
-        """Handle mouse move for row hover effect."""
-        row = self.rowAt(event.pos().y())
-
-        if row != self._hover_row:
-            # Clear previous hover
-            if self._hover_row >= 0:
-                self._clear_row_hover(self._hover_row)
-
-            # Set new hover
-            self._hover_row = row
-            if self._hover_row >= 0:
-                self._set_row_hover(self._hover_row)
-
-        super().mouseMoveEvent(event)
-
-    def leaveEvent(self, event) -> None:
-        """Clear hover when mouse leaves table."""
-        if self._hover_row >= 0:
-            self._clear_row_hover(self._hover_row)
-            self._hover_row = -1
-        super().leaveEvent(event)
-
-    def _set_row_hover(self, row: int) -> None:
-        """Apply hover style to row."""
-        for col in range(self.columnCount()):
-            item = self.item(row, col)
-            if item:
-                # Store original background
-                if not item.data(Qt.ItemDataRole.UserRole + 1):
-                    original_bg = item.background()
-                    item.setData(Qt.ItemDataRole.UserRole + 1, original_bg)
-
-                item.setBackground(QColor(COLOR_BACKGROUND_SECONDARY))
-
-    def _clear_row_hover(self, row: int) -> None:
-        """Clear hover style from row."""
-        for col in range(self.columnCount()):
-            item = self.item(row, col)
-            if item:
-                # Restore original background
-                original_bg = item.data(Qt.ItemDataRole.UserRole + 1)
-                if original_bg:
-                    item.setBackground(original_bg)
-                    item.setData(Qt.ItemDataRole.UserRole + 1, None)
-
 
 # ============================================================================
 # Download Page
@@ -400,7 +337,7 @@ class DownloadPage(BasePage):
         self._progress_widgets: dict[str, ProgressItemWidget] = {}
 
         # UI components
-        self._archive_table: ArchiveTableWidget | None = None
+        self._archive_table: HoverTableWidget | None = None
         self._filter_combo: QComboBox | None = None
         self._progress_container: QWidget | None = None
         self._progress_layout: QVBoxLayout | None = None
@@ -478,7 +415,7 @@ class DownloadPage(BasePage):
         layout.addLayout(header_layout)
 
         # Archive table with custom hover
-        self._archive_table = ArchiveTableWidget()
+        self._archive_table = HoverTableWidget()
         self._archive_table.setColumnCount(COLUMN_COUNT)
         self._archive_table.setHorizontalHeaderLabels([
             tr("page.download.col_mod_name"),

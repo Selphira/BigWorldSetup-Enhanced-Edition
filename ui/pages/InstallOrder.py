@@ -20,16 +20,17 @@ from PySide6.QtWidgets import (
 )
 
 from constants import (
-    COLOR_ACCENT, COLOR_BACKGROUND_SECONDARY, COLOR_BACKGROUND_WARNING,
+    COLOR_ACCENT, COLOR_BACKGROUND_WARNING,
     COLOR_BACKGROUND_ERROR, ICON_ERROR, MARGIN_SMALL,
     MARGIN_STANDARD, SPACING_MEDIUM, SPACING_SMALL, ICON_WARNING,
-    ROLE_MOD, ROLE_COMPONENT, ROLE_BACKGROUND
+    ROLE_MOD, ROLE_COMPONENT
 )
 from core.GameModels import GameDefinition, InstallStep
 from core.StateManager import StateManager
 from core.TranslationManager import tr
 from core.WeiDULogParser import WeiDULogParser
 from ui.pages.BasePage import BasePage
+from ui.widgets.HoverTableWidget import HoverTableWidget
 
 logger = logging.getLogger(__name__)
 
@@ -238,7 +239,7 @@ class SequenceData:
 # Draggable Table Widget
 # ============================================================================
 
-class DraggableTableWidget(QTableWidget):
+class DraggableTableWidget(HoverTableWidget):
     """Table widget with enhanced drag-and-drop support.
 
     Features:
@@ -266,7 +267,6 @@ class DraggableTableWidget(QTableWidget):
             column_count: Number of columns
             accept_from_other: Accept drops from other tables
         """
-        super().__init__(parent)
 
         self._column_count = column_count
         self._accept_from_other = accept_from_other
@@ -276,19 +276,16 @@ class DraggableTableWidget(QTableWidget):
         self._dragged_rows: list[int] = []
         self._hover_row = -1
 
-        self._setup_table()
+        super().__init__(parent)
+
         self._setup_drag_drop()
         self._setup_auto_scroll()
 
     def _setup_table(self) -> None:
         """Configure table settings."""
+        super()._setup_table()
+
         self.setColumnCount(self._column_count)
-        self.setAlternatingRowColors(True)
-        self.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
-        self.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
-        self.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.verticalHeader().setVisible(False)
-        self.setMouseTracking(True)
 
         # Hide grid lines for cleaner look
         self.setShowGrid(False)
@@ -462,33 +459,10 @@ class DraggableTableWidget(QTableWidget):
             parent = parent.parent()
         return None
 
-    def mouseMoveEvent(self, event) -> None:
-        """Handle mouse move for row hover effect."""
-        row = self.rowAt(event.pos().y())
-
-        if row != self._hover_row:
-            # Clear previous hover
-            if self._hover_row >= 0:
-                self._clear_row_hover(self._hover_row)
-
-            # Set new hover
-            self._hover_row = row
-            if self._hover_row >= 0:
-                self._set_row_hover(self._hover_row)
-
-        super().mouseMoveEvent(event)
-
     def mouseReleaseEvent(self, event):
         self._auto_scroll_timer.stop()
         self._auto_scroll_direction = 0
         super().mouseReleaseEvent(event)
-
-    def leaveEvent(self, event):
-        """Clear hover when mouse leaves table."""
-        if self._hover_row >= 0:
-            self._clear_row_hover(self._hover_row)
-            self._hover_row = -1
-        super().leaveEvent(event)
 
     def paintEvent(self, event):
         """Custom paint to draw drop indicator."""
@@ -571,28 +545,6 @@ class DraggableTableWidget(QTableWidget):
 
         painter.drawLine(0, y, self.viewport().width(), y)
         painter.end()
-
-    def _set_row_hover(self, row: int) -> None:
-        """Apply hover style to row."""
-        for col in range(self.columnCount()):
-            item = self.item(row, col)
-            if item:
-                # Store original background
-                if not item.data(ROLE_BACKGROUND):
-                    original_bg = item.background()
-                    item.setData(ROLE_BACKGROUND, original_bg)
-
-                item.setBackground(QColor(COLOR_BACKGROUND_SECONDARY))
-
-    def _clear_row_hover(self, row: int) -> None:
-        """Clear hover style from row."""
-        for col in range(self.columnCount()):
-            item = self.item(row, col)
-            if item:
-                original_bg = item.data(ROLE_BACKGROUND)
-                if original_bg:
-                    item.setBackground(original_bg)
-                    item.setData(ROLE_BACKGROUND, None)
 
 
 # ============================================================================

@@ -6,9 +6,7 @@ from PySide6.QtCore import Qt, QThread, Signal
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import (
     QComboBox, QHBoxLayout, QLabel,
-    QMessageBox, QPushButton, QTableWidget,
-    QTableWidgetItem, QHeaderView, QAbstractItemView,
-    QVBoxLayout, QProgressBar
+    QMessageBox, QPushButton, QTableWidgetItem, QHeaderView, QVBoxLayout, QProgressBar
 )
 
 from constants import (
@@ -20,6 +18,7 @@ from core.ArchiveExtractor import ArchiveExtractor, ExtractionStatus, Extraction
 from core.StateManager import StateManager
 from core.TranslationManager import tr
 from ui.pages.BasePage import BasePage
+from ui.widgets.HoverTableWidget import HoverTableWidget
 
 logger = logging.getLogger(__name__)
 
@@ -288,7 +287,7 @@ class ExtractionPage(BasePage):
         self._extraction_worker: ExtractionWorker | None = None
 
         # UI components
-        self._extraction_table: QTableWidget | None = None
+        self._extraction_table: HoverTableWidget | None = None
         self._filter_combo: QComboBox | None = None
         self._btn_extract_all: QPushButton | None = None
         self._progress_bar: QProgressBar | None = None
@@ -326,14 +325,8 @@ class ExtractionPage(BasePage):
         layout.addLayout(header_layout)
 
         # Extraction table
-        self._extraction_table = QTableWidget()
+        self._extraction_table = HoverTableWidget()
         self._extraction_table.setColumnCount(COLUMN_COUNT)
-        self._extraction_table.setAlternatingRowColors(True)
-        self._extraction_table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
-        self._extraction_table.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
-        self._extraction_table.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
-        self._extraction_table.verticalHeader().setVisible(False)
-        self._extraction_table.setSortingEnabled(True)
 
         header = self._extraction_table.horizontalHeader()
         header.setSectionResizeMode(COL_MOD_NAME, QHeaderView.ResizeMode.Stretch)
