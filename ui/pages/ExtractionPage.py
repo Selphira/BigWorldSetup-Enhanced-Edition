@@ -478,7 +478,7 @@ class ExtractionPage(BasePage):
             status_item = QTableWidgetItem(status_text)
             # Store status value for sorting
             status_item.setData(Qt.ItemDataRole.UserRole, status.value)
-            color = self.STATUS_COLORS.get(status, QColor("#000000"))
+            color = self.STATUS_COLORS.get(status, QColor(COLOR_STATUS_NONE))
             status_item.setForeground(color)
 
             # Add error tooltip if applicable

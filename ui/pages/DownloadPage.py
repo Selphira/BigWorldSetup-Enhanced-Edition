@@ -427,6 +427,11 @@ class DownloadPage(BasePage):
 
         layout.addWidget(self._create_main_splitter(), stretch=1)
 
+        # Progress bar
+        self._global_progress = QProgressBar()
+        self._global_progress.setVisible(False)
+        layout.addWidget(self._global_progress)
+
     def _create_main_splitter(self) -> QWidget:
         """Create main splitter with table and operations panels."""
         splitter = QSplitter(Qt.Orientation.Horizontal)
@@ -645,13 +650,39 @@ class DownloadPage(BasePage):
             # Column 2: Status (not sortable, displayed with color)
             status_text = tr(f"page.download.status.{status.value}")
             status_item = QTableWidgetItem(status_text)
-            color = self.STATUS_COLORS.get(status, QColor("#000000"))
+            color = self.STATUS_COLORS.get(status, QColor(COLOR_STATUS_NONE))
             status_item.setForeground(color)
             self._archive_table.setItem(row, COL_STATUS, status_item)
 
             row += 1
 
         self._archive_table.setSortingEnabled(True)
+
+    def _update_archive_status(self, mod_id: str, status: ArchiveStatus) -> None:
+        """Update status of a specific archive in the table.
+
+        Args:
+            mod_id: ID of the mod to update
+            status: New status
+        """
+        # Update internal state
+        self._archive_status[mod_id] = status
+
+        # Find the row in the table
+        for row in range(self._archive_table.rowCount()):
+            item = self._archive_table.item(row, COL_MOD_NAME)
+            if item and item.data(Qt.ItemDataRole.UserRole) == mod_id:
+                # Update status cell
+                status_text = tr(f"page.download.status.{status.value}")
+                status_item = self._archive_table.item(row, COL_STATUS)
+
+                if status_item:
+                    status_item.setText(status_text)
+
+                    color = self.STATUS_COLORS.get(status, QColor(COLOR_STATUS_NONE))
+                    status_item.setForeground(color)
+
+                break
 
     # ========================================
     # Selection Management
@@ -701,22 +732,19 @@ class DownloadPage(BasePage):
 
     def _on_verification_started(self, mod_id: str) -> None:
         """Handle verification start for a mod."""
-        self._archive_status[mod_id] = ArchiveStatus.VERIFYING
-        self._refresh_archive_table()
+        self._update_archive_status(mod_id, ArchiveStatus.VERIFYING)
         logger.debug(f"Started verification for {mod_id}")
 
     def _on_verification_completed(self, mod_id: str, status: ArchiveStatus) -> None:
         """Handle verification completion for a mod."""
-        self._archive_status[mod_id] = status
+        self._update_archive_status(mod_id, status)
         self._verified_archives.add(mod_id)
-        self._refresh_archive_table()
         logger.debug(f"Completed verification for {mod_id}: {status}")
 
     def _on_verification_error(self, mod_id: str, error_message: str) -> None:
         """Handle verification error."""
+        self._update_archive_status(mod_id, ArchiveStatus.ERROR)
         logger.error(f"Verification error for {mod_id}: {error_message}")
-        self._archive_status[mod_id] = ArchiveStatus.ERROR
-        self._refresh_archive_table()
 
     # ========================================
     # Download Management
@@ -750,6 +778,12 @@ class DownloadPage(BasePage):
         self._is_verifying = True
         self._update_navigation_buttons()
 
+        # Show progress bar for verification
+        self._global_progress.setVisible(True)
+        self._global_progress.setMaximum(len(to_check))
+        self._global_progress.setValue(0)
+        self._global_progress.setFormat(tr("page.download.verifying_progress"))
+
         self._verification_worker = VerificationWorker(
             to_check,
             self._download_path,
@@ -760,7 +794,7 @@ class DownloadPage(BasePage):
             self._on_verification_started
         )
         self._verification_worker.verification_completed.connect(
-            self._on_verification_completed
+            self._on_verification_completed_with_progress
         )
         self._verification_worker.all_completed.connect(
             self._on_verification_completed_then_download
@@ -770,6 +804,14 @@ class DownloadPage(BasePage):
         )
 
         self._verification_worker.start()
+
+    def _on_verification_completed_with_progress(self, mod_id: str, status: ArchiveStatus) -> None:
+        """Handle verification completion with progress update."""
+        self._on_verification_completed(mod_id, status)
+
+        # Update progress bar
+        current = self._global_progress.value()
+        self._global_progress.setValue(current + 1)
 
     def _on_verification_completed_then_download(self, results: dict) -> None:
         """Handle verification completion, then start downloads."""
@@ -788,6 +830,7 @@ class DownloadPage(BasePage):
         ]
 
         if not to_download:
+            self._global_progress.setVisible(False)
             self._update_navigation_buttons()
             QMessageBox.information(
                 self,
@@ -799,6 +842,12 @@ class DownloadPage(BasePage):
         self._is_downloading = True
         self._update_navigation_buttons()
 
+        # Show progress bar for downloads
+        self._global_progress.setVisible(True)
+        self._global_progress.setMaximum(len(to_download))
+        self._global_progress.setValue(0)
+        self._global_progress.setFormat(tr("page.download.downloading_progress"))
+
         for archive_info in to_download:
             self._download_manager.add_to_queue(archive_info)
 
@@ -809,8 +858,7 @@ class DownloadPage(BasePage):
 
     def _on_download_started(self, mod_id: str) -> None:
         """Handle download start."""
-        self._archive_status[mod_id] = ArchiveStatus.DOWNLOADING
-        self._refresh_archive_table()
+        self._update_archive_status(mod_id, ArchiveStatus.DOWNLOADING)
 
         # Create download widget
         progress = next(
@@ -865,12 +913,14 @@ class DownloadPage(BasePage):
             self._archive_status[mod_id] = status
             self._verified_archives.add(mod_id)
 
-        self._refresh_archive_table()
+        current = self._global_progress.value()
+        self._global_progress.setValue(current + 1)
 
         # Check if all downloads finished
         if not self._progress_widgets and not self._download_manager.get_queue_size():
             self._update_timer.stop()
             self._is_downloading = False
+            self._global_progress.setVisible(False)
             self._update_navigation_buttons()
 
     def _on_download_error(self, mod_id: str, error_message: str) -> None:
@@ -883,12 +933,15 @@ class DownloadPage(BasePage):
             widget.deleteLater()
             del self._progress_widgets[mod_id]
 
-        self._archive_status[mod_id] = ArchiveStatus.ERROR
-        self._refresh_archive_table()
+        self._update_archive_status(mod_id, ArchiveStatus.ERROR)
+
+        current = self._global_progress.value()
+        self._global_progress.setValue(current + 1)
 
         if not self._progress_widgets and not self._download_manager.get_queue_size():
             self._update_timer.stop()
             self._is_downloading = False
+            self._global_progress.setVisible(False)
             self._update_navigation_buttons()
 
     def _update_active_downloads(self) -> None:

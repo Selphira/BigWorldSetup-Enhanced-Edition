@@ -160,7 +160,9 @@
       "no_downloads_title": "Aucun téléchargement nécessaire",
       "no_downloads_message": "Toutes les archives requises sont déjà téléchargées et valides.",
       "open_folder_error_title": "Impossible d'ouvrir le dossier",
-      "open_folder_error_message": "Échec de l'ouverture du dossier de téléchargement : {error}"
+      "open_folder_error_message": "Échec de l'ouverture du dossier de téléchargement : {error}",
+      "verifying_progress": "Vérification: %v/%m archives",
+      "downloading_progress": "Téléchargement: %v/%m archives"
     },
     "extraction": {
       "title": "Extraction des archives",
