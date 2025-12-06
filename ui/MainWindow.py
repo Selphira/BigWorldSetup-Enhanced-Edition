@@ -378,7 +378,6 @@ class MainWindow(QMainWindow):
         """Hide buttons for a specific page."""
         for page_buttons in self._page_buttons.values():
             for button in page_buttons:
-                print(button)
                 button.hide()
 
     def _update_ui_language(self, code: str) -> None:
