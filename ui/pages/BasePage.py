@@ -5,7 +5,7 @@ from abc import ABCMeta, abstractmethod
 from dataclasses import dataclass
 
 from PySide6.QtCore import Signal
-from PySide6.QtWidgets import QFrame, QWidget, QLabel
+from PySide6.QtWidgets import QFrame, QWidget, QLabel, QPushButton
 
 from constants import *
 from core.GameModels import GameDefinition
@@ -164,7 +164,7 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
             text=tr('button.next')
         )
 
-    def get_additional_buttons(self) -> list[ButtonConfig]:
+    def get_additional_buttons(self) -> list[QPushButton]:
         """Get additional page-specific action buttons.
 
         Examples:

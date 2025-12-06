@@ -53,6 +53,8 @@ class MainWindow(QMainWindow):
         self.btn_next: QPushButton | None = None
         self.lang_button: LanguageSelector | None = None
 
+        self._page_buttons: dict[str, list[QPushButton]] = {}
+
         self._setup_window()
         self._create_widgets()
         self._connect_signals()
@@ -166,8 +168,12 @@ class MainWindow(QMainWindow):
         )
 
         # Layout
+        self._additional_buttons_layout = QHBoxLayout()
+        self._additional_buttons_layout.setContentsMargins(0, 0, 0, 0)
+
         layout = QHBoxLayout(frame)
         layout.setContentsMargins(20, 15, 20, 15)
+        layout.addLayout(self._additional_buttons_layout)
         layout.addStretch()
         layout.addWidget(self.btn_previous)
         layout.addWidget(self.btn_next)
@@ -253,7 +259,7 @@ class MainWindow(QMainWindow):
         # Update UI
         self._update_page_title()
         self._update_navigation_buttons()
-
+        self._update_additional_buttons(page_id, page.get_additional_buttons())
         # Notify page
         page.on_page_shown()
 
@@ -356,6 +362,25 @@ class MainWindow(QMainWindow):
         self.btn_next.setVisible(next_config.visible)
         self.btn_next.setEnabled(next_config.enabled)
         self.btn_next.setText(f"{next_config.text} →")
+
+    def _update_additional_buttons(self, page_id: str, buttons: list[QPushButton]) -> None:
+        """Show buttons for a specific page."""
+        self._hide_additional_buttons()
+
+        if page_id not in self._page_buttons:
+            self._page_buttons[page_id] = buttons
+            for button in buttons:
+                self._additional_buttons_layout.addWidget(button)
+
+        for button in self._page_buttons[page_id]:
+            button.show()
+
+    def _hide_additional_buttons(self) -> None:
+        """Hide buttons for a specific page."""
+        for page_buttons in self._page_buttons.values():
+            for button in page_buttons:
+                print(button)
+                button.hide()
 
     def _update_ui_language(self, code: str) -> None:
         """Update all UI text for new language.

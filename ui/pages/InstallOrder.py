@@ -16,7 +16,7 @@ from PySide6.QtGui import QColor, QDrag, QPainter, QPen
 from PySide6.QtWidgets import (
     QAbstractItemView, QCheckBox, QFileDialog, QFrame, QHBoxLayout,
     QHeaderView, QMessageBox, QPushButton, QSplitter, QTabWidget,
-    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget
+    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QSizePolicy
 )
 
 from constants import (
@@ -652,6 +652,7 @@ class InstallOrderPage(BasePage):
         self._chk_ignore_errors: QCheckBox | None = None
 
         self._create_widgets()
+        self._create_additional_buttons()
 
         logger.info("InstallOrderPage initialized")
 
@@ -675,56 +676,38 @@ class InstallOrderPage(BasePage):
 
         layout.addWidget(self._main_container, stretch=1)
 
-        # Action buttons
-        actions = self._create_action_buttons()
-        layout.addWidget(actions)
+        # Ignore warnings checkbox
+        self._chk_ignore_warnings = QCheckBox()
+        self._chk_ignore_warnings.stateChanged.connect(self._on_ignore_warnings_changed)
+        # Ignore errors checkbox
+        self._chk_ignore_errors = QCheckBox()
+        self._chk_ignore_errors.stateChanged.connect(self._on_ignore_errors_changed)
 
-    def _create_action_buttons(self) -> QWidget:
+    def _create_additional_buttons(self):
         """Create action buttons row.
 
         Returns:
             Widget containing action buttons
         """
-        container = QWidget()
-        layout = QHBoxLayout(container)
-        layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(SPACING_SMALL)
-
         # Load default order
         self._btn_default = QPushButton()
         self._btn_default.setCursor(Qt.CursorShape.PointingHandCursor)
         self._btn_default.clicked.connect(self._load_default_order_current_tab)
-        layout.addWidget(self._btn_default)
 
         # Load from WeiDU.log
         self._btn_weidu = QPushButton()
         self._btn_weidu.setCursor(Qt.CursorShape.PointingHandCursor)
         self._btn_weidu.clicked.connect(self._load_from_weidu_log)
-        layout.addWidget(self._btn_weidu)
 
         # Import order
         self._btn_import = QPushButton()
         self._btn_import.setCursor(Qt.CursorShape.PointingHandCursor)
         self._btn_import.clicked.connect(self._import_order)
-        layout.addWidget(self._btn_import)
 
         # Export order
         self._btn_export = QPushButton()
         self._btn_export.setCursor(Qt.CursorShape.PointingHandCursor)
         self._btn_export.clicked.connect(self._export_order)
-        layout.addWidget(self._btn_export)
-
-        layout.addStretch()
-
-        # Ignore warnings checkbox
-        self._chk_ignore_warnings = QCheckBox()
-        self._chk_ignore_warnings.stateChanged.connect(self._on_ignore_warnings_changed)
-        layout.addWidget(self._chk_ignore_warnings)
-        self._chk_ignore_errors = QCheckBox()
-        self._chk_ignore_errors.stateChanged.connect(self._on_ignore_errors_changed)
-        layout.addWidget(self._chk_ignore_errors)
-
-        return container
 
     def _rebuild_ui_for_game(self) -> None:
         """Rebuild UI based on current game configuration."""
@@ -743,10 +726,21 @@ class InstallOrderPage(BasePage):
         # Create UI based on sequence count
         if self._game_def.has_multiple_sequences:
             content = self._create_multi_sequence_tabs()
+            self._main_layout.addWidget(content)
         else:
-            content = self._create_single_sequence_panel(0)
+            layout = QVBoxLayout()
+            layout.setContentsMargins(0, 0, 0, 0)
 
-        self._main_layout.addWidget(content)
+            # Widget du haut (minimum)
+            checkbox_widget = self._create_checkboxs_widget()
+            checkbox_widget.setSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+            layout.addWidget(checkbox_widget)
+
+            # Widget du bas (stretch + expand)
+            content = self._create_single_sequence_panel(0)
+            content.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+            layout.addWidget(content)
+            self._main_layout.addLayout(layout)
 
     def _clear_main_layout(self) -> None:
         """Clear all widgets from main layout."""
@@ -761,6 +755,17 @@ class InstallOrderPage(BasePage):
         self._unordered_tables.clear()
         self._phase_tabs = None
 
+    def _create_checkboxs_widget(self) -> QWidget:
+        container = QWidget()
+        layout = QHBoxLayout(container)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(SPACING_SMALL)
+        layout.addStretch()
+        layout.addWidget(self._chk_ignore_warnings)
+        layout.addWidget(self._chk_ignore_errors)
+
+        return container
+
     def _create_multi_sequence_tabs(self) -> QWidget:
         """Create tabbed interface for multiple sequences.
 
@@ -768,6 +773,7 @@ class InstallOrderPage(BasePage):
             Tab widget containing all sequences
         """
         tabs = QTabWidget()
+        tabs.setCornerWidget(self._create_checkboxs_widget())
 
         for seq_idx, sequence in enumerate(self._game_def.sequences):
             panel = self._create_single_sequence_panel(seq_idx)
@@ -1458,6 +1464,10 @@ class InstallOrderPage(BasePage):
             Translated page title
         """
         return tr("page.order.title")
+
+    def get_additional_buttons(self) -> list[QPushButton]:
+        """Get additional buttons."""
+        return [self._btn_default, self._btn_weidu, self._btn_import, self._btn_export]
 
     def can_proceed(self) -> bool:
         """Check if can proceed to next page.

@@ -303,7 +303,7 @@ class ArchiveTableWidget(QTableWidget):
         self._setup_table()
 
     def _setup_table(self) -> None:
-        """Setup hover highlighting style."""
+        """Configure table settings."""
         self.setAlternatingRowColors(True)
         self.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
@@ -410,6 +410,7 @@ class DownloadPage(BasePage):
 
         self._connect_signals()
         self._create_widgets()
+        self._create_additional_buttons()
 
         # Update timer for download progress
         self._update_timer = QTimer()
@@ -425,7 +426,6 @@ class DownloadPage(BasePage):
         layout.setContentsMargins(0, 0, 0, 0)
 
         layout.addWidget(self._create_main_splitter(), stretch=1)
-        layout.addWidget(self._create_action_buttons())
 
     def _create_main_splitter(self) -> QWidget:
         """Create main splitter with table and operations panels."""
@@ -544,29 +544,15 @@ class DownloadPage(BasePage):
 
         return panel
 
-    def _create_action_buttons(self) -> QWidget:
+    def _create_additional_buttons(self):
         """Create action buttons bar."""
-        container = QWidget()
-        layout = QHBoxLayout(container)
-        layout.setContentsMargins(
-            MARGIN_STANDARD, MARGIN_STANDARD,
-            MARGIN_STANDARD, MARGIN_STANDARD
-        )
-        layout.setSpacing(SPACING_SMALL)
-
         self._btn_download_all = QPushButton()
         self._btn_download_all.setCursor(Qt.CursorShape.PointingHandCursor)
         self._btn_download_all.clicked.connect(self._download_all_missing)
-        layout.addWidget(self._btn_download_all)
 
         self._btn_open_folder = QPushButton()
         self._btn_open_folder.setCursor(Qt.CursorShape.PointingHandCursor)
         self._btn_open_folder.clicked.connect(self._open_download_folder)
-        layout.addWidget(self._btn_open_folder)
-
-        layout.addStretch()
-
-        return container
 
     def _connect_signals(self) -> None:
         """Connect download manager signals."""
@@ -981,6 +967,10 @@ class DownloadPage(BasePage):
 
     def get_page_title(self) -> str:
         return tr("page.download.title")
+
+    def get_additional_buttons(self) -> list[QPushButton]:
+        """Get additional buttons."""
+        return [self._btn_download_all, self._btn_open_folder]
 
     def can_proceed(self) -> bool:
         """Check if can proceed to next page."""
