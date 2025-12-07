@@ -297,6 +297,7 @@ class DownloadWorker(QObject):
         self._bytes_received = 0
         self._start_time = 0.0
         self._output_file = None
+        self._temp_path = None
 
     def start_download(self) -> None:
         """Start the download."""
@@ -370,6 +371,9 @@ class DownloadWorker(QObject):
         import time
         elapsed = time.time() - self._start_time
         speed_bps = bytes_received / elapsed if elapsed > 0 else 0.0
+
+        if bytes_total < 0:
+            bytes_total = self.archive_info.file_size
 
         self.progress.emit(bytes_received, bytes_total, speed_bps)
 
