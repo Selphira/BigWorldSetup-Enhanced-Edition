@@ -10,7 +10,7 @@ from typing import Any
 from PySide6.QtCore import QSettings
 
 from constants import CACHE_DIR, MODS_DIR, RULES_DIR
-from core.GameManager import GameManager
+from core.GameManager import GameManager, GameDefinition
 from core.ModManager import ModManager
 from core.RuleManager import RuleManager
 
@@ -495,3 +495,10 @@ class StateManager:
             self._rule_manager = RuleManager(Path(RULES_DIR))
             logger.debug("RuleManager initialized")
         return self._rule_manager
+
+    def get_game_definition(self) -> GameDefinition | None:
+        """Get the currently selected game definition."""
+        game_code = self.get_selected_game()
+        if not game_code:
+            return None
+        return self.get_game_manager().get(game_code)
