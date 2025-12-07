@@ -39,7 +39,13 @@
         "1": "Version 2 : l'acheter dans des magasins"
       }
     },
-    "ru_RU": {"components": {"choice_0": "A Mod for the Orderly - Add a Keyring to Faerun! See readme for more details about the choices below.", "0": "Nanoquest version", "1": "Consistency Plus version"}},
+    "ru_RU": {
+      "components": {
+        "choice_0": "A Mod for the Orderly - Add a Keyring to Faerun! See readme for more details about the choices below.",
+        "0": "Nanoquest version",
+        "1": "Consistency Plus version"
+      }
+    },
     "zh_CN": {
       "description": "这是一个为强迫症患者准备的模组，因为它通过一个有趣的小任务或从商人处（安装时可选）添加了一个钥匙扣。"
     }

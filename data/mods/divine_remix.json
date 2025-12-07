@@ -40,7 +40,7 @@
     "600": {"type": "std", "category": "npcx"},
     "605": {"type": "std", "category": "npcx"},
     "610": {"type": "std", "category": "npcx"},
-    "1000": {"type": "std"}
+    "1000": {"type": "std", "games": ["bg2", "tutu", "bgt"]}
   },
   "languages": {
     "en_US": 0,
