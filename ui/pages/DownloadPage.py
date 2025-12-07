@@ -525,7 +525,7 @@ class DownloadPage(BasePage):
                 continue
 
             archive_info = self._get_archive_info_from_mod(mod)
-            if archive_info:
+            if archive_info and archive_info.filename:
                 self._archives[mod_id] = archive_info
 
                 # Set initial status if not already verified
