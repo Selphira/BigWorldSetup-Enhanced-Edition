@@ -605,7 +605,7 @@ class ModSelectionPage(BasePage):
             text=tr("button.previous")
         )
 
-    def can_proceed(self) -> bool:
+    def can_go_to_next_page(self) -> bool:
         """Check if can proceed to next page."""
         return self._component_selector.has_selection()
 

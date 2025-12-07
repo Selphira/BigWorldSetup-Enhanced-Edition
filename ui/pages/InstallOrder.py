@@ -1421,7 +1421,7 @@ class InstallOrderPage(BasePage):
         """Get additional buttons."""
         return [self._btn_default, self._btn_weidu, self._btn_import, self._btn_export]
 
-    def can_proceed(self) -> bool:
+    def can_go_to_next_page(self) -> bool:
         """Check if can proceed to next page.
 
         All sequences must have:

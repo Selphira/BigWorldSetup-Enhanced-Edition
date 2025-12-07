@@ -398,7 +398,7 @@ class InstallationTypePage(BasePage):
         """Configure previous button (hidden on first page)."""
         return ButtonConfig(visible=False)
 
-    def can_proceed(self) -> bool:
+    def can_go_to_next_page(self) -> bool:
         """
         Check if user can proceed to next page.
 
@@ -448,7 +448,7 @@ class InstallationTypePage(BasePage):
         Returns:
             True if validation passes
         """
-        return self.can_proceed()
+        return self.can_go_to_next_page()
 
     # ========================================
     # STATE MANAGEMENT

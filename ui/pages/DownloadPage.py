@@ -962,12 +962,18 @@ class DownloadPage(BasePage):
         """Get additional buttons."""
         return [self._btn_download_all, self._btn_open_folder]
 
-    def can_proceed(self) -> bool:
+    def can_go_to_next_page(self) -> bool:
         """Check if can proceed to next page."""
         if self._is_verifying or self._is_downloading:
             return False
 
         return all(status.is_available for _, status in self._archive_status.items())
+
+    def can_go_to_previous_page(self) -> bool:
+        """Check if user can return to the previous page."""
+        if self._is_verifying or self._is_downloading:
+            return False
+        return True
 
     def on_page_shown(self) -> None:
         """Called when page becomes visible."""

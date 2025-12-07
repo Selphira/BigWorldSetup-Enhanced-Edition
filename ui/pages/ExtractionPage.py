@@ -671,13 +671,9 @@ class ExtractionPage(BasePage):
         """Get additional buttons."""
         return [self._btn_extract_all]
 
-    def can_proceed(self) -> bool:
+    def can_go_to_next_page(self) -> bool:
         """Check if can proceed to next page."""
-        if self._is_extracting:
-            return False
-
-        # If no extractions loaded, cannot proceed
-        if not self._extractions:
+        if self._is_extracting or not self._extractions:
             return False
 
         # All extractions must be extracted successfully
@@ -685,6 +681,13 @@ class ExtractionPage(BasePage):
             status == ExtractionStatus.EXTRACTED
             for status in self._extraction_status.values()
         )
+
+    def can_go_to_previous_page(self) -> bool:
+        """Check if can proceed to next page."""
+        if self._is_extracting:
+            return False
+
+        return True
 
     def on_page_shown(self) -> None:
         """Called when page becomes visible."""

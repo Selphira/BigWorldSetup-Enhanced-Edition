@@ -120,14 +120,6 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
         """
         return ""
 
-    def get_page_icon(self) -> str | None:
-        """Get optional icon for the page (for tabs/sidebar navigation).
-
-        Returns:
-            Icon path/name or None
-        """
-        return None
-
     # ========================================
     # NAVIGATION BUTTON CONFIGURATION
     # ========================================
@@ -145,7 +137,7 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
         """
         return ButtonConfig(
             visible=True,
-            enabled=True,
+            enabled=self.can_go_to_previous_page(),
             text=tr('button.previous')
         )
 
@@ -160,7 +152,7 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
         """
         return ButtonConfig(
             visible=True,
-            enabled=self.can_proceed(),
+            enabled=self.can_go_to_next_page(),
             text=tr('button.next')
         )
 
@@ -222,7 +214,7 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
     # ========================================
 
     @abstractmethod
-    def can_proceed(self) -> bool:
+    def can_go_to_next_page(self) -> bool:
         """Check if user can navigate away from this page.
 
         Typically used to:
@@ -233,9 +225,16 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
         Returns:
             True if navigation to next page is allowed
         """
-        raise NotImplementedError(
-            f"{self.__class__.__name__} must implement can_proceed()"
-        )
+        return True
+
+    @abstractmethod
+    def can_go_to_previous_page(self) -> bool:
+        """Check if user can return to the previous page.
+
+        Returns:
+            True if navigation to previous page is allowed
+        """
+        return True
 
     def validate(self) -> bool:
         """Validate page data before proceeding.
