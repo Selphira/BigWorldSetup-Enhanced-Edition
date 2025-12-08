@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (
     QToolTip,
     QStyleOptionViewItem,
     QSplitter,
-    QToolButton
+    QToolButton, QLabel
 )
 
 from constants import *
@@ -31,6 +31,7 @@ from ui.pages.BasePage import BasePage, ButtonConfig
 from ui.widgets.CategoryButton import CategoryButton
 from ui.widgets.ComponentSelector import ComponentSelector
 from ui.widgets.ModDetailsPanel import ModDetailsPanel
+from ui.widgets.MultiSelectComboBox import MultiSelectComboBox
 
 logger = logging.getLogger(__name__)
 
@@ -250,6 +251,7 @@ class ModSelectionPage(BasePage):
         super().__init__(state_manager)
 
         self._mod_manager = self.state_manager.get_mod_manager()
+        self._rule_manager = self.state_manager.get_rule_manager()
         self._category_buttons: dict[CategoryEnum, CategoryButton] = {}
         self._current_category = CategoryEnum.ALL
 
@@ -397,12 +399,6 @@ class ModSelectionPage(BasePage):
         """Create center panel with filters and selector."""
         panel = QFrame()
         panel.setFrameShape(QFrame.Shape.StyledPanel)
-        panel.setStyleSheet(
-            f"QFrame {{ "
-            f"background-color: {COLOR_BACKGROUND_PRIMARY}; "
-            f"border-radius: 8px; "
-            f"}}"
-        )
 
         layout = QVBoxLayout(panel)
         layout.setAlignment(Qt.AlignmentFlag.AlignTop)
@@ -442,6 +438,10 @@ class ModSelectionPage(BasePage):
         filters_layout.setContentsMargins(0, 0, 0, 0)
         filters_layout.setSpacing(SPACING_SMALL)
 
+        sub_filters_layout = QHBoxLayout(filters_widget)
+        sub_filters_layout.setContentsMargins(0, 0, 0, 0)
+        sub_filters_layout.setSpacing(SPACING_SMALL)
+
         # Search bar
         self._search_input = QLineEdit()
         self._search_input.setPlaceholderText(
@@ -451,6 +451,24 @@ class ModSelectionPage(BasePage):
         self._search_input.setMaxLength(MAX_SEARCH_LENGTH)
         self._search_input.textChanged.connect(self._on_search_changed)
         filters_layout.addWidget(self._search_input)
+
+        self._lang_label = QLabel(
+            tr('page.selection.desired_languages')
+        )
+        sub_filters_layout.addWidget(self._lang_label)
+
+        self._lang_select = MultiSelectComboBox()
+        self._lang_select.setMinimumWidth(100)
+        self._lang_select.selection_changed.connect(self._apply_all_filters)
+
+        for lang_code in self.state_manager.get_languages_order():
+            icon_path = FLAGS_DIR / f"{lang_code}.png"
+            self._lang_select.add_item(lang_code, str(icon_path))
+
+        sub_filters_layout.addWidget(self._lang_select)
+        sub_filters_layout.addStretch()
+
+        filters_layout.addLayout(sub_filters_layout)
 
         return filters_widget
 
@@ -564,7 +582,8 @@ class ModSelectionPage(BasePage):
         self._component_selector.apply_filters(
             text=text,
             category=category,
-            game=game
+            game=game,
+            languages=set(self._lang_select.selected_keys())
         )
 
         # Expand/collapse based on search
@@ -606,7 +625,7 @@ class ModSelectionPage(BasePage):
         )
 
     def can_go_to_next_page(self) -> bool:
-        """Check if can proceed to next page."""
+        """Check if can go to next page."""
         return self._component_selector.has_selection()
 
     def on_page_shown(self) -> None:
