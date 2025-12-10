@@ -4,7 +4,7 @@
   "sequences": [
     {
       "game": "iwdee",
-      "required_files": ["chitin.key", "icewind.exe"],
+      "required_files": [{"files": ["chitin.key", "icewind.exe"]}],
       "lua_checks": {"engine_mode": 2}
     }
   ]

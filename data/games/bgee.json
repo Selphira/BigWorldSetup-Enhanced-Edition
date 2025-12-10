@@ -4,7 +4,7 @@
   "sequences": [
     {
       "game": "bgee",
-      "required_files": ["chitin.key", "Baldur.exe"],
+      "required_files": [{"files": ["chitin.key", "Baldur.exe"]}],
       "lua_checks": {"engine_mode": 0}
     }
   ]

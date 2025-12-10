@@ -283,8 +283,8 @@ class InstallationTypePage(BasePage):
 
             # Get validation rules for this game's first sequence
             # (assuming shared folders use consistent validation)
-            validation_sequence = ref_game.get_sequence(0)
-            if not validation_sequence:
+            sequence = ref_game.get_sequence(0)
+            if not sequence:
                 logger.error(f"No validation sequence for {folder_key}")
                 continue
 
@@ -293,7 +293,7 @@ class InstallationTypePage(BasePage):
                 "page.type.game_folder",
                 "page.type.select_game_folder_title",
                 ref_game,
-                GameFolderValidator(validation_sequence)
+                GameFolderValidator(sequence.validation)
             )
             selector.validation_changed.connect(self._on_folder_validation_changed)
 

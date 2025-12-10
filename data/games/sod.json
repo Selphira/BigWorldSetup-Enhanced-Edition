@@ -4,7 +4,15 @@
   "sequences": [
     {
       "game": "sod",
-      "required_files": ["chitin.key", "Baldur.exe", "sod-dlc.zip"],
+      "required_files": [
+        {
+          "files": ["chitin.key", "Baldur.exe"]
+        }, {
+          "files": ["sod-dlc.zip", "dlc/sod-dlc.zip", "workshop/sod-dlc.mod"],
+          "operator": "any",
+          "description": "SoD DLC file"
+        }
+      ],
       "lua_checks": {"engine_mode": 0}
     }
   ]

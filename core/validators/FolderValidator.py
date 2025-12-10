@@ -11,9 +11,10 @@ Provides a hierarchy of validators:
 import logging
 import re
 from abc import ABC, abstractmethod
+from pathlib import Path
 
-from constants import *
-from core.GameModels import GameValidationRule
+from constants import MAX_LUA_FILE_SIZE
+from core.GameModels import GameValidationRule, FileGroupOperator, FileGroup
 from core.TranslationManager import tr
 
 logger = logging.getLogger(__name__)
@@ -21,6 +22,10 @@ logger = logging.getLogger(__name__)
 # Type alias for validation result
 ValidationResult = tuple[bool, str]
 
+
+# ============================================================================
+# BASE VALIDATORS
+# ============================================================================
 
 class FolderValidator(ABC):
     """
@@ -111,13 +116,17 @@ class WritableFolderValidator(ExistingFolderValidator):
             return False, tr('validation.folder_not_writable')
 
 
+# ============================================================================
+# GAME FOLDER VALIDATOR
+# ============================================================================
+
 class GameFolderValidator(ExistingFolderValidator):
     """
     Validates a game folder against specific game requirements.
 
     Checks:
     - Folder existence (via parent class)
-    - Required files presence
+    - Required file groups (all groups must be satisfied)
     - Lua variable conditions in engine.lua
     """
 
@@ -133,7 +142,7 @@ class GameFolderValidator(ExistingFolderValidator):
         Initialize validator with game-specific rules.
 
         Args:
-            validation_rules: GameValidationSequence instance
+            validation_rules: GameValidationRule instance
         """
         self.validation_rules = validation_rules
         logger.debug(f"GameFolderValidator initialized: {validation_rules}")
@@ -154,13 +163,14 @@ class GameFolderValidator(ExistingFolderValidator):
             return valid, message
 
         # Validate game requirements
-        if not self._validate_game_requirements(path):
-            return False, tr('validation.invalid_game_folder')
+        is_valid, error_msg = self._validate_game_requirements(path)
+        if not is_valid:
+            return False, error_msg
 
         logger.info(f"Game folder validated successfully: {path}")
         return True, ""
 
-    def _validate_game_requirements(self, folder_path: str) -> bool:
+    def _validate_game_requirements(self, folder_path: str) -> ValidationResult:
         """
         Validate folder against all game requirements.
 
@@ -168,25 +178,26 @@ class GameFolderValidator(ExistingFolderValidator):
             folder_path: Path to game folder
 
         Returns:
-            True if all requirements met
+            (True, "") if valid, (False, error_message) otherwise
         """
         folder = Path(folder_path)
 
         if not folder.is_dir():
             logger.debug(f"Invalid folder: {folder_path}")
-            return False
+            return False, tr('validation.invalid_game_folder')
 
-        # Check required files
+        # Check required file groups
         if self.validation_rules.required_files:
-            if not self._check_required_files(folder):
-                return False
+            result = self._check_required_files(folder)
+            if not result[0]:
+                return result
 
         # Check Lua conditions
         if self.validation_rules.lua_checks:
             if not self._check_lua_conditions(folder):
-                return False
+                return False, tr('validation.invalid_game_folder')
 
-        return True
+        return True, ""
 
     # ========================================
     # FILE OPERATIONS
@@ -200,32 +211,43 @@ class GameFolderValidator(ExistingFolderValidator):
         """
         Find a file in folder by name (case-insensitive).
 
-        Uses glob for efficient case-insensitive search.
+        Supports both simple filenames and relative paths with subdirectories.
 
         Args:
             folder: Folder to search in
-            filename: File name to find
+            filename: File name or relative path to find (e.g., "dlc/mod.zip")
 
         Returns:
             Path to file if found, None otherwise
         """
+        file_path = Path(filename)
+        full_path = folder / file_path
+
         try:
-            # Try exact match first (fastest)
-            exact_path = folder / filename
-            if exact_path.exists() and exact_path.is_file():
-                return exact_path
+            if full_path.is_file():
+                return full_path
 
-            # Case-insensitive search using glob
-            matches = list(folder.glob(f"[{filename[0].lower()}{filename[0].upper()}]{filename[1:]}"))
+            parent_dir = full_path.parent
 
-            if not matches:
-                # Fallback: full case-insensitive search
-                filename_lower = filename.lower()
-                for item in folder.iterdir():
-                    if item.is_file() and item.name.lower() == filename_lower:
-                        return item
+            if not parent_dir.exists():
+                parts = file_path.parts
+                current = folder
 
-            return matches[0] if matches else None
+                for part in parts[:-1]:
+                    matches = [d for d in current.iterdir()
+                               if d.is_dir() and d.name.lower() == part.lower()]
+                    if not matches:
+                        return None
+                    current = matches[0]
+
+                parent_dir = current
+
+            filename_lower = file_path.name.lower()
+            for item in parent_dir.iterdir():
+                if item.is_file() and item.name.lower() == filename_lower:
+                    return item
+
+            return None
 
         except (PermissionError, OSError) as e:
             logger.warning(f"Cannot access folder {folder}: {e}")
@@ -235,23 +257,73 @@ class GameFolderValidator(ExistingFolderValidator):
     # VALIDATION CHECKS
     # ========================================
 
-    def _check_required_files(self, folder: Path) -> bool:
+    def _check_required_files(self, folder: Path) -> ValidationResult:
         """
-        Ensure all required files exist in folder.
+        Validate all required file groups.
+
+        All groups must be satisfied for validation to pass.
 
         Args:
             folder: Folder to check
 
         Returns:
-            True if all files exist
+            (True, "") if all groups valid, (False, error_message) otherwise
         """
-        for filename in self.validation_rules.required_files:
-            if not self._find_file_case_insensitive(folder, filename):
-                logger.debug(f"Missing required file: {filename} in {folder}")
-                return False
+        for group in self.validation_rules.required_files:
+            result = self._validate_file_group(folder, group)
+            if not result[0]:
+                return result
 
-        logger.debug(f"All required files present in {folder}")
-        return True
+        logger.debug("All file groups validated in {folder}")
+        return True, ""
+
+    def _validate_file_group(
+            self,
+            folder: Path,
+            group: FileGroup
+    ) -> ValidationResult:
+        """
+        Validate a file group against its operator logic.
+
+        Args:
+            folder: Folder to check
+            group: FileGroup to validate
+
+        Returns:
+            (True, "") if valid, (False, error_message) otherwise
+        """
+        found_files = []
+
+        for filename in group.files:
+            if self._find_file_case_insensitive(folder, filename):
+                found_files.append(filename)
+
+        found_count = len(found_files)
+        total_count = len(group.files)
+
+        # Apply operator logic
+        is_valid = False
+
+        if group.operator == FileGroupOperator.ALL:
+            is_valid = found_count == total_count
+
+        elif group.operator == FileGroupOperator.ANY:
+            is_valid = found_count >= 1
+
+        # Log and return result
+        if is_valid:
+            logger.debug(
+                "File group validated: {group.description} (found: {ound_files})"
+            )
+            return True, ""
+        else:
+            logger.debug(
+                "File group validation failed: {group.description} (found {found_count}/{total_count}: {found_files})"
+            )
+            return False, tr(
+                'validation.file_group_failed : {description}',
+                description=group.description
+            )
 
     def _check_lua_conditions(self, folder: Path) -> bool:
         """
@@ -343,10 +415,10 @@ class GameFolderValidator(ExistingFolderValidator):
 
     def get_validation_rules(self) -> GameValidationRule:
         """
-        Get current validation sequence.
+        Get current validation rules.
 
         Returns:
-            GameValidationSequence instance
+            GameValidationRule instance
         """
         return self.validation_rules
 

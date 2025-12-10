@@ -8,10 +8,95 @@ game folders.
 
 from __future__ import annotations
 
+import logging
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import Any
 
+logger = logging.getLogger(__name__)
+
+
+# ============================================================================
+# FILE GROUP (imported from FolderValidator for type consistency)
+# ============================================================================
+
+class FileGroupOperator(Enum):
+    """
+    Operators for file group validation logic.
+
+    ALL: All files in the group must exist
+    ANY: At least one file in the group must exist
+    """
+
+    ALL = "all"
+    ANY = "any"
+
+
+@dataclass(frozen=True, slots=True)
+class FileGroup:
+    """
+    Represents a group of files with validation logic.
+
+    Attributes:
+        files: Tuple of file paths (relative to game folder)
+        operator: Logic operator to apply
+        description: Human-readable description for error messages
+    """
+
+    files: tuple[str, ...]
+    operator: FileGroupOperator = FileGroupOperator.ALL
+    description: str = ""
+
+    def __post_init__(self):
+        """Validate and generate description if needed."""
+        if not self.files:
+            raise ValueError("FileGroup must contain at least one file")
+
+        # Generate default description if not provided
+        if not self.description:
+            if self.operator == FileGroupOperator.ALL:
+                desc = f"all files: {', '.join(self.files)}"
+            elif self.operator == FileGroupOperator.ANY:
+                desc = f"at least one of: {', '.join(self.files)}"
+
+            # Use object.__setattr__ to bypass frozen dataclass
+            object.__setattr__(self, 'description', desc)
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> 'FileGroup':
+        """
+        Create FileGroup from dictionary (JSON deserialization).
+
+        Args:
+            data: Dictionary with keys:
+                  - files: List of file paths (required)
+                  - operator: "all" or "any" (optional, default: "all")
+                  - description: Custom description (optional)
+
+        Returns:
+            FileGroup instance
+
+        Raises:
+            ValueError: If 'files' key is missing or invalid operator
+        """
+        files = data.get('files')
+        if not files:
+            raise ValueError("FileGroup requires 'files' key with at least one file")
+
+        operator_str = data.get('operator', 'all')
+
+        operator = FileGroupOperator(operator_str)
+
+        return cls(
+            files=tuple(files),
+            operator=operator,
+            description=data.get('description', '')
+        )
+
+
+# ============================================================================
+# INSTALLATION STEPS
+# ============================================================================
 
 class InstallStepType(str, Enum):
     """Type of installation step.
@@ -116,37 +201,21 @@ class InstallStep:
 
     @property
     def is_download_only(self) -> bool:
-        """Check if this is a download-only step.
-
-        Returns:
-            True if step type is DOWNLOAD, False otherwise
-        """
+        """Check if this is a download-only step."""
         return self.step_type == InstallStepType.DOWNLOAD
 
     @property
     def is_install(self) -> bool:
-        """Check if this is an installation step.
-
-        Returns:
-            True if step type is INSTALL, False otherwise
-        """
+        """Check if this is an installation step."""
         return self.step_type == InstallStepType.INSTALL
 
     @property
     def is_annotation(self) -> bool:
-        """Check if this is an annotation step.
-
-        Returns:
-            True if step type is ANNOTATION, False otherwise
-        """
+        """Check if this is an annotation step."""
         return self.step_type == InstallStepType.ANNOTATION
 
     def to_dict(self) -> dict[str, str]:
-        """Convert installation step to dictionary.
-
-        Returns:
-            Dictionary representation of the step
-        """
+        """Convert installation step to dictionary."""
         if self.step_type == InstallStepType.ANNOTATION:
             return {
                 "type": self.step_type.value,
@@ -173,22 +242,26 @@ class InstallStep:
         return f"{type_prefix}{self.mod}:{self.comp}"
 
 
+# ============================================================================
+# VALIDATION RULES
+# ============================================================================
+
 @dataclass(frozen=True, slots=True)
 class GameValidationRule:
     """Validation rules for a single game folder sequence.
 
-    This class defines what files and Lua variables must be present
+    This class defines what file groups and Lua variables must be present
     to validate a game installation. It supports folder widget reuse
     through the 'game' reference.
 
     Attributes:
-        required_files: Tuple of file paths that must exist in the game folder
+        required_files: Tuple of FileGroup objects defining file requirements
         lua_checks: Dictionary mapping Lua variable names to expected values
         game: Reference to another game's folder for widget reuse
               (e.g., "sod" means this sequence shares SOD's folder widget)
     """
 
-    required_files: tuple[str, ...] = ()
+    required_files: tuple[FileGroup, ...] = ()
     lua_checks: dict[str, Any] = field(default_factory=dict)
     game: str = ""
 
@@ -198,19 +271,28 @@ class GameValidationRule:
 
         Args:
             data: Dictionary containing validation configuration with keys:
-                  - required_files: List of required file paths
+                  - required_files: List of file group configurations
                   - lua_checks: Dict of Lua variable checks
                   - game: Game reference for folder reuse
 
         Returns:
             GameValidationRule instance
         """
-        return cls(
-            required_files=tuple(data.get("required_files", [])),
-            lua_checks=data.get("lua_checks", {}),
-            game=data.get("game")
+        file_groups = tuple(
+            FileGroup.from_dict(item)
+            for item in data.get("required_files", [])
         )
 
+        return cls(
+            required_files=file_groups,
+            lua_checks=data.get("lua_checks", {}),
+            game=data.get("game", "")
+        )
+
+
+# ============================================================================
+# GAME SEQUENCE
+# ============================================================================
 
 @dataclass(frozen=True, slots=True)
 class GameSequence:
@@ -222,16 +304,14 @@ class GameSequence:
 
     Attributes:
         game: Game identifier key used by the UI
-        required_files: Files that must exist for this sequence
-        lua_checks: Lua engine variables to validate
+        validation: Validation rule instance
         allowed_mods: Whitelist of mod IDs (None = all allowed)
         blocked_mods: Blacklist of mod IDs (None = none ignored)
         allowed_components: Per-mod component filtering {mod_id: [component_ids]}
     """
 
     game: str
-    required_files: tuple[str, ...] = ()
-    lua_checks: dict[str, Any] = field(default_factory=dict)
+    validation: GameValidationRule | None = None
     allowed_mods: tuple[str, ...] | None = None
     blocked_mods: tuple[str, ...] | None = None
     allowed_components: dict[str, tuple[str, ...]] = field(default_factory=dict)
@@ -254,6 +334,8 @@ class GameSequence:
         if not game:
             raise ValueError("GameSequence requires 'game' identifier")
 
+        validation = GameValidationRule.from_dict(data)
+
         # Convert lists to tuples for immutability
         allowed_mods = data.get("allowed_mods")
         blocked_mods = data.get("blocked_mods")
@@ -262,8 +344,7 @@ class GameSequence:
 
         return cls(
             game=game,
-            required_files=tuple(data.get("required_files", [])),
-            lua_checks=data.get("lua_checks", {}),
+            validation=validation,
             allowed_mods=tuple(allowed_mods) if allowed_mods else None,
             blocked_mods=tuple(blocked_mods) if blocked_mods else None,
             allowed_components={
@@ -281,12 +362,6 @@ class GameSequence:
 
         Returns:
             True if the mod is allowed, False otherwise
-
-        Logic:
-            - If in blocked_mods: False
-            - If allowed_mods is None: True (all allowed by default)
-            - If in allowed_mods: True
-            - Otherwise: False
         """
         if self.blocked_mods and mod_id in self.blocked_mods:
             return False
@@ -305,11 +380,6 @@ class GameSequence:
 
         Returns:
             True if the component is allowed, False otherwise
-
-        Logic:
-            - If mod has no component restrictions: True
-            - If component in allowed list: True
-            - Otherwise: False
         """
         if mod_id not in self.allowed_components:
             return True
@@ -332,12 +402,16 @@ class GameSequence:
 
     def get_download_steps(self) -> tuple[InstallStep, ...]:
         """Get only download steps from the installation order.
-        
+
         Returns:
             Tuple of download-only installation steps
         """
         return tuple(step for step in self.order if step.is_download_only)
 
+
+# ============================================================================
+# GAME DEFINITION
+# ============================================================================
 
 @dataclass(frozen=True, slots=True)
 class GameDefinition:
@@ -415,20 +489,12 @@ class GameDefinition:
 
     @property
     def sequence_count(self) -> int:
-        """Get the number of installation sequences.
-
-        Returns:
-            Number of sequences in this game definition
-        """
+        """Get the number of installation sequences."""
         return len(self.sequences)
 
     @property
     def has_multiple_sequences(self) -> bool:
-        """Check if this game requires multiple installation sequences.
-
-        Returns:
-            True if more than one sequence, False otherwise
-        """
+        """Check if this game requires multiple installation sequences."""
         return self.sequence_count > 1
 
     def get_folder_keys(self) -> tuple[str, ...]:

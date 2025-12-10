@@ -4,7 +4,7 @@
   "sequences": [
     {
       "game": "pstee",
-      "required_files": ["chitin.key", "Torment.exe"],
+      "required_files": [{"files": ["chitin.key", "Torment.exe"]}],
       "lua_checks": {}
     }
   ]
