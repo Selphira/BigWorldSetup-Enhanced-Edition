@@ -328,7 +328,8 @@ class DownloadPage(BasePage):
         # Archive tracking
         self._archives: dict[str, ArchiveInfo] = {}
         self._archive_status: dict[str, ArchiveStatus] = {}
-        self._verified_archives: set[str] = set()
+        self._archive_cache_keys: dict[str, str] = {}
+        self._cached_download_path: Path | None = None
 
         # Operation tracking
         self._is_verifying = False
@@ -509,7 +510,7 @@ class DownloadPage(BasePage):
     # ========================================
 
     def _load_archives(self) -> None:
-        """Load archive information from selected mods."""
+        """Load archive information from selected mods with cache preservation."""
         self._archives.clear()
 
         selected = self.state_manager.get_selected_components()
@@ -518,6 +519,9 @@ class DownloadPage(BasePage):
             return
 
         unique_mods = set(selected.keys())
+
+        # Invalidate cache for removed mods
+        self._invalidate_removed_archives(unique_mods)
 
         for mod_id in unique_mods:
             mod = self._mod_manager.get_mod_by_id(mod_id)
@@ -528,13 +532,33 @@ class DownloadPage(BasePage):
             if archive_info and archive_info.filename:
                 self._archives[mod_id] = archive_info
 
-                # Set initial status if not already verified
-                if mod_id not in self._verified_archives:
+                # Only set UNKNOWN status if revalidation needed
+                if self._should_revalidate_archive(mod_id, archive_info):
                     self._archive_status[mod_id] = ArchiveStatus.UNKNOWN
+                    logger.debug("Archive needs revalidation: %s", mod_id)
+                else:
+                    logger.debug(
+                        "Using cached status for %s: %s",
+                        mod_id,
+                        self._archive_status[mod_id]
+                    )
+
+                # Update cache key
+                self._update_archive_cache(mod_id, archive_info)
 
         self._refresh_archive_table()
         self._update_navigation_buttons()
-        logger.info(f"Archives loaded: {len(self._archives)}")
+
+        # Count verified archives
+        verified_count = sum(1 for m in self._archives if self._is_archive_verified(m))
+        unknown_count = len(self._archives) - verified_count
+
+        logger.info(
+            "Archives loaded: %d total, %d cached, %d need verification",
+            len(self._archives),
+            verified_count,
+            unknown_count
+        )
 
     def _get_archive_info_from_mod(self, mod) -> ArchiveInfo | None:
         """Extract archive information from mod object."""
@@ -673,10 +697,13 @@ class DownloadPage(BasePage):
         logger.debug(f"Started verification for {mod_id}")
 
     def _on_verification_completed(self, mod_id: str, status: ArchiveStatus) -> None:
-        """Handle verification completion for a mod."""
+        """Handle verification completion for a mod with cache update."""
         self._update_archive_status(mod_id, status)
-        self._verified_archives.add(mod_id)
-        logger.debug(f"Completed verification for {mod_id}: {status}")
+
+        if mod_id in self._archives:
+            self._update_archive_cache(mod_id, self._archives[mod_id])
+
+        logger.debug("Completed verification for %s: %s", mod_id, status)
 
     def _on_verification_error(self, mod_id: str, error_message: str) -> None:
         """Handle verification error."""
@@ -703,7 +730,7 @@ class DownloadPage(BasePage):
             for mod_id, archive_info in self._archives.items()
             if (self._archive_status.get(mod_id, ArchiveStatus.MISSING) != ArchiveStatus.VALID
                 and not archive_info.requires_manual_download
-                and mod_id not in self._verified_archives)
+                and not self._is_archive_verified(mod_id))
         }
 
         if not to_check:
@@ -831,6 +858,7 @@ class DownloadPage(BasePage):
         self._update_after_download(mod_id)
 
     def _update_after_download(self, mod_id: str):
+        """Handle post-download updates with cache update."""
         # Remove widget
         if mod_id in self._progress_widgets:
             widget = self._progress_widgets[mod_id]
@@ -847,8 +875,12 @@ class DownloadPage(BasePage):
                 archive_info
             )
 
+            # Update status AND cache
             self._archive_status[mod_id] = status
-            self._verified_archives.add(mod_id)
+            self._update_archive_cache(mod_id, archive_info)  # NEW: Update cache
+
+            # Update table display
+            self._update_archive_status(mod_id, status)
 
         current = self._global_progress.value()
         self._global_progress.setValue(current + 1)
@@ -892,6 +924,109 @@ class DownloadPage(BasePage):
         """Cancel an active download."""
         self._download_manager.cancel_download(mod_id)
         self._archive_status[mod_id] = ArchiveStatus.MISSING
+
+    # ========================================
+    # Cache Management (ajoutez cette section après __init__)
+    # ========================================
+
+    def _cache_key(self, archive_info: ArchiveInfo) -> str:
+        """
+        Generate cache key for an archive.
+
+        Key includes filename, size, and hash to detect changes.
+
+        Args:
+            archive_info: Archive information
+
+        Returns:
+            Cache key string
+        """
+        return f"{archive_info.filename}:{archive_info.file_size}:{archive_info.expected_hash}"
+
+    def _is_archive_verified(self, mod_id: str) -> bool:
+        """
+        Check if archive has been verified (has a known status).
+
+        Args:
+            mod_id: Mod identifier
+
+        Returns:
+            True if archive has been verified
+        """
+        return (
+                mod_id in self._archive_status
+                and self._archive_status[mod_id] != ArchiveStatus.UNKNOWN
+        )
+
+    def _should_revalidate_archive(
+            self,
+            mod_id: str,
+            archive_info: ArchiveInfo
+    ) -> bool:
+        """
+        Check if an archive needs revalidation.
+
+        Returns True if:
+        - Archive is new (not in cache)
+        - Archive properties changed (filename, size, hash)
+        - Download folder changed
+
+        Args:
+            mod_id: Mod identifier
+            archive_info: Current archive information
+
+        Returns:
+            True if revalidation needed
+        """
+        # Not verified yet
+        if not self._is_archive_verified(mod_id):
+            return True
+
+        # Check if archive properties match cached version
+        cached_key = self._archive_cache_keys.get(mod_id)
+        if not cached_key:
+            return True
+
+        current_key = self._cache_key(archive_info)
+
+        # Properties changed, need revalidation
+        if cached_key != current_key:
+            logger.debug(
+                "Archive properties changed for %s, revalidation needed",
+                mod_id
+            )
+            return True
+
+        if self._cached_download_path != self._download_path:
+            logger.debug("Download path changed, full revalidation needed")
+            return True
+
+        return False
+
+    def _update_archive_cache(self, mod_id: str, archive_info: ArchiveInfo) -> None:
+        """
+        Update cache with archive information.
+
+        Args:
+            mod_id: Mod identifier
+            archive_info: Archive information
+        """
+        self._archive_cache_keys[mod_id] = self._cache_key(archive_info)
+
+    def _invalidate_removed_archives(self, current_mod_ids: set[str]) -> None:
+        """
+        Remove cache entries for archives no longer in selection.
+
+        Args:
+            current_mod_ids: Set of currently selected mod IDs
+        """
+        # Remove statuses for mods no longer selected
+        removed_mods = set(self._archive_status.keys()) - current_mod_ids
+
+        for mod_id in removed_mods:
+            logger.debug("Removing cache for unselected mod: %s", mod_id)
+            self._archive_status.pop(mod_id, None)
+            self._archive_cache_keys.pop(mod_id, None)
 
     # ========================================
     # UI Actions
@@ -978,10 +1113,27 @@ class DownloadPage(BasePage):
     def on_page_shown(self) -> None:
         """Called when page becomes visible."""
         super().on_page_shown()
-        self._verified_archives.clear()
-        self._download_path = Path(self.state_manager.get_download_folder())
+
+        # Check if download path changed
+        new_download_path = Path(self.state_manager.get_download_folder())
+        download_path_changed = self._cached_download_path != new_download_path
+
+        if download_path_changed:
+            logger.info(
+                "Download path changed from %s to %s, invalidating cache",
+                self._cached_download_path,
+                new_download_path
+            )
+            # Clear cache when download folder changes
+            self._archive_status.clear()
+            self._archive_cache_keys.clear()
+
+        # Update paths
+        self._download_path = new_download_path
+        self._cached_download_path = new_download_path
         self._download_manager.set_download_path(self._download_path)
-        # TODO: Si le dossier de téléchargement est le même, garder le statut déjà calculé des archives qui n'ont pas changé
+
+        # Load archives (will preserve cache if path unchanged)
         self._load_archives()
 
     def on_page_hidden(self) -> None:
