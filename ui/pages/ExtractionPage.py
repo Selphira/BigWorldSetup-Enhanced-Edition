@@ -12,7 +12,7 @@ from PySide6.QtWidgets import (
 from constants import (
     COLOR_STATUS_COMPLETE, COLOR_ERROR, COLOR_STATUS_NONE,
     COLOR_WARNING, MARGIN_STANDARD,
-    SPACING_SMALL
+    SPACING_SMALL, SPACING_LARGE
 )
 from core.ArchiveExtractor import ArchiveExtractor, ExtractionStatus, ExtractionInfo
 from core.StateManager import StateManager
@@ -300,12 +300,15 @@ class ExtractionPage(BasePage):
     def _create_widgets(self) -> None:
         """Create page UI layout."""
         layout = QVBoxLayout(self)
-        layout.setSpacing(SPACING_SMALL)
+        layout.setSpacing(SPACING_LARGE)
         layout.setContentsMargins(
             MARGIN_STANDARD, MARGIN_STANDARD,
             MARGIN_STANDARD, MARGIN_STANDARD
         )
 
+        vlayout = QVBoxLayout(self)
+        vlayout.setSpacing(SPACING_SMALL)
+        vlayout.setContentsMargins(0, 0, 0, 0)
         # Header
         header_layout = QHBoxLayout()
         header_layout.setSpacing(SPACING_SMALL)
@@ -322,7 +325,7 @@ class ExtractionPage(BasePage):
         self._filter_combo.currentIndexChanged.connect(self._apply_filter)
         header_layout.addWidget(self._filter_combo)
 
-        layout.addLayout(header_layout)
+        vlayout.addLayout(header_layout)
 
         # Extraction table
         self._extraction_table = HoverTableWidget()
@@ -335,11 +338,13 @@ class ExtractionPage(BasePage):
         header.setSectionResizeMode(COL_STATUS, QHeaderView.ResizeMode.ResizeToContents)
         header.setSectionsClickable(True)
 
-        layout.addWidget(self._extraction_table, stretch=1)
+        vlayout.addWidget(self._extraction_table, stretch=1)
+
+        layout.addLayout(vlayout)
 
         # Progress bar
         self._progress_bar = QProgressBar()
-        self._progress_bar.setVisible(False)
+        self._progress_bar.setVisible(True)
         layout.addWidget(self._progress_bar)
 
     def _create_additional_buttons(self) -> None:

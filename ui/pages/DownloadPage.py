@@ -360,14 +360,17 @@ class DownloadPage(BasePage):
     def _create_widgets(self) -> None:
         """Create page UI layout."""
         layout = QVBoxLayout(self)
-        layout.setSpacing(0)
-        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(SPACING_LARGE)
+        layout.setContentsMargins(
+            MARGIN_STANDARD, MARGIN_STANDARD,
+            MARGIN_STANDARD, MARGIN_STANDARD
+        )
 
         layout.addWidget(self._create_main_splitter(), stretch=1)
 
         # Progress bar
         self._global_progress = QProgressBar()
-        self._global_progress.setVisible(False)
+        self._global_progress.setVisible(True)
         layout.addWidget(self._global_progress)
 
     def _create_main_splitter(self) -> QWidget:
@@ -390,12 +393,7 @@ class DownloadPage(BasePage):
 
         layout = QVBoxLayout(panel)
         layout.setSpacing(SPACING_SMALL)
-        layout.setContentsMargins(
-            MARGIN_STANDARD,
-            MARGIN_STANDARD,
-            MARGIN_SMALL,
-            0
-        )
+        layout.setContentsMargins(0, 0, 10, 0)
 
         # Header with filter
         header_layout = QHBoxLayout()
