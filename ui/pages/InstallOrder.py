@@ -576,6 +576,10 @@ class InstallOrderPage(BasePage):
         self._rule_manager = self.state_manager.get_rule_manager()
         self._weidu_parser = WeiDULogParser()
 
+        # Map simple keys to full keys with options for SUB components
+        # Format: {seq_idx: {(mod_id, simple_key): full_key_with_options}}
+        self._component_full_keys: dict[int, dict[tuple[str, str], str]] = {}
+
         # Game state
         self._current_game: str | None = None
         self._game_def: GameDefinition | None = None
@@ -878,6 +882,7 @@ class InstallOrderPage(BasePage):
             return
 
         self._sequences_data.clear()
+        self._component_full_keys.clear()
 
         # Initialize sequence data
         for seq_idx in range(self._game_def.sequence_count):
@@ -893,7 +898,10 @@ class InstallOrderPage(BasePage):
                 mod = self._mod_manager.get_mod_by_id(mod_id)
                 if not mod:
                     continue
-                comp_key = comp["key"] if isinstance(comp, dict) else comp
+                if isinstance(comp, dict):
+                    comp_key = comp['key'] + '.' + '.'.join([value for value in comp['prompts'].values()])
+                else:
+                    comp_key = comp
                 component = mod.get_component(comp_key)
                 if component and not component.is_dwn():
                     self._place_component_in_sequences(mod_id, comp_key)
@@ -907,20 +915,43 @@ class InstallOrderPage(BasePage):
             mod_id: Mod identifier
             comp_key: Component key
         """
+        # Extract simple key (before first dot for SUB components)
+        simple_key = comp_key.split('.')[0]
         placed = False
 
         for seq_idx, sequence in enumerate(self._game_def.sequences):
             if not sequence.is_mod_allowed(mod_id):
                 continue
 
-            if not sequence.is_component_allowed(mod_id, comp_key):
+            if not sequence.is_component_allowed(mod_id, simple_key):
                 continue
 
-            self._sequences_data[seq_idx].unordered.append((mod_id, comp_key))
+            self._sequences_data[seq_idx].unordered.append((mod_id, simple_key))
+
+            if seq_idx not in self._component_full_keys:
+                self._component_full_keys[seq_idx] = {}
+            self._component_full_keys[seq_idx][(mod_id, simple_key)] = comp_key
+
             placed = True
 
         if not placed:
             logger.debug(f"Component not allowed in any sequence: {mod_id}:{comp_key}")
+
+    def _get_full_component_key(self, seq_idx: int, mod_id: str, simple_key: str) -> str:
+        """Get full component key with options from simple key.
+
+        Args:
+            seq_idx: Sequence index
+            mod_id: Mod identifier
+            simple_key: Simple component key (without options)
+
+        Returns:
+            Full component key with options, or simple_key if not found
+        """
+        if seq_idx not in self._component_full_keys:
+            return simple_key
+
+        return self._component_full_keys[seq_idx].get((mod_id, simple_key), simple_key)
 
     def _apply_order_from_list(self, seq_idx: int, order: list[str]) -> None:
         """Apply order from a list of component IDs.
@@ -942,9 +973,16 @@ class InstallOrderPage(BasePage):
         # Apply order
         new_ordered = []
         for comp_id in order:
-            if comp_id in pool:
-                new_ordered.append(pool[comp_id])
-                del pool[comp_id]
+            if ':' in comp_id:
+                mod_part, comp_part = comp_id.split(':', 1)
+                simple_comp = comp_part.split('.')[0]
+                simple_id = f"{mod_part}:{simple_comp}"
+            else:
+                simple_id = comp_id
+
+            if simple_id in pool:
+                new_ordered.append(pool[simple_id])
+                del pool[simple_id]
 
         # Remaining components
         new_unordered = list(pool.values())
@@ -1525,7 +1563,7 @@ class InstallOrderPage(BasePage):
         install_order = {}
         for seq_idx, seq_data in self._sequences_data.items():
             install_order[seq_idx] = [
-                f"{mod_id.lower()}:{comp_key}"
+                f"{mod_id.lower()}:{self._get_full_component_key(seq_idx, mod_id, comp_key)}"
                 for mod_id, comp_key in seq_data.ordered
             ]
 
