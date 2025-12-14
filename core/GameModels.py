@@ -303,6 +303,7 @@ class GameSequence:
     and mod filtering configuration.
 
     Attributes:
+        name: Name of the sequence
         game: Game identifier key used by the UI
         validation: Validation rule instance
         allowed_mods: Whitelist of mod IDs (None = all allowed)
@@ -310,6 +311,7 @@ class GameSequence:
         allowed_components: Per-mod component filtering {mod_id: [component_ids]}
     """
 
+    name: str
     game: str
     validation: GameValidationRule | None = None
     allowed_mods: tuple[str, ...] | None = None
@@ -331,6 +333,7 @@ class GameSequence:
             ValueError: If 'game' key is missing from data
         """
         game = data.get("game")
+        name = data.get("name")
         if not game:
             raise ValueError("GameSequence requires 'game' identifier")
 
@@ -343,6 +346,7 @@ class GameSequence:
         order_raw = data.get("order", [])
 
         return cls(
+            name=name,
             game=game,
             validation=validation,
             allowed_mods=tuple(allowed_mods) if allowed_mods else None,
@@ -468,7 +472,7 @@ class GameDefinition:
             raise ValueError("GameDefinition requires at least one sequence")
 
         sequences = tuple(
-            GameSequence.from_dict(seq_data)
+            GameSequence.from_dict({**seq_data, "name": name})
             for seq_data in sequences_data
         )
 
