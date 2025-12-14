@@ -44,10 +44,6 @@ class ComponentRef:
     mod_id: str
     comp_key: str | None = None
 
-    def is_mod_level(self) -> bool:
-        """Check if this references an entire mod."""
-        return self.comp_key is None
-
     def is_any_component(self) -> bool:
         """Check if this matches any component of the mod."""
         return self.comp_key == "*"
@@ -56,17 +52,11 @@ class ComponentRef:
         """Check if this reference matches given mod/component."""
         if self.mod_id != mod_id:
             return False
-        if self.is_mod_level():
-            return True
         if self.is_any_component():
-            return comp_key is not None
+            return True
         return self.comp_key == comp_key
 
     def __str__(self) -> str:
-        if self.is_mod_level():
-            return self.mod_id
-        if self.is_any_component():
-            return f"{self.mod_id}:*"
         return f"{self.mod_id}:{self.comp_key}"
 
     @classmethod
@@ -74,14 +64,14 @@ class ComponentRef:
         """Parse component reference from string format.
 
         Formats:
-        - "mod_id" -> mod-level reference
+        - "mod_id" -> any component of mod
         - "mod_id:*" -> any component of mod
         - "mod_id:comp_key" -> specific component
         """
         if ":" in ref:
             mod_id, comp_key = ref.split(":", 1)
             return cls(mod_id, comp_key if comp_key != "*" else "*")
-        return cls(ref, None)
+        return cls(ref, "*")
 
 
 @dataclass(frozen=True, slots=True)
