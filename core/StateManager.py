@@ -221,7 +221,7 @@ class StateManager:
             for seq_idx, order_list in install_order.items()
         }
 
-    def set_page_option(self, page: str, option: str, value: bool) -> None:
+    def set_page_option(self, page: str, option: str, value: Any) -> None:
         """Set page-specific boolean option.
 
         Args:
@@ -230,7 +230,10 @@ class StateManager:
             value: Option value
         """
         key = f"{page}_{option}"
-        self.installation_state.configuration[key] = value
+        if value is not None:
+            self.installation_state.configuration[key] = value
+        else:
+            self.installation_state.configuration.pop(key, None)
 
     def get_page_option(self, page: str, option: str, default: Any) -> Any:
         """Get page-specific boolean option.
