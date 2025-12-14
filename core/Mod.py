@@ -266,7 +266,14 @@ class Mod:
 
     def _get_sub_component(self, key: str) -> Component | None:
         """
-        Handle SUB component with notation "parent.prompt_idx.option_idx".
+        Handle SUB component with notation "parent.option1.option2...optionN".
+
+        Each number after the parent key represents the selected option index
+        for each prompt in order. There must be at least one prompt.
+
+        Examples:
+            "1.2.4" → Component 1, prompt 1 = option 2, prompt 2 = option 4
+            "5.0.1.3" → Component 5, prompt 1 = option 0, prompt 2 = option 1, prompt 3
 
         Args:
             key: Component key with dots (e.g., "comp1.2.1")
@@ -276,12 +283,11 @@ class Mod:
         """
         parts = key.split('.')
 
-        if len(parts) != 3:
+        if len(parts) < 2:
             return None
 
         parent_key = parts[0]
-        prompt_idx = parts[1]
-        option_idx = parts[2]
+        option_values = parts[1:]  # All remaining parts are option VALUES (not indices)
 
         # Get or create parent component
         if parent_key in self._components_cache:
@@ -297,40 +303,41 @@ class Mod:
             return None
 
         parent_comp = cast(SubComponent, parent_comp)
-        # Get all prompts to find the one at the given index
+
+        # Get all prompts in order
         prompt_keys = parent_comp.get_all_prompts()
 
-        try:
-            prompt_index = int(prompt_idx)
-            if prompt_index < 0 or prompt_index >= len(prompt_keys):
-                return None
+        # Verify we have the right number of values for the number of prompts
+        if len(option_values) != len(prompt_keys):
+            return None
 
-            prompt_key = prompt_keys[prompt_index]
+        # Build the combined text: "Parent -> Prompt1: Option1 -> Prompt2: Option2 -> ..."
+        text_parts = [parent_comp.text]
+
+        for prompt_idx, option_value in enumerate(option_values):
+            # Get the prompt at this index
+            prompt_key = prompt_keys[prompt_idx]
             prompt = parent_comp.get_prompt(prompt_key)
 
             if not prompt:
                 return None
 
-            # Check if option index is valid
-            option_index = int(option_idx)
-            if option_index < 0 or option_index >= len(prompt.options):
+            # Verify the option value exists in this prompt's options
+            if not prompt.has_option(option_value):
                 return None
 
-            option_key = prompt.options[option_index]
+            # Get texts
+            prompt_text = parent_comp.get_prompt_text(prompt_key)
+            option_text = parent_comp.get_prompt_option_text(prompt_key, option_value)
 
-        except (ValueError, IndexError):
-            return None
+            # Add to combined text
+            text_parts.append(f"{prompt_text}: {option_text}")
 
-        # Get texts
-        prompt_text = parent_comp.get_prompt_text(prompt_key)
-        option_text = parent_comp.get_prompt_option_text(prompt_key, option_key)
-
-        # Create a new Component with concatenated text
-        # Format: "Parent text -> Prompt text -> Option text"
-        combined_text = f"{parent_comp.text} -> {prompt_text} -> {option_text}"
+        # Combine all parts with " -> "
+        combined_text = " -> ".join(text_parts)
 
         return Component(
-            key=key,  # Use full key including prompt and option
+            key=key,  # Use full key including all option values
             text=combined_text,
             category=parent_comp.category,
             comp_type=parent_comp.comp_type,
@@ -558,14 +565,15 @@ class Mod:
         """Check if mod supports a game."""
         return game in self.games
 
-    def get_language_index(self, lang_code: str) -> int | None:
-        if lang_code in self.languages:
-            return self.languages[lang_code]
+    def get_language_index(self, lang_codes: str | Iterable[str]) -> int | None:
+        if isinstance(lang_codes, str):
+            lang_codes = (lang_codes,)
 
-        if "all" in self.languages:
-            return self.languages["all"]
+        for lang_code in lang_codes:
+            if lang_code in self.languages:
+                return self.languages[lang_code]
 
-        return None
+        return self.languages.get("all")
 
     def supports_language(self, languages: Union[str, Iterable[str]]) -> bool:
         """
