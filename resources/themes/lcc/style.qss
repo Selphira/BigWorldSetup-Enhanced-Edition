@@ -497,6 +497,28 @@ QSplitter::handle:vertical {
 }
 
 /* ============================================================================
+ * QGroupBox
+ * ============================================================================ */
+
+QGroupBox {
+  color: Goldenrod;
+  border: 1px solid #404040;
+  border-radius: 6px;
+  padding: 2px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+QGroupBox::title {
+  subcontrol-origin: margin;
+  subcontrol-position: top left;
+  left: 4px;
+  padding-left: 2px;
+  padding-right: 4px;
+  padding-top: -4px;
+}
+
+/* ============================================================================
  * CategoryButton
  * ============================================================================ */
 
