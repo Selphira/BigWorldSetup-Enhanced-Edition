@@ -343,8 +343,12 @@ class GameSequence:
             name=name,
             game=game,
             validation=validation,
-            allowed_mods=tuple(allowed_mods) if allowed_mods else None,
-            blocked_mods=tuple(blocked_mods) if blocked_mods else None,
+            allowed_mods=tuple(mod_id.lower() for mod_id in allowed_mods)
+            if allowed_mods
+            else None,
+            blocked_mods=tuple(mod_id.lower() for mod_id in blocked_mods)
+            if blocked_mods
+            else None,
             allowed_components={
                 mod_id: tuple(components)
                 for mod_id, components in allowed_components_raw.items()
@@ -361,7 +365,7 @@ class GameSequence:
         Returns:
             True if the mod is allowed, False otherwise
         """
-        if self.blocked_mods and mod_id in self.blocked_mods:
+        if self.blocked_mods and mod_id.lower() in self.blocked_mods:
             return False
 
         if self.allowed_mods is None:
@@ -379,7 +383,7 @@ class GameSequence:
         Returns:
             True if the component is allowed, False otherwise
         """
-        if mod_id not in self.allowed_components:
+        if mod_id.lower() not in self.allowed_components:
             return True
 
         return comp_key in self.allowed_components[mod_id]
