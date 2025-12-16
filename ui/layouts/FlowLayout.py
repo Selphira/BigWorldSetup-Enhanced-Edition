@@ -28,10 +28,10 @@ class FlowLayout(QLayout):
     DEFAULT_SPACING = 10
 
     def __init__(
-            self,
-            parent: QWidget | None = None,
-            margin: int = DEFAULT_MARGIN,
-            spacing: int = DEFAULT_SPACING
+        self,
+        parent: QWidget | None = None,
+        margin: int = DEFAULT_MARGIN,
+        spacing: int = DEFAULT_SPACING,
     ):
         """Initialize the flow layout.
 
@@ -160,10 +160,7 @@ class FlowLayout(QLayout):
 
         # Add margins
         margins = self.contentsMargins()
-        size += QSize(
-            margins.left() + margins.right(),
-            margins.top() + margins.bottom()
-        )
+        size += QSize(margins.left() + margins.right(), margins.top() + margins.bottom())
 
         return size
 

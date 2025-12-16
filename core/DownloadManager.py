@@ -1,13 +1,11 @@
-import hashlib
-import logging
 from dataclasses import dataclass
 from enum import Enum
+import hashlib
+import logging
 from pathlib import Path
 
-from PySide6.QtCore import QObject, QThread, Signal, Qt
-from PySide6.QtNetwork import (
-    QNetworkAccessManager, QNetworkReply, QNetworkRequest
-)
+from PySide6.QtCore import QObject, Qt, QThread, Signal
+from PySide6.QtNetwork import QNetworkAccessManager, QNetworkReply, QNetworkRequest
 
 logger = logging.getLogger(__name__)
 
@@ -15,6 +13,7 @@ logger = logging.getLogger(__name__)
 # ============================================================================
 # Enums and Constants
 # ============================================================================
+
 
 class ArchiveStatus(str, Enum):
     """Status of a mod archive.
@@ -28,6 +27,7 @@ class ArchiveStatus(str, Enum):
         DOWNLOADING: Archive is currently being downloaded
         ERROR: Download or verification error
     """
+
     VALID = "valid"
     INVALID_HASH = "invalid_hash"
     INVALID_SIZE = "invalid_size"
@@ -54,8 +54,13 @@ class ArchiveStatus(str, Enum):
         Returns:
             True if status is MISSING, INVALID_HASH, INVALID_SIZE, ERROR or UNKNOWN
         """
-        return self in (ArchiveStatus.MISSING, ArchiveStatus.INVALID_HASH, ArchiveStatus.INVALID_SIZE,
-                        ArchiveStatus.ERROR, ArchiveStatus.UNKNOWN)
+        return self in (
+            ArchiveStatus.MISSING,
+            ArchiveStatus.INVALID_HASH,
+            ArchiveStatus.INVALID_SIZE,
+            ArchiveStatus.ERROR,
+            ArchiveStatus.UNKNOWN,
+        )
 
     @property
     def is_downloading(self) -> bool:
@@ -75,6 +80,7 @@ class HashAlgorithm(str, Enum):
         SHA1: SHA-1 hash algorithm
         SHA256: SHA-256 hash algorithm
     """
+
     MD5 = "md5"
     SHA1 = "sha1"
     SHA256 = "sha256"
@@ -83,6 +89,7 @@ class HashAlgorithm(str, Enum):
 # ============================================================================
 # Data Models
 # ============================================================================
+
 
 @dataclass
 class ArchiveInfo:
@@ -96,6 +103,7 @@ class ArchiveInfo:
         hash_algorithm: Algorithm used for hash (default: MD5)
         file_size: Expected file size in bytes (0 if unknown)
     """
+
     mod_id: str
     filename: str | None
     url: str | None
@@ -129,6 +137,7 @@ class DownloadProgress:
         speed_bps: Current download speed in bytes per second
         error_message: Error message if download failed
     """
+
     archive_info: ArchiveInfo
     bytes_received: int = 0
     bytes_total: int = 0
@@ -182,6 +191,7 @@ class DownloadProgress:
 # Archive Verification
 # ============================================================================
 
+
 class ArchiveVerifier:
     """Verifies archive integrity using hash comparison.
 
@@ -199,11 +209,7 @@ class ArchiveVerifier:
             HashAlgorithm.SHA256: hashlib.sha256,
         }
 
-    def verify_archive(
-            self,
-            file_path: Path,
-            info: ArchiveInfo
-    ) -> ArchiveStatus:
+    def verify_archive(self, file_path: Path, info: ArchiveInfo) -> ArchiveStatus:
         """Verify archive integrity by comparing hashes.
 
         Args:
@@ -220,13 +226,16 @@ class ArchiveVerifier:
             if info.file_size > 0:
                 actual_size = file_path.stat().st_size
                 if actual_size != info.file_size:
-                    logger.warning(f"Invalid size for {file_path}: {actual_size} (Expected: {info.file_size})")
+                    logger.warning(
+                        f"Invalid size for {file_path}: {actual_size} (Expected: {info.file_size})"
+                    )
                     return ArchiveStatus.INVALID_SIZE
 
             actual_hash = self.calculate_hash(file_path, info.hash_algorithm)
             if actual_hash.lower() != info.expected_hash.lower():
                 logger.warning(
-                    f"Invalid hash for {file_path}: {actual_hash.lower()} (Expected: {info.expected_hash.lower()})")
+                    f"Invalid hash for {file_path}: {actual_hash.lower()} (Expected: {info.expected_hash.lower()})"
+                )
                 return ArchiveStatus.INVALID_HASH
 
             return ArchiveStatus.VALID
@@ -235,9 +244,7 @@ class ArchiveVerifier:
             return ArchiveStatus.ERROR
 
     def calculate_hash(
-            self,
-            file_path: Path,
-            algorithm: HashAlgorithm = HashAlgorithm.MD5
+        self, file_path: Path, algorithm: HashAlgorithm = HashAlgorithm.MD5
     ) -> str:
         """Calculate hash of a file.
 
@@ -257,7 +264,7 @@ class ArchiveVerifier:
 
         hash_func = self._hash_functions[algorithm]()
 
-        with open(file_path, 'rb') as f:
+        with open(file_path, "rb") as f:
             while chunk := f.read(self.BUFFER_SIZE):
                 hash_func.update(chunk)
 
@@ -267,6 +274,7 @@ class ArchiveVerifier:
 # ============================================================================
 # Download Worker (runs in separate thread)
 # ============================================================================
+
 
 class DownloadWorker(QObject):
     """Worker for downloading a single archive in a separate thread.
@@ -306,14 +314,15 @@ class DownloadWorker(QObject):
             return
 
         request = QNetworkRequest(self.archive_info.url)
-        request.setHeader(QNetworkRequest.KnownHeaders.UserAgentHeader,
-                          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                          "AppleWebKit/537.36 (KHTML, like Gecko) "
-                          "Chrome/120.0.0.0 Safari/537.36"
-                          )
+        request.setHeader(
+            QNetworkRequest.KnownHeaders.UserAgentHeader,
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36",
+        )
         request.setAttribute(
             QNetworkRequest.Attribute.RedirectPolicyAttribute,
-            QNetworkRequest.RedirectPolicy.NoLessSafeRedirectPolicy
+            QNetworkRequest.RedirectPolicy.NoLessSafeRedirectPolicy,
         )
 
         self._network_manager = QNetworkAccessManager(self)
@@ -325,12 +334,13 @@ class DownloadWorker(QObject):
 
         # Prepare temporary file
         self._temp_path = self.download_path / (self.archive_info.filename + ".part")
-        self._output_file = open(self._temp_path, 'wb')
+        self._output_file = open(self._temp_path, "wb")
 
         # Connect data ready signal
         self._reply.readyRead.connect(self._on_ready_read)
 
         import time
+
         self._start_time = time.time()
 
         logger.info(f"Started download: {self.archive_info.filename}")
@@ -369,6 +379,7 @@ class DownloadWorker(QObject):
 
         # Calculate speed
         import time
+
         elapsed = time.time() - self._start_time
         speed_bps = bytes_received / elapsed if elapsed > 0 else 0.0
 
@@ -434,6 +445,7 @@ class DownloadWorker(QObject):
 # ============================================================================
 # Download Manager
 # ============================================================================
+
 
 class DownloadManager(QObject):
     """Manages multiple concurrent downloads.
@@ -558,15 +570,15 @@ class DownloadManager(QObject):
 
             worker.progress.connect(
                 lambda br, bt, s, mid=mod_id: self._on_worker_progress(mid, br, bt, s),
-                Qt.ConnectionType.QueuedConnection
+                Qt.ConnectionType.QueuedConnection,
             )
             worker.finished.connect(
                 lambda fp, mid=mod_id: self._on_worker_finished(mid, fp),
-                Qt.ConnectionType.QueuedConnection
+                Qt.ConnectionType.QueuedConnection,
             )
             worker.error.connect(
                 lambda e, mid=mod_id: self._on_worker_error(mid, e),
-                Qt.ConnectionType.QueuedConnection
+                Qt.ConnectionType.QueuedConnection,
             )
 
             # Connect thread signals
@@ -588,11 +600,7 @@ class DownloadManager(QObject):
             self.download_error.emit(archive_info.mod_id, str(e))
 
     def _on_worker_progress(
-            self,
-            mod_id: str,
-            bytes_received: int,
-            bytes_total: int,
-            speed_bps: float
+        self, mod_id: str, bytes_received: int, bytes_total: int, speed_bps: float
     ) -> None:
         """Handle worker progress update.
 

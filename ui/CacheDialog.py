@@ -48,7 +48,7 @@ class CacheDialog:
             "",  # No cancel button text
             0,
             100,
-            self.parent
+            self.parent,
         )
         self._dialog.setWindowTitle(tr("app.loading_mods"))
         self._dialog.setWindowModality(Qt.WindowModality.ApplicationModal)
@@ -59,9 +59,7 @@ class CacheDialog:
         self._dialog.setMinimumWidth(400)
 
         # Prevent manual closing
-        self._dialog.setWindowFlags(
-            self._dialog.windowFlags() & ~Qt.WindowCloseButtonHint
-        )
+        self._dialog.setWindowFlags(self._dialog.windowFlags() & ~Qt.WindowCloseButtonHint)
 
         # Reset result
         self._result = {"success": False, "finished": False}
@@ -78,18 +76,14 @@ class CacheDialog:
             # Thread couldn't start
             self._dialog.close()
             QMessageBox.critical(
-                self.parent,
-                tr("app.error"),
-                tr("error.unable_to_start_cache_building")
+                self.parent, tr("app.error"), tr("error.unable_to_start_cache_building")
             )
             return False
 
         # Connect thread signals (now that thread exists)
         if mod_manager.builder_thread:
             mod_manager.builder_thread.progress.connect(self._dialog.setValue)
-            mod_manager.builder_thread.status_changed.connect(
-                self._dialog.setLabelText
-            )
+            mod_manager.builder_thread.status_changed.connect(self._dialog.setLabelText)
 
         # Show dialog
         self._dialog.show()
@@ -136,7 +130,7 @@ class CacheDialog:
         QMessageBox.critical(
             self.parent,
             tr("error.loading_error"),
-            tr("error.unable_to_load_mods", message=message)
+            tr("error.unable_to_load_mods", message=message),
         )
 
         if self._event_loop:
@@ -145,10 +139,7 @@ class CacheDialog:
         logger.error(tr("error.cache_error", message=message))
 
 
-def show_cache_build_dialog(
-        mod_manager: ModManager,
-        parent=None
-) -> bool:
+def show_cache_build_dialog(mod_manager: ModManager, parent=None) -> bool:
     """
     Convenience function to show cache build dialog.
 

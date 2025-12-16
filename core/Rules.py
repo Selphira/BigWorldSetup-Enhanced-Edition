@@ -4,11 +4,12 @@ from dataclasses import dataclass, field
 from enum import Enum
 from typing import Any
 
-from constants import ICON_WARNING, ICON_ERROR, ICON_INFO
+from constants import ICON_ERROR, ICON_INFO, ICON_WARNING
 
 
 class RuleType(Enum):
     """Type of relationship rule."""
+
     DEPENDENCY = "dependency"
     INCOMPATIBILITY = "incompatibility"
     ORDER = "order"
@@ -16,6 +17,7 @@ class RuleType(Enum):
 
 class RuleSeverity(Enum):
     """Severity level for rule violations."""
+
     ERROR = "error"
     WARNING = "warning"
     INFO = "info"
@@ -23,12 +25,14 @@ class RuleSeverity(Enum):
 
 class DependencyMode(Enum):
     """How multiple dependencies should be satisfied."""
+
     ANY = "any"  # At least one target must be present
     ALL = "all"  # All targets must be present
 
 
 class OrderDirection(Enum):
     """Direction for order rules."""
+
     BEFORE = "before"  # Source must be installed BEFORE targets
     AFTER = "after"  # Source must be installed AFTER targets
 
@@ -41,6 +45,7 @@ class ComponentRef:
         mod_id: Mod identifier
         comp_key: Component key (None = entire mod)
     """
+
     mod_id: str
     comp_key: str | None = None
 
@@ -86,6 +91,7 @@ class Rule:
         description: Human-readable explanation
         source_url: Optional URL for documentation
     """
+
     rule_type: RuleType
     severity: RuleSeverity
     sources: tuple[ComponentRef, ...]
@@ -136,8 +142,9 @@ class Rule:
         return refs
 
     @classmethod
-    def _parse_sources_and_targets(cls, data: dict[str, Any]) -> tuple[
-        tuple[ComponentRef, ...], tuple[ComponentRef, ...]]:
+    def _parse_sources_and_targets(
+        cls, data: dict[str, Any]
+    ) -> tuple[tuple[ComponentRef, ...], tuple[ComponentRef, ...]]:
         """Parse and validate sources and targets from rule data.
 
         Returns tuple of (sources, targets).
@@ -163,6 +170,7 @@ class DependencyRule(Rule):
     - ALL mode: source requires ALL targets → all targets BEFORE source
     - ANY mode: source requires ANY target → at least one target BEFORE source
     """
+
     dependency_mode: DependencyMode = DependencyMode.ANY
     implicit_order: bool = True
 
@@ -182,7 +190,7 @@ class DependencyRule(Rule):
             dependency_mode=DependencyMode(data.get("mode", "any")),
             implicit_order=data.get("implicit_order", True),
             description=data.get("description", ""),
-            source_url=data.get("source_url")
+            source_url=data.get("source_url"),
         )
 
 
@@ -204,13 +212,14 @@ class IncompatibilityRule(Rule):
             sources=sources,
             targets=targets,
             description=data.get("description", ""),
-            source_url=data.get("source_url")
+            source_url=data.get("source_url"),
         )
 
 
 @dataclass(frozen=True, slots=True)
 class OrderRule(Rule):
     """Explicit order rule with direction."""
+
     order_direction: OrderDirection = OrderDirection.BEFORE
 
     @classmethod
@@ -228,7 +237,7 @@ class OrderRule(Rule):
             targets=targets,
             order_direction=OrderDirection(data.get("direction", "before")),
             description=data.get("description", ""),
-            source_url=data.get("source_url")
+            source_url=data.get("source_url"),
         )
 
 
@@ -242,6 +251,7 @@ class RuleViolation:
         message: Formatted error/warning message
         suggested_actions: List of possible user actions
     """
+
     rule: Rule
     affected_components: tuple[tuple[str, str], ...]
     message: str
@@ -271,6 +281,7 @@ class RuleViolation:
 @dataclass
 class ValidationCache:
     """Cache for validation results to improve performance."""
+
     violations_by_component: dict[str, list[RuleViolation]] = field(default_factory=dict)
     selection_hash: int | None = None
 

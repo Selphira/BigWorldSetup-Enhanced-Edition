@@ -6,7 +6,7 @@ from PySide6.QtCore import Qt
 # APPLICATION METADATA
 # ============================================================================
 
-APP_NAME = "BigWorldSetup Enhanced"
+APP_NAME = "BigWorldSetup Enhanced Edition"
 APP_VERSION = "0.2.0"
 APP_ORG = "Selphira"
 

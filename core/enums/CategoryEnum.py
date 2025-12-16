@@ -11,6 +11,7 @@ class CategoryEnum(Enum):
 
     Each category has a value (internal identifier) and an icon (display).
     """
+
     ALL = ("all", "🐉")
     PATCH = ("patch", "🩹")
     UTIL = ("util", "⚙️")
@@ -46,7 +47,7 @@ class CategoryEnum(Enum):
         return self._value_
 
     @classmethod
-    def list_without_all(cls) -> list['CategoryEnum']:
+    def list_without_all(cls) -> list["CategoryEnum"]:
         """
         Return list of all categories except ALL.
 
@@ -56,7 +57,7 @@ class CategoryEnum(Enum):
         return [category for category in cls if category != cls.ALL]
 
     @classmethod
-    def get_all(cls) -> 'CategoryEnum':
+    def get_all(cls) -> "CategoryEnum":
         """
         Get the ALL category.
 
@@ -66,7 +67,7 @@ class CategoryEnum(Enum):
         return cls.ALL
 
     @classmethod
-    def from_value(cls, value: str) -> 'CategoryEnum':
+    def from_value(cls, value: str) -> "CategoryEnum":
         """
         Get category from its value string.
 
@@ -86,7 +87,7 @@ class CategoryEnum(Enum):
         raise ValueError(tr("error.unknown_category", category=value))
 
     @classmethod
-    def get_display_name(cls, category: 'CategoryEnum') -> str:
+    def get_display_name(cls, category: "CategoryEnum") -> str:
         """
         Get translated display name for a category.
 

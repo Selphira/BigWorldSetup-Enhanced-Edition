@@ -1,13 +1,20 @@
+from collections import defaultdict, deque
 import json
 import logging
-from collections import defaultdict, deque
 from pathlib import Path
 from typing import Iterable
 
 from core.Rules import (
-    Rule, DependencyRule, IncompatibilityRule, OrderRule,
-    RuleType, RuleViolation, ComponentRef,
-    DependencyMode, ValidationCache, OrderDirection
+    ComponentRef,
+    DependencyMode,
+    DependencyRule,
+    IncompatibilityRule,
+    OrderDirection,
+    OrderRule,
+    Rule,
+    RuleType,
+    RuleViolation,
+    ValidationCache,
 )
 from core.TranslationManager import tr
 
@@ -55,13 +62,21 @@ class RuleManager:
         self._components_by_mod.clear()
 
         # Generic loader usage
-        self._load_rules_file(rules_dir / "dependencies.json", DependencyRule, self._dependency_rules)
-        self._load_rules_file(rules_dir / "incompatibilities.json", IncompatibilityRule, self._incompatibility_rules)
+        self._load_rules_file(
+            rules_dir / "dependencies.json", DependencyRule, self._dependency_rules
+        )
+        self._load_rules_file(
+            rules_dir / "incompatibilities.json",
+            IncompatibilityRule,
+            self._incompatibility_rules,
+        )
         self._load_rules_file(rules_dir / "order.json", OrderRule, self._order_rules)
 
         logger.info(
             "Loaded rules: %d dependencies, %d incompatibilities, %d order rules",
-            len(self._dependency_rules), len(self._incompatibility_rules), len(self._order_rules)
+            len(self._dependency_rules),
+            len(self._incompatibility_rules),
+            len(self._order_rules),
         )
 
     def _load_rules_file(self, path: Path, cls, target_list: list) -> None:
@@ -96,7 +111,7 @@ class RuleManager:
                 error_count += 1
                 logger.error(
                     f"Unexpected error loading rule '{rule_data}' from {path.name}: {e}. Rule skipped.",
-                    exc_info=True
+                    exc_info=True,
                 )
 
         if loaded_count > 0:
@@ -111,11 +126,11 @@ class RuleManager:
         # Index by each source
         for source in rule.sources:
             self._rules_by_source[str(source)].append(rule)
-            if source.comp_key and source.comp_key != '*':
+            if source.comp_key and source.comp_key != "*":
                 self._components_by_mod[source.mod_id.lower()].add(source.comp_key)
 
         for target in rule.targets:
-            if target.comp_key and target.comp_key != '*':
+            if target.comp_key and target.comp_key != "*":
                 self._components_by_mod[target.mod_id.lower()].add(target.comp_key)
 
     def _get_known_components(self, mod_id: str) -> set[str]:
@@ -144,11 +159,7 @@ class RuleManager:
     @staticmethod
     def _selected_items_set(normalized_selected: dict[str, list[str]]) -> set[tuple[str, str]]:
         """Return a set of (mod, comp) tuples for quick membership checks."""
-        return {
-            (mod, comp)
-            for mod, comps in normalized_selected.items()
-            for comp in comps
-        }
+        return {(mod, comp) for mod, comps in normalized_selected.items() for comp in comps}
 
     def _rules_for_component(self, mod_id: str, comp_key: str | None) -> list[Rule]:
         """Return rules that explicitly target the component or the mod."""
@@ -161,8 +172,9 @@ class RuleManager:
         return rules
 
     @staticmethod
-    def _components_matching_ref(target_ref: ComponentRef, all_components: Iterable[tuple[str, str]]) -> list[
-        tuple[str, str]]:
+    def _components_matching_ref(
+        target_ref: ComponentRef, all_components: Iterable[tuple[str, str]]
+    ) -> list[tuple[str, str]]:
         """
         Return list of components (mod, comp) from all_components that match target_ref.
         target_ref may be mod-level, wildcard, or specific component.
@@ -177,7 +189,9 @@ class RuleManager:
     # Selection validation
     # -------------------------
 
-    def validate_selection(self, selected_components: dict, use_cache: bool = True) -> list[RuleViolation]:
+    def validate_selection(
+        self, selected_components: dict, use_cache: bool = True
+    ) -> list[RuleViolation]:
         """Validate component selection against dependency and incompatibility rules.
 
         Args:
@@ -231,16 +245,22 @@ class RuleManager:
     # -------------------------
     # Rule checking
     # -------------------------
-    def _check_rule(self, rule: Rule, source_mod: str, source_comp: str,
-                    selected: dict[str, list[str]]) -> RuleViolation | None:
+    def _check_rule(
+        self, rule: Rule, source_mod: str, source_comp: str, selected: dict[str, list[str]]
+    ) -> RuleViolation | None:
         if isinstance(rule, DependencyRule):
             return self._check_dependency(rule, source_mod, source_comp, selected)
         if isinstance(rule, IncompatibilityRule):
             return self._check_incompatibility(rule, source_mod, source_comp, selected)
         return None
 
-    def _check_dependency(self, rule: DependencyRule, source_mod: str, source_comp: str,
-                          selected: dict[str, list[str]]) -> RuleViolation | None:
+    def _check_dependency(
+        self,
+        rule: DependencyRule,
+        source_mod: str,
+        source_comp: str,
+        selected: dict[str, list[str]],
+    ) -> RuleViolation | None:
         """
         Check DependencyRule: supports ALL and ANY modes.
         """
@@ -296,11 +316,16 @@ class RuleManager:
             rule=rule,
             affected_components=((source_mod, source_comp),),
             message=message,
-            suggested_actions=tuple(actions)
+            suggested_actions=tuple(actions),
         )
 
-    def _check_incompatibility(self, rule: IncompatibilityRule, source_mod: str, source_comp: str,
-                               selected: dict[str, list[str]]) -> RuleViolation | None:
+    def _check_incompatibility(
+        self,
+        rule: IncompatibilityRule,
+        source_mod: str,
+        source_comp: str,
+        selected: dict[str, list[str]],
+    ) -> RuleViolation | None:
         """
         Check incompatibility: collect conflicting selected components.
         """
@@ -330,7 +355,8 @@ class RuleManager:
 
         # Suggested actions
         actions = [tr("rule.message_deselect", mod=source_mod, source=source_comp)] + [
-            tr("rule.message_deselect", mod=mod, source=comp) for mod, comp in conflicts]
+            tr("rule.message_deselect", mod=mod, source=comp) for mod, comp in conflicts
+        ]
 
         affected = ((source_mod, source_comp),) + tuple(conflicts)
 
@@ -338,14 +364,15 @@ class RuleManager:
             rule=rule,
             affected_components=affected,
             message=message,
-            suggested_actions=tuple(actions)
+            suggested_actions=tuple(actions),
         )
 
     # -------------------------
     # Order generation
     # -------------------------
-    def generate_order(self, selected_components: dict, base_order: list[tuple[str, str]] | None = None) -> list[
-        tuple[str, str]]:
+    def generate_order(
+        self, selected_components: dict, base_order: list[tuple[str, str]] | None = None
+    ) -> list[tuple[str, str]]:
         """
         Generate installation order from dependencies + explicit order rules.
 
@@ -432,7 +459,11 @@ class RuleManager:
                         _add_edge(tgt, src)
 
         # Kahn's algorithm for topological sort (deterministic by sorting queue)
-        zero_q = deque(sorted([n for n in remaining if in_degree.get(n, 0) == 0], key=lambda x: (x[0], x[1])))
+        zero_q = deque(
+            sorted(
+                [n for n in remaining if in_degree.get(n, 0) == 0], key=lambda x: (x[0], x[1])
+            )
+        )
         sorted_remaining: list[tuple[str, str]] = []
 
         while zero_q:
@@ -467,11 +498,15 @@ class RuleManager:
         # Check DEPENDENCY rules (implicit ordering)
         for rule in self._dependency_rules:
             if rule.implicit_order:
-                violations.extend(self._validate_dependency_order(rule, normalized_order, reverse_map))
+                violations.extend(
+                    self._validate_dependency_order(rule, normalized_order, reverse_map)
+                )
 
         # Check explicit ORDER rules
         for rule in self._order_rules:
-            violations.extend(self._validate_explicit_order(rule, normalized_order, reverse_map))
+            violations.extend(
+                self._validate_explicit_order(rule, normalized_order, reverse_map)
+            )
 
         return violations
 
@@ -491,12 +526,15 @@ class RuleManager:
 
         return normalized, reverse
 
-    def _positions_map(self, install_order: list[tuple[str, str]]) -> dict[tuple[str, str], int]:
+    def _positions_map(
+        self, install_order: list[tuple[str, str]]
+    ) -> dict[tuple[str, str], int]:
         """Return mapping component -> index for fast lookups."""
         return {comp: idx for idx, comp in enumerate(install_order)}
 
-    def _validate_dependency_order(self, rule: DependencyRule, install_order: list[tuple[str, str]], reverse_map) -> \
-            list[RuleViolation]:
+    def _validate_dependency_order(
+        self, rule: DependencyRule, install_order: list[tuple[str, str]], reverse_map
+    ) -> list[RuleViolation]:
         """Validate that dependencies come before dependents."""
         violations: list[RuleViolation] = []
         pos = self._positions_map(install_order)
@@ -504,10 +542,13 @@ class RuleManager:
         # find sources (dependents) positions - check all sources
         source_positions = []
         for source_ref in rule.sources:
-            source_positions.extend([
-                (idx, m, c) for idx, (m, c) in enumerate(install_order)
-                if source_ref.matches(m, c)
-            ])
+            source_positions.extend(
+                [
+                    (idx, m, c)
+                    for idx, (m, c) in enumerate(install_order)
+                    if source_ref.matches(m, c)
+                ]
+            )
 
         if not source_positions:
             return violations
@@ -529,7 +570,7 @@ class RuleManager:
                                 source_mod=source_mod,
                                 source_comp=source_comp_o,
                                 dep_mod=dep_mod,
-                                dep_comp=dep_comp_o
+                                dep_comp=dep_comp_o,
                             )
 
                             if rule.description:
@@ -540,32 +581,39 @@ class RuleManager:
                                 source_mod=source_mod,
                                 source_comp=source_comp_o,
                                 dep_mod=dep_mod,
-                                dep_comp=dep_comp_o
+                                dep_comp=dep_comp_o,
                             )
 
                             violation = RuleViolation(
                                 rule=rule,
-                                affected_components=((source_mod, source_comp_o), (dep_mod, dep_comp_o)),
+                                affected_components=(
+                                    (source_mod, source_comp_o),
+                                    (dep_mod, dep_comp_o),
+                                ),
                                 message=message,
-                                suggested_actions=(suggested_action,)
+                                suggested_actions=(suggested_action,),
                             )
                             violations.append(violation)
                             self._cache_violation(violation)
 
         return violations
 
-    def _validate_explicit_order(self, rule: OrderRule, install_order: list[tuple[str, str]], reverse_map) -> list[
-        RuleViolation]:
+    def _validate_explicit_order(
+        self, rule: OrderRule, install_order: list[tuple[str, str]], reverse_map
+    ) -> list[RuleViolation]:
         """Validate explicit order rules."""
         violations: list[RuleViolation] = []
 
         # find source positions - check all sources
         source_positions = []
         for source_ref in rule.sources:
-            source_positions.extend([
-                (idx, m, c) for idx, (m, c) in enumerate(install_order)
-                if source_ref.matches(m, c)
-            ])
+            source_positions.extend(
+                [
+                    (idx, m, c)
+                    for idx, (m, c) in enumerate(install_order)
+                    if source_ref.matches(m, c)
+                ]
+            )
 
         if not source_positions:
             return violations
@@ -588,24 +636,40 @@ class RuleManager:
                             # restore casing
                             source_mod, source_comp = reverse_map[(source_mod, source_comp)]
                             target_mod, target_comp = reverse_map[(target_mod, target_comp)]
-                            message = tr("rule.message_order_before",
-                                         source_mod=source_mod, source_comp=source_comp,
-                                         target_mod=target_mod, target_comp=target_comp)
-                            action = tr("rule.message_order_move_before",
-                                        source_mod=source_mod, source_comp=source_comp,
-                                        target_mod=target_mod, target_comp=target_comp)
+                            message = tr(
+                                "rule.message_order_before",
+                                source_mod=source_mod,
+                                source_comp=source_comp,
+                                target_mod=target_mod,
+                                target_comp=target_comp,
+                            )
+                            action = tr(
+                                "rule.message_order_move_before",
+                                source_mod=source_mod,
+                                source_comp=source_comp,
+                                target_mod=target_mod,
+                                target_comp=target_comp,
+                            )
 
                     else:  # AFTER
                         if source_idx < target_idx:
                             violation_detected = True
                             source_mod, source_comp = reverse_map[(source_mod, source_comp)]
                             target_mod, target_comp = reverse_map[(target_mod, target_comp)]
-                            message = tr("rule.message_order_after",
-                                         source_mod=source_mod, source_comp=source_comp,
-                                         target_mod=target_mod, target_comp=target_comp)
-                            action = tr("rule.message_order_move_after",
-                                        source_mod=source_mod, source_comp=source_comp,
-                                        target_mod=target_mod, target_comp=target_comp)
+                            message = tr(
+                                "rule.message_order_after",
+                                source_mod=source_mod,
+                                source_comp=source_comp,
+                                target_mod=target_mod,
+                                target_comp=target_comp,
+                            )
+                            action = tr(
+                                "rule.message_order_move_after",
+                                source_mod=source_mod,
+                                source_comp=source_comp,
+                                target_mod=target_mod,
+                                target_comp=target_comp,
+                            )
 
                     if violation_detected:
                         if rule.description:
@@ -613,9 +677,12 @@ class RuleManager:
 
                         violation = RuleViolation(
                             rule=rule,
-                            affected_components=((source_mod, source_comp), (target_mod, target_comp)),
+                            affected_components=(
+                                (source_mod, source_comp),
+                                (target_mod, target_comp),
+                            ),
                             message=message,
-                            suggested_actions=(action,)
+                            suggested_actions=(action,),
                         )
                         violations.append(violation)
                         self._cache_violation(violation)
@@ -638,7 +705,9 @@ class RuleManager:
         """
         return self._cache.get_violations(mod_id, comp_key)
 
-    def get_requirements(self, mod_id: str, comp_key: str, recursive: bool = False) -> set[tuple[str, str]]:
+    def get_requirements(
+        self, mod_id: str, comp_key: str, recursive: bool = False
+    ) -> set[tuple[str, str]]:
         """Get all components required by a specific component.
 
         Args:

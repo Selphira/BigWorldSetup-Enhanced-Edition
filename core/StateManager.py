@@ -1,16 +1,16 @@
 """Hybrid state management system for UI preferences and application state."""
 
+from dataclasses import asdict, dataclass, field
 import json
 import logging
-import shutil
-from dataclasses import asdict, dataclass, field
 from pathlib import Path
+import shutil
 from typing import Any
 
 from PySide6.QtCore import QSettings
 
 from constants import CACHE_DIR, MODS_DIR, RULES_DIR
-from core.GameManager import GameManager, GameDefinition
+from core.GameManager import GameDefinition, GameManager
 from core.ModManager import ModManager
 from core.RuleManager import RuleManager
 
@@ -27,19 +27,24 @@ class InstallationState:
         configuration: Installation configuration settings
         installation: Current installation state
     """
+
     version: str = "1.0"
-    configuration: dict[str, Any] = field(default_factory=lambda: {
-        "selected_game": None,
-        "selected_components": {},
-        "game_folders": {},
-        "download_folder": None,
-        "backup_folder": None,
-        "languages_order": [],
-        "install_order": [],
-    })
-    installation: dict[str, Any] = field(default_factory=lambda: {
-        "current_step": None,
-    })
+    configuration: dict[str, Any] = field(
+        default_factory=lambda: {
+            "selected_game": None,
+            "selected_components": {},
+            "game_folders": {},
+            "download_folder": None,
+            "backup_folder": None,
+            "languages_order": [],
+            "install_order": [],
+        }
+    )
+    installation: dict[str, Any] = field(
+        default_factory=lambda: {
+            "current_step": None,
+        }
+    )
 
     def to_dict(self) -> dict[str, Any]:
         """
@@ -51,7 +56,7 @@ class InstallationState:
         return asdict(self)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> 'InstallationState':
+    def from_dict(cls, data: dict[str, Any]) -> "InstallationState":
         """
         Load InstallationState from dictionary.
 
@@ -216,10 +221,7 @@ class StateManager:
         """
         install_order = self.installation_state.configuration.get("install_order", {}).copy()
 
-        return {
-            int(seq_idx): order_list
-            for seq_idx, order_list in install_order.items()
-        }
+        return {int(seq_idx): order_list for seq_idx, order_list in install_order.items()}
 
     def set_page_option(self, page: str, option: str, value: Any) -> None:
         """Set page-specific boolean option.
@@ -341,15 +343,14 @@ class StateManager:
             return InstallationState()
 
         try:
-            with self.STATE_FILE.open('r', encoding='utf-8') as f:
+            with self.STATE_FILE.open("r", encoding="utf-8") as f:
                 data = json.load(f)
 
             # Validate version
             version = data.get("version", "1.0")
             if version != self.SUPPORTED_VERSION:
                 logger.warning(
-                    f"Unsupported state version: {version}, "
-                    f"expected {self.SUPPORTED_VERSION}"
+                    f"Unsupported state version: {version}, expected {self.SUPPORTED_VERSION}"
                 )
                 return InstallationState()
 
@@ -379,13 +380,8 @@ class StateManager:
                 logger.debug(f"Backup created: {backup_path}")
 
             # Save with indentation for readability
-            with self.STATE_FILE.open('w', encoding='utf-8') as f:
-                json.dump(
-                    self.installation_state.to_dict(),
-                    f,
-                    indent=2,
-                    ensure_ascii=False
-                )
+            with self.STATE_FILE.open("w", encoding="utf-8") as f:
+                json.dump(self.installation_state.to_dict(), f, indent=2, ensure_ascii=False)
 
             logger.info("State saved successfully")
             return True
@@ -405,13 +401,8 @@ class StateManager:
             True if exported successfully, False otherwise
         """
         try:
-            with filepath.open('w', encoding='utf-8') as f:
-                json.dump(
-                    self.installation_state.to_dict(),
-                    f,
-                    indent=2,
-                    ensure_ascii=False
-                )
+            with filepath.open("w", encoding="utf-8") as f:
+                json.dump(self.installation_state.to_dict(), f, indent=2, ensure_ascii=False)
             logger.info(f"Configuration exported to: {filepath}")
             return True
 
@@ -430,7 +421,7 @@ class StateManager:
             True if imported successfully, False otherwise
         """
         try:
-            with filepath.open('r', encoding='utf-8') as f:
+            with filepath.open("r", encoding="utf-8") as f:
                 data = json.load(f)
 
             # Validate version compatibility
@@ -509,10 +500,7 @@ class StateManager:
             ModManager instance
         """
         if self._mod_manager is None:
-            self._mod_manager = ModManager(
-                mods_dir=MODS_DIR,
-                cache_dir=CACHE_DIR
-            )
+            self._mod_manager = ModManager(mods_dir=MODS_DIR, cache_dir=CACHE_DIR)
             logger.debug("ModManager initialized")
 
         return self._mod_manager

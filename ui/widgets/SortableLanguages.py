@@ -20,11 +20,7 @@ class SortableIcon(QLabel):
     """
 
     def __init__(
-            self,
-            code: str,
-            image_path: Path,
-            tooltip: str,
-            parent: QWidget | None = None
+        self, code: str, image_path: Path, tooltip: str, parent: QWidget | None = None
     ) -> None:
         """
         Initialize sortable icon.
@@ -58,7 +54,7 @@ class SortableIcon(QLabel):
                 ICON_SIZE_LARGE,
                 ICON_SIZE_LARGE,
                 Qt.AspectRatioMode.KeepAspectRatio,
-                Qt.TransformationMode.SmoothTransformation
+                Qt.TransformationMode.SmoothTransformation,
             )
             self.setPixmap(pixmap)
         else:
@@ -129,9 +125,7 @@ class SortableLanguages(QFrame):
         """Configure layout."""
         self.layout = QHBoxLayout(self)
         self.layout.setAlignment(Qt.AlignmentFlag.AlignLeft)
-        self.layout.setContentsMargins(
-            self.MARGINS, self.MARGINS, self.MARGINS, self.MARGINS
-        )
+        self.layout.setContentsMargins(self.MARGINS, self.MARGINS, self.MARGINS, self.MARGINS)
         self.layout.setSpacing(self.SPACING)
 
     def _populate_languages(self) -> None:
@@ -145,9 +139,7 @@ class SortableLanguages(QFrame):
     def _create_drop_indicator(self) -> None:
         """Create drop position indicator."""
         self.drop_indicator = QLabel(self)
-        self.drop_indicator.setStyleSheet(
-            f"background-color: {COLOR_ACCENT};"
-        )
+        self.drop_indicator.setStyleSheet(f"background-color: {COLOR_ACCENT};")
         self.drop_indicator.setFixedWidth(self.INDICATOR_WIDTH)
         self.drop_indicator.hide()
 
@@ -202,9 +194,7 @@ class SortableLanguages(QFrame):
             x = widget.x() - self.INDICATOR_WIDTH
 
         self.drop_indicator.move(x, self.INDICATOR_MARGIN)
-        self.drop_indicator.setFixedHeight(
-            self.height() - 2 * self.INDICATOR_MARGIN
-        )
+        self.drop_indicator.setFixedHeight(self.height() - 2 * self.INDICATOR_MARGIN)
         self.drop_indicator.show()
 
     def dropEvent(self, event) -> None:
@@ -253,11 +243,7 @@ class SortableLanguages(QFrame):
                 return i
         return self.layout.count()
 
-    def _calculate_insert_index(
-            self,
-            dragged: SortableIcon,
-            pos: QPoint
-    ) -> int:
+    def _calculate_insert_index(self, dragged: SortableIcon, pos: QPoint) -> int:
         """
         Calculate final insertion index accounting for direction.
 
@@ -284,12 +270,7 @@ class SortableLanguages(QFrame):
     # PUBLIC API
     # ========================================
 
-    def add_icon(
-            self,
-            code: str,
-            image_path: Path,
-            tooltip: str
-    ) -> None:
+    def add_icon(self, code: str, image_path: Path, tooltip: str) -> None:
         """
         Add an icon to the container.
 
@@ -316,10 +297,7 @@ class SortableLanguages(QFrame):
             if self.layout.itemAt(i).widget() is not None
         ]
 
-        return [
-            icon.code for icon in widgets
-            if isinstance(icon, SortableIcon)
-        ]
+        return [icon.code for icon in widgets if isinstance(icon, SortableIcon)]
 
     def set_order(self, codes: list[str]) -> None:
         """

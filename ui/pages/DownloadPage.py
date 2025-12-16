@@ -1,23 +1,44 @@
 import logging
 from pathlib import Path
 
-from PySide6.QtCore import Qt, QTimer, Signal, QThread, QUrl
+from PySide6.QtCore import Qt, QThread, QTimer, QUrl, Signal
 from PySide6.QtGui import QColor, QDesktopServices
 from PySide6.QtWidgets import (
-    QComboBox, QFrame, QHBoxLayout, QLabel,
-    QMessageBox, QProgressBar, QPushButton, QSplitter,
-    QVBoxLayout, QWidget, QTableWidgetItem,
-    QHeaderView, QScrollArea, QTextEdit
+    QComboBox,
+    QFrame,
+    QHBoxLayout,
+    QHeaderView,
+    QLabel,
+    QMessageBox,
+    QProgressBar,
+    QPushButton,
+    QScrollArea,
+    QSplitter,
+    QTableWidgetItem,
+    QTextEdit,
+    QVBoxLayout,
+    QWidget,
 )
 
 from constants import (
-    COLOR_STATUS_COMPLETE, COLOR_ERROR, COLOR_STATUS_NONE,
-    COLOR_STATUS_PARTIAL, COLOR_WARNING, MARGIN_SMALL, MARGIN_STANDARD,
-    COLOR_TEXT, SPACING_SMALL, SPACING_LARGE
+    COLOR_ERROR,
+    COLOR_STATUS_COMPLETE,
+    COLOR_STATUS_NONE,
+    COLOR_STATUS_PARTIAL,
+    COLOR_TEXT,
+    COLOR_WARNING,
+    MARGIN_SMALL,
+    MARGIN_STANDARD,
+    SPACING_LARGE,
+    SPACING_SMALL,
 )
 from core.DownloadManager import (
-    ArchiveInfo, ArchiveStatus, ArchiveVerifier, DownloadManager,
-    DownloadProgress, HashAlgorithm
+    ArchiveInfo,
+    ArchiveStatus,
+    ArchiveVerifier,
+    DownloadManager,
+    DownloadProgress,
+    HashAlgorithm,
 )
 from core.File import format_size
 from core.StateManager import StateManager
@@ -41,6 +62,7 @@ COLUMN_COUNT = 3
 # ============================================================================
 # Verification Worker Thread
 # ============================================================================
+
 
 class VerificationWorker(QThread):
     """Worker thread for verifying archives without blocking UI."""
@@ -89,10 +111,7 @@ class VerificationWorker(QThread):
 
         file_path = self.download_path / archive_info.filename
 
-        return self.verifier.verify_archive(
-            file_path,
-            archive_info
-        )
+        return self.verifier.verify_archive(file_path, archive_info)
 
     def cancel(self):
         """Cancel verification process."""
@@ -102,6 +121,7 @@ class VerificationWorker(QThread):
 # ============================================================================
 # Progress Item Widget
 # ============================================================================
+
 
 class ProgressItemWidget(QWidget):
     """Widget displaying an active download or verification with progress."""
@@ -165,8 +185,13 @@ class ProgressItemWidget(QWidget):
             downloaded = format_size(progress.bytes_received)
             total = format_size(progress.bytes_total)
 
-            stats = tr("page.download.stats", downloaded=downloaded, total=total,
-                       speed=speed, time=time_left)
+            stats = tr(
+                "page.download.stats",
+                downloaded=downloaded,
+                total=total,
+                speed=speed,
+                time=time_left,
+            )
             self._lbl_stats.setStyleSheet("")
 
         self._lbl_stats.setText(stats)
@@ -206,6 +231,7 @@ class ProgressItemWidget(QWidget):
 # Archive Details Panel
 # ============================================================================
 
+
 class ArchiveDetailsPanel(QFrame):
     """Panel showing detailed information about selected archive."""
 
@@ -241,13 +267,13 @@ class ArchiveDetailsPanel(QFrame):
         layout.addStretch()
 
     def set_archive_info(
-            self,
-            mod_name: str,
-            filename: str,
-            file_size: int | None,
-            expected_hash: str | None,
-            url: str | None,
-            status: ArchiveStatus
+        self,
+        mod_name: str,
+        filename: str,
+        file_size: int | None,
+        expected_hash: str | None,
+        url: str | None,
+        status: ArchiveStatus,
     ) -> None:
         """Update panel with archive information.
 
@@ -270,7 +296,9 @@ class ArchiveDetailsPanel(QFrame):
             details.append(f"<b>{tr('page.download.details.size')}:</b> {size_formatted}")
 
         if expected_hash:
-            details.append(f"<b>{tr('page.download.details.hash')}:</b> <code>{expected_hash}</code>")
+            details.append(
+                f"<b>{tr('page.download.details.hash')}:</b> <code>{expected_hash}</code>"
+            )
 
         status_text = tr(f"page.download.status.{status.value}")
         details.append(f"<b>{tr('page.download.details.status')}:</b> {status_text}")
@@ -279,15 +307,15 @@ class ArchiveDetailsPanel(QFrame):
 
         if url:
             link_text = tr("widget.mod_details.link.download")
-            self._link_label.setText(f'📦 <a href="{url}" style="color: {COLOR_TEXT};">{link_text}</a>')
+            self._link_label.setText(
+                f'📦 <a href="{url}" style="color: {COLOR_TEXT};">{link_text}</a>'
+            )
             self._link_label.setToolTip(url)
             self._link_label.setVisible(True)
 
     def clear(self) -> None:
         """Clear panel content."""
-        self._details_text.setHtml(
-            f"<i>{tr('page.download.details.empty_message')}</i>"
-        )
+        self._details_text.setHtml(f"<i>{tr('page.download.details.empty_message')}</i>")
         self._link_label.setVisible(False)
 
 
@@ -299,6 +327,7 @@ class ArchiveDetailsPanel(QFrame):
 # ============================================================================
 # Download Page
 # ============================================================================
+
 
 class DownloadPage(BasePage):
     """Page for managing mod archive downloads."""
@@ -362,8 +391,7 @@ class DownloadPage(BasePage):
         layout = QVBoxLayout(self)
         layout.setSpacing(SPACING_LARGE)
         layout.setContentsMargins(
-            MARGIN_STANDARD, MARGIN_STANDARD,
-            MARGIN_STANDARD, MARGIN_STANDARD
+            MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_STANDARD
         )
 
         layout.addWidget(self._create_main_splitter(), stretch=1)
@@ -416,11 +444,13 @@ class DownloadPage(BasePage):
         # Archive table with custom hover
         self._archive_table = HoverTableWidget()
         self._archive_table.setColumnCount(COLUMN_COUNT)
-        self._archive_table.setHorizontalHeaderLabels([
-            tr("page.download.col_mod_name"),
-            tr("page.download.col_filename"),
-            tr("page.download.col_status")
-        ])
+        self._archive_table.setHorizontalHeaderLabels(
+            [
+                tr("page.download.col_mod_name"),
+                tr("page.download.col_filename"),
+                tr("page.download.col_status"),
+            ]
+        )
 
         # Column resize modes
         header = self._archive_table.horizontalHeader()
@@ -435,7 +465,7 @@ class DownloadPage(BasePage):
         # Status column not sortable
         self._archive_table.horizontalHeaderItem(COL_STATUS).setData(
             Qt.ItemDataRole.UserRole,
-            False  # Not sortable
+            False,  # Not sortable
         )
 
         # Connect selection change
@@ -451,12 +481,7 @@ class DownloadPage(BasePage):
         panel = QWidget()
         layout = QVBoxLayout(panel)
         layout.setSpacing(SPACING_SMALL)
-        layout.setContentsMargins(
-            MARGIN_SMALL,
-            MARGIN_STANDARD,
-            MARGIN_STANDARD,
-            MARGIN_SMALL
-        )
+        layout.setContentsMargins(MARGIN_SMALL, MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_SMALL)
 
         self._downloads_title = self._create_section_title()
         layout.addWidget(self._downloads_title)
@@ -536,9 +561,7 @@ class DownloadPage(BasePage):
                     logger.debug("Archive needs revalidation: %s", mod_id)
                 else:
                     logger.debug(
-                        "Using cached status for %s: %s",
-                        mod_id,
-                        self._archive_status[mod_id]
+                        "Using cached status for %s: %s", mod_id, self._archive_status[mod_id]
                     )
 
                 # Update cache key
@@ -555,12 +578,12 @@ class DownloadPage(BasePage):
             "Archives loaded: %d total, %d cached, %d need verification",
             len(self._archives),
             verified_count,
-            unknown_count
+            unknown_count,
         )
 
     def _get_archive_info_from_mod(self, mod) -> ArchiveInfo | None:
         """Extract archive information from mod object."""
-        if not hasattr(mod, 'download'):
+        if not hasattr(mod, "download"):
             return None
 
         download_info = mod.download
@@ -571,7 +594,7 @@ class DownloadPage(BasePage):
             url=download_info,
             expected_hash=mod.file.sha256 if mod.file else None,
             hash_algorithm=HashAlgorithm.SHA256,
-            file_size=mod.file.size if mod.file else None
+            file_size=mod.file.size if mod.file else None,
         )
 
     def _refresh_archive_table(self) -> None:
@@ -682,7 +705,7 @@ class DownloadPage(BasePage):
             file_size=archive_info.file_size,
             expected_hash=archive_info.expected_hash,
             url=archive_info.url,
-            status=status
+            status=status,
         )
 
     # ========================================
@@ -718,7 +741,7 @@ class DownloadPage(BasePage):
             QMessageBox.warning(
                 self,
                 tr("page.download.operation_in_progress_title"),
-                tr("page.download.operation_in_progress_message")
+                tr("page.download.operation_in_progress_message"),
             )
             return
 
@@ -726,9 +749,11 @@ class DownloadPage(BasePage):
         to_check = {
             mod_id: archive_info
             for mod_id, archive_info in self._archives.items()
-            if (self._archive_status.get(mod_id, ArchiveStatus.MISSING) != ArchiveStatus.VALID
+            if (
+                self._archive_status.get(mod_id, ArchiveStatus.MISSING) != ArchiveStatus.VALID
                 and not archive_info.requires_manual_download
-                and not self._is_archive_verified(mod_id))
+                and not self._is_archive_verified(mod_id)
+            )
         }
 
         if not to_check:
@@ -747,27 +772,23 @@ class DownloadPage(BasePage):
         self._global_progress.setFormat(tr("page.download.verifying_progress"))
 
         self._verification_worker = VerificationWorker(
-            to_check,
-            self._download_path,
-            self._verifier
+            to_check, self._download_path, self._verifier
         )
 
-        self._verification_worker.verification_started.connect(
-            self._on_verification_started
-        )
+        self._verification_worker.verification_started.connect(self._on_verification_started)
         self._verification_worker.verification_completed.connect(
             self._on_verification_completed_with_progress
         )
         self._verification_worker.all_completed.connect(
             self._on_verification_completed_then_download
         )
-        self._verification_worker.error_occurred.connect(
-            self._on_verification_error
-        )
+        self._verification_worker.error_occurred.connect(self._on_verification_error)
 
         self._verification_worker.start()
 
-    def _on_verification_completed_with_progress(self, mod_id: str, status: ArchiveStatus) -> None:
+    def _on_verification_completed_with_progress(
+        self, mod_id: str, status: ArchiveStatus
+    ) -> None:
         """Handle verification completion with progress update."""
         self._on_verification_completed(mod_id, status)
 
@@ -797,7 +818,7 @@ class DownloadPage(BasePage):
             QMessageBox.information(
                 self,
                 tr("page.download.no_downloads_title"),
-                tr("page.download.no_downloads_message")
+                tr("page.download.no_downloads_message"),
             )
             return
 
@@ -824,22 +845,20 @@ class DownloadPage(BasePage):
 
         # Create download widget
         progress = next(
-            (p for p in self._download_manager.get_active_downloads()
-             if p.archive_info.mod_id == mod_id),
-            None
+            (
+                p
+                for p in self._download_manager.get_active_downloads()
+                if p.archive_info.mod_id == mod_id
+            ),
+            None,
         )
 
         if progress:
             widget = ProgressItemWidget(progress.archive_info.filename)
-            widget._btn_cancel.clicked.connect(
-                lambda: self._cancel_download(mod_id)
-            )
+            widget._btn_cancel.clicked.connect(lambda: self._cancel_download(mod_id))
 
             self._progress_widgets[mod_id] = widget
-            self._progress_layout.insertWidget(
-                self._progress_layout.count() - 1,
-                widget
-            )
+            self._progress_layout.insertWidget(self._progress_layout.count() - 1, widget)
 
     def _on_download_progress(self, mod_id: str, progress: DownloadProgress) -> None:
         """Handle download progress update."""
@@ -868,10 +887,7 @@ class DownloadPage(BasePage):
         if mod_id in self._archives:
             archive_info = self._archives[mod_id]
             file_path = self._download_path / archive_info.filename
-            status = self._verifier.verify_archive(
-                file_path,
-                archive_info
-            )
+            status = self._verifier.verify_archive(file_path, archive_info)
 
             # Update status AND cache
             self._archive_status[mod_id] = status
@@ -952,15 +968,11 @@ class DownloadPage(BasePage):
             True if archive has been verified
         """
         return (
-                mod_id in self._archive_status
-                and self._archive_status[mod_id] != ArchiveStatus.UNKNOWN
+            mod_id in self._archive_status
+            and self._archive_status[mod_id] != ArchiveStatus.UNKNOWN
         )
 
-    def _should_revalidate_archive(
-            self,
-            mod_id: str,
-            archive_info: ArchiveInfo
-    ) -> bool:
+    def _should_revalidate_archive(self, mod_id: str, archive_info: ArchiveInfo) -> bool:
         """
         Check if an archive needs revalidation.
 
@@ -989,10 +1001,7 @@ class DownloadPage(BasePage):
 
         # Properties changed, need revalidation
         if cached_key != current_key:
-            logger.debug(
-                "Archive properties changed for %s, revalidation needed",
-                mod_id
-            )
+            logger.debug("Archive properties changed for %s, revalidation needed", mod_id)
             return True
 
         if self._cached_download_path != self._download_path:
@@ -1032,8 +1041,8 @@ class DownloadPage(BasePage):
 
     def _open_download_folder(self) -> None:
         """Open download folder in file manager."""
-        import subprocess
         import platform
+        import subprocess
 
         try:
             if platform.system() == "Windows":
@@ -1047,7 +1056,7 @@ class DownloadPage(BasePage):
             QMessageBox.warning(
                 self,
                 tr("page.download.open_folder_error_title"),
-                tr("page.download.open_folder_error_message", error=str(e))
+                tr("page.download.open_folder_error_message", error=str(e)),
             )
 
     def _on_archive_double_click(self, item: QTableWidgetItem) -> None:
@@ -1120,7 +1129,7 @@ class DownloadPage(BasePage):
             logger.info(
                 "Download path changed from %s to %s, invalidating cache",
                 self._cached_download_path,
-                new_download_path
+                new_download_path,
             )
             # Clear cache when download folder changes
             self._archive_status.clear()

@@ -4,18 +4,25 @@ ModDetailsPanel - Widget displaying detailed information about a selected mod.
 This module provides a collapsible panel showing mod metadata including
 name, description, links, supported languages, authors, and quality indicators.
 """
+
 import logging
 
 from PySide6.QtCore import QUrl
 from PySide6.QtGui import QDesktopServices, QPixmap
 from PySide6.QtWidgets import (
-    QWidget, QVBoxLayout, QLabel, QScrollArea, QFrame, QHBoxLayout, QSizePolicy
+    QFrame,
+    QHBoxLayout,
+    QLabel,
+    QScrollArea,
+    QSizePolicy,
+    QVBoxLayout,
+    QWidget,
 )
 
 from constants import *
 from core.Mod import Mod
 from core.ModManager import ModManager
-from core.TranslationManager import tr, get_translator
+from core.TranslationManager import get_translator, tr
 from ui.layouts.FlowLayout import FlowLayout
 
 logger = logging.getLogger(__name__)
@@ -38,7 +45,9 @@ class ModDetailsPanel(QWidget):
     def _setup_ui(self) -> None:
         """Initialize UI components."""
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_STANDARD)
+        layout.setContentsMargins(
+            MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_STANDARD
+        )
         layout.setSpacing(SPACING_MEDIUM)
 
         # Scroll area for content
@@ -46,7 +55,7 @@ class ModDetailsPanel(QWidget):
         scroll.setWidgetResizable(True)
         scroll.setFrameShape(QFrame.Shape.NoFrame)
         scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        scroll.setObjectName('mod-detail-panel')
+        scroll.setObjectName("mod-detail-panel")
 
         # Content widget
         self._content_widget = QWidget()
@@ -89,8 +98,7 @@ class ModDetailsPanel(QWidget):
         self._name_label = QLabel()
         self._name_label.setWordWrap(True)
         self._name_label.setSizePolicy(
-            QSizePolicy.Policy.Expanding,
-            QSizePolicy.Policy.Preferred
+            QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred
         )
         self._name_label.setStyleSheet(f"""
             QLabel {{
@@ -132,7 +140,7 @@ class ModDetailsPanel(QWidget):
         """Create description section."""
         # Section title
         self._description_title = QLabel()
-        self._description_title.setObjectName('mod-detail-section')
+        self._description_title.setObjectName("mod-detail-section")
         self._content_layout.addWidget(self._description_title)
 
         # Description text
@@ -152,7 +160,7 @@ class ModDetailsPanel(QWidget):
 
         # Section title
         self._authors_title = QLabel()
-        self._authors_title.setObjectName('mod-detail-section')
+        self._authors_title.setObjectName("mod-detail-section")
         layout.addWidget(self._authors_title)
 
         # Authors text
@@ -170,7 +178,7 @@ class ModDetailsPanel(QWidget):
 
         # Section title
         self._categories_title = QLabel()
-        self._categories_title.setObjectName('mod-detail-section')
+        self._categories_title.setObjectName("mod-detail-section")
         layout.addWidget(self._categories_title)
 
         # Container for badges
@@ -191,7 +199,7 @@ class ModDetailsPanel(QWidget):
 
         # Title
         self._games_widget_title = QLabel()
-        self._games_widget_title.setObjectName('mod-detail-section')
+        self._games_widget_title.setObjectName("mod-detail-section")
         layout.addWidget(self._games_widget_title)
 
         # Container for badges
@@ -213,7 +221,7 @@ class ModDetailsPanel(QWidget):
 
         # Title
         self._links_widget_title = QLabel()
-        self._links_widget_title.setObjectName('mod-detail-section')
+        self._links_widget_title.setObjectName("mod-detail-section")
         layout.addWidget(self._links_widget_title)
 
         # Links container
@@ -280,9 +288,10 @@ class ModDetailsPanel(QWidget):
                 pixmap = QPixmap(str(icon_path))
                 # Scale flag to reasonable size (24x16 or similar)
                 scaled_pixmap = pixmap.scaled(
-                    16, 16,
+                    16,
+                    16,
                     Qt.AspectRatioMode.KeepAspectRatio,
-                    Qt.TransformationMode.SmoothTransformation
+                    Qt.TransformationMode.SmoothTransformation,
                 )
                 flag_label.setPixmap(scaled_pixmap)
                 flag_label.setToolTip(get_translator().get_language_name(lang_code))
@@ -369,9 +378,7 @@ class ModDetailsPanel(QWidget):
         has_links = False
         for url, (icon, label_text) in links.items():
             if url:
-                self._links_layout.addWidget(
-                    self._create_link_label(icon, label_text, url)
-                )
+                self._links_layout.addWidget(self._create_link_label(icon, label_text, url))
                 has_links = True
 
         self._links_widget.setVisible(has_links)
@@ -418,7 +425,9 @@ class ModDetailsPanel(QWidget):
             self._version_label.setVisible(False)
 
         # Update description
-        description = mod.description if mod.description else tr("widget.mod_details.no_description")
+        description = (
+            mod.description if mod.description else tr("widget.mod_details.no_description")
+        )
         self._description_label.setText(description)
 
         # Update metadata

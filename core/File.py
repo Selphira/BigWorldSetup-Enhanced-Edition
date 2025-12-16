@@ -17,8 +17,8 @@ DEFAULT_ENCODINGS: list[str] = [
 
 
 def safe_read(
-        path: Path | str,
-        encodings: list[str] | None = None,
+    path: Path | str,
+    encodings: list[str] | None = None,
 ) -> str:
     """Read a text file safely with automatic encoding detection.
 
@@ -54,9 +54,7 @@ def safe_read(
         except UnicodeDecodeError:
             continue
 
-    logger.warning(
-        f"Read {path.name} with fallback"
-    )
+    logger.warning(f"Read {path.name} with fallback")
 
     with open(path, "rb") as f:
         return f.read().decode("utf-8", errors="replace")
@@ -64,7 +62,7 @@ def safe_read(
 
 def format_size(bytes_count: int) -> str:
     """Format byte size for display."""
-    for unit in ['B', 'KB', 'MB', 'GB']:
+    for unit in ["B", "KB", "MB", "GB"]:
         if bytes_count < 1024.0:
             return f"{bytes_count:.1f} {unit}"
         bytes_count /= 1024.0

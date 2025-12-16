@@ -11,9 +11,9 @@ COMMANDES:
     stats    Affiche les statistiques des données LCC
 """
 
+from datetime import datetime
 import json
 import sys
-from datetime import datetime
 
 from constants import LCC_CACHE_DIR
 
@@ -28,11 +28,7 @@ def print_cache_info():
         print("  Aucun cache trouvé")
         return
 
-    files = {
-        'mods.json': 'Français',
-        'mods_en.json': 'Anglais',
-        'mods_cn.json': 'Chinois'
-    }
+    files = {"mods.json": "Français", "mods_en.json": "Anglais", "mods_cn.json": "Chinois"}
 
     total_size = 0
 
@@ -46,13 +42,15 @@ def print_cache_info():
 
             # Compter les mods
             try:
-                with open(filepath, 'r', encoding='utf-8') as f:
+                with open(filepath, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     count = len(data)
             except:
-                count = '?'
+                count = "?"
 
-            print(f"  {lang:10} : {count:>4} mod(s) | {size:>8} bytes | {mtime.strftime('%Y-%m-%d %H:%M')}")
+            print(
+                f"  {lang:10} : {count:>4} mod(s) | {size:>8} bytes | {mtime.strftime('%Y-%m-%d %H:%M')}"
+            )
         else:
             print(f"  {lang:10} : Non présent")
 
@@ -93,12 +91,12 @@ def print_stats():
         return
 
     # Charger les données françaises (référence)
-    fr_file = LCC_CACHE_DIR / 'mods.json'
+    fr_file = LCC_CACHE_DIR / "mods.json"
     if not fr_file.exists():
         print("  Fichier mods.json introuvable dans le cache")
         return
 
-    with open(fr_file, 'r', encoding='utf-8') as f:
+    with open(fr_file, "r", encoding="utf-8") as f:
         mods = json.load(f)
 
     print(f"  Total de mods: {len(mods)}\n")
@@ -106,7 +104,7 @@ def print_stats():
     # Statistiques par catégorie
     categories = {}
     for mod in mods:
-        cat = mod.get('categories', 'Non catégorisé')
+        cat = mod.get("categories", "Non catégorisé")
         for c in cat:
             categories[c] = categories.get(c, 0) + 1
 
@@ -118,7 +116,7 @@ def print_stats():
     print("\n  SUPPORT PAR JEU:")
     games_count = {}
     for mod in mods:
-        for game in mod.get('games', []):
+        for game in mod.get("games", []):
             game_lower = game.lower()
             games_count[game_lower] = games_count.get(game_lower, 0) + 1
 
@@ -126,7 +124,7 @@ def print_stats():
         print(f"    {game:30} : {count:>4} mod(s)")
 
     # Mods sans tp2
-    no_tp2 = [mod for mod in mods if not mod.get('tp2')]
+    no_tp2 = [mod for mod in mods if not mod.get("tp2")]
     if no_tp2:
         print(f"\n  ⚠ {len(no_tp2)} mod(s) sans tp2 défini")
 
@@ -150,11 +148,11 @@ COMMANDES:
 
     command = sys.argv[1].lower()
 
-    if command == 'info':
+    if command == "info":
         print_cache_info()
-    elif command == 'clear':
+    elif command == "clear":
         clear_cache()
-    elif command == 'stats':
+    elif command == "stats":
         print_stats()
     else:
         print(f"✗ Commande inconnue: {command}")

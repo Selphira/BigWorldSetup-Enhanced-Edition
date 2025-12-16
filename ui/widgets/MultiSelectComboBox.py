@@ -6,13 +6,11 @@ feedback through icons.
 """
 
 import logging
-from typing import override, cast
+from typing import cast, override
 
-from PySide6.QtCore import Qt, Signal, QSize
-from PySide6.QtGui import QStandardItemModel, QStandardItem, QIcon
-from PySide6.QtWidgets import (
-    QComboBox, QLabel, QWidget, QHBoxLayout, QListView, QSizePolicy
-)
+from PySide6.QtCore import QSize, Qt, Signal
+from PySide6.QtGui import QIcon, QStandardItem, QStandardItemModel
+from PySide6.QtWidgets import QComboBox, QHBoxLayout, QLabel, QListView, QSizePolicy, QWidget
 
 from constants import COLOR_BACKGROUND_SECONDARY, ICON_SIZE_MEDIUM
 
@@ -36,9 +34,9 @@ class MultiSelectComboBox(QComboBox):
     selection_changed = Signal(list)
 
     def __init__(
-            self,
-            parent: QWidget | None = None,
-            min_selection_count: int = 1,
+        self,
+        parent: QWidget | None = None,
+        min_selection_count: int = 1,
     ) -> None:
         """
         Initialize the multi-select combo box.
@@ -106,13 +104,13 @@ class MultiSelectComboBox(QComboBox):
         self._preview_layout = QHBoxLayout(self._preview)
         self._preview_layout.setContentsMargins(2, 0, 2, 0)
         self._preview_layout.setSpacing(4)
-        self._preview_layout.setAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter)
+        self._preview_layout.setAlignment(
+            Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter
+        )
 
         # Make preview clickable to open popup
         self._preview.mousePressEvent = lambda e: self.showPopup()
-        self._preview.setStyleSheet(
-            f"background-color: {COLOR_BACKGROUND_SECONDARY};"
-        )
+        self._preview.setStyleSheet(f"background-color: {COLOR_BACKGROUND_SECONDARY};")
 
     def _connect_signals(self) -> None:
         """Connect internal signals."""
@@ -126,15 +124,15 @@ class MultiSelectComboBox(QComboBox):
     # -------------------------------------------------------------------------
 
     def add_item(
-            self,
-            key: str,
-            icon_path: str,
-            text: str = "",
-            selected: bool = False,
+        self,
+        key: str,
+        icon_path: str,
+        text: str = "",
+        selected: bool = False,
     ) -> None:
         """
         Add an item to the combo box.
-        
+
         Args:
             key: Unique identifier for the item
             icon_path: Path to the icon file
@@ -149,7 +147,9 @@ class MultiSelectComboBox(QComboBox):
         item.setCheckable(True)
 
         must_be_selected = self._count_selected_items() < self._min_selection_count
-        check_state = Qt.CheckState.Checked if (must_be_selected or selected) else Qt.CheckState.Unchecked
+        check_state = (
+            Qt.CheckState.Checked if (must_be_selected or selected) else Qt.CheckState.Unchecked
+        )
         item.setCheckState(check_state)
 
         item.setData(key, Qt.ItemDataRole.UserRole)
@@ -162,13 +162,13 @@ class MultiSelectComboBox(QComboBox):
         logger.debug("Added item: key=%s, selected=%s", key, must_be_selected or selected)
 
     def set_items(
-            self,
-            items: dict[str, str],
-            selected_keys: list[str] | None = None,
+        self,
+        items: dict[str, str],
+        selected_keys: list[str] | None = None,
     ) -> None:
         """
         Set all items at once, replacing existing items.
-        
+
         Args:
             items: Dictionary mapping keys to icon paths
             selected_keys: List of keys to select (if None, selects first item)
@@ -213,7 +213,7 @@ class MultiSelectComboBox(QComboBox):
 
         Ensures at least one item remains selected. If an empty list is provided,
         the first item will be selected.
-        
+
         Args:
             keys: List of keys to select (enforces minimum selection)
         """
@@ -397,7 +397,7 @@ class MultiSelectComboBox(QComboBox):
     def sizeHint(self) -> QSize:
         """
         Calculate ideal size based on content.
-        
+
         Returns:
             Suggested size for the widget
         """

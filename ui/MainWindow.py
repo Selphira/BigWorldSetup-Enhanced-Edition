@@ -158,13 +158,11 @@ class MainWindow(QMainWindow):
 
         # Create buttons
         self.btn_previous = self._create_navigation_button(
-            text=f"← {tr('button.previous')}",
-            callback=self._on_previous_clicked
+            text=f"← {tr('button.previous')}", callback=self._on_previous_clicked
         )
 
         self.btn_next = self._create_navigation_button(
-            text=f"{tr('button.next')} →",
-            callback=self._on_next_clicked
+            text=f"{tr('button.next')} →", callback=self._on_next_clicked
         )
 
         # Layout
@@ -181,10 +179,7 @@ class MainWindow(QMainWindow):
         return frame
 
     @staticmethod
-    def _create_navigation_button(
-            text: str,
-            callback
-    ) -> QPushButton:
+    def _create_navigation_button(text: str, callback) -> QPushButton:
         """Create a navigation button.
 
         Args:
@@ -339,9 +334,7 @@ class MainWindow(QMainWindow):
         total = len(self.page_order)
 
         self.page_title.setText(page.get_page_title())
-        self.page_step.setText(
-            tr('app.step', current=current_index + 1, total=total)
-        )
+        self.page_step.setText(tr("app.step", current=current_index + 1, total=total))
 
     def _update_navigation_buttons(self) -> None:
         """Update navigation button states based on current page."""
@@ -410,9 +403,10 @@ class MainWindow(QMainWindow):
         if icon_path and icon_path.exists():
             pixmap = QPixmap(str(icon_path))
             scaled_pixmap = pixmap.scaled(
-                GAME_BUTTON_ICON_SIZE, GAME_BUTTON_ICON_SIZE,
+                GAME_BUTTON_ICON_SIZE,
+                GAME_BUTTON_ICON_SIZE,
                 Qt.AspectRatioMode.KeepAspectRatio,
-                Qt.TransformationMode.SmoothTransformation
+                Qt.TransformationMode.SmoothTransformation,
             )
             self.game_label.setPixmap(scaled_pixmap)
         else:

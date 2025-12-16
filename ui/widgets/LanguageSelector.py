@@ -2,8 +2,8 @@
 
 import logging
 
-from PySide6.QtCore import Signal, QSize
-from PySide6.QtGui import QAction, QIcon, QPixmap, QCursor
+from PySide6.QtCore import QSize, Signal
+from PySide6.QtGui import QAction, QCursor, QIcon, QPixmap
 from PySide6.QtWidgets import QMenu, QToolButton
 
 from constants import *
@@ -26,9 +26,7 @@ class LanguageSelector(QToolButton):
     language_changed = Signal(str)
 
     def __init__(
-            self,
-            available_languages: list[str],
-            parent: QToolButton | None = None
+        self, available_languages: list[str], parent: QToolButton | None = None
     ) -> None:
         """
         Initialize the language menu button.
@@ -85,9 +83,7 @@ class LanguageSelector(QToolButton):
                 action.setIcon(QIcon(pixmap))
 
         # Use lambda with default argument to capture code value
-        action.triggered.connect(
-            lambda checked=False, lang=code: self.select_language(lang)
-        )
+        action.triggered.connect(lambda checked=False, lang=code: self.select_language(lang))
 
         self._menu.addAction(action)
         self._actions[code] = action

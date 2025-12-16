@@ -6,10 +6,10 @@ which contain the installation history of Infinity Engine mods.
 WeiDU.log format follows a specific structure that this parser handles.
 """
 
-import logging
-import re
 from dataclasses import dataclass
+import logging
 from pathlib import Path
+import re
 from typing import Generator
 
 logger = logging.getLogger(__name__)
@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 # ============================================================================
 # Data Models
 # ============================================================================
+
 
 @dataclass(frozen=True, slots=True)
 class WeiDULogEntry:
@@ -103,6 +104,7 @@ class WeiDULogResult:
 # WeiDU Log Parser
 # ============================================================================
 
+
 class WeiDULogParser:
     """Parser for WeiDU.log files.
 
@@ -118,17 +120,17 @@ class WeiDULogParser:
     # Regex pattern to match WeiDU.log entries
     # Format: ~MOD/FILE.TP2~ #lang #comp // Description
     ENTRY_PATTERN = re.compile(
-        r'~(?P<tp2_path>[^~]+)~\s+'  # TP2 path between tildes
-        r'#(?P<language>\d+)\s+'  # Language number
-        r'#(?P<component>\d+)'  # Component number
-        r'(?:\s+//\s*(?P<description>.*))?$'  # Optional description
+        r"~(?P<tp2_path>[^~]+)~\s+"  # TP2 path between tildes
+        r"#(?P<language>\d+)\s+"  # Language number
+        r"#(?P<component>\d+)"  # Component number
+        r"(?:\s+//\s*(?P<description>.*))?$"  # Optional description
     )
 
     # Default encoding for WeiDU.log files
-    DEFAULT_ENCODING = 'utf-8'
+    DEFAULT_ENCODING = "utf-8"
 
     # Fallback encodings to try if UTF-8 fails
-    FALLBACK_ENCODINGS = ['latin-1', 'cp1252', 'iso-8859-1']
+    FALLBACK_ENCODINGS = ["latin-1", "cp1252", "iso-8859-1"]
 
     def __init__(self):
         """Initialize WeiDU log parser."""
@@ -165,7 +167,9 @@ class WeiDULogParser:
         return result
 
     @staticmethod
-    def is_component_installed(file_path: str | Path, mod_id: str, component: str = "*") -> bool:
+    def is_component_installed(
+        file_path: str | Path, mod_id: str, component: str = "*"
+    ) -> bool:
         """
         Check if a component is installed by reading WeiDU.log.
 
@@ -183,7 +187,7 @@ class WeiDULogParser:
             return False
 
         try:
-            content = file_path.read_text(encoding='utf-8', errors='ignore')
+            content = file_path.read_text(encoding="utf-8", errors="ignore")
             pattern = rf"~([^/]*/)?(setup-)?{re.escape(mod_id)}\.tp2~\s+#\d+\s+#{component if component != '*' else r'\d+'}\s"
             return bool(re.search(pattern, content, re.IGNORECASE))
         except Exception as e:
@@ -206,7 +210,7 @@ class WeiDULogParser:
         try:
             return path.read_text(encoding=self.DEFAULT_ENCODING)
         except UnicodeDecodeError:
-            logger.debug(f"UTF-8 failed, trying fallback encodings")
+            logger.debug("UTF-8 failed, trying fallback encodings")
 
         # Try fallback encodings
         for encoding in self.FALLBACK_ENCODINGS:
@@ -219,7 +223,7 @@ class WeiDULogParser:
 
         # If all fail, read with errors='ignore'
         logger.warning("All encodings failed, reading with error replacement")
-        return path.read_text(encoding=self.DEFAULT_ENCODING, errors='ignore')
+        return path.read_text(encoding=self.DEFAULT_ENCODING, errors="ignore")
 
     def _parse_line(self, line: str, line_num: int) -> WeiDULogEntry | None:
         """Parse a single line from WeiDU.log.
@@ -236,7 +240,7 @@ class WeiDULogParser:
             return None
 
         # Extract TP2 path and get mod name
-        tp2_path = match.group('tp2_path')
+        tp2_path = match.group("tp2_path")
         mod_name = self._extract_mod_name(tp2_path)
 
         if not mod_name:
@@ -245,10 +249,10 @@ class WeiDULogParser:
 
         return WeiDULogEntry(
             mod_name=mod_name,
-            component_number=match.group('component'),
-            language=match.group('language'),
+            component_number=match.group("component"),
+            language=match.group("language"),
             full_line=line,
-            line_number=line_num
+            line_number=line_num,
         )
 
     @staticmethod
@@ -265,13 +269,13 @@ class WeiDULogParser:
         tp2_path = tp2_path.strip()
 
         # Split by forward or backward slash
-        parts = re.split(r'[/\\]', tp2_path)
+        parts = re.split(r"[/\\]", tp2_path)
 
         if len(parts) < 2:
             # Invalid format, try to extract filename
             if parts:
                 filename = parts[0]
-                mod_name = filename.replace('.TP2', '').replace('.tp2', '')
+                mod_name = filename.replace(".TP2", "").replace(".tp2", "")
                 return mod_name.lower()
             return ""
 
@@ -310,7 +314,7 @@ class WeiDULogParser:
             line = line.strip()
 
             # Skip empty lines and comments
-            if not line or line.startswith('//'):
+            if not line or line.startswith("//"):
                 continue
 
             try:

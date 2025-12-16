@@ -5,9 +5,9 @@ Handles loading, caching, and localization of mods with optimized
 performance for large mod databases.
 """
 
+from collections import Counter
 import json
 import logging
-from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -15,7 +15,7 @@ from PySide6.QtCore import QObject, QThread, Signal
 
 from constants import CACHE_DIR, MODS_DIR
 from core.Mod import Mod
-from core.TranslationManager import get_translator, SUPPORTED_LANGUAGES
+from core.TranslationManager import SUPPORTED_LANGUAGES, get_translator
 
 logger = logging.getLogger(__name__)
 
@@ -28,12 +28,7 @@ class CacheBuilderThread(QThread):
     finished = Signal(bool)  # True if success, False if error
     error = Signal(str)  # Error message
 
-    def __init__(
-            self,
-            mods_dir: Path,
-            cache_dir: Path,
-            languages: list[str]
-    ) -> None:
+    def __init__(self, mods_dir: Path, cache_dir: Path, languages: list[str]) -> None:
         """
         Initialize cache builder thread.
 
@@ -70,11 +65,8 @@ class CacheBuilderThread(QThread):
                     return
 
                 try:
-                    with open(file_path, 'r', encoding='utf-8') as f:
-                        mods_data.append({
-                            "id": file_path.stem,
-                            **json.load(f)
-                        })
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        mods_data.append({"id": file_path.stem, **json.load(f)})
                 except Exception as e:
                     logger.error(f"Error loading {file_path.name}: {e}")
                     self.error.emit(f"Error loading {file_path.name}: {e}")
@@ -115,7 +107,7 @@ class CacheBuilderThread(QThread):
 
                 # Save cache
                 cache_path = self.cache_dir / f"mods_{lang}.json"
-                with open(cache_path, 'w', encoding='utf-8') as f:
+                with open(cache_path, "w", encoding="utf-8") as f:
                     json.dump(localized_data, f, indent=2, ensure_ascii=False)
 
                 logger.info(f"Cache generated for {lang}: {cache_path}")
@@ -154,8 +146,7 @@ class CacheBuilderThread(QThread):
 
         # Fallback order: target language first, then others
         fallback_order = [target_lang] + [
-            lang for lang in translations_all.keys()
-            if lang != target_lang
+            lang for lang in translations_all.keys() if lang != target_lang
         ]
 
         # Resolve mod description with fallback
@@ -205,7 +196,7 @@ class CacheBuilderThread(QThread):
         # Final structure
         result["translations"] = {
             "description": description,
-            "components": localized_components
+            "components": localized_components,
         }
 
         return result
@@ -227,11 +218,7 @@ class ModManager(QObject):
     cache_building = Signal()  # Emitted when cache building starts
     cache_error = Signal(str)  # Emitted on error
 
-    def __init__(
-            self,
-            mods_dir: Path = MODS_DIR,
-            cache_dir: Path = CACHE_DIR
-    ) -> None:
+    def __init__(self, mods_dir: Path = MODS_DIR, cache_dir: Path = CACHE_DIR) -> None:
         """
         Initialize mod manager.
 
@@ -282,9 +269,7 @@ class ModManager(QObject):
         self.cache_building.emit()
 
         self.builder_thread = CacheBuilderThread(
-            self.mods_dir,
-            self.cache_dir,
-            [lang for lang, _ in SUPPORTED_LANGUAGES]
+            self.mods_dir, self.cache_dir, [lang for lang, _ in SUPPORTED_LANGUAGES]
         )
 
         # Connect signals
@@ -373,14 +358,11 @@ class ModManager(QObject):
             return False
 
         try:
-            with open(cache_file, 'r', encoding='utf-8') as f:
+            with open(cache_file, "r", encoding="utf-8") as f:
                 mods_json = json.load(f)
 
             # Instantiate Mod objects (fast: ~2-5ms for 2000 mods)
-            self.mods_data = {
-                data["id"].lower(): Mod(data)
-                for data in mods_json
-            }
+            self.mods_data = {data["id"].lower(): Mod(data) for data in mods_json}
 
             # Invalidate category cache
             self._category_count_cache = None
@@ -442,9 +424,7 @@ class ModManager(QObject):
             return
 
         self._category_count_cache = Counter(
-            cat
-            for mod in self.mods_data.values()
-            for cat in mod.categories
+            cat for mod in self.mods_data.values() for cat in mod.categories
         )
         logger.debug(f"Category cache built: {len(self._category_count_cache)} categories")
 
@@ -460,9 +440,7 @@ class ModManager(QObject):
             Number of mods by category
         """
         return Counter(
-            category
-            for mod in self.mods_data.values()
-            for category in mod.categories
+            category for mod in self.mods_data.values() for category in mod.categories
         )
 
     def get_count_by_languages(self) -> Counter:
@@ -473,9 +451,7 @@ class ModManager(QObject):
             Number of mods by language
         """
         return Counter(
-            language
-            for mod in self.mods_data.values()
-            for language in mod.languages
+            language for mod in self.mods_data.values() for language in mod.languages
         )
 
     def get_count_by_games(self) -> Counter:
@@ -485,11 +461,7 @@ class ModManager(QObject):
         Returns:
             Number of mods by game
         """
-        return Counter(
-            game
-            for mod in self.mods_data.values()
-            for game in mod.games
-        )
+        return Counter(game for mod in self.mods_data.values() for game in mod.games)
 
     def get_stats(self) -> dict[str, Any]:
         """Return statistics about loaded mods."""

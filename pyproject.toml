@@ -1,0 +1,46 @@
+[project]
+name = "BigWorldSetup Enhanced Edition"
+version = "0.5.0"
+description = "Installation automatisée de mods des jeux Infinity Engine"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "jsonschema>=4.25.1",
+    "pyside6>=6.10.0",
+    "pyside6_addons>=6.10.0",
+    "pyside6_essentials>=6.10.0",
+]
+
+[tool.ruff]
+exclude = [".venv/"]
+line-length = 96
+include = ["**/pyproject.toml", "*.py"]
+extend-exclude = ["__pycache__", ".venv"]
+target-version = "py311"
+
+[tool.ruff.lint]
+# https://docs.astral.sh/ruff/rules
+select = ["F", "I", "E", "B"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+length-sort = false
+force-single-line = false
+force-sort-within-sections = true
+known-first-party = ["models", "scripts", "tests"]
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.mypy]
+disable_error_code = ["import-untyped", "import-not-found"]

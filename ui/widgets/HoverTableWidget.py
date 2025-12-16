@@ -1,13 +1,9 @@
 import logging
 
 from PySide6.QtGui import QColor
-from PySide6.QtWidgets import (
-    QTableWidget, QAbstractItemView
-)
+from PySide6.QtWidgets import QAbstractItemView, QTableWidget
 
-from constants import (
-    COLOR_BACKGROUND_SECONDARY, ROLE_BACKGROUND
-)
+from constants import COLOR_BACKGROUND_SECONDARY, ROLE_BACKGROUND
 
 logger = logging.getLogger(__name__)
 

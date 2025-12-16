@@ -1,11 +1,11 @@
 """Base page class for navigation system with configurable buttons."""
 
-import logging
 from abc import ABCMeta, abstractmethod
 from dataclasses import dataclass
+import logging
 
 from PySide6.QtCore import Signal
-from PySide6.QtWidgets import QFrame, QWidget, QLabel, QPushButton
+from PySide6.QtWidgets import QFrame, QLabel, QPushButton, QWidget
 
 from constants import *
 from core.GameModels import GameDefinition
@@ -25,6 +25,7 @@ class ButtonConfig:
         text: Button label text (translation key or literal)
         icon: Optional icon path or name
     """
+
     visible: bool = True
     enabled: bool = True
     text: str = ""
@@ -33,6 +34,7 @@ class ButtonConfig:
 
 class QWidgetABCMeta(type(QWidget), ABCMeta):
     """Combined metaclass for QWidget and ABC."""
+
     pass
 
 
@@ -97,9 +99,7 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
         Returns:
             Translated page title
         """
-        raise NotImplementedError(
-            f"{self.__class__.__name__} must implement get_page_title()"
-        )
+        raise NotImplementedError(f"{self.__class__.__name__} must implement get_page_title()")
 
     @abstractmethod
     def get_page_id(self) -> str:
@@ -108,9 +108,7 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
         Returns:
             Unique page ID (e.g., 'installation_type', 'mod_selection')
         """
-        raise NotImplementedError(
-            f"{self.__class__.__name__} must implement get_page_id()"
-        )
+        raise NotImplementedError(f"{self.__class__.__name__} must implement get_page_id()")
 
     def get_page_description(self) -> str:
         """Get optional page description for tooltips or help text.
@@ -136,9 +134,7 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
             ButtonConfig with previous button settings
         """
         return ButtonConfig(
-            visible=True,
-            enabled=self.can_go_to_previous_page(),
-            text=tr('button.previous')
+            visible=True, enabled=self.can_go_to_previous_page(), text=tr("button.previous")
         )
 
     def get_next_button_config(self) -> ButtonConfig:
@@ -151,9 +147,7 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
             ButtonConfig with next button settings
         """
         return ButtonConfig(
-            visible=True,
-            enabled=self.can_go_to_next_page(),
-            text=tr('button.next')
+            visible=True, enabled=self.can_go_to_next_page(), text=tr("button.next")
         )
 
     def get_additional_buttons(self) -> list[QPushButton]:

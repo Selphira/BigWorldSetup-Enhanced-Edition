@@ -7,11 +7,11 @@ and translations.
 
 from __future__ import annotations
 
+from dataclasses import dataclass, field
 import logging
+from pathlib import Path
 import platform
 import re
-from dataclasses import dataclass, field
-from pathlib import Path
 
 from core.File import safe_read
 
@@ -47,13 +47,13 @@ RE_LINE_COMMENT = re.compile(r"//.*?$", re.MULTILINE)
 RE_VERSION = re.compile(r'VERSION\s+[~"]?v?([0-9][0-9A-Za-z\.\-_]*)[~"]?')
 RE_LANGUAGE_BLOCK = re.compile(r"LANGUAGE\s+((?:[~\"].*?[~\"]\s*)+)", re.DOTALL)
 RE_QUOTED_STRING = re.compile(r'[~"]([^~"]+)[~"]')
-RE_BEGIN_BLOCK = re.compile(r'(^\s*BEGIN\s+.*?)(?=BEGIN|\Z|^\s*$)', re.DOTALL | re.MULTILINE)
-RE_BEGIN_REF = re.compile(r'BEGIN\s+@(\d+)')
+RE_BEGIN_BLOCK = re.compile(r"(^\s*BEGIN\s+.*?)(?=BEGIN|\Z|^\s*$)", re.DOTALL | re.MULTILINE)
+RE_BEGIN_REF = re.compile(r"BEGIN\s+@(\d+)")
 RE_BEGIN_TEXT = re.compile(r'BEGIN\s+[~"]([^~"]+)[~"]')
-RE_DESIGNATED = re.compile(r'DESIGNATED\s+(\d+)')
-RE_SUBCOMPONENT_REF = re.compile(r'(?<![\/#])SUBCOMPONENT\s+@(\d+)')
+RE_DESIGNATED = re.compile(r"DESIGNATED\s+(\d+)")
+RE_SUBCOMPONENT_REF = re.compile(r"(?<![\/#])SUBCOMPONENT\s+@(\d+)")
 RE_SUBCOMPONENT_TEXT = re.compile(r'SUBCOMPONENT\s+[~"]([^~"]+)[~"]')
-RE_TRA_TRANSLATION = re.compile(r'@(\d+)\s*=\s*~(.*?)~', re.DOTALL)
+RE_TRA_TRANSLATION = re.compile(r"@(\d+)\s*=\s*~(.*?)~", re.DOTALL)
 
 # WeiDU variable placeholder
 WEIDU_OS_VAR: str = "%WEIDU_OS%"
@@ -65,24 +65,29 @@ logger = logging.getLogger(__name__)
 #         EXCEPTIONS
 # ------------------------------
 
+
 class Tp2ParseError(Exception):
     """Base exception for TP2 parsing errors."""
+
     pass
 
 
 class Tp2FileNotFoundError(Tp2ParseError):
     """Raised when a TP2 or TRA file is not found."""
+
     pass
 
 
 class Tp2InvalidFormatError(Tp2ParseError):
     """Raised when TP2 format is invalid or corrupted."""
+
     pass
 
 
 # ------------------------------
 #         UTILITIES
 # ------------------------------
+
 
 def normalize_language_code(code: str) -> str:
     """Normalize a language code to ISO format.
@@ -115,6 +120,7 @@ def get_os_code() -> str:
 #         DATA STRUCTURES
 # ------------------------------
 
+
 @dataclass
 class LanguageDeclaration:
     """Represents a language declaration in a TP2 file.
@@ -125,6 +131,7 @@ class LanguageDeclaration:
         tra_files: List of translation file paths
         index: Position in language declaration order
     """
+
     display_name: str
     language_code: str
     tra_files: list[str]
@@ -144,6 +151,7 @@ class Component:
         text_ref: Reference to translation string ID
         text: Direct text (if not using translation reference)
     """
+
     designated: str
     text_ref: int | None = None
     text: str | None = None
@@ -164,6 +172,7 @@ class MucComponent(Component):
     Attributes:
         components: List of sub-components (choices)
     """
+
     components: list[Component] = field(default_factory=list)
 
 
@@ -177,6 +186,7 @@ class WeiDUTp2:
         components: List of mod components
         translations: Nested dict {language_code: {designated: translated_text}}
     """
+
     version: str | None = None
     languages: list[LanguageDeclaration] = field(default_factory=list)
     components: list[Component] = field(default_factory=list)
@@ -224,6 +234,7 @@ class WeiDUTp2:
 # ------------------------------
 #        MAIN PARSER
 # ------------------------------
+
 
 class WeiDUTp2Parser:
     """Parser for WeiDU TP2 mod metadata files.
@@ -364,14 +375,16 @@ class WeiDUTp2Parser:
             parts = RE_QUOTED_STRING.findall(raw)
 
             if len(parts) < 2:
-                logger.warning(f"Invalid LANGUAGE block (need at least 2 strings): {raw[:50]}...")
+                logger.warning(
+                    f"Invalid LANGUAGE block (need at least 2 strings): {raw[:50]}..."
+                )
                 continue
 
             lang = LanguageDeclaration(
                 display_name=parts[0],
                 language_code=parts[1],
                 tra_files=parts[2:],
-                index=len(obj.languages)
+                index=len(obj.languages),
             )
             obj.languages.append(lang)
             logger.debug(f"Added language: {lang.display_name} ({lang.language_code})")
@@ -492,7 +505,7 @@ class WeiDUTp2Parser:
                         component_data["subcomponent_ref"],
                         component_data["subcomponent_text"],
                         subcomponents,
-                        obj
+                        obj,
                     )
                     muc.components.append(component_data["component"])
                 else:
@@ -505,11 +518,7 @@ class WeiDUTp2Parser:
 
         logger.info(f"Parsed {len(obj.components)} top-level components")
 
-    def _parse_single_component(
-            self,
-            block: str,
-            prev_designated: int
-    ) -> dict:
+    def _parse_single_component(self, block: str, prev_designated: int) -> dict:
         """Parse a single BEGIN component block.
 
         Args:
@@ -553,11 +562,7 @@ class WeiDUTp2Parser:
                 subcomponent_text = sub_text_match.group(1)
                 subcomponent_key = f"text_{subcomponent_text}"
 
-        component = Component(
-            designated=str(designated),
-            text_ref=text_ref,
-            text=text
-        )
+        component = Component(designated=str(designated), text_ref=text_ref, text=text)
 
         return {
             "component": component,
@@ -568,12 +573,12 @@ class WeiDUTp2Parser:
         }
 
     def _get_or_create_muc_component(
-            self,
-            key: str,
-            text_ref: int | None,
-            text: str | None,
-            subcomponents: dict[str, MucComponent],
-            obj: WeiDUTp2
+        self,
+        key: str,
+        text_ref: int | None,
+        text: str | None,
+        subcomponents: dict[str, MucComponent],
+        obj: WeiDUTp2,
     ) -> MucComponent:
         """Get existing or create new MucComponent.
 

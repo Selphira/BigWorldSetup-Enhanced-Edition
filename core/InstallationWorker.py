@@ -1,15 +1,14 @@
-import logging
-import subprocess
-import threading
 from dataclasses import dataclass
 from enum import Enum
+import logging
 from pathlib import Path
+import subprocess
+import threading
 
-from PySide6.QtCore import Signal, QThread
+from PySide6.QtCore import QThread, Signal
 
-from core.WeiDUInstallerEngine import (
-    WeiDUInstallerEngine, ComponentInfo, ComponentStatus, InstallResult,
-)
+from core.weidu_types import ComponentInfo, ComponentStatus, InstallResult
+from core.WeiDUInstallerEngine import WeiDUInstallerEngine
 
 logger = logging.getLogger(__name__)
 
@@ -18,9 +17,11 @@ logger = logging.getLogger(__name__)
 # Constants and Enums
 # ============================================================================
 
+
 class UserDecision(Enum):
     """User decision after installation error/warning."""
-    RETRY = 'retry'
+
+    RETRY = "retry"
     SKIP = "skip"
     PAUSE = "pause"
     STOP = "stop"
@@ -30,9 +31,11 @@ class UserDecision(Enum):
 # Installation State
 # ============================================================================
 
+
 @dataclass
 class InstallationState:
     """Persistent state of installation progress."""
+
     last_installed_component_index: int
     last_installed_batch_index: int
     current_sequence: int
@@ -42,6 +45,7 @@ class InstallationState:
 # Process Runner
 # ============================================================================
 
+
 class ProcessRunner(QThread):
     """Process runner"""
 
@@ -49,12 +53,7 @@ class ProcessRunner(QThread):
     process_finished = Signal(int, str, str)  # return_code, stdout, stderr
     process_error = Signal(str)
 
-    def __init__(
-            self,
-            cmd: list[str],
-            cwd: Path,
-            input_lines: list[str] | None = None
-    ):
+    def __init__(self, cmd: list[str], cwd: Path, input_lines: list[str] | None = None):
         """
         Initialize process runner.
 
@@ -80,7 +79,7 @@ class ProcessRunner(QThread):
     def run(self):
         """Execute process with parallel stdout/stderr reading."""
         try:
-            logger.debug("Starting process: %s", ' '.join(str(c) for c in self.cmd))
+            logger.debug("Starting process: %s", " ".join(str(c) for c in self.cmd))
             logger.debug("Working directory: %s", self.cwd)
 
             self.process = subprocess.Popen(
@@ -90,7 +89,7 @@ class ProcessRunner(QThread):
                 stderr=subprocess.PIPE,
                 stdin=subprocess.PIPE,
                 bufsize=1,
-                text=True
+                text=True,
             )
 
             logger.debug("Process started with PID: %s", self.process.pid)
@@ -99,14 +98,14 @@ class ProcessRunner(QThread):
                 target=self._read_stream,
                 args=(self.process.stdout, "stdout", self._stdout_lines),
                 name="WeiDU-stdout",
-                daemon=True
+                daemon=True,
             )
 
             stderr_thread = threading.Thread(
                 target=self._read_stream,
                 args=(self.process.stderr, "stderr", self._stderr_lines),
                 name="WeiDU-stderr",
-                daemon=True
+                daemon=True,
             )
 
             stdout_thread.start()
@@ -115,10 +114,7 @@ class ProcessRunner(QThread):
             # Send pre-configured input lines immediately
             # TODO: It may not work in all cases. Using a pipe command may be necessary, but compatibility and thread management issues need to be considered...
             if self.input_lines:
-                threading.Thread(
-                    target=self._send_initial_input,
-                    daemon=True
-                ).start()
+                threading.Thread(target=self._send_initial_input, daemon=True).start()
 
             # Process queued outputs periodically from QThread
             while self.process.poll() is None:
@@ -139,11 +135,14 @@ class ProcessRunner(QThread):
 
             # Compile final output
             with self._lock:
-                stdout = ''.join(self._stdout_lines)
-                stderr = ''.join(self._stderr_lines)
+                stdout = "".join(self._stdout_lines)
+                stderr = "".join(self._stderr_lines)
 
-            logger.debug("Captured %d stdout lines, %d stderr lines",
-                         len(self._stdout_lines), len(self._stderr_lines))
+            logger.debug(
+                "Captured %d stdout lines, %d stderr lines",
+                len(self._stdout_lines),
+                len(self._stderr_lines),
+            )
 
             self.process_finished.emit(return_code, stdout, stderr)
 
@@ -154,7 +153,7 @@ class ProcessRunner(QThread):
     def _read_stream(self, stream, stream_name: str, buffer: list[str]):
         """Read a process stream (stdout/stderr) line by line."""
         try:
-            for line in iter(stream.readline, ''):
+            for line in iter(stream.readline, ""):
                 if self._stop_flag:
                     break
 
@@ -247,6 +246,7 @@ class ProcessRunner(QThread):
 # Installation Worker Thread
 # ============================================================================
 
+
 class InstallationWorker(QThread):
     """
     Worker thread for non-blocking installation.
@@ -272,14 +272,14 @@ class InstallationWorker(QThread):
     installation_retryed = Signal(int)  # count_components
 
     def __init__(
-            self,
-            engine: WeiDUInstallerEngine,
-            batches: list[list[ComponentInfo]],
-            start_index: int,
-            languages_order: list[str],
-            mod_manager,
-            pause_on_error: bool = True,
-            pause_on_warning: bool = True,
+        self,
+        engine: WeiDUInstallerEngine,
+        batches: list[list[ComponentInfo]],
+        start_index: int,
+        languages_order: list[str],
+        mod_manager,
+        pause_on_error: bool = True,
+        pause_on_warning: bool = True,
     ):
         super().__init__()
         self.engine = engine
@@ -337,9 +337,8 @@ class InstallationWorker(QThread):
                 if issue:
                     comp_id, result, status = issue
 
-                    if (
-                            (status == ComponentStatus.ERROR and self.pause_on_error)
-                            or (status == ComponentStatus.WARNING and self.pause_on_warning)
+                    if (status == ComponentStatus.ERROR and self.pause_on_error) or (
+                        status == ComponentStatus.WARNING and self.pause_on_warning
                     ):
                         signal, messages = (
                             (self.error_occurred, result.errors)
@@ -356,7 +355,9 @@ class InstallationWorker(QThread):
 
                         elif self.user_decision == UserDecision.PAUSE:
                             self.is_paused = True
-                            logger.info("Installation paused by user after %s", status.name.lower())
+                            logger.info(
+                                "Installation paused by user after %s", status.name.lower()
+                            )
                             continue
                         elif self.user_decision == UserDecision.STOP:
                             self.is_stopped = True
@@ -370,7 +371,7 @@ class InstallationWorker(QThread):
             self.installation_complete.emit(self.all_results)
 
         except Exception as e:
-            logger.error('Critical error in installation worker: %s', e)
+            logger.error("Critical error in installation worker: %s", e)
             self.installation_stopped.emit(self.start_index)
 
     @staticmethod
@@ -412,7 +413,7 @@ class InstallationWorker(QThread):
                     stdout="",
                     stderr="",
                     warnings=[],
-                    errors=[]
+                    errors=[],
                 )
                 self.component_finished.emit(comp_id, skipped_results[comp_id])
             else:
@@ -481,4 +482,6 @@ class InstallationWorker(QThread):
         """Update pause settings during execution."""
         self.pause_on_error = pause_on_error
         self.pause_on_warning = pause_on_warning
-        logger.debug(f"Updated pause settings: error={pause_on_error}, warning={pause_on_warning}")
+        logger.debug(
+            f"Updated pause settings: error={pause_on_error}, warning={pause_on_warning}"
+        )

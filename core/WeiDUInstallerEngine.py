@@ -1,11 +1,11 @@
 """Core installation engine with all AutoIt logic ported to Python."""
+
 import logging
-from dataclasses import dataclass
-from enum import Enum
 from pathlib import Path
 
 from PySide6.QtCore import Qt
 
+from core.weidu_types import ComponentInfo, ComponentStatus, InstallResult
 from core.WeiDUDebugParser import WeiDUDebugParser
 from core.WeiDULogParser import WeiDULogParser
 
@@ -13,56 +13,16 @@ logger = logging.getLogger(__name__)
 
 
 # ============================================================================
-# Data Classes
-# ============================================================================
-
-class ComponentStatus(Enum):
-    """Status of a component installation."""
-    INSTALLING = "installing"
-    SUCCESS = "success"
-    WARNING = "warning"
-    ERROR = "error"
-    SKIPPED = "skipped"
-    ALREADY_INSTALLED = "already_installed"
-
-
-@dataclass
-class InstallResult:
-    """Result of a component installation."""
-    status: ComponentStatus
-    return_code: int
-    stdout: str
-    stderr: str
-    warnings: list[str]
-    errors: list[str]
-    debug_log: str = ""
-
-
-@dataclass
-class ComponentInfo:
-    """Information about a component to install."""
-    mod_id: str
-    component_key: str
-    tp2_name: str
-    sequence_idx: int
-    requirements: set[tuple[str, str]] = ()
-    subcomponent_answers: list[str] = None
-    extra_args: list[str] = None
-
-    def __post_init__(self):
-        """Ensure subcomponent_answers is a list."""
-        if self.subcomponent_answers is None:
-            self.subcomponent_answers = []
-
-
-# ============================================================================
 # Installer Engine
 # ============================================================================
+
 
 class WeiDUInstallerEngine:
     """WeiDU installation engine."""
 
-    def __init__(self, game_dir: str | Path, log_parser: WeiDULogParser, debug_parser: WeiDUDebugParser):
+    def __init__(
+        self, game_dir: str | Path, log_parser: WeiDULogParser, debug_parser: WeiDUDebugParser
+    ):
         self.game_dir = Path(game_dir)
         self.weidu_exe: Path | None = None
         self.log_parser = log_parser
@@ -94,14 +54,14 @@ class WeiDUInstallerEngine:
     # ------------------------------------------------------------------
 
     def install_components(
-            self,
-            tp2: str,
-            components: list[ComponentInfo],
-            language: str,
-            extra_args: list[str] | None,
-            input_lines: list[str] | None,
-            runner_factory,
-            output_callback=None,
+        self,
+        tp2: str,
+        components: list[ComponentInfo],
+        language: str,
+        extra_args: list[str] | None,
+        input_lines: list[str] | None,
+        runner_factory,
+        output_callback=None,
     ) -> dict[str, InstallResult]:
         """Install one batch of components."""
         results = {}
@@ -113,7 +73,7 @@ class WeiDUInstallerEngine:
                 stdout="",
                 stderr=f"Failed to create setup-{tp2}.exe",
                 warnings=[],
-                errors=[f"Failed to create setup-{tp2}.exe"]
+                errors=[f"Failed to create setup-{tp2}.exe"],
             )
             results = {
                 f"{component.mod_id}:{component.component_key}": error_result
@@ -133,8 +93,8 @@ class WeiDUInstallerEngine:
         runner.start()
         runner.wait()
 
-        stdout = ''.join(runner._stdout_lines)
-        stderr = ''.join(runner._stderr_lines)
+        stdout = "".join(runner._stdout_lines)
+        stderr = "".join(runner._stderr_lines)
         return_code = runner.process.returncode if runner.process else -1
 
         warnings, errors, debug_content = self.debug_parser.extract_warnings_errors(
@@ -155,9 +115,7 @@ class WeiDUInstallerEngine:
             print(f"idx: {idx}, comp_id: {comp_id}, status: {status}")
 
             verified = self.log_parser.is_component_installed(
-                self.weidu_log,
-                comp.tp2_name,
-                comp.component_key
+                self.weidu_log, comp.tp2_name, comp.component_key
             )
 
             if return_code == 0 and verified:
@@ -244,6 +202,7 @@ class WeiDUInstallerEngine:
 
         try:
             import shutil
+
             shutil.copy2(self.weidu_exe, setup)
             logger.info("Created/updated %s", setup.name)
             return True
@@ -272,7 +231,8 @@ class WeiDUInstallerEngine:
             str(self.setup_exe(tp2)),
             "--no-exit-pause",
             "--noautoupdate",
-            "--language", str(language),
+            "--language",
+            str(language),
             "--skip-at-view",
             "--force-install-list",
             *[component.component_key for component in components],

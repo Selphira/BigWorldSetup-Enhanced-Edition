@@ -21,10 +21,7 @@ class GameButton(QWidget):
     clicked = Signal(GameDefinition)
 
     def __init__(
-            self,
-            game: GameDefinition,
-            icon_path: Path | None = None,
-            parent: QWidget | None = None
+        self, game: GameDefinition, icon_path: Path | None = None, parent: QWidget | None = None
     ) -> None:
         """Initialize game button.
 
@@ -96,9 +93,10 @@ class GameButton(QWidget):
         if icon_path and icon_path.exists():
             pixmap = QPixmap(str(icon_path))
             scaled_pixmap = pixmap.scaled(
-                GAME_BUTTON_ICON_SIZE, GAME_BUTTON_ICON_SIZE,
+                GAME_BUTTON_ICON_SIZE,
+                GAME_BUTTON_ICON_SIZE,
                 Qt.AspectRatioMode.KeepAspectRatio,
-                Qt.TransformationMode.SmoothTransformation
+                Qt.TransformationMode.SmoothTransformation,
             )
             label.setPixmap(scaled_pixmap)
         else:

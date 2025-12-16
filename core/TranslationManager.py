@@ -1,10 +1,10 @@
 """Translation management system with fallback support and caching."""
 
+from functools import lru_cache
 import json
 import logging
-import threading
-from functools import lru_cache
 from pathlib import Path
+import threading
 from typing import Any
 
 from PySide6.QtCore import QObject, Signal
@@ -73,11 +73,7 @@ class TranslationManager(QObject):
             code = filepath.stem
             self._load_language(code, filepath)
 
-    def _load_language(
-            self,
-            code: str,
-            filepath: Path | None = None
-    ) -> bool:
+    def _load_language(self, code: str, filepath: Path | None = None) -> bool:
         """
         Load a specific language translation file.
 
@@ -96,7 +92,7 @@ class TranslationManager(QObject):
             return False
 
         try:
-            with filepath.open('r', encoding='utf-8') as f:
+            with filepath.open("r", encoding="utf-8") as f:
                 with self._lock:
                     self._translations[code] = json.load(f)
 
@@ -227,7 +223,7 @@ class TranslationManager(QObject):
 
             # Navigate nested dictionary structure
             value: Any = self._translations[code]
-            for key_part in key.split('.'):
+            for key_part in key.split("."):
                 if not isinstance(value, dict) or key_part not in value:
                     return None
                 value = value[key_part]
@@ -235,11 +231,7 @@ class TranslationManager(QObject):
             return value if isinstance(value, str) else None
 
     @staticmethod
-    def _format_translation(
-            text: str,
-            key: str,
-            kwargs: dict[str, Any]
-    ) -> str:
+    def _format_translation(text: str, key: str, kwargs: dict[str, Any]) -> str:
         """
         Format translation text with provided variables.
 

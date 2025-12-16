@@ -14,6 +14,7 @@ from typing import Any, Iterable, Union, cast
 
 class ComponentType(Enum):
     """Component type classification."""
+
     STD = "std"  # Standard single component
     MUC = "muc"  # Mutually Exclusive Choices
     SUB = "sub"  # Component with sub-prompts
@@ -33,6 +34,7 @@ class Prompt:
         default: Default option key
         options: Available options for this prompt
     """
+
     key: str
     default: str
     options: tuple[str, ...]  # Tuple for immutability and memory efficiency
@@ -53,6 +55,7 @@ class Component:
         comp_type: Component type (std, muc, sub, dwn)
         forced: Whether component is forced (always installed)
     """
+
     key: str
     text: str
     category: str
@@ -112,6 +115,7 @@ class MucComponent(Component):
         options: List of sub-component keys
         _option_texts: Cached option texts
     """
+
     default: str
     options: list[str]
     _option_texts: dict[str, str]
@@ -138,6 +142,7 @@ class SubComponent(Component):
         prompts: Dictionary of available prompts
         _prompt_texts: Cached prompt texts (key: "prompt_key" or "prompt_key.option")
     """
+
     prompts: dict[str, Prompt]
     _prompt_texts: dict[str, str]
 
@@ -166,6 +171,7 @@ class SubComponent(Component):
 @dataclass(frozen=True, slots=True)
 class ModFile:
     """Represents information about a downloadable mod file."""
+
     filename: str
     size: int
     sha256: str
@@ -175,7 +181,7 @@ class ModFile:
         return cls(
             filename=data.get("filename", ""),
             size=int(data.get("size", 0)),
-            sha256=data.get("sha256", "")
+            sha256=data.get("sha256", ""),
         )
 
 
@@ -186,10 +192,25 @@ class Mod:
     Uses lazy loading for components to optimize performance and memory usage.
     Components are only instantiated when accessed.
     """
+
     __slots__ = (
-        'id', 'name', 'tp2', 'categories', 'games', 'languages', 'version',
-        'description', 'download', 'readme', 'homepage', 'safe', 'authors',
-        '_components_raw', '_translations', '_components_cache', 'file'
+        "id",
+        "name",
+        "tp2",
+        "categories",
+        "games",
+        "languages",
+        "version",
+        "description",
+        "download",
+        "readme",
+        "homepage",
+        "safe",
+        "authors",
+        "_components_raw",
+        "_translations",
+        "_components_cache",
+        "file",
     )
 
     def __init__(self, data: dict[str, Any]) -> None:
@@ -230,7 +251,9 @@ class Mod:
 
         self.categories: tuple[str, ...] = self._get_all_categories(data.get("categories", []))
 
-        self.file: ModFile | None = ModFile.from_dict(file_data) if (file_data := data.get("file")) else None
+        self.file: ModFile | None = (
+            ModFile.from_dict(file_data) if (file_data := data.get("file")) else None
+        )
 
     def get_component(self, key: str) -> Component | None:
         """
@@ -248,7 +271,7 @@ class Mod:
             Component instance with appropriate text concatenation, or None if not found
         """
         # Check if it's a SUB nested key (contains dots)
-        if '.' in key:
+        if "." in key:
             return self._get_sub_component(key)
 
         # Check cache first for direct key
@@ -281,7 +304,7 @@ class Mod:
         Returns:
             Component with concatenated text, or None if not found
         """
-        parts = key.split('.')
+        parts = key.split(".")
 
         if len(parts) < 2:
             return None
@@ -343,7 +366,7 @@ class Mod:
             comp_type=parent_comp.comp_type,
             games=parent_comp.games,
             mod=self,
-            forced=parent_comp.forced
+            forced=parent_comp.forced,
         )
 
     def _search_in_muc_components(self, option_key: str) -> Component | None:
@@ -392,7 +415,7 @@ class Mod:
                 comp_type=parent_comp.comp_type,
                 games=parent_comp.games,
                 mod=self,
-                forced=parent_comp.forced
+                forced=parent_comp.forced,
             )
 
             self._components_cache[option_key] = result
@@ -424,10 +447,7 @@ class Mod:
         # MUC Component
         if comp_type == ComponentType.MUC:
             options = raw_data.get("components", [])
-            option_texts = {
-                opt: self._translations.get(opt, "")
-                for opt in options
-            }
+            option_texts = {opt: self._translations.get(opt, "") for opt in options}
             default = raw_data.get("default", "")
 
             return MucComponent(
@@ -440,7 +460,7 @@ class Mod:
                 forced=forced,
                 default=default,
                 options=options,
-                _option_texts=option_texts
+                _option_texts=option_texts,
             )
 
         # SUB Component
@@ -452,7 +472,7 @@ class Mod:
                 prompt_key: Prompt(
                     key=prompt_key,
                     options=tuple(prompt_data.get("options", [])),
-                    default=prompt_data.get("default", "")
+                    default=prompt_data.get("default", ""),
                 )
                 for prompt_key, prompt_data in prompts_raw.items()
             }
@@ -461,9 +481,7 @@ class Mod:
             prompt_texts = {}
             for prompt_key, prompt_data in prompts_raw.items():
                 # Prompt text
-                prompt_texts[prompt_key] = self._translations.get(
-                    f"{key}.{prompt_key}", ""
-                )
+                prompt_texts[prompt_key] = self._translations.get(f"{key}.{prompt_key}", "")
 
                 # Option texts
                 for option in prompt_data.get("options", []):
@@ -480,7 +498,7 @@ class Mod:
                 mod=self,
                 forced=forced,
                 prompts=prompts,
-                _prompt_texts=prompt_texts
+                _prompt_texts=prompt_texts,
             )
 
         # Standard Component
@@ -491,7 +509,7 @@ class Mod:
             comp_type=comp_type,
             games=games,
             mod=self,
-            forced=forced
+            forced=forced,
         )
 
     def _get_all_categories(self, categories: list[str]) -> tuple[str, ...]:
@@ -545,17 +563,11 @@ class Mod:
         Returns:
             List of all components
         """
-        return [
-            self.get_component(key)
-            for key in self._components_raw.keys()
-        ]
+        return [self.get_component(key) for key in self._components_raw.keys()]
 
     def get_forced_components(self) -> list[Component]:
         """Return only forced components."""
-        return [
-            comp for comp in self.get_all_components()
-            if comp.is_forced()
-        ]
+        return [comp for comp in self.get_all_components() if comp.is_forced()]
 
     def has_category(self, category: str) -> bool:
         """Check if mod belongs to a category."""

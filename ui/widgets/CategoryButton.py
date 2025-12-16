@@ -25,12 +25,7 @@ class CategoryButton(QWidget):
     # Visual constants
     MIN_HEIGHT = 30
 
-    def __init__(
-            self,
-            category: CategoryEnum,
-            count: int,
-            is_selected: bool = False
-    ) -> None:
+    def __init__(self, category: CategoryEnum, count: int, is_selected: bool = False) -> None:
         """
         Initialize category button.
 
@@ -155,9 +150,7 @@ class CategoryButton(QWidget):
 
     def retranslate_ui(self) -> None:
         """Update translatable text."""
-        self.category_label.setText(
-            CategoryEnum.get_display_name(self._category)
-        )
+        self.category_label.setText(CategoryEnum.get_display_name(self._category))
 
     def __repr__(self) -> str:
         """String representation for debugging."""

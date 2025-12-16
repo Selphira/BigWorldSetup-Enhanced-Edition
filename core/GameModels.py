@@ -8,9 +8,9 @@ game folders.
 
 from __future__ import annotations
 
-import logging
 from dataclasses import dataclass, field
 from enum import Enum
+import logging
 from typing import Any
 
 logger = logging.getLogger(__name__)
@@ -19,6 +19,7 @@ logger = logging.getLogger(__name__)
 # ============================================================================
 # FILE GROUP (imported from FolderValidator for type consistency)
 # ============================================================================
+
 
 class FileGroupOperator(Enum):
     """
@@ -60,10 +61,10 @@ class FileGroup:
                 desc = f"at least one of: {', '.join(self.files)}"
 
             # Use object.__setattr__ to bypass frozen dataclass
-            object.__setattr__(self, 'description', desc)
+            object.__setattr__(self, "description", desc)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> 'FileGroup':
+    def from_dict(cls, data: dict[str, Any]) -> "FileGroup":
         """
         Create FileGroup from dictionary (JSON deserialization).
 
@@ -79,24 +80,23 @@ class FileGroup:
         Raises:
             ValueError: If 'files' key is missing or invalid operator
         """
-        files = data.get('files')
+        files = data.get("files")
         if not files:
             raise ValueError("FileGroup requires 'files' key with at least one file")
 
-        operator_str = data.get('operator', 'all')
+        operator_str = data.get("operator", "all")
 
         operator = FileGroupOperator(operator_str)
 
         return cls(
-            files=tuple(files),
-            operator=operator,
-            description=data.get('description', '')
+            files=tuple(files), operator=operator, description=data.get("description", "")
         )
 
 
 # ============================================================================
 # INSTALLATION STEPS
 # ============================================================================
+
 
 class InstallStepType(str, Enum):
     """Type of installation step.
@@ -106,6 +106,7 @@ class InstallStepType(str, Enum):
         DOWNLOAD: Download-only step (no installation)
         ANNOTATION: Comment/note in the installation order
     """
+
     INSTALL = "ins"
     DOWNLOAD = "dwn"
     ANNOTATION = "ann"
@@ -129,9 +130,7 @@ class InstallStepType(str, Enum):
         try:
             return cls(value)
         except ValueError:
-            raise ValueError(
-                f"Invalid step type: '{value}'. Must be 'dwn' or 'ins'"
-            )
+            raise ValueError(f"Invalid step type: '{value}'. Must be 'dwn' or 'ins'")
 
 
 @dataclass(frozen=True, slots=True)
@@ -217,15 +216,9 @@ class InstallStep:
     def to_dict(self) -> dict[str, str]:
         """Convert installation step to dictionary."""
         if self.step_type == InstallStepType.ANNOTATION:
-            return {
-                "type": self.step_type.value,
-                "text": self.text
-            }
+            return {"type": self.step_type.value, "text": self.text}
 
-        result = {
-            "mod": self.mod,
-            "comp": self.comp
-        }
+        result = {"mod": self.mod, "comp": self.comp}
 
         # Only include type if it's not the default (INSTALL)
         if self.step_type != InstallStepType.INSTALL:
@@ -245,6 +238,7 @@ class InstallStep:
 # ============================================================================
 # VALIDATION RULES
 # ============================================================================
+
 
 @dataclass(frozen=True, slots=True)
 class GameValidationRule:
@@ -279,20 +273,20 @@ class GameValidationRule:
             GameValidationRule instance
         """
         file_groups = tuple(
-            FileGroup.from_dict(item)
-            for item in data.get("required_files", [])
+            FileGroup.from_dict(item) for item in data.get("required_files", [])
         )
 
         return cls(
             required_files=file_groups,
             lua_checks=data.get("lua_checks", {}),
-            game=data.get("game", "")
+            game=data.get("game", ""),
         )
 
 
 # ============================================================================
 # GAME SEQUENCE
 # ============================================================================
+
 
 @dataclass(frozen=True, slots=True)
 class GameSequence:
@@ -355,7 +349,7 @@ class GameSequence:
                 mod_id: tuple(components)
                 for mod_id, components in allowed_components_raw.items()
             },
-            order=tuple(InstallStep.from_dict(step) for step in order_raw)
+            order=tuple(InstallStep.from_dict(step) for step in order_raw),
         )
 
     def is_mod_allowed(self, mod_id: str) -> bool:
@@ -417,6 +411,7 @@ class GameSequence:
 # GAME DEFINITION
 # ============================================================================
 
+
 @dataclass(frozen=True, slots=True)
 class GameDefinition:
     """Complete definition of a game installation.
@@ -472,8 +467,7 @@ class GameDefinition:
             raise ValueError("GameDefinition requires at least one sequence")
 
         sequences = tuple(
-            GameSequence.from_dict({**seq_data, "name": name})
-            for seq_data in sequences_data
+            GameSequence.from_dict({**seq_data, "name": name}) for seq_data in sequences_data
         )
 
         return cls(id=game_id, name=name, sequences=sequences)

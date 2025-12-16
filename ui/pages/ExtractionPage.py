@@ -1,20 +1,31 @@
 import logging
-import shutil
 from pathlib import Path
+import shutil
 
 from PySide6.QtCore import Qt, QThread, Signal
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import (
-    QComboBox, QHBoxLayout, QLabel,
-    QMessageBox, QPushButton, QTableWidgetItem, QHeaderView, QVBoxLayout, QProgressBar
+    QComboBox,
+    QHBoxLayout,
+    QHeaderView,
+    QLabel,
+    QMessageBox,
+    QProgressBar,
+    QPushButton,
+    QTableWidgetItem,
+    QVBoxLayout,
 )
 
 from constants import (
-    COLOR_STATUS_COMPLETE, COLOR_ERROR, COLOR_STATUS_NONE,
-    COLOR_WARNING, MARGIN_STANDARD,
-    SPACING_SMALL, SPACING_LARGE
+    COLOR_ERROR,
+    COLOR_STATUS_COMPLETE,
+    COLOR_STATUS_NONE,
+    COLOR_WARNING,
+    MARGIN_STANDARD,
+    SPACING_LARGE,
+    SPACING_SMALL,
 )
-from core.ArchiveExtractor import ArchiveExtractor, ExtractionStatus, ExtractionInfo
+from core.ArchiveExtractor import ArchiveExtractor, ExtractionInfo, ExtractionStatus
 from core.StateManager import StateManager
 from core.TranslationManager import tr
 from ui.pages.BasePage import BasePage
@@ -37,16 +48,17 @@ COLUMN_COUNT = 4
 # Structure Validator
 # ============================================================================
 
+
 class StructureValidator:
     """Validates and fixes extracted mod structure."""
 
     # Possible TP2 locations (in order of preference)
     TP2_PATTERNS = [
-        '{game_dir}/setup-{tp2}.exe',  # Most reliable
-        '{game_dir}/{tp2}.tp2',
-        '{game_dir}/setup-{tp2}.tp2',
-        '{game_dir}/{tp2}/{tp2}.tp2',
-        '{game_dir}/{tp2}/setup-{tp2}.tp2',
+        "{game_dir}/setup-{tp2}.exe",  # Most reliable
+        "{game_dir}/{tp2}.tp2",
+        "{game_dir}/setup-{tp2}.tp2",
+        "{game_dir}/{tp2}/{tp2}.tp2",
+        "{game_dir}/{tp2}/setup-{tp2}.tp2",
     ]
 
     @staticmethod
@@ -173,6 +185,7 @@ class StructureValidator:
 # Extraction Worker Thread
 # ============================================================================
 
+
 class ExtractionWorker(QThread):
     """Worker thread for extracting archives without blocking UI."""
 
@@ -205,34 +218,29 @@ class ExtractionWorker(QThread):
                 try:
                     self.extraction_started.emit(mod_id)
                     success = self._extractor.extract_archive(
-                        extraction_info.archive_path,
-                        extraction_info.destination_path
+                        extraction_info.archive_path, extraction_info.destination_path
                     )
 
                     if not success:
                         self.extraction_error.emit(
-                            mod_id,
-                            tr("page.extraction.error_extraction_failed")
+                            mod_id, tr("page.extraction.error_extraction_failed")
                         )
                         continue
 
                     # Validate structure immediately after extraction
                     valid, tp2_path = self._validator.validate_structure(
-                        extraction_info.destination_path,
-                        extraction_info.tp2_name
+                        extraction_info.destination_path, extraction_info.tp2_name
                     )
 
                     # Fix structure if needed
                     if not valid:
                         fixed = self._validator.fix_structure(
-                            extraction_info.destination_path,
-                            extraction_info.tp2_name
+                            extraction_info.destination_path, extraction_info.tp2_name
                         )
 
                         if not fixed:
                             self.extraction_error.emit(
-                                mod_id,
-                                tr("page.extraction.error_structure_invalid")
+                                mod_id, tr("page.extraction.error_structure_invalid")
                             )
                             continue
 
@@ -256,6 +264,7 @@ class ExtractionWorker(QThread):
 # ============================================================================
 # Extraction Page
 # ============================================================================
+
 
 class ExtractionPage(BasePage):
     """Page for extracting mod archives."""
@@ -302,8 +311,7 @@ class ExtractionPage(BasePage):
         layout = QVBoxLayout(self)
         layout.setSpacing(SPACING_LARGE)
         layout.setContentsMargins(
-            MARGIN_STANDARD, MARGIN_STANDARD,
-            MARGIN_STANDARD, MARGIN_STANDARD
+            MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_STANDARD
         )
 
         vlayout = QVBoxLayout(self)
@@ -383,7 +391,6 @@ class ExtractionPage(BasePage):
         for seq_idx, sequence in enumerate(game_def.sequences):
             game = game_manager.get(sequence.game)
             for folder_key, path in saved_folders.items():
-
                 if folder_key in game.get_folder_keys():
                     game_folders[seq_idx] = (sequence, Path(path))
 
@@ -395,7 +402,7 @@ class ExtractionPage(BasePage):
 
         for mod_id in unique_mods:
             mod = self._mod_manager.get_mod_by_id(mod_id)
-            if not mod or not hasattr(mod, 'file') or not mod.file:
+            if not mod or not hasattr(mod, "file") or not mod.file:
                 continue
 
             archive_path = self._download_path / mod.file.filename
@@ -425,7 +432,7 @@ class ExtractionPage(BasePage):
                     mod_name=display_name,
                     tp2_name=mod.tp2,
                     archive_path=archive_path,
-                    destination_path=folder_path
+                    destination_path=folder_path,
                 )
 
                 self._extractions[extraction_id] = extraction_info
@@ -500,8 +507,7 @@ class ExtractionPage(BasePage):
 
         for extraction_id, extraction_info in self._extractions.items():
             valid, tp2_path = validator.validate_structure(
-                extraction_info.destination_path,
-                extraction_info.tp2_name
+                extraction_info.destination_path, extraction_info.tp2_name
             )
 
             if valid:
@@ -519,15 +525,18 @@ class ExtractionPage(BasePage):
             return
 
         to_extract = [
-            info for extraction_id, info in self._extractions.items()
-            if self._extraction_status.get(extraction_id, ExtractionStatus.TO_EXTRACT).needs_extraction
+            info
+            for extraction_id, info in self._extractions.items()
+            if self._extraction_status.get(
+                extraction_id, ExtractionStatus.TO_EXTRACT
+            ).needs_extraction
         ]
 
         if not to_extract:
             QMessageBox.information(
                 self,
                 tr("page.extraction.no_extraction_title"),
-                tr("page.extraction.no_extraction_message")
+                tr("page.extraction.no_extraction_message"),
             )
             return
 
@@ -580,26 +589,29 @@ class ExtractionPage(BasePage):
 
         # Count successes and failures
         success_count = sum(
-            1 for status in self._extraction_status.values()
+            1
+            for status in self._extraction_status.values()
             if status == ExtractionStatus.EXTRACTED
         )
         error_count = sum(
-            1 for status in self._extraction_status.values()
-            if status == ExtractionStatus.ERROR
+            1 for status in self._extraction_status.values() if status == ExtractionStatus.ERROR
         )
 
         if error_count > 0:
             QMessageBox.warning(
                 self,
                 tr("page.extraction.complete_with_errors_title"),
-                tr("page.extraction.complete_with_errors_message",
-                   success=success_count, errors=error_count)
+                tr(
+                    "page.extraction.complete_with_errors_message",
+                    success=success_count,
+                    errors=error_count,
+                ),
             )
         else:
             QMessageBox.information(
                 self,
                 tr("page.extraction.complete_title"),
-                tr("page.extraction.complete_message", count=success_count)
+                tr("page.extraction.complete_message", count=success_count),
             )
 
         logger.info(f"Extraction completed: {success_count} success, {error_count} errors")
@@ -608,8 +620,9 @@ class ExtractionPage(BasePage):
     # UI Actions
     # ========================================
 
-    def _update_extraction_status(self, extraction_id: str, status: ExtractionStatus,
-                                  error_message: str | None = None) -> None:
+    def _update_extraction_status(
+        self, extraction_id: str, status: ExtractionStatus, error_message: str | None = None
+    ) -> None:
         """Update status of a specific extraction in the table.
 
         Args:
@@ -683,8 +696,7 @@ class ExtractionPage(BasePage):
 
         # All extractions must be extracted successfully
         return all(
-            status == ExtractionStatus.EXTRACTED
-            for status in self._extraction_status.values()
+            status == ExtractionStatus.EXTRACTED for status in self._extraction_status.values()
         )
 
     def can_go_to_previous_page(self) -> bool:
@@ -720,12 +732,10 @@ class ExtractionPage(BasePage):
         self._filter_combo.clear()
         self._filter_combo.addItem(tr("page.extraction.filter.all"), None)
         self._filter_combo.addItem(
-            tr("page.extraction.filter.to_extract"),
-            ExtractionStatus.TO_EXTRACT
+            tr("page.extraction.filter.to_extract"), ExtractionStatus.TO_EXTRACT
         )
         self._filter_combo.addItem(
-            tr("page.extraction.filter.extracted"),
-            ExtractionStatus.EXTRACTED
+            tr("page.extraction.filter.extracted"), ExtractionStatus.EXTRACTED
         )
         self._filter_combo.addItem(
             tr("page.extraction.filter.error"),

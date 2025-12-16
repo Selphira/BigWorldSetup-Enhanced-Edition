@@ -36,11 +36,11 @@ class FolderSelector(QWidget):
     validation_changed = Signal(bool)
 
     def __init__(
-            self,
-            label_key: str,
-            select_title_key: str,
-            validator: FolderValidator | None = None,
-            parent: QWidget | None = None
+        self,
+        label_key: str,
+        select_title_key: str,
+        validator: FolderValidator | None = None,
+        parent: QWidget | None = None,
     ) -> None:
         """Initialize folder selector.
 
@@ -72,8 +72,7 @@ class FolderSelector(QWidget):
     # ========================================
 
     def _create_widgets(self) -> None:
-        """Create and layout UI widgets.
-        """
+        """Create and layout UI widgets."""
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 5, 0, 5)
         layout.setSpacing(5)
@@ -100,20 +99,17 @@ class FolderSelector(QWidget):
 
         # Create input field
         self.path_input = QLineEdit()
-        self.path_input.setPlaceholderText(tr('widget.select_folder_placeholder'))
+        self.path_input.setPlaceholderText(tr("widget.select_folder_placeholder"))
 
         # Add icon action (for validation indicator)
         self.icon_action = QAction(self.path_input)
         self.icon_action.setToolTip("")
-        self.path_input.addAction(
-            self.icon_action,
-            QLineEdit.ActionPosition.LeadingPosition
-        )
+        self.path_input.addAction(self.icon_action, QLineEdit.ActionPosition.LeadingPosition)
 
         layout.addWidget(self.path_input, 1)
 
         # Create browse button
-        self.browse_btn = QPushButton(tr('button.browse'))
+        self.browse_btn = QPushButton(tr("button.browse"))
         self.browse_btn.setCursor(Qt.CursorShape.PointingHandCursor)
         self.browse_btn.setFixedWidth(BUTTON_WIDTH_SMALL)
         layout.addWidget(self.browse_btn)
@@ -137,11 +133,7 @@ class FolderSelector(QWidget):
         # Use current path or home directory as starting point
         start_dir = self.path_input.text() or str(Path.home())
 
-        folder = QFileDialog.getExistingDirectory(
-            self,
-            tr(self._select_title_key),
-            start_dir
-        )
+        folder = QFileDialog.getExistingDirectory(self, tr(self._select_title_key), start_dir)
 
         if folder:
             self.set_path(folder)
@@ -163,16 +155,10 @@ class FolderSelector(QWidget):
         """
         if not self._is_valid and self._error_message:
             # Calculate tooltip position (slightly above input)
-            tooltip_pos = self.path_input.mapToGlobal(
-                self.path_input.rect().bottomLeft()
-            )
+            tooltip_pos = self.path_input.mapToGlobal(self.path_input.rect().bottomLeft())
             tooltip_pos.setY(tooltip_pos.y() - 10)
 
-            QToolTip.showText(
-                tooltip_pos,
-                self._error_message,
-                self.path_input
-            )
+            QToolTip.showText(tooltip_pos, self._error_message, self.path_input)
 
     # ========================================
     # VALIDATION
@@ -212,20 +198,12 @@ class FolderSelector(QWidget):
 
     def _set_success_state(self) -> None:
         """Set success visual state (valid input)."""
-        icon = self._create_text_icon(
-            ICON_SUCCESS,
-            QColor(COLOR_SUCCESS),
-            ICON_SIZE_SMALL
-        )
+        icon = self._create_text_icon(ICON_SUCCESS, QColor(COLOR_SUCCESS), ICON_SIZE_SMALL)
         self.icon_action.setIcon(icon)
 
     def _set_error_state(self) -> None:
         """Set error visual state (invalid input)."""
-        icon = self._create_text_icon(
-            ICON_ERROR,
-            QColor(COLOR_ERROR),
-            ICON_SIZE_SMALL
-        )
+        icon = self._create_text_icon(ICON_ERROR, QColor(COLOR_ERROR), ICON_SIZE_SMALL)
         self.icon_action.setIcon(icon)
         self.icon_action.setToolTip(self._error_message)
 
@@ -242,9 +220,7 @@ class FolderSelector(QWidget):
         self.browse_btn.setText(tr("button.browse"))
 
         # Placeholder (standard translation)
-        self.path_input.setPlaceholderText(
-            tr('widget.select_folder_placeholder')
-        )
+        self.path_input.setPlaceholderText(tr("widget.select_folder_placeholder"))
 
     def get_path(self) -> str:
         """Get currently selected path.
@@ -324,21 +300,14 @@ class FolderSelector(QWidget):
         painter.setPen(color)
 
         # Draw centered text
-        painter.drawText(
-            pixmap.rect(),
-            Qt.AlignmentFlag.AlignCenter,
-            text
-        )
+        painter.drawText(pixmap.rect(), Qt.AlignmentFlag.AlignCenter, text)
         painter.end()
 
         return QIcon(pixmap)
 
     def __repr__(self) -> str:
         """String representation for debugging."""
-        return (
-            f"<FolderSelector path='{self.get_path()}' "
-            f"valid={self._is_valid}>"
-        )
+        return f"<FolderSelector path='{self.get_path()}' valid={self._is_valid}>"
 
 
 class GameFolderSelector(FolderSelector):
@@ -349,12 +318,12 @@ class GameFolderSelector(FolderSelector):
     """
 
     def __init__(
-            self,
-            label_key: str,
-            select_title_key: str,
-            game: GameDefinition,
-            validator: FolderValidator | None = None,
-            parent: QWidget | None = None
+        self,
+        label_key: str,
+        select_title_key: str,
+        game: GameDefinition,
+        validator: FolderValidator | None = None,
+        parent: QWidget | None = None,
     ) -> None:
         """Initialize game folder selector.
 
@@ -378,9 +347,7 @@ class GameFolderSelector(FolderSelector):
         start_dir = self.path_input.text() or str(Path.home())
 
         folder = QFileDialog.getExistingDirectory(
-            self,
-            tr(self._select_title_key, game=self.game.name),
-            start_dir
+            self, tr(self._select_title_key, game=self.game.name), start_dir
         )
 
         if folder:

@@ -1,11 +1,9 @@
-import logging
-import subprocess
 from enum import Enum
+import logging
 from pathlib import Path
+import subprocess
 
-from constants import (
-    SEVEN_Z_PATH
-)
+from constants import SEVEN_Z_PATH
 
 logger = logging.getLogger(__name__)
 
@@ -13,6 +11,7 @@ logger = logging.getLogger(__name__)
 # ============================================================================
 # Extraction Status
 # ============================================================================
+
 
 class ExtractionStatus(Enum):
     """Status of archive extraction."""
@@ -25,26 +24,24 @@ class ExtractionStatus(Enum):
     @property
     def needs_extraction(self) -> bool:
         """Check if archive needs extraction."""
-        return self in {
-            ExtractionStatus.TO_EXTRACT,
-            ExtractionStatus.ERROR
-        }
+        return self in {ExtractionStatus.TO_EXTRACT, ExtractionStatus.ERROR}
 
 
 # ============================================================================
 # Extraction Info
 # ============================================================================
 
+
 class ExtractionInfo:
     """Information about an archive to extract."""
 
     def __init__(
-            self,
-            mod_id: str,
-            mod_name: str,
-            tp2_name: str,
-            archive_path: Path,
-            destination_path: Path
+        self,
+        mod_id: str,
+        mod_name: str,
+        tp2_name: str,
+        archive_path: Path,
+        destination_path: Path,
     ):
         """Initialize extraction info.
 
@@ -68,6 +65,7 @@ class ExtractionInfo:
 # Archive Extractor
 # ============================================================================
 
+
 class ArchiveExtractor:
     """Handles extraction of various archive formats."""
 
@@ -87,15 +85,15 @@ class ArchiveExtractor:
         ext = archive_path.suffix.lower()
 
         try:
-            if ext == '.zip':
+            if ext == ".zip":
                 return ArchiveExtractor._extract_zip(archive_path, destination)
-            elif ext == '.rar':
+            elif ext == ".rar":
                 return ArchiveExtractor._extract_rar(archive_path, destination)
-            elif ext == '.7z':
+            elif ext == ".7z":
                 return ArchiveExtractor._extract_7z(archive_path, destination)
-            elif ext in {'.tar', '.gz'} or archive_path.name.endswith('.tar.gz'):
+            elif ext in {".tar", ".gz"} or archive_path.name.endswith(".tar.gz"):
                 return ArchiveExtractor._extract_tar(archive_path, destination)
-            elif ext == '.exe':
+            elif ext == ".exe":
                 return ArchiveExtractor._extract_exe(archive_path, destination)
             else:
                 logger.error(f"Unsupported archive format: {ext}")
@@ -118,7 +116,7 @@ class ArchiveExtractor:
         """
         import zipfile
 
-        with zipfile.ZipFile(archive_path, 'r') as zip_ref:
+        with zipfile.ZipFile(archive_path, "r") as zip_ref:
             zip_ref.extractall(destination)
         return True
 
@@ -148,11 +146,11 @@ class ArchiveExtractor:
         """
         try:
             result = subprocess.run(
-                [SEVEN_Z_PATH, 'x', str(archive_path), f'-o{destination}', '-y'],
+                [SEVEN_Z_PATH, "x", str(archive_path), f"-o{destination}", "-y"],
                 capture_output=True,
                 shell=True,
                 text=True,
-                timeout=300
+                timeout=300,
             )
             return result.returncode == 0
         except FileNotFoundError:
@@ -175,7 +173,7 @@ class ArchiveExtractor:
         """
         import tarfile
 
-        with tarfile.open(archive_path, 'r:*') as tar_ref:
+        with tarfile.open(archive_path, "r:*") as tar_ref:
             tar_ref.extractall(destination)
         return True
 
@@ -202,13 +200,13 @@ class ArchiveExtractor:
         # Use CREATE_NO_WINDOW flag to prevent DOS window from appearing
         try:
             # Try common silent extraction parameters
-            for params in [['-s', f'-d{destination}'], ['/S', f'/D={destination}', '\\NSIS'],
-                           ['/SILENT', f'/DIR={destination}']]:
+            for params in [
+                ["-s", f"-d{destination}"],
+                ["/S", f"/D={destination}", "\\NSIS"],
+                ["/SILENT", f"/DIR={destination}"],
+            ]:
                 result = subprocess.run(
-                    [str(archive_path)] + params,
-                    capture_output=True,
-                    text=True,
-                    timeout=300
+                    [str(archive_path)] + params, capture_output=True, text=True, timeout=300
                 )
                 if result.returncode == 0:
                     return True

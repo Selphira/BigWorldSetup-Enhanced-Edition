@@ -1,8 +1,8 @@
 import logging
-import re
 from pathlib import Path
+import re
 
-from core.InstallerEngine import ComponentStatus
+from core.WeiDUInstallerEngine import ComponentStatus
 
 logger = logging.getLogger(__name__)
 
@@ -85,22 +85,19 @@ class WeiDUDebugParser:
                         break
 
                     # Skip already-skipped components
-                    while (
-                            comp_idx >= 0
-                            and results.get(comp_idx) == ComponentStatus.SKIPPED
-                    ):
+                    while comp_idx >= 0 and results.get(comp_idx) == ComponentStatus.SKIPPED:
                         comp_idx -= 1
 
                     if (
-                            "SUCCESSFULLY INSTALLED" in lines[i]
-                            or "INSTALLATION REUSSIE" in lines[i]
+                        "SUCCESSFULLY INSTALLED" in lines[i]
+                        or "INSTALLATION REUSSIE" in lines[i]
                     ):
                         if comp_idx >= 0:
                             results[comp_idx] = ComponentStatus.SUCCESS
                         comp_idx -= 1
                     elif (
-                            "INSTALLED WITH WARNINGS" in lines[i]
-                            or "INSTALLATION AVEC DES ALERTES" in lines[i]
+                        "INSTALLED WITH WARNINGS" in lines[i]
+                        or "INSTALLATION AVEC DES ALERTES" in lines[i]
                     ):
                         if comp_idx >= 0:
                             results[comp_idx] = ComponentStatus.WARNING
@@ -117,9 +114,7 @@ class WeiDUDebugParser:
         return results
 
     @staticmethod
-    def extract_warnings_errors(
-            debug_file: Path
-    ) -> tuple[list[str], list[str], str]:
+    def extract_warnings_errors(debug_file: Path) -> tuple[list[str], list[str], str]:
         """
         Extract warnings and errors from DEBUG file.
 

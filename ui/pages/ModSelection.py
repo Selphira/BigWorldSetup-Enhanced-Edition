@@ -4,29 +4,31 @@ ModSelection - Page for selecting mods and components with filtering capabilitie
 This module provides the main selection interface with category navigation,
 search functionality, and hierarchical component selection.
 """
+
 import logging
 
-from PySide6.QtCore import QEvent, QModelIndex, QTimer, QByteArray
+from PySide6.QtCore import QByteArray, QEvent, QModelIndex, QTimer
 from PySide6.QtGui import QTextDocument
 from PySide6.QtWidgets import (
     QFrame,
     QHBoxLayout,
-    QScrollArea,
+    QLabel,
     QLineEdit,
+    QScrollArea,
+    QSplitter,
+    QStyle,
+    QStyledItemDelegate,
+    QStyleOptionViewItem,
+    QToolButton,
+    QToolTip,
     QVBoxLayout,
     QWidget,
-    QStyledItemDelegate,
-    QStyle,
-    QToolTip,
-    QStyleOptionViewItem,
-    QSplitter,
-    QToolButton, QLabel
 )
 
 from constants import *
+from core.enums.CategoryEnum import CategoryEnum
 from core.StateManager import StateManager
 from core.TranslationManager import tr
-from core.enums.CategoryEnum import CategoryEnum
 from ui.pages.BasePage import BasePage, ButtonConfig
 from ui.widgets.CategoryButton import CategoryButton
 from ui.widgets.ComponentSelector import ComponentSelector
@@ -39,6 +41,7 @@ logger = logging.getLogger(__name__)
 # ============================================================================
 # Highlight Delegate
 # ============================================================================
+
 
 class HighlightDelegate(QStyledItemDelegate):
     """Delegate that highlights search text in tree view items.
@@ -68,11 +71,7 @@ class HighlightDelegate(QStyledItemDelegate):
     # ========================================
 
     def helpEvent(
-            self,
-            event: QEvent,
-            view: QWidget,
-            option: QStyleOptionViewItem,
-            index: QModelIndex
+        self, event: QEvent, view: QWidget, option: QStyleOptionViewItem, index: QModelIndex
     ) -> bool:
         """Show tooltip if text is truncated."""
         if event.type() != QEvent.Type.ToolTip or not index.isValid():
@@ -93,12 +92,7 @@ class HighlightDelegate(QStyledItemDelegate):
     # Custom Painting
     # ========================================
 
-    def paint(
-            self,
-            painter,
-            option: QStyleOptionViewItem,
-            index: QModelIndex
-    ) -> None:
+    def paint(self, painter, option: QStyleOptionViewItem, index: QModelIndex) -> None:
         """Paint item with search text highlighting."""
         # Remove focus outline
         option.state &= ~QStyle.StateFlag.State_HasFocus
@@ -125,12 +119,12 @@ class HighlightDelegate(QStyledItemDelegate):
         self._paint_with_highlight(painter, option, index, text, search_pos)
 
     def _paint_with_highlight(
-            self,
-            painter,
-            option: QStyleOptionViewItem,
-            index: QModelIndex,
-            text: str,
-            search_pos: int
+        self,
+        painter,
+        option: QStyleOptionViewItem,
+        index: QModelIndex,
+        text: str,
+        search_pos: int,
     ) -> None:
         """Paint item with highlighted search text."""
         style = option.widget.style() if option.widget else QStyle()
@@ -139,45 +133,27 @@ class HighlightDelegate(QStyledItemDelegate):
         opt = QStyleOptionViewItem(option)
         self.initStyleOption(opt, index)
         opt.text = ""
-        opt.features = (
-                opt.features & ~QStyleOptionViewItem.ViewItemFeature.HasDisplay
-        )
-        style.drawControl(
-            QStyle.ControlElement.CE_ItemViewItem,
-            opt,
-            painter,
-            option.widget
-        )
+        opt.features = opt.features & ~QStyleOptionViewItem.ViewItemFeature.HasDisplay
+        style.drawControl(QStyle.ControlElement.CE_ItemViewItem, opt, painter, option.widget)
 
         # Get text area rectangle
         text_rect = style.subElementRect(
-            QStyle.SubElement.SE_ItemViewItemText,
-            option,
-            option.widget
+            QStyle.SubElement.SE_ItemViewItemText, option, option.widget
         )
 
         # Create HTML with highlighting
-        html = self._create_highlighted_html(
-            text,
-            search_pos,
-            len(self._search_text),
-            option
-        )
+        html = self._create_highlighted_html(text, search_pos, len(self._search_text), option)
 
         # Render HTML text
         self._render_html_text(painter, text_rect, html, option)
 
     def _create_highlighted_html(
-            self,
-            text: str,
-            match_start: int,
-            match_length: int,
-            option: QStyleOptionViewItem
+        self, text: str, match_start: int, match_length: int, option: QStyleOptionViewItem
     ) -> str:
         """Create HTML with highlighted match."""
         before = text[:match_start]
-        match = text[match_start:match_start + match_length]
-        after = text[match_start + match_length:]
+        match = text[match_start : match_start + match_length]
+        after = text[match_start + match_length :]
 
         # Get text color based on selection state
         if option.state & QStyle.StateFlag.State_Selected:
@@ -193,11 +169,7 @@ class HighlightDelegate(QStyledItemDelegate):
         )
 
     def _render_html_text(
-            self,
-            painter,
-            text_rect,
-            html: str,
-            option: QStyleOptionViewItem
+        self, painter, text_rect, html: str, option: QStyleOptionViewItem
     ) -> None:
         """Render HTML text in the text rectangle."""
         doc = QTextDocument()
@@ -216,7 +188,7 @@ class HighlightDelegate(QStyledItemDelegate):
         available_height = text_rect.height()
         font_height = font_metrics.height()
         vertical_offset = (
-                (available_height - font_height) / 2 + font_metrics.ascent() - font_metrics.ascent()
+            (available_height - font_height) / 2 + font_metrics.ascent() - font_metrics.ascent()
         )
 
         painter.translate(self.TEXT_HORIZONTAL_OFFSET, vertical_offset)
@@ -232,6 +204,7 @@ class HighlightDelegate(QStyledItemDelegate):
 # ============================================================================
 # Mod Selection Page
 # ============================================================================
+
 
 class ModSelectionPage(BasePage):
     """Main page for mod and component selection.
@@ -297,10 +270,7 @@ class ModSelectionPage(BasePage):
         layout = QVBoxLayout(panel)
         layout.setAlignment(Qt.AlignmentFlag.AlignTop)
         layout.setContentsMargins(
-            MARGIN_STANDARD,
-            MARGIN_STANDARD,
-            MARGIN_SMALL,
-            MARGIN_STANDARD
+            MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_SMALL, MARGIN_STANDARD
         )
         layout.setSpacing(SPACING_MEDIUM)
 
@@ -338,9 +308,7 @@ class ModSelectionPage(BasePage):
         return scroll
 
     def _create_category_button(
-            self,
-            category: CategoryEnum,
-            selected: bool = False
+        self, category: CategoryEnum, selected: bool = False
     ) -> CategoryButton:
         """Create and register a category button."""
         button = CategoryButton(category, 0, selected)
@@ -403,10 +371,7 @@ class ModSelectionPage(BasePage):
         layout = QVBoxLayout(panel)
         layout.setAlignment(Qt.AlignmentFlag.AlignTop)
         layout.setContentsMargins(
-            MARGIN_SMALL,
-            MARGIN_STANDARD,
-            MARGIN_STANDARD,
-            MARGIN_STANDARD
+            MARGIN_SMALL, MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_STANDARD
         )
         layout.setSpacing(SPACING_MEDIUM)
 
@@ -420,12 +385,12 @@ class ModSelectionPage(BasePage):
         self._component_selector.setItemDelegate(self._highlight_delegate)
 
         # Connect selection changes to update navigation buttons
-        self._component_selector._model.itemChanged.connect(
-            self._on_selection_changed
-        )
+        self._component_selector._model.itemChanged.connect(self._on_selection_changed)
 
         # Connect clicks to update details panel
-        self._component_selector.selectionModel().currentChanged.connect(self._on_component_changed)
+        self._component_selector.selectionModel().currentChanged.connect(
+            self._on_component_changed
+        )
 
         layout.addWidget(self._component_selector)
 
@@ -444,17 +409,13 @@ class ModSelectionPage(BasePage):
 
         # Search bar
         self._search_input = QLineEdit()
-        self._search_input.setPlaceholderText(
-            tr('page.selection.search_placeholder')
-        )
+        self._search_input.setPlaceholderText(tr("page.selection.search_placeholder"))
         self._search_input.setClearButtonEnabled(True)
         self._search_input.setMaxLength(MAX_SEARCH_LENGTH)
         self._search_input.textChanged.connect(self._on_search_changed)
         filters_layout.addWidget(self._search_input)
 
-        self._lang_label = QLabel(
-            tr('page.selection.desired_languages')
-        )
+        self._lang_label = QLabel(tr("page.selection.desired_languages"))
         sub_filters_layout.addWidget(self._lang_label)
 
         self._lang_select = MultiSelectComboBox()
@@ -558,7 +519,8 @@ class ModSelectionPage(BasePage):
         if collapsed != self._details_collapsed:
             self._details_collapsed = collapsed
             self._splitter_state = QByteArray(
-                b'\x00\x00\x00\xff\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x07\xaf\x00\x00\x01\xb6\x01\x00\x00\x00\x14\x01\x00\x00\x00\x01\x00')
+                b"\x00\x00\x00\xff\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x07\xaf\x00\x00\x01\xb6\x01\x00\x00\x00\x14\x01\x00\x00\x00\x01\x00"
+            )
             if collapsed:
                 self._collapse_button.setArrowType(Qt.ArrowType.LeftArrow)
             else:
@@ -583,7 +545,7 @@ class ModSelectionPage(BasePage):
             text=text,
             category=category,
             game=game,
-            languages=set(self._lang_select.selected_keys())
+            languages=set(self._lang_select.selected_keys()),
         )
 
         # Expand/collapse based on search
@@ -596,9 +558,7 @@ class ModSelectionPage(BasePage):
 
     def _update_statistics(self) -> None:
         """Update category counters based on current filters."""
-        filtered_counts = (
-            self._component_selector.get_filtered_mod_count_by_category()
-        )
+        filtered_counts = self._component_selector.get_filtered_mod_count_by_category()
 
         for category in CategoryEnum:
             count = filtered_counts.get(category.value, 0)
@@ -618,11 +578,7 @@ class ModSelectionPage(BasePage):
 
     def get_previous_button_config(self) -> ButtonConfig:
         """Configure previous button."""
-        return ButtonConfig(
-            visible=True,
-            enabled=True,
-            text=tr("button.previous")
-        )
+        return ButtonConfig(visible=True, enabled=True, text=tr("button.previous"))
 
     def can_go_to_next_page(self) -> bool:
         """Check if can go to next page."""
@@ -637,9 +593,7 @@ class ModSelectionPage(BasePage):
     def retranslate_ui(self) -> None:
         """Update UI text for language change."""
         self._left_title.setText(tr("page.selection.select_category"))
-        self._search_input.setPlaceholderText(
-            tr('page.selection.search_placeholder')
-        )
+        self._search_input.setPlaceholderText(tr("page.selection.search_placeholder"))
 
         # Update category buttons
         for button in self._category_buttons.values():

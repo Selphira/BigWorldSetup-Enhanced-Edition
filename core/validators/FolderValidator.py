@@ -8,13 +8,13 @@ Provides a hierarchy of validators:
 - GameFolderValidator: Validates game-specific requirements
 """
 
-import logging
-import re
 from abc import ABC, abstractmethod
+import logging
 from pathlib import Path
+import re
 
 from constants import MAX_LUA_FILE_SIZE
-from core.GameModels import GameValidationRule, FileGroupOperator, FileGroup
+from core.GameModels import FileGroup, FileGroupOperator, GameValidationRule
 from core.TranslationManager import tr
 
 logger = logging.getLogger(__name__)
@@ -26,6 +26,7 @@ ValidationResult = tuple[bool, str]
 # ============================================================================
 # BASE VALIDATORS
 # ============================================================================
+
 
 class FolderValidator(ABC):
     """
@@ -64,15 +65,15 @@ class ExistingFolderValidator(FolderValidator):
             (True, "") if valid, (False, error_message) otherwise
         """
         if not path:
-            return False, tr('validation.folder_required')
+            return False, tr("validation.folder_required")
 
         folder = Path(path)
 
         if not folder.exists():
-            return False, tr('validation.folder_not_exist')
+            return False, tr("validation.folder_not_exist")
 
         if not folder.is_dir():
-            return False, tr('validation.not_a_folder')
+            return False, tr("validation.not_a_folder")
 
         return True, ""
 
@@ -80,7 +81,7 @@ class ExistingFolderValidator(FolderValidator):
 class WritableFolderValidator(ExistingFolderValidator):
     """Validates that a folder exists and is writable."""
 
-    TEST_FILE_NAME = '.write_test'
+    TEST_FILE_NAME = ".write_test"
 
     def validate(self, path: str) -> ValidationResult:
         """
@@ -109,16 +110,17 @@ class WritableFolderValidator(ExistingFolderValidator):
 
         except PermissionError:
             logger.warning(f"Folder not writable: {path}")
-            return False, tr('validation.folder_not_writable')
+            return False, tr("validation.folder_not_writable")
 
         except OSError as e:
             logger.warning(f"Error testing write permission for {path}: {e}")
-            return False, tr('validation.folder_not_writable')
+            return False, tr("validation.folder_not_writable")
 
 
 # ============================================================================
 # GAME FOLDER VALIDATOR
 # ============================================================================
+
 
 class GameFolderValidator(ExistingFolderValidator):
     """
@@ -132,10 +134,7 @@ class GameFolderValidator(ExistingFolderValidator):
 
     # Regex to parse Lua numeric variables (compiled once at class level)
     # Matches: variable_name = numeric_value
-    _LUA_NUMBER_PATTERN = re.compile(
-        r'(\w+)\s*=\s*(-?\d+(?:\.\d+)?)',
-        re.MULTILINE
-    )
+    _LUA_NUMBER_PATTERN = re.compile(r"(\w+)\s*=\s*(-?\d+(?:\.\d+)?)", re.MULTILINE)
 
     def __init__(self, validation_rules: GameValidationRule) -> None:
         """
@@ -184,7 +183,7 @@ class GameFolderValidator(ExistingFolderValidator):
 
         if not folder.is_dir():
             logger.debug(f"Invalid folder: {folder_path}")
-            return False, tr('validation.invalid_game_folder')
+            return False, tr("validation.invalid_game_folder")
 
         # Check required file groups
         if self.validation_rules.required_files:
@@ -195,7 +194,7 @@ class GameFolderValidator(ExistingFolderValidator):
         # Check Lua conditions
         if self.validation_rules.lua_checks:
             if not self._check_lua_conditions(folder):
-                return False, tr('validation.invalid_game_folder')
+                return False, tr("validation.invalid_game_folder")
 
         return True, ""
 
@@ -204,10 +203,7 @@ class GameFolderValidator(ExistingFolderValidator):
     # ========================================
 
     @staticmethod
-    def _find_file_case_insensitive(
-            folder: Path,
-            filename: str
-    ) -> Path | None:
+    def _find_file_case_insensitive(folder: Path, filename: str) -> Path | None:
         """
         Find a file in folder by name (case-insensitive).
 
@@ -234,8 +230,11 @@ class GameFolderValidator(ExistingFolderValidator):
                 current = folder
 
                 for part in parts[:-1]:
-                    matches = [d for d in current.iterdir()
-                               if d.is_dir() and d.name.lower() == part.lower()]
+                    matches = [
+                        d
+                        for d in current.iterdir()
+                        if d.is_dir() and d.name.lower() == part.lower()
+                    ]
                     if not matches:
                         return None
                     current = matches[0]
@@ -277,11 +276,7 @@ class GameFolderValidator(ExistingFolderValidator):
         logger.debug("All file groups validated in {folder}")
         return True, ""
 
-    def _validate_file_group(
-            self,
-            folder: Path,
-            group: FileGroup
-    ) -> ValidationResult:
+    def _validate_file_group(self, folder: Path, group: FileGroup) -> ValidationResult:
         """
         Validate a file group against its operator logic.
 
@@ -312,17 +307,14 @@ class GameFolderValidator(ExistingFolderValidator):
 
         # Log and return result
         if is_valid:
-            logger.debug(
-                "File group validated: {group.description} (found: {ound_files})"
-            )
+            logger.debug("File group validated: {group.description} (found: {ound_files})")
             return True, ""
         else:
             logger.debug(
                 "File group validation failed: {group.description} (found {found_count}/{total_count}: {found_files})"
             )
             return False, tr(
-                'validation.file_group_failed : {description}',
-                description=group.description
+                "validation.file_group_failed : {description}", description=group.description
             )
 
     def _check_lua_conditions(self, folder: Path) -> bool:
@@ -381,9 +373,7 @@ class GameFolderValidator(ExistingFolderValidator):
             # Check file size
             file_size = file_path.stat().st_size
             if file_size > MAX_LUA_FILE_SIZE:
-                logger.warning(
-                    f"Lua file too large ({file_size} bytes): {file_path}"
-                )
+                logger.warning(f"Lua file too large ({file_size} bytes): {file_path}")
                 return {}
 
             # Read file content
@@ -401,7 +391,7 @@ class GameFolderValidator(ExistingFolderValidator):
         for name, value in matches:
             # Use float if decimal point present, otherwise int
             try:
-                variables[name] = float(value) if '.' in value else int(value)
+                variables[name] = float(value) if "." in value else int(value)
             except ValueError:
                 logger.warning(f"Failed to parse Lua value: {name}={value}")
                 continue

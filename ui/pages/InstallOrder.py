@@ -5,25 +5,45 @@ This module provides an interface for organizing mod installation order
 with drag-and-drop support, automatic ordering, and validation rules.
 Supports EET dual-sequence installation (BG1 and BG2 phases).
 """
+
 from __future__ import annotations
 
-import logging
 from dataclasses import dataclass
+import logging
 from typing import cast
 
-from PySide6.QtCore import QPoint, QTimer, Qt, Signal, QMimeData
+from PySide6.QtCore import QMimeData, QPoint, Qt, QTimer, Signal
 from PySide6.QtGui import QColor, QDrag, QPainter, QPen
 from PySide6.QtWidgets import (
-    QAbstractItemView, QCheckBox, QFileDialog, QFrame, QHBoxLayout,
-    QHeaderView, QMessageBox, QPushButton, QSplitter, QTabWidget,
-    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QSizePolicy
+    QAbstractItemView,
+    QCheckBox,
+    QFileDialog,
+    QFrame,
+    QHBoxLayout,
+    QHeaderView,
+    QMessageBox,
+    QPushButton,
+    QSizePolicy,
+    QSplitter,
+    QTableWidget,
+    QTableWidgetItem,
+    QTabWidget,
+    QVBoxLayout,
+    QWidget,
 )
 
 from constants import (
-    COLOR_ACCENT, COLOR_BACKGROUND_WARNING,
-    COLOR_BACKGROUND_ERROR, ICON_ERROR, MARGIN_SMALL,
-    MARGIN_STANDARD, SPACING_MEDIUM, SPACING_SMALL, ICON_WARNING,
-    ROLE_MOD, ROLE_COMPONENT
+    COLOR_ACCENT,
+    COLOR_BACKGROUND_ERROR,
+    COLOR_BACKGROUND_WARNING,
+    ICON_ERROR,
+    ICON_WARNING,
+    MARGIN_SMALL,
+    MARGIN_STANDARD,
+    ROLE_COMPONENT,
+    ROLE_MOD,
+    SPACING_MEDIUM,
+    SPACING_SMALL,
 )
 from core.GameModels import GameDefinition, InstallStep
 from core.StateManager import StateManager
@@ -60,6 +80,7 @@ AUTO_SCROLL_SPEED = 5
 # Validation System
 # ============================================================================
 
+
 @dataclass
 class ComponentIssue:
     """Single validation issue for a component.
@@ -69,6 +90,7 @@ class ComponentIssue:
         message: Issue description
         is_error: True for errors, False for warnings
     """
+
     component_id: str
     message: str
     is_error: bool
@@ -177,7 +199,10 @@ class ValidationResult:
             return self.COLOR_VALID, ""
 
         has_error = any(issue.is_error for issue in issues)
-        return self.COLOR_ERROR if has_error else self.COLOR_WARNING, ICON_ERROR if has_error else ICON_WARNING
+        return (
+            self.COLOR_ERROR if has_error else self.COLOR_WARNING,
+            ICON_ERROR if has_error else ICON_WARNING,
+        )
 
     def clear(self) -> None:
         """Clear all validation issues."""
@@ -188,6 +213,7 @@ class ValidationResult:
 # Sequence Data Model
 # ============================================================================
 
+
 @dataclass
 class SequenceData:
     """Data model for a single installation sequence.
@@ -197,6 +223,7 @@ class SequenceData:
         unordered: Components not yet ordered [(mod_id, comp_key), ...]
         validation: Validation result for this sequence
     """
+
     ordered: list[tuple[str, str]]
     unordered: list[tuple[str, str]]
     validation: ValidationResult
@@ -239,6 +266,7 @@ class SequenceData:
 # Draggable Table Widget
 # ============================================================================
 
+
 class DraggableTableWidget(HoverTableWidget):
     """Table widget with enhanced drag-and-drop support.
 
@@ -254,11 +282,11 @@ class DraggableTableWidget(HoverTableWidget):
     orderChanged = Signal()
 
     def __init__(
-            self,
-            parent=None,
-            column_count: int = 2,
-            accept_from_other: bool = False,
-            table_role: str | None = None
+        self,
+        parent=None,
+        column_count: int = 2,
+        accept_from_other: bool = False,
+        table_role: str | None = None,
     ):
         """Initialize draggable table widget.
 
@@ -307,8 +335,7 @@ class DraggableTableWidget(HoverTableWidget):
 
     def startDrag(self, supported_actions):
         """Start drag operation."""
-        self._dragged_rows = [item.row() for item in self.selectedItems()
-                              if item.column() == 0]
+        self._dragged_rows = [item.row() for item in self.selectedItems() if item.column() == 0]
         self._dragged_rows = sorted(set(self._dragged_rows))
 
         if not self._dragged_rows:
@@ -424,7 +451,7 @@ class DraggableTableWidget(HoverTableWidget):
 
             # Remove from source if dropping from another table
             if source and source is not self:
-                if hasattr(source, '_dragged_rows'):
+                if hasattr(source, "_dragged_rows"):
                     # Remove in reverse order to maintain indices
                     for row in sorted(source._dragged_rows, reverse=True):
                         source.removeRow(row)
@@ -454,7 +481,7 @@ class DraggableTableWidget(HoverTableWidget):
         """Get parent InstallOrderPage instance."""
         parent = self.parent()
         while parent:
-            if parent.__class__.__name__ == 'InstallOrderPage':
+            if parent.__class__.__name__ == "InstallOrderPage":
                 return cast(InstallOrderPage, parent)
             parent = parent.parent()
         return None
@@ -551,6 +578,7 @@ class DraggableTableWidget(HoverTableWidget):
 # Install Order Page
 # ============================================================================
 
+
 class InstallOrderPage(BasePage):
     """Page for managing component installation order.
 
@@ -621,8 +649,7 @@ class InstallOrderPage(BasePage):
         layout = QVBoxLayout(self)
         layout.setSpacing(SPACING_MEDIUM)
         layout.setContentsMargins(
-            MARGIN_STANDARD, MARGIN_STANDARD,
-            MARGIN_STANDARD, MARGIN_STANDARD
+            MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_STANDARD, MARGIN_STANDARD
         )
 
         # Main container
@@ -677,7 +704,9 @@ class InstallOrderPage(BasePage):
             logger.error(f"Game definition not found: {selected_game}")
             return
 
-        logger.info(f"Rebuilding UI for {selected_game}: {self._game_def.sequence_count} sequence(s)")
+        logger.info(
+            f"Rebuilding UI for {selected_game}: {self._game_def.sequence_count} sequence(s)"
+        )
 
         # Create UI based on sequence count
         if self._game_def.has_multiple_sequences:
@@ -788,16 +817,13 @@ class InstallOrderPage(BasePage):
 
         # Table widget
         table = DraggableTableWidget(
-            column_count=ORDERED_COLUMN_COUNT,
-            accept_from_other=True,
-            table_role="ordered"
+            column_count=ORDERED_COLUMN_COUNT, accept_from_other=True, table_role="ordered"
         )
 
         # Configure columns
-        table.setHorizontalHeaderLabels([
-            tr("page.order.col_mod"),
-            tr("page.order.col_component")
-        ])
+        table.setHorizontalHeaderLabels(
+            [tr("page.order.col_mod"), tr("page.order.col_component")]
+        )
 
         header = table.horizontalHeader()
         header.setSectionResizeMode(COL_ORDERED_MOD, QHeaderView.ResizeMode.Stretch)
@@ -807,10 +833,7 @@ class InstallOrderPage(BasePage):
         layout.addWidget(table)
 
         # Store references
-        self._ordered_tables[seq_idx] = {
-            'title': title,
-            'table': table
-        }
+        self._ordered_tables[seq_idx] = {"title": title, "table": table}
 
         return panel
 
@@ -836,16 +859,13 @@ class InstallOrderPage(BasePage):
 
         # Table widget
         table = DraggableTableWidget(
-            column_count=UNORDERED_COLUMN_COUNT,
-            accept_from_other=True,
-            table_role="unordered"
+            column_count=UNORDERED_COLUMN_COUNT, accept_from_other=True, table_role="unordered"
         )
 
         # Configure columns
-        table.setHorizontalHeaderLabels([
-            tr("page.order.col_mod"),
-            tr("page.order.col_component")
-        ])
+        table.setHorizontalHeaderLabels(
+            [tr("page.order.col_mod"), tr("page.order.col_component")]
+        )
 
         header = table.horizontalHeader()
         header.setSectionResizeMode(COL_UNORDERED_MOD, QHeaderView.ResizeMode.Stretch)
@@ -859,10 +879,7 @@ class InstallOrderPage(BasePage):
         layout.addWidget(table)
 
         # Store references
-        self._unordered_tables[seq_idx] = {
-            'title': title,
-            'table': table
-        }
+        self._unordered_tables[seq_idx] = {"title": title, "table": table}
 
         return panel
 
@@ -887,9 +904,7 @@ class InstallOrderPage(BasePage):
         # Initialize sequence data
         for seq_idx in range(self._game_def.sequence_count):
             self._sequences_data[seq_idx] = SequenceData(
-                ordered=[],
-                unordered=[],
-                validation=ValidationResult()
+                ordered=[], unordered=[], validation=ValidationResult()
             )
 
         # Distribute components to sequences
@@ -899,7 +914,11 @@ class InstallOrderPage(BasePage):
                 if not mod:
                     continue
                 if isinstance(comp, dict):
-                    comp_key = comp['key'] + '.' + '.'.join([value for value in comp['prompts'].values()])
+                    comp_key = (
+                        comp["key"]
+                        + "."
+                        + ".".join([value for value in comp["prompts"].values()])
+                    )
                 else:
                     comp_key = comp
                 component = mod.get_component(comp_key)
@@ -916,7 +935,7 @@ class InstallOrderPage(BasePage):
             comp_key: Component key
         """
         # Extract simple key (before first dot for SUB components)
-        simple_key = comp_key.split('.')[0]
+        simple_key = comp_key.split(".")[0]
         placed = False
 
         for seq_idx, sequence in enumerate(self._game_def.sequences):
@@ -973,9 +992,9 @@ class InstallOrderPage(BasePage):
         # Apply order
         new_ordered = []
         for comp_id in order:
-            if ':' in comp_id:
-                mod_part, comp_part = comp_id.split(':', 1)
-                simple_comp = comp_part.split('.')[0]
+            if ":" in comp_id:
+                mod_part, comp_part = comp_id.split(":", 1)
+                simple_comp = comp_part.split(".")[0]
                 simple_id = f"{mod_part}:{simple_comp}"
             else:
                 simple_id = comp_id
@@ -993,12 +1012,12 @@ class InstallOrderPage(BasePage):
         self._refresh_sequence_tables(seq_idx)
         self._validate_sequence(seq_idx)
 
-        logger.info(f"Sequence {seq_idx}: {len(new_ordered)} ordered, {len(new_unordered)} unordered")
+        logger.info(
+            f"Sequence {seq_idx}: {len(new_ordered)} ordered, {len(new_unordered)} unordered"
+        )
 
     def _apply_sequence_order(
-            self,
-            seq_idx: int,
-            install_steps: tuple[InstallStep, ...]
+        self, seq_idx: int, install_steps: tuple[InstallStep, ...]
     ) -> None:
         """Apply installation order from InstallStep sequence.
 
@@ -1041,7 +1060,7 @@ class InstallOrderPage(BasePage):
             self,
             tr("page.order.select_weidu_log"),
             "",
-            "WeiDU Log (WeiDU.log);;All Files (*.*)"
+            "WeiDU Log (WeiDU.log);;All Files (*.*)",
         )
 
         if not file_path:
@@ -1055,33 +1074,27 @@ class InstallOrderPage(BasePage):
             QMessageBox.information(
                 self,
                 tr("page.order.apply_success_title"),
-                tr("page.order.apply_success_message",
-                   ordered=len(seq_data.ordered),
-                   unordered=len(seq_data.unordered))
+                tr(
+                    "page.order.apply_success_message",
+                    ordered=len(seq_data.ordered),
+                    unordered=len(seq_data.unordered),
+                ),
             )
         except Exception as e:
             logger.error(f"Error parsing WeiDU.log: {e}", exc_info=True)
             QMessageBox.critical(
                 self,
                 tr("page.order.parse_error_title"),
-                tr("page.order.parse_error_message", error=str(e))
+                tr("page.order.parse_error_message", error=str(e)),
             )
 
     def _import_order(self) -> None:
         """Import order from JSON file."""
-        QMessageBox.information(
-            self,
-            "A développer",
-            "Importation depuis un fichier exporté"
-        )
+        QMessageBox.information(self, "A développer", "Importation depuis un fichier exporté")
 
     def _export_order(self) -> None:
         """Export current order to JSON file."""
-        QMessageBox.information(
-            self,
-            "A développer",
-            "Exportation de l'ordre actuel"
-        )
+        QMessageBox.information(self, "A développer", "Exportation de l'ordre actuel")
 
     # ========================================
     # UI Updates
@@ -1105,8 +1118,8 @@ class InstallOrderPage(BasePage):
         if seq_idx not in self._ordered_tables or seq_idx not in self._unordered_tables:
             return
 
-        ordered_table = self._ordered_tables[seq_idx]['table']
-        unordered_table = self._unordered_tables[seq_idx]['table']
+        ordered_table = self._ordered_tables[seq_idx]["table"]
+        unordered_table = self._unordered_tables[seq_idx]["table"]
 
         # Block signals during refresh
         ordered_table.blockSignals(True)
@@ -1132,20 +1145,14 @@ class InstallOrderPage(BasePage):
         self._update_sequence_counters(seq_idx)
 
     def _add_row_to_ordered_table(
-            self,
-            table: QTableWidget,
-            mod_id: str,
-            comp_key: str
+        self, table: QTableWidget, mod_id: str, comp_key: str
     ) -> None:
         """Add a row to the ordered table."""
         row = table.rowCount()
         self.insert_row_to_ordered_table(table, row, mod_id, comp_key)
 
     def _add_row_to_unordered_table(
-            self,
-            table: QTableWidget,
-            mod_id: str,
-            comp_key: str
+        self, table: QTableWidget, mod_id: str, comp_key: str
     ) -> None:
         """Add a row to the unordered table."""
         row = table.rowCount()
@@ -1168,10 +1175,10 @@ class InstallOrderPage(BasePage):
         unordered_count = len(seq_data.unordered)
         total = seq_data.total_count
 
-        self._ordered_tables[seq_idx]['title'].setText(
+        self._ordered_tables[seq_idx]["title"].setText(
             tr("page.order.ordered_title", count=ordered_count, total=total)
         )
-        self._unordered_tables[seq_idx]['title'].setText(
+        self._unordered_tables[seq_idx]["title"].setText(
             tr("page.order.unordered_title", count=unordered_count)
         )
 
@@ -1210,7 +1217,7 @@ class InstallOrderPage(BasePage):
         if not seq_data or seq_idx not in self._ordered_tables:
             return
 
-        ordered_table = self._ordered_tables[seq_idx]['table']
+        ordered_table = self._ordered_tables[seq_idx]["table"]
 
         for row in range(ordered_table.rowCount()):
             mod_item = ordered_table.item(row, COL_ORDERED_MOD)
@@ -1223,14 +1230,18 @@ class InstallOrderPage(BasePage):
             # Get violations
             violations = self._rule_manager.get_violations_for_component(mod_id, comp_key)
 
-            mod_item.setText(mod_item.text().replace(f"{ICON_ERROR} ", "").replace(f"{ICON_WARNING} ", ""))
+            mod_item.setText(
+                mod_item.text().replace(f"{ICON_ERROR} ", "").replace(f"{ICON_WARNING} ", "")
+            )
 
             if violations:
                 tooltip_lines = []
                 for v in violations:
                     tooltip_lines.append(f"{v.icon} {v.message}")
 
-                color, icon = seq_data.validation.get_component_indicator(f"{mod_id}:{comp_key}")
+                color, icon = seq_data.validation.get_component_indicator(
+                    f"{mod_id}:{comp_key}"
+                )
                 mod_item.setText(f"{icon} {mod_item.text()}")
                 mod_item.setToolTip("\n".join(tooltip_lines))
 
@@ -1264,8 +1275,8 @@ class InstallOrderPage(BasePage):
         if seq_idx not in self._ordered_tables or seq_idx not in self._unordered_tables:
             return
 
-        ordered_table = self._ordered_tables[seq_idx]['table']
-        unordered_table = self._unordered_tables[seq_idx]['table']
+        ordered_table = self._ordered_tables[seq_idx]["table"]
+        unordered_table = self._unordered_tables[seq_idx]["table"]
 
         # Rebuild from tables
         seq_data.ordered = []
@@ -1297,8 +1308,8 @@ class InstallOrderPage(BasePage):
         if seq_idx not in self._ordered_tables or seq_idx not in self._unordered_tables:
             return
 
-        ordered_table = self._ordered_tables[seq_idx]['table']
-        unordered_table = self._unordered_tables[seq_idx]['table']
+        ordered_table = self._ordered_tables[seq_idx]["table"]
+        unordered_table = self._unordered_tables[seq_idx]["table"]
 
         row = item.row()
         mod_item = unordered_table.item(row, COL_UNORDERED_MOD)
@@ -1335,11 +1346,7 @@ class InstallOrderPage(BasePage):
         self._on_order_changed(seq_idx)
 
     def insert_row_to_ordered_table(
-            self,
-            table: QTableWidget,
-            row: int,
-            mod_id: str,
-            comp_key: str
+        self, table: QTableWidget, row: int, mod_id: str, comp_key: str
     ) -> None:
         """Insert a row at specific position in ordered table."""
         table.insertRow(row)
@@ -1359,11 +1366,7 @@ class InstallOrderPage(BasePage):
         table.setItem(row, COL_ORDERED_COMPONENT, comp_item)
 
     def insert_row_to_unordered_table(
-            self,
-            table: QTableWidget,
-            row: int,
-            mod_id: str,
-            comp_key: str
+        self, table: QTableWidget, row: int, mod_id: str, comp_key: str
     ) -> None:
         """Insert a row at specific position in unordered table."""
         table.insertRow(row)
@@ -1398,7 +1401,7 @@ class InstallOrderPage(BasePage):
         Args:
             state: Checkbox state
         """
-        self._ignore_warnings = (state == Qt.CheckState.Checked.value)
+        self._ignore_warnings = state == Qt.CheckState.Checked.value
         self.notify_navigation_changed()
         logger.debug(f"Ignore warnings: {self._ignore_warnings}")
 
@@ -1408,7 +1411,7 @@ class InstallOrderPage(BasePage):
         Args:
             state: Checkbox state
         """
-        self._ignore_errors = (state == Qt.CheckState.Checked.value)
+        self._ignore_errors = state == Qt.CheckState.Checked.value
         self.notify_navigation_changed()
         logger.debug(f"Ignore errors: {self._ignore_errors}")
 
@@ -1531,7 +1534,7 @@ class InstallOrderPage(BasePage):
 
         # Update table headers
         for seq_idx in self._ordered_tables.keys():
-            table = self._ordered_tables[seq_idx]['table']
+            table = self._ordered_tables[seq_idx]["table"]
             table.setHorizontalHeaderLabels([
                 tr("page.order.col_mod"),
                 tr("page.order.col_component")

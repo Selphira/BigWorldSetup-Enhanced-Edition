@@ -13,11 +13,11 @@ from PySide6.QtWidgets import (
 )
 
 from constants import ICONS_DIR
+from core.enums.GameEnum import GameEnum
 from core.GameModels import GameDefinition
 from core.StateManager import StateManager
 from core.TranslationManager import tr
-from core.enums.GameEnum import GameEnum
-from core.validators.FolderValidator import WritableFolderValidator, GameFolderValidator
+from core.validators.FolderValidator import GameFolderValidator, WritableFolderValidator
 from ui.pages.BasePage import BasePage, ButtonConfig
 from ui.widgets.FolderSelector import FolderSelector, GameFolderSelector
 from ui.widgets.GameButton import GameButton
@@ -163,11 +163,7 @@ class InstallationTypePage(BasePage):
             Configured game button
         """
         icon_path = ICONS_DIR / f"{game.id}.png"
-        button = GameButton(
-            game,
-            icon_path if icon_path.exists() else None,
-            parent=self
-        )
+        button = GameButton(game, icon_path if icon_path.exists() else None, parent=self)
         button.clicked.connect(self._on_game_selected)
         self.game_buttons[game.id] = button
 
@@ -199,22 +195,18 @@ class InstallationTypePage(BasePage):
         self.download_folder = FolderSelector(
             "page.type.download_folder",
             "page.type.select_download_folder_title",
-            WritableFolderValidator()
+            WritableFolderValidator(),
         )
-        self.download_folder.validation_changed.connect(
-            self._on_folder_validation_changed
-        )
+        self.download_folder.validation_changed.connect(self._on_folder_validation_changed)
         layout.addWidget(self.download_folder)
 
         # Backup folder
         self.backup_folder = FolderSelector(
             "page.type.backup_folder",
             "page.type.select_backup_folder_title",
-            WritableFolderValidator()
+            WritableFolderValidator(),
         )
-        self.backup_folder.validation_changed.connect(
-            self._on_folder_validation_changed
-        )
+        self.backup_folder.validation_changed.connect(self._on_folder_validation_changed)
         layout.addWidget(self.backup_folder)
 
         # Separator
@@ -293,7 +285,7 @@ class InstallationTypePage(BasePage):
                 "page.type.game_folder",
                 "page.type.select_game_folder_title",
                 ref_game,
-                GameFolderValidator(sequence.validation)
+                GameFolderValidator(sequence.validation),
             )
             selector.validation_changed.connect(self._on_folder_validation_changed)
 

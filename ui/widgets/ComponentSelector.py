@@ -4,22 +4,31 @@ ComponentSelector - Hierarchical widget for mod and component selection.
 This module provides a tree-based component selector with filtering capabilities,
 supporting different component types (STD, MUC, SUB) with their specific behaviors.
 """
-import logging
+
 from dataclasses import dataclass
 from enum import Enum, auto
-from typing import Any, cast, Generator
+import logging
+from typing import Any, Generator, cast
 
-from PySide6.QtCore import QSortFilterProxyModel, QModelIndex, Qt
-from PySide6.QtGui import QStandardItemModel, QStandardItem, QColor, QCursor
+from PySide6.QtCore import QModelIndex, QSortFilterProxyModel, Qt
+from PySide6.QtGui import QColor, QCursor, QStandardItem, QStandardItemModel
 from PySide6.QtWidgets import QTreeView
 
 from constants import (
-    ROLE_MOD, ROLE_COMPONENT, ROLE_AUTHOR, ROLE_OPTION_KEY, ROLE_PROMPT_KEY, ROLE_IS_DEFAULT, ROLE_RADIO,
-    COLOR_STATUS_NONE, COLOR_STATUS_COMPLETE, COLOR_STATUS_PARTIAL
+    COLOR_STATUS_COMPLETE,
+    COLOR_STATUS_NONE,
+    COLOR_STATUS_PARTIAL,
+    ROLE_AUTHOR,
+    ROLE_COMPONENT,
+    ROLE_IS_DEFAULT,
+    ROLE_MOD,
+    ROLE_OPTION_KEY,
+    ROLE_PROMPT_KEY,
+    ROLE_RADIO,
 )
+from core.enums.CategoryEnum import CategoryEnum
 from core.ModManager import ModManager
 from core.TranslationManager import tr
-from core.enums.CategoryEnum import CategoryEnum
 
 logger = logging.getLogger(__name__)
 
@@ -28,8 +37,10 @@ logger = logging.getLogger(__name__)
 # Enums and Data Classes
 # ============================================================================
 
+
 class ItemType(Enum):
     """Types of tree items."""
+
     MOD = auto()
     COMPONENT_STD = auto()
     COMPONENT_MUC = auto()
@@ -47,6 +58,7 @@ class VisibilityStats:
         total_visible: Total number of visible children
         checked_count: Number of visible children that are checked
     """
+
     total_visible: int
     checked_count: int
 
@@ -80,6 +92,7 @@ class StatusConfig:
         color: Color to use for the status
         check_state: Check state to apply to the parent item
     """
+
     text_key: str
     color: str
     check_state: Qt.CheckState
@@ -88,6 +101,7 @@ class StatusConfig:
 @dataclass
 class FilterCriteria:
     """Encapsulates all filter criteria."""
+
     text: str = ""
     game: str = ""
     category: str = ""
@@ -103,10 +117,7 @@ class FilterCriteria:
 
     def has_active_filters(self) -> bool:
         """Check if any filter is active."""
-        return bool(
-            self.text or self.game or self.category
-            or self.authors or self.languages
-        )
+        return bool(self.text or self.game or self.category or self.authors or self.languages)
 
     def clear(self) -> None:
         """Clear all filters."""
@@ -120,6 +131,7 @@ class FilterCriteria:
 # ============================================================================
 # Filter Engine
 # ============================================================================
+
 
 class FilterEngine:
     """Handles all filtering logic separately from UI concerns."""
@@ -206,6 +218,7 @@ class FilterEngine:
 # ============================================================================
 # Hierarchical Filter Proxy Model
 # ============================================================================
+
 
 class HierarchicalFilterProxyModel(QSortFilterProxyModel):
     """Proxy model with intelligent hierarchical filtering.
@@ -304,6 +317,7 @@ class HierarchicalFilterProxyModel(QSortFilterProxyModel):
 # Base Tree Item with Type Information
 # ============================================================================
 
+
 class BaseTreeItem(QStandardItem):
     """Base class for all tree items with type information."""
 
@@ -324,14 +338,18 @@ class BaseTreeItem(QStandardItem):
 # Specific Item Types
 # ============================================================================
 
+
 class ModTreeItem(BaseTreeItem):
     """Tree item representing a mod."""
 
     def __init__(self, mod):
         super().__init__(ItemType.MOD, mod.name)
         self.setFlags(
-            self.flags() | Qt.ItemFlag.ItemIsUserCheckable | Qt.ItemFlag.ItemIsAutoTristate |
-            Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable
+            self.flags()
+            | Qt.ItemFlag.ItemIsUserCheckable
+            | Qt.ItemFlag.ItemIsAutoTristate
+            | Qt.ItemFlag.ItemIsEnabled
+            | Qt.ItemFlag.ItemIsSelectable
         )
         self.setCheckState(Qt.CheckState.Unchecked)
         self.setData(mod, ROLE_MOD)
@@ -343,7 +361,10 @@ class StdTreeItem(BaseTreeItem):
     def __init__(self, mod, component):
         super().__init__(ItemType.COMPONENT_STD)
         self.setFlags(
-            self.flags() | Qt.ItemFlag.ItemIsUserCheckable | Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable
+            self.flags()
+            | Qt.ItemFlag.ItemIsUserCheckable
+            | Qt.ItemFlag.ItemIsEnabled
+            | Qt.ItemFlag.ItemIsSelectable
         )
         self.setCheckState(Qt.CheckState.Unchecked)
         self.setData(mod, ROLE_MOD)
@@ -363,7 +384,10 @@ class MucTreeItem(BaseTreeItem):
     def __init__(self, mod, component):
         super().__init__(ItemType.COMPONENT_MUC)
         self.setFlags(
-            self.flags() | Qt.ItemFlag.ItemIsUserCheckable | Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable
+            self.flags()
+            | Qt.ItemFlag.ItemIsUserCheckable
+            | Qt.ItemFlag.ItemIsEnabled
+            | Qt.ItemFlag.ItemIsSelectable
         )
         self.setCheckState(Qt.CheckState.Unchecked)
         self.setData(mod, ROLE_MOD)
@@ -384,7 +408,10 @@ class SubTreeItem(BaseTreeItem):
     def __init__(self, mod, component):
         super().__init__(ItemType.COMPONENT_SUB)
         self.setFlags(
-            self.flags() | Qt.ItemFlag.ItemIsUserCheckable | Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable
+            self.flags()
+            | Qt.ItemFlag.ItemIsUserCheckable
+            | Qt.ItemFlag.ItemIsEnabled
+            | Qt.ItemFlag.ItemIsSelectable
         )
         self.setCheckState(Qt.CheckState.Unchecked)
         self.setData(mod, ROLE_MOD)
@@ -412,10 +439,7 @@ class SubTreeItem(BaseTreeItem):
                     prompts[prompt_key] = option_item.data(ROLE_OPTION_KEY)
                     break
 
-        return {
-            "key": component.key,
-            "prompts": prompts
-        } if prompts else None
+        return {"key": component.key, "prompts": prompts} if prompts else None
 
 
 class MucOptionTreeItem(BaseTreeItem):
@@ -424,7 +448,10 @@ class MucOptionTreeItem(BaseTreeItem):
     def __init__(self, mod, component, option_key: str, is_default: bool):
         super().__init__(ItemType.MUC_OPTION)
         self.setFlags(
-            self.flags() | Qt.ItemFlag.ItemIsUserCheckable | Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable
+            self.flags()
+            | Qt.ItemFlag.ItemIsUserCheckable
+            | Qt.ItemFlag.ItemIsEnabled
+            | Qt.ItemFlag.ItemIsSelectable
         )
         self.setCheckState(Qt.CheckState.Unchecked)
         self.setData(mod, ROLE_MOD)
@@ -439,7 +466,10 @@ class PromptTreeItem(BaseTreeItem):
     def __init__(self, mod, component, prompt):
         super().__init__(ItemType.SUB_PROMPT)
         self.setFlags(
-            self.flags() | Qt.ItemFlag.ItemIsUserCheckable | Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable
+            self.flags()
+            | Qt.ItemFlag.ItemIsUserCheckable
+            | Qt.ItemFlag.ItemIsEnabled
+            | Qt.ItemFlag.ItemIsSelectable
         )
         self.setCheckState(Qt.CheckState.Unchecked)
         self.setData(mod, ROLE_MOD)
@@ -453,7 +483,10 @@ class PromptOptionTreeItem(BaseTreeItem):
     def __init__(self, mod, component, prompt, option_key: str, is_default: bool):
         super().__init__(ItemType.SUB_PROMPT_OPTION)
         self.setFlags(
-            self.flags() | Qt.ItemFlag.ItemIsUserCheckable | Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable
+            self.flags()
+            | Qt.ItemFlag.ItemIsUserCheckable
+            | Qt.ItemFlag.ItemIsEnabled
+            | Qt.ItemFlag.ItemIsSelectable
         )
         self.setCheckState(Qt.CheckState.Unchecked)
         self.setData(mod, ROLE_MOD)
@@ -466,6 +499,7 @@ class PromptOptionTreeItem(BaseTreeItem):
 # ============================================================================
 # Radio Tree Model
 # ============================================================================
+
 
 class RadioTreeModel(QStandardItemModel):
     """Model with automatic radio button behavior for mutually exclusive groups."""
@@ -507,9 +541,7 @@ class RadioTreeModel(QStandardItemModel):
                 sibling = parent.child(row, 0)
                 if sibling != item:
                     self.setData(
-                        sibling.index(),
-                        Qt.CheckState.Unchecked,
-                        Qt.ItemDataRole.CheckStateRole
+                        sibling.index(), Qt.CheckState.Unchecked, Qt.ItemDataRole.CheckStateRole
                     )
         finally:
             self._updating = False
@@ -518,6 +550,7 @@ class RadioTreeModel(QStandardItemModel):
 # ============================================================================
 # Mod Status Manager
 # ============================================================================
+
 
 class ModStatusManager:
     """Manages status updates for mod items in the tree.
@@ -528,21 +561,21 @@ class ModStatusManager:
 
     # Status configurations for different states
     _STATUS_CONFIGS = {
-        'none': StatusConfig(
+        "none": StatusConfig(
             text_key="widget.component_selector.selection.none",
             color=COLOR_STATUS_NONE,
-            check_state=Qt.CheckState.Unchecked
+            check_state=Qt.CheckState.Unchecked,
         ),
-        'partial': StatusConfig(
+        "partial": StatusConfig(
             text_key="widget.component_selector.selection.partial",
             color=COLOR_STATUS_PARTIAL,
-            check_state=Qt.CheckState.PartiallyChecked
+            check_state=Qt.CheckState.PartiallyChecked,
         ),
-        'complete': StatusConfig(
+        "complete": StatusConfig(
             text_key="widget.component_selector.selection.complete",
             color=COLOR_STATUS_COMPLETE,
-            check_state=Qt.CheckState.Checked
-        )
+            check_state=Qt.CheckState.Checked,
+        ),
     }
 
     def __init__(self, model: QStandardItemModel, proxy_model: QSortFilterProxyModel):
@@ -567,7 +600,7 @@ class ModStatusManager:
         stats = self._calculate_visibility_stats(mod_item)
 
         if not stats.has_visible_children:
-            self._apply_status(mod_item, 'none')
+            self._apply_status(mod_item, "none")
             return
 
         status_type = self._determine_status_type(stats)
@@ -593,8 +626,7 @@ class ModStatusManager:
         return VisibilityStats(total_visible, checked_count)
 
     def _iter_visible_children(
-            self,
-            parent_item: QStandardItem
+        self, parent_item: QStandardItem
     ) -> Generator[QStandardItem, None, None]:
         """Iterate over visible children of a parent item.
 
@@ -637,17 +669,14 @@ class ModStatusManager:
             Status type: 'none', 'partial', or 'complete'
         """
         if stats.none_checked:
-            return 'none'
+            return "none"
         elif stats.all_checked:
-            return 'complete'
+            return "complete"
         else:
-            return 'partial'
+            return "partial"
 
     def _apply_status(
-            self,
-            mod_item: ModTreeItem,
-            status_type: str,
-            stats: VisibilityStats | None = None
+        self, mod_item: ModTreeItem, status_type: str, stats: VisibilityStats | None = None
     ) -> None:
         """Apply status configuration to a mod item.
 
@@ -674,11 +703,7 @@ class ModStatusManager:
         status_item.setText(status_text)
         status_item.setForeground(QColor(config.color))
 
-    def _format_status_text(
-            self,
-            text_key: str,
-            stats: VisibilityStats | None
-    ) -> str:
+    def _format_status_text(self, text_key: str, stats: VisibilityStats | None) -> str:
         """Format status text with optional statistics.
 
         Args:
@@ -710,6 +735,7 @@ class ModStatusManager:
 # ============================================================================
 # Selection State Manager
 # ============================================================================
+
 
 class SelectionStateManager:
     """Manages selection state and update logic separately from UI."""
@@ -780,9 +806,7 @@ class SelectionStateManager:
 
         # Set component as checked
         self._model.setData(
-            component.index(),
-            Qt.CheckState.Checked,
-            Qt.ItemDataRole.CheckStateRole
+            component.index(), Qt.CheckState.Checked, Qt.ItemDataRole.CheckStateRole
         )
 
         # Handle children based on type
@@ -795,9 +819,7 @@ class SelectionStateManager:
             for row in range(component.rowCount()):
                 prompt_item = component.child(row, 0)
                 self._model.setData(
-                    prompt_item.index(),
-                    Qt.CheckState.Checked,
-                    Qt.ItemDataRole.CheckStateRole
+                    prompt_item.index(), Qt.CheckState.Checked, Qt.ItemDataRole.CheckStateRole
                 )
                 self._ensure_one_child_checked(prompt_item)
 
@@ -806,9 +828,7 @@ class SelectionStateManager:
     def _uncheck_component(self, component: BaseTreeItem) -> None:
         """Uncheck a component according to its type."""
         self._model.setData(
-            component.index(),
-            Qt.CheckState.Unchecked,
-            Qt.ItemDataRole.CheckStateRole
+            component.index(), Qt.CheckState.Unchecked, Qt.ItemDataRole.CheckStateRole
         )
 
         # Uncheck all children recursively
@@ -930,7 +950,8 @@ class SelectionStateManager:
             return
 
         checked_count = sum(
-            1 for row in range(parent.rowCount())
+            1
+            for row in range(parent.rowCount())
             if parent.child(row, 0).checkState() == Qt.CheckState.Checked
         )
 
@@ -987,7 +1008,9 @@ class SelectionStateManager:
 
         return False
 
-    def _find_parent_by_type(self, item: QStandardItem, item_type: ItemType) -> BaseTreeItem | None:
+    def _find_parent_by_type(
+        self, item: QStandardItem, item_type: ItemType
+    ) -> BaseTreeItem | None:
         """Find parent of specific type."""
         current = item.parent()
         while current:
@@ -1000,6 +1023,7 @@ class SelectionStateManager:
 # ============================================================================
 # Main Component Selector Widget
 # ============================================================================
+
 
 class ComponentSelector(QTreeView):
     """Hierarchical widget for mod and component selection."""
@@ -1050,9 +1074,7 @@ class ComponentSelector(QTreeView):
         header.setHighlightSections(False)
         header.setSectionsClickable(False)
         header.setSectionsMovable(False)
-        header.setDefaultAlignment(
-            Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter
-        )
+        header.setDefaultAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter)
 
     # ========================================
     # Data Loading
@@ -1114,20 +1136,17 @@ class ComponentSelector(QTreeView):
 
             # Determine if this is the default
             if default_value and default_exists:
-                is_default = (option_key_str == default_value)
+                is_default = option_key_str == default_value
             else:
                 # No valid default → use first element
-                is_default = (idx == 0)
+                is_default = idx == 0
 
-            option_item = MucOptionTreeItem(
-                mod, component, option_key, is_default
-            )
+            option_item = MucOptionTreeItem(mod, component, option_key, is_default)
             parent.appendRow([option_item, QStandardItem("")])
 
             if is_default:
                 logger.debug(
-                    f"MUC default option: {option_key_str} "
-                    f"for component {component.key}"
+                    f"MUC default option: {option_key_str} for component {component.key}"
                 )
 
     def _add_sub_prompts(self, parent: SubTreeItem, mod, component) -> None:
@@ -1139,8 +1158,7 @@ class ComponentSelector(QTreeView):
             # Add options to prompt
             for option_key in prompt.options:
                 option_item = PromptOptionTreeItem(
-                    mod, component, prompt, option_key,
-                    option_key == prompt.default
+                    mod, component, prompt, option_key, option_key == prompt.default
                 )
                 prompt_item.appendRow([option_item, QStandardItem("")])
 
@@ -1199,7 +1217,9 @@ class ComponentSelector(QTreeView):
         # Check individual components even if mod is compatible
         self._uncheck_incompatible_components_with_game(mod_item, game)
 
-    def _uncheck_incompatible_components_with_game(self, mod_item: QStandardItem, game: str) -> None:
+    def _uncheck_incompatible_components_with_game(
+        self, mod_item: QStandardItem, game: str
+    ) -> None:
         """Process all components of a mod for game compatibility.
 
         Args:
@@ -1216,10 +1236,7 @@ class ComponentSelector(QTreeView):
                 self._uncheck_item_if_needed(comp_item, component.text, is_mod=False)
 
     def _uncheck_item_if_needed(
-            self,
-            item: QStandardItem,
-            item_name: str,
-            is_mod: bool
+        self, item: QStandardItem, item_name: str, is_mod: bool
     ) -> None:
         """Uncheck an item if it's currently checked.
 
@@ -1264,11 +1281,11 @@ class ComponentSelector(QTreeView):
     def _on_item_clicked(self, index: QModelIndex) -> None:
         """
         Handle item click to toggle expansion without interfering with checkbox.
-        
+
         Expands or collapses tree branches on click, but only if the click is
         outside the checkbox area. This allows natural checkbox toggling while
         providing easy branch expansion.
-        
+
         Args:
             index: Model index of the clicked item
         """
@@ -1303,12 +1320,12 @@ class ComponentSelector(QTreeView):
     # ========================================
 
     def apply_filters(
-            self,
-            text: str = "",
-            game: str = "",
-            category: str = "",
-            authors: set[str] | None = None,
-            languages: set[str] | None = None
+        self,
+        text: str = "",
+        game: str = "",
+        category: str = "",
+        authors: set[str] | None = None,
+        languages: set[str] | None = None,
     ) -> None:
         """Apply all filters at once for better performance."""
         old_criteria = self._proxy_model.get_filter_criteria()
@@ -1319,7 +1336,7 @@ class ComponentSelector(QTreeView):
             game=game,
             category=category,
             authors=authors or set(),
-            languages=languages or set()
+            languages=languages or set(),
         )
         self._proxy_model.set_filter_criteria(criteria)
 
@@ -1361,7 +1378,7 @@ class ComponentSelector(QTreeView):
             game=criteria.game,
             category="",  # Exclude category
             authors=criteria.authors.copy(),
-            languages=criteria.languages.copy()
+            languages=criteria.languages.copy(),
         )
 
         mods = set()
@@ -1389,11 +1406,7 @@ class ComponentSelector(QTreeView):
 
         return counts
 
-    def _item_or_children_match(
-            self,
-            item: QStandardItem,
-            engine: FilterEngine
-    ) -> bool:
+    def _item_or_children_match(self, item: QStandardItem, engine: FilterEngine) -> bool:
         """Check if item or any of its children match filter criteria."""
         # Check item itself
         if engine.matches_item(item.index()):
@@ -1543,10 +1556,7 @@ class ComponentSelector(QTreeView):
         logger.info("Selection restored successfully")
 
     def _find_matching_selection(
-            self,
-            comp_item: BaseTreeItem,
-            component,
-            saved_components: list[Any]
+        self, comp_item: BaseTreeItem, component, saved_components: list[Any]
     ) -> Any | None:
         """Find the saved selection data for a component.
 
@@ -1590,10 +1600,12 @@ class ComponentSelector(QTreeView):
 
     def retranslate_ui(self) -> None:
         """Update UI text after language change."""
-        self._model.setHorizontalHeaderLabels([
-            tr("widget.component_selector.header.type"),
-            tr("widget.component_selector.header.selection")
-        ])
+        self._model.setHorizontalHeaderLabels(
+            [
+                tr("widget.component_selector.header.type"),
+                tr("widget.component_selector.header.selection"),
+            ]
+        )
 
         # Block signals during update
         self._model.blockSignals(True)
