@@ -3,12 +3,12 @@ name = "BigWorldSetup Enhanced Edition"
 version = "0.5.0"
 description = "Installation automatisée de mods des jeux Infinity Engine"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = [
     "jsonschema>=4.25.1",
-    "pyside6>=6.10.0",
-    "pyside6_addons>=6.10.0",
-    "pyside6_essentials>=6.10.0",
+    "pyside6>=6.10.1",
+    "pyside6_addons>=6.10.1",
+    "pyside6_essentials>=6.10.1",
 ]
 
 [tool.ruff]
