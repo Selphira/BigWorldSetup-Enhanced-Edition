@@ -188,6 +188,7 @@ class LCCDataFetcher:
         result = {
             "id": mod_data["id"],
             "name": mod_data["name"],
+            "tp2": mod_data["tp2"],
             "safe": mod_data["safe"],
             "games": self._extract_games(mod_data),
             "categories": self._extract_categories(mod_data),
@@ -358,6 +359,12 @@ class JSONCompleter:
                 mod_data["name"] = lcc_data["name"]
                 updated = True
                 self.log(f"  + name: {lcc_data['name']}")
+
+            # TP2
+            if not mod_data.get("tp2"):
+                mod_data["tp2"] = lcc_data["tp2"]
+                updated = True
+                self.log(f"  + tp2: {lcc_data['tp2']}")
 
             # safe
             if not mod_data.get("safe"):
