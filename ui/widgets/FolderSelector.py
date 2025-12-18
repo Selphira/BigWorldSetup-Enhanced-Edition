@@ -1,8 +1,9 @@
 """Folder selector widget with validation and visual feedback."""
 
 import logging
+from pathlib import Path
 
-from PySide6.QtCore import Signal
+from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QAction, QColor, QFont, QIcon, QPainter, QPixmap
 from PySide6.QtWidgets import (
     QFileDialog,
@@ -15,7 +16,14 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from constants import *
+from constants import (
+    BUTTON_WIDTH_SMALL,
+    COLOR_ERROR,
+    COLOR_SUCCESS,
+    ICON_ERROR,
+    ICON_SIZE_SMALL,
+    ICON_SUCCESS,
+)
 from core.GameModels import GameDefinition
 from core.TranslationManager import tr
 from core.validators.FolderValidator import ExistingFolderValidator, FolderValidator
@@ -147,12 +155,8 @@ class FolderSelector(QWidget):
         """
         self._validate_path(path)
 
-    def _on_input_hover(self, event) -> None:
-        """Show tooltip on hover if there's a validation error.
-
-        Args:
-            event: Enter event
-        """
+    def _on_input_hover(self) -> None:
+        """Show tooltip on hover if there's a validation error."""
         if not self._is_valid and self._error_message:
             # Calculate tooltip position (slightly above input)
             tooltip_pos = self.path_input.mapToGlobal(self.path_input.rect().bottomLeft())

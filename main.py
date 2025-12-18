@@ -11,16 +11,29 @@ import sys
 from PySide6.QtGui import QIcon, QPixmap
 from PySide6.QtWidgets import QApplication, QMessageBox
 
-from constants import *
+from constants import (
+    APP_NAME,
+    APP_ORG,
+    APP_VERSION,
+    ICONS_DIR,
+    LOG_BACKUP_COUNT,
+    LOG_DATE_FORMAT,
+    LOG_DIR,
+    LOG_FILE_NAME,
+    LOG_FORMAT,
+    LOG_MAX_BYTES,
+    MODS_DIR,
+    THEMES_DIR,
+)
 from core.StateManager import StateManager
 from core.TranslationManager import get_translator, tr
 from ui.CacheDialog import show_cache_build_dialog
 from ui.MainWindow import MainWindow
 from ui.pages.DownloadPage import DownloadPage
 from ui.pages.ExtractionPage import ExtractionPage
-from ui.pages.InstallOrder import InstallOrderPage
 from ui.pages.InstallationPage import InstallationPage
 from ui.pages.InstallationType import InstallationTypePage
+from ui.pages.InstallOrder import InstallOrderPage
 from ui.pages.ModSelection import ModSelectionPage
 
 logger = logging.getLogger(__name__)
@@ -45,24 +58,21 @@ def setup_logging() -> None:
 
     # File handler with rotation
     from logging.handlers import RotatingFileHandler
+
     file_handler = RotatingFileHandler(
         LOG_DIR / LOG_FILE_NAME,
         maxBytes=LOG_MAX_BYTES,
         backupCount=LOG_BACKUP_COUNT,
-        encoding='utf-8'
+        encoding="utf-8",
     )
     file_handler.setLevel(logging.DEBUG)
-    file_handler.setFormatter(
-        logging.Formatter(LOG_FORMAT, LOG_DATE_FORMAT)
-    )
+    file_handler.setFormatter(logging.Formatter(LOG_FORMAT, LOG_DATE_FORMAT))
     root_logger.addHandler(file_handler)
 
     # Console handler (only warnings and above)
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(logging.WARNING)
-    console_handler.setFormatter(
-        logging.Formatter(LOG_FORMAT, LOG_DATE_FORMAT)
-    )
+    console_handler.setFormatter(logging.Formatter(LOG_FORMAT, LOG_DATE_FORMAT))
     root_logger.addHandler(console_handler)
 
     logger.info(f"{APP_NAME} v{APP_VERSION} - Logging initialized")
@@ -79,7 +89,7 @@ def load_stylesheet(theme: str = "lcc") -> str:
 
     if stylesheet_path.exists():
         try:
-            return stylesheet_path.read_text(encoding='utf-8')
+            return stylesheet_path.read_text(encoding="utf-8")
         except Exception as e:
             logger.error(f"Failed to load stylesheet: {e}")
 
@@ -107,8 +117,7 @@ def initialize_cache(mod_manager) -> bool:
             QMessageBox.critical(
                 None,
                 tr("error.critical_title"),
-                tr("error.cache_build_failed",
-                   mods_dir=str(MODS_DIR))
+                tr("error.cache_build_failed", mods_dir=str(MODS_DIR)),
             )
             return False
 
@@ -120,9 +129,7 @@ def initialize_cache(mod_manager) -> bool:
         if not mod_manager.load_cache():
             logger.error("Cache load failed")
             QMessageBox.critical(
-                None,
-                tr("error.critical_title"),
-                tr("error.cache_load_failed")
+                None, tr("error.critical_title"), tr("error.cache_load_failed")
             )
             return False
 
@@ -174,7 +181,7 @@ def get_initial_page(state: StateManager) -> str:
 
     # Default to first page
     logger.info("Starting from first page")
-    return 'installation_type'
+    return "installation_type"
 
 
 def setup_exception_hook() -> None:
@@ -192,17 +199,12 @@ def setup_exception_hook() -> None:
             return
 
         # Log the exception
-        logger.critical(
-            "Uncaught exception",
-            exc_info=(exc_type, exc_value, exc_traceback)
-        )
+        logger.critical("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
 
         # Show error dialog
         error_msg = f"{exc_type.__name__}: {exc_value}"
         QMessageBox.critical(
-            None,
-            tr("error.critical_title"),
-            tr("error.uncaught_exception", error=error_msg)
+            None, tr("error.critical_title"), tr("error.uncaught_exception", error=error_msg)
         )
 
     sys.excepthook = exception_handler
@@ -287,9 +289,7 @@ def main() -> int:
         # Try to show error dialog
         try:
             QMessageBox.critical(
-                None,
-                "Critical Error",
-                f"Fatal error during initialization:\n\n{e}"
+                None, "Critical Error", f"Fatal error during initialization:\n\n{e}"
             )
         except:
             pass

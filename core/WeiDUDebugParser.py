@@ -40,7 +40,7 @@ class WeiDUDebugParser:
             content = file_path.read_text(encoding="utf-8", errors="ignore")
             lines = content.split("\n")
 
-            for i, line in enumerate(lines):
+            for line in lines:
                 # Track component being installed
                 if re.match(r"^Installing \[", line):
                     component_idx += 1

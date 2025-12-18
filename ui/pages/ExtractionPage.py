@@ -513,7 +513,7 @@ class ExtractionPage(BasePage):
             if valid:
                 self._update_extraction_status(extraction_id, ExtractionStatus.EXTRACTED)
 
-        logger.info(f"Checked existing extractions")
+        logger.info("Checked existing extractions")
 
     # ========================================
     # Extraction
@@ -737,10 +737,7 @@ class ExtractionPage(BasePage):
         self._filter_combo.addItem(
             tr("page.extraction.filter.extracted"), ExtractionStatus.EXTRACTED
         )
-        self._filter_combo.addItem(
-            tr("page.extraction.filter.error"),
-            ExtractionStatus.ERROR
-        )
+        self._filter_combo.addItem(tr("page.extraction.filter.error"), ExtractionStatus.ERROR)
 
         for i in range(self._filter_combo.count()):
             if self._filter_combo.itemData(i) == current:
@@ -749,11 +746,13 @@ class ExtractionPage(BasePage):
         self._filter_combo.blockSignals(False)
 
         # Update table headers
-        self._extraction_table.setHorizontalHeaderLabels([
-            tr("page.extraction.col_mod_name"),
-            tr("page.extraction.col_archive"),
-            tr("page.extraction.col_destination"),
-            tr("page.extraction.col_status")
-        ])
+        self._extraction_table.setHorizontalHeaderLabels(
+            [
+                tr("page.extraction.col_mod_name"),
+                tr("page.extraction.col_archive"),
+                tr("page.extraction.col_destination"),
+                tr("page.extraction.col_status"),
+            ]
+        )
 
         self._refresh_extraction_table()

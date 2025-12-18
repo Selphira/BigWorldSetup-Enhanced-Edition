@@ -109,8 +109,6 @@ class ErrorDecisionDialog(QDialog):
         self.setWindowTitle(tr("page.installation.error_title"))
         if len(errors) > 0:
             self.setMinimumWidth(500)
-        print(errors)
-        print(len(errors))
         self.decision = UserDecision.STOP
 
         self._create_widgets(component_id, errors)

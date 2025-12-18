@@ -7,7 +7,7 @@ name, description, links, supported languages, authors, and quality indicators.
 
 import logging
 
-from PySide6.QtCore import QUrl
+from PySide6.QtCore import Qt, QUrl
 from PySide6.QtGui import QDesktopServices, QPixmap
 from PySide6.QtWidgets import (
     QFrame,
@@ -19,7 +19,23 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from constants import *
+from constants import (
+    BADGE_HEIGHT,
+    BADGE_MIN_WIDTH,
+    COLOR_BACKGROUND_PRIMARY,
+    COLOR_ERROR,
+    COLOR_SUCCESS,
+    COLOR_TEXT,
+    COLOR_WARNING,
+    FLAGS_DIR,
+    ICON_ERROR,
+    ICON_SUCCESS,
+    ICON_WARNING,
+    MARGIN_SMALL,
+    MARGIN_STANDARD,
+    SPACING_MEDIUM,
+    SPACING_SMALL,
+)
 from core.Mod import Mod
 from core.ModManager import ModManager
 from core.TranslationManager import get_translator, tr
@@ -234,7 +250,8 @@ class ModDetailsPanel(QWidget):
 
         self._content_layout.addWidget(self._links_widget)
 
-    def _create_link_label(self, icon: str, text: str, url: str) -> QLabel:
+    @staticmethod
+    def _create_link_label(icon: str, text: str, url: str) -> QLabel:
         """Create a clickable link label."""
         label = QLabel(f'{icon} <a href="{url}" style="color: {COLOR_TEXT};">{text}</a>')
         label.setOpenExternalLinks(False)
@@ -270,7 +287,7 @@ class ModDetailsPanel(QWidget):
         """)
         self._quality_label.setVisible(True)
 
-    def _update_languages(self, mod) -> None:
+    def _update_languages(self, mod: Mod) -> None:
         """Update languages section with flag icons."""
         if not mod.languages:
             self._languages_widget.setVisible(False)
@@ -314,7 +331,7 @@ class ModDetailsPanel(QWidget):
 
         self._languages_widget.setVisible(True)
 
-    def _update_authors(self, mod) -> None:
+    def _update_authors(self, mod: Mod) -> None:
         """Update authors section."""
         authors = mod.authors
         if not authors:
@@ -326,7 +343,7 @@ class ModDetailsPanel(QWidget):
         self._authors_label.setText(text)
         self._authors_widget.setVisible(True)
 
-    def _update_categories(self, mod) -> None:
+    def _update_categories(self, mod: Mod) -> None:
         """Update categories section."""
         if not mod.categories:
             self._categories_widget.setVisible(False)
@@ -345,7 +362,7 @@ class ModDetailsPanel(QWidget):
 
         self._categories_widget.setVisible(True)
 
-    def _update_games(self, mod) -> None:
+    def _update_games(self, mod: Mod) -> None:
         """Update games section with badges."""
         if not mod.games:
             self._games_widget.setVisible(False)
@@ -364,7 +381,7 @@ class ModDetailsPanel(QWidget):
 
         self._games_widget.setVisible(True)
 
-    def _update_links(self, mod) -> None:
+    def _update_links(self, mod: Mod) -> None:
         """Populate the links section dynamically."""
         self._clear_layout(self._links_layout)
 

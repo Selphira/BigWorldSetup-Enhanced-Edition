@@ -1,4 +1,6 @@
-from PySide6.QtCore import Signal
+from pathlib import Path
+
+from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import (
     QFrame,
@@ -7,7 +9,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from constants import *
+from constants import GAME_BUTTON_HEIGHT, GAME_BUTTON_ICON_SIZE, ICON_GAME_DEFAULT
 from core.GameModels import GameDefinition
 
 
@@ -77,7 +79,8 @@ class GameButton(QWidget):
 
         self._update_style()
 
-    def _create_icon_label(self, icon_path: Path | None) -> QLabel:
+    @staticmethod
+    def _create_icon_label(icon_path: Path | None) -> QLabel:
         """Create icon label with image or emoji fallback.
 
         Args:

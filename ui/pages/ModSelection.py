@@ -7,7 +7,7 @@ search functionality, and hierarchical component selection.
 
 import logging
 
-from PySide6.QtCore import QByteArray, QEvent, QModelIndex, QTimer
+from PySide6.QtCore import QByteArray, QEvent, QModelIndex, Qt, QTimer
 from PySide6.QtGui import QTextDocument
 from PySide6.QtWidgets import (
     QFrame,
@@ -25,7 +25,19 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from constants import *
+from constants import (
+    COLOR_BACKGROUND_HIGHLIGHT,
+    COLOR_TEXT_HIGHLIGHT,
+    FLAGS_DIR,
+    MARGIN_SMALL,
+    MARGIN_STANDARD,
+    MAX_SEARCH_LENGTH,
+    MIN_SEARCH_LENGTH,
+    ROLE_MOD,
+    SEARCH_DEBOUNCE_DELAY,
+    SPACING_MEDIUM,
+    SPACING_SMALL,
+)
 from core.enums.CategoryEnum import CategoryEnum
 from core.StateManager import StateManager
 from core.TranslationManager import tr

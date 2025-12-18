@@ -7,7 +7,7 @@ import logging
 from PySide6.QtCore import Signal
 from PySide6.QtWidgets import QFrame, QLabel, QPushButton, QWidget
 
-from constants import *
+from constants import COLOR_BACKGROUND_ACCENTED
 from core.GameModels import GameDefinition
 from core.StateManager import StateManager
 from core.TranslationManager import tr
@@ -207,7 +207,6 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
     # PAGE LIFECYCLE
     # ========================================
 
-    @abstractmethod
     def can_go_to_next_page(self) -> bool:
         """Check if user can navigate away from this page.
 
@@ -221,7 +220,6 @@ class BasePage(QWidget, metaclass=QWidgetABCMeta):
         """
         return True
 
-    @abstractmethod
     def can_go_to_previous_page(self) -> bool:
         """Check if user can return to the previous page.
 

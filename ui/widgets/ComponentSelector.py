@@ -1030,6 +1030,7 @@ class ComponentSelector(QTreeView):
 
     def __init__(self, mod_manager: ModManager, parent=None):
         super().__init__(parent)
+        self._updating = False
         self._mod_manager = mod_manager
         self._selection_manager = None
 
@@ -1084,7 +1085,7 @@ class ComponentSelector(QTreeView):
         """Load mods and components into tree."""
         self._model.clear()
 
-        for mod_id, mod in self._mod_manager.get_all_mods().items():
+        for mod in self._mod_manager.get_all_mods().values():
             mod_item = ModTreeItem(mod)
             status_item = self._create_status_item()
 
@@ -1660,8 +1661,10 @@ class ComponentSelector(QTreeView):
                 prompt = item.data(ROLE_PROMPT_KEY)
                 option_key = item.data(ROLE_OPTION_KEY)
                 if prompt and option_key and component:
-                    text = f"[{component.key}.{prompt.key}.{option_key}] " \
-                           f"{component.get_prompt_option_text(prompt.key, option_key)}"
+                    text = (
+                        f"[{component.key}.{prompt.key}.{option_key}] "
+                        f"{component.get_prompt_option_text(prompt.key, option_key)}"
+                    )
                     item.setText(text)
 
             # Recursively process children

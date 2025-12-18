@@ -1,12 +1,13 @@
 """Sortable language icons widget with drag-and-drop support."""
 
 import logging
+from pathlib import Path
 
-from PySide6.QtCore import QMimeData, QPoint, Signal
+from PySide6.QtCore import QMimeData, QPoint, Qt, Signal
 from PySide6.QtGui import QDrag, QPixmap
 from PySide6.QtWidgets import QFrame, QHBoxLayout, QLabel, QWidget
 
-from constants import *
+from constants import COLOR_ACCENT, FLAGS_DIR, ICON_LANGUAGE_DEFAULT, ICON_SIZE_LARGE
 from core.TranslationManager import get_supported_languages
 
 logger = logging.getLogger(__name__)

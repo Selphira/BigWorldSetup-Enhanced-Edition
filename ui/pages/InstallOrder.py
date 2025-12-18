@@ -1450,7 +1450,7 @@ class InstallOrderPage(BasePage):
         Returns:
             True if all conditions met, False otherwise
         """
-        for seq_idx, seq_data in self._sequences_data.items():
+        for seq_data in self._sequences_data.values():
             # Check all components are ordered
             if not seq_data.is_complete:
                 return False
@@ -1535,17 +1535,15 @@ class InstallOrderPage(BasePage):
         # Update table headers
         for seq_idx in self._ordered_tables.keys():
             table = self._ordered_tables[seq_idx]["table"]
-            table.setHorizontalHeaderLabels([
-                tr("page.order.col_mod"),
-                tr("page.order.col_component")
-            ])
+            table.setHorizontalHeaderLabels(
+                [tr("page.order.col_mod"), tr("page.order.col_component")]
+            )
 
         for seq_idx in self._unordered_tables.keys():
-            table = self._unordered_tables[seq_idx]['table']
-            table.setHorizontalHeaderLabels([
-                tr("page.order.col_mod"),
-                tr("page.order.col_component")
-            ])
+            table = self._unordered_tables[seq_idx]["table"]
+            table.setHorizontalHeaderLabels(
+                [tr("page.order.col_mod"), tr("page.order.col_component")]
+            )
 
     def load_state(self) -> None:
         """Load state from state manager."""
@@ -1571,5 +1569,9 @@ class InstallOrderPage(BasePage):
             ]
 
         self.state_manager.set_install_order(install_order)
-        self.state_manager.set_page_option(self.get_page_id(), "ignore_errors", self._ignore_errors)
-        self.state_manager.set_page_option(self.get_page_id(), "ignore_warnings", self._ignore_warnings)
+        self.state_manager.set_page_option(
+            self.get_page_id(), "ignore_errors", self._ignore_errors
+        )
+        self.state_manager.set_page_option(
+            self.get_page_id(), "ignore_warnings", self._ignore_warnings
+        )

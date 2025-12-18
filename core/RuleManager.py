@@ -96,7 +96,7 @@ class RuleManager:
 
         rules_data = data.get("rules", [])
 
-        for idx, rule_data in enumerate(rules_data):
+        for rule_data in rules_data:
             try:
                 rule = cls.from_dict(rule_data)
                 target_list.append(rule)

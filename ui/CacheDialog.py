@@ -59,7 +59,9 @@ class CacheDialog:
         self._dialog.setMinimumWidth(400)
 
         # Prevent manual closing
-        self._dialog.setWindowFlags(self._dialog.windowFlags() & ~Qt.WindowCloseButtonHint)
+        self._dialog.setWindowFlags(
+            self._dialog.windowFlags() & ~Qt.WindowType.WindowCloseButtonHint
+        )
 
         # Reset result
         self._result = {"success": False, "finished": False}

@@ -55,6 +55,7 @@ class FileGroup:
 
         # Generate default description if not provided
         if not self.description:
+            desc = ""
             if self.operator == FileGroupOperator.ALL:
                 desc = f"all files: {', '.join(self.files)}"
             elif self.operator == FileGroupOperator.ANY:

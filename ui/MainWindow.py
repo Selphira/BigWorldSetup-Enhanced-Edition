@@ -2,6 +2,7 @@
 
 import logging
 
+from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor, QPixmap
 from PySide6.QtWidgets import (
     QFrame,
@@ -14,7 +15,18 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from constants import *
+from constants import (
+    APP_NAME,
+    BUTTON_WIDTH_STANDARD,
+    COLOR_BACKGROUND_SECONDARY,
+    FOOTER_HEIGHT,
+    GAME_BUTTON_ICON_SIZE,
+    HEADER_HEIGHT,
+    ICON_GAME_DEFAULT,
+    ICONS_DIR,
+    WINDOW_MIN_HEIGHT,
+    WINDOW_MIN_WIDTH,
+)
 from core.GameModels import GameDefinition
 from core.StateManager import StateManager
 from core.TranslationManager import get_translator, tr

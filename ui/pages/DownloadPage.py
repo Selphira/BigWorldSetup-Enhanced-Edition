@@ -285,13 +285,14 @@ class ArchiveDetailsPanel(QFrame):
             file_size: File size in bytes
             expected_hash: Expected hash value
             url: Download URL
+            homepage: Homepage URL
             status: Current archive status
         """
 
-        details = []
-
-        details.append(f"<b>{tr('page.download.details.mod')}:</b> {mod_name}")
-        details.append(f"<b>{tr('page.download.details.filename')}:</b> {filename}")
+        details = [
+            f"<b>{tr('page.download.details.mod')}:</b> {mod_name}",
+            f"<b>{tr('page.download.details.filename')}:</b> {filename}",
+        ]
 
         if file_size:
             size_formatted = format_size(file_size)

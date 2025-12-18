@@ -7,17 +7,14 @@ and directories containing multiple JSON files.
 
 import json
 import logging
-import sys
 from pathlib import Path
+import sys
 from typing import Dict, Optional
 
 from jsonschema import Draft7Validator
 
 # Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(levelname)s: %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -118,7 +115,9 @@ class JSONValidator:
 
         return ValidationResult(file_path, errors)
 
-    def validate_directory(self, directory: Path, pattern: str = "*.json") -> list[ValidationResult]:
+    def validate_directory(
+        self, directory: Path, pattern: str = "*.json"
+    ) -> list[ValidationResult]:
         """Validate all JSON files in a directory.
 
         Args:

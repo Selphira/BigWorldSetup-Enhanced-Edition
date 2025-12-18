@@ -2,11 +2,11 @@
 
 import logging
 
-from PySide6.QtCore import QSize, Signal
+from PySide6.QtCore import QSize, Qt, Signal
 from PySide6.QtGui import QAction, QCursor, QIcon, QPixmap
 from PySide6.QtWidgets import QMenu, QToolButton
 
-from constants import *
+from constants import FLAGS_DIR, ICON_SIZE_LARGE
 from core.TranslationManager import get_translator, tr
 
 logger = logging.getLogger(__name__)
