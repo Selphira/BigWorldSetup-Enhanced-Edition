@@ -398,7 +398,7 @@ class ExtractionPage(BasePage):
             logger.warning("No game folders configured")
             return
 
-        unique_mods = set(selected.keys())
+        unique_mods = {reference.partition(":")[0] for reference in selected if reference}
 
         for mod_id in unique_mods:
             mod = self._mod_manager.get_mod_by_id(mod_id)

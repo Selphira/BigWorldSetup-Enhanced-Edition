@@ -174,7 +174,7 @@ class StateManager:
         """
         return self.installation_state.configuration.get("selected_game")
 
-    def set_selected_components(self, components: dict[str, list[Any]]) -> None:
+    def set_selected_components(self, components: list[str]) -> None:
         """
         Set selected components.
 
@@ -184,7 +184,7 @@ class StateManager:
         self.installation_state.configuration["selected_components"] = components
         logger.debug(f"Selected components: {components}")
 
-    def get_selected_components(self) -> dict[str, list[Any]]:
+    def get_selected_components(self) -> list[str]:
         """
         Get selected components configuration.
 

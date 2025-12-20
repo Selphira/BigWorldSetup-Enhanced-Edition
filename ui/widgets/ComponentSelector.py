@@ -5,6 +5,8 @@ This module provides a tree-based component selector with filtering capabilities
 supporting different component types (STD, MUC, SUB) with their specific behaviors.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass
 from enum import Enum, auto
 import logging
@@ -325,6 +327,10 @@ class BaseTreeItem(QStandardItem):
         super().__init__(text)
         self._item_type = item_type
 
+    @property
+    def reference(self) -> str:
+        return ""
+
     def get_item_type(self) -> ItemType:
         """Get the type of this item."""
         return self._item_type
@@ -354,6 +360,14 @@ class ModTreeItem(BaseTreeItem):
         self.setCheckState(Qt.CheckState.Unchecked)
         self.setData(mod, ROLE_MOD)
 
+    @property
+    def reference(self) -> str:
+        return self.data(ROLE_MOD).tp2
+
+    def get_selected_items(self) -> list[BaseTreeItem]:
+        """Get selected items. Override in subclasses."""
+        return [self.child(row, 0) for row in range(self.rowCount())]
+
 
 class StdTreeItem(BaseTreeItem):
     """Tree item for standard (STD) components."""
@@ -369,6 +383,10 @@ class StdTreeItem(BaseTreeItem):
         self.setCheckState(Qt.CheckState.Unchecked)
         self.setData(mod, ROLE_MOD)
         self.setData(component, ROLE_COMPONENT)
+
+    @property
+    def reference(self) -> str:
+        return f"{self.data(ROLE_MOD).tp2}:{self.data(ROLE_COMPONENT).key}"
 
     def get_selected_component(self) -> str | None:
         """Return component key if checked."""
@@ -393,6 +411,10 @@ class MucTreeItem(BaseTreeItem):
         self.setData(mod, ROLE_MOD)
         self.setData(component, ROLE_COMPONENT)
 
+    @property
+    def reference(self) -> str:
+        return f"{self.data(ROLE_MOD).tp2}:{self.data(ROLE_COMPONENT).key}"
+
     def get_selected_component(self) -> str | None:
         """Return selected option key."""
         for row in range(self.rowCount()):
@@ -416,6 +438,10 @@ class SubTreeItem(BaseTreeItem):
         self.setCheckState(Qt.CheckState.Unchecked)
         self.setData(mod, ROLE_MOD)
         self.setData(component, ROLE_COMPONENT)
+
+    @property
+    def reference(self) -> str:
+        return f"{self.data(ROLE_MOD).tp2}:{self.data(ROLE_COMPONENT).key}"
 
     def get_selected_component(self) -> dict[str, Any] | None:
         """Return selected prompts dictionary."""
@@ -459,6 +485,10 @@ class MucOptionTreeItem(BaseTreeItem):
         self.setData(option_key, ROLE_OPTION_KEY)
         self.setData(is_default, ROLE_IS_DEFAULT)
 
+    @property
+    def reference(self) -> str:
+        return f"{self.data(ROLE_MOD).tp2}:{self.data(ROLE_OPTION_KEY)}"
+
 
 class PromptTreeItem(BaseTreeItem):
     """Tree item for SUB component prompts."""
@@ -475,6 +505,10 @@ class PromptTreeItem(BaseTreeItem):
         self.setData(mod, ROLE_MOD)
         self.setData(component, ROLE_COMPONENT)
         self.setData(prompt, ROLE_PROMPT_KEY)
+
+    @property
+    def reference(self) -> str:
+        return f"{self.data(ROLE_MOD).tp2}:{self.data(ROLE_COMPONENT).key}.{self.data(ROLE_PROMPT_KEY).key}"
 
 
 class PromptOptionTreeItem(BaseTreeItem):
@@ -494,6 +528,10 @@ class PromptOptionTreeItem(BaseTreeItem):
         self.setData(prompt, ROLE_PROMPT_KEY)
         self.setData(option_key, ROLE_OPTION_KEY)
         self.setData(is_default, ROLE_IS_DEFAULT)
+
+    @property
+    def reference(self) -> str:
+        return f"{self.data(ROLE_MOD).tp2}:{self.data(ROLE_COMPONENT).key}.{self.data(ROLE_PROMPT_KEY).key}.{self.data(ROLE_OPTION_KEY)}"
 
 
 # ============================================================================
@@ -744,6 +782,27 @@ class SelectionStateManager:
         self._proxy_model = proxy_model
         self._model = self._proxy_model.sourceModel()
         self._updating = False
+        self._items: dict[str, BaseTreeItem] = {}
+
+    def add_item(self, item: BaseTreeItem):
+        self._items[item.reference] = item
+
+    def get_selected_items(self) -> list[BaseTreeItem]:
+        return [
+            item for item in self._items.values() if item.checkState() == Qt.CheckState.Checked
+        ]
+
+    def select_item(self, reference: str):
+        if reference in self._items:
+            item = self._items[reference]
+            item.setCheckState(Qt.CheckState.Checked)
+            self.handle_item_change(item)
+
+    def unselect_item(self, reference: str):
+        if reference in self._items:
+            item = self._items[reference]
+            item.setCheckState(Qt.CheckState.Unchecked)
+            self.handle_item_change(item)
 
     def handle_item_change(self, item: BaseTreeItem) -> ModTreeItem | None:
         """Handle item change and return the affected mod item."""
@@ -1032,7 +1091,7 @@ class ComponentSelector(QTreeView):
         super().__init__(parent)
         self._updating = False
         self._mod_manager = mod_manager
-        self._selection_manager = None
+        self._selection_manager: SelectionStateManager | None = None
 
         # Setup
         self._setup_model()
@@ -1094,19 +1153,23 @@ class ComponentSelector(QTreeView):
                 comp_item = self._create_component_item(mod, component)
                 mod_item.appendRow([comp_item, QStandardItem("")])
 
+            self._selection_manager.add_item(mod_item)
             self._model.appendRow([mod_item, status_item])
 
     def _create_component_item(self, mod, component) -> BaseTreeItem:
         """Create appropriate item type for component."""
         if component.is_muc():
             item = MucTreeItem(mod, component)
+            self._selection_manager.add_item(item)
             self._add_muc_options(item, mod, component)
             self._model.set_radio_mode(item)
         elif component.is_sub():
             item = SubTreeItem(mod, component)
+            self._selection_manager.add_item(item)
             self._add_sub_prompts(item, mod, component)
         else:
             item = StdTreeItem(mod, component)
+            self._selection_manager.add_item(item)
 
         return item
 
@@ -1143,6 +1206,7 @@ class ComponentSelector(QTreeView):
                 is_default = idx == 0
 
             option_item = MucOptionTreeItem(mod, component, option_key, is_default)
+            self._selection_manager.add_item(option_item)
             parent.appendRow([option_item, QStandardItem("")])
 
             if is_default:
@@ -1155,6 +1219,7 @@ class ComponentSelector(QTreeView):
         for prompt_key in component.get_all_prompts():
             prompt = component.get_prompt(prompt_key)
             prompt_item = PromptTreeItem(mod, component, prompt)
+            self._selection_manager.add_item(prompt_item)
 
             # Add options to prompt
             for option_key in prompt.options:
@@ -1162,6 +1227,7 @@ class ComponentSelector(QTreeView):
                     mod, component, prompt, option_key, option_key == prompt.default
                 )
                 prompt_item.appendRow([option_item, QStandardItem("")])
+                self._selection_manager.add_item(option_item)
 
             self._model.set_radio_mode(prompt_item)
             parent.appendRow([prompt_item, QStandardItem("")])
@@ -1183,6 +1249,7 @@ class ComponentSelector(QTreeView):
         Args:
             game: Game identifier (e.g., 'bg2ee', 'eet')
         """
+        # FIXME: Gérer le cas où le mod supporte le jeu, mais qu'un des composants à l'intérieur ne le supporte pas
         logger.info(f"Unchecking items incompatible with game: {game}")
 
         self._model.blockSignals(True)
@@ -1425,36 +1492,16 @@ class ComponentSelector(QTreeView):
     # Selection API
     # ========================================
 
-    def get_selected_items(self) -> dict[str, list[Any]]:
+    def get_selected_items(self) -> list[str]:
         """Get all selected components organized by mod ID."""
-        selected = {}
-
-        root = self._model.invisibleRootItem()
-        for row in range(root.rowCount()):
-            mod_item = root.child(row, 0)
-            if not isinstance(mod_item, ModTreeItem):
-                continue
-
-            mod = mod_item.data(ROLE_MOD)
-            components = []
-
-            for comp_row in range(mod_item.rowCount()):
-                comp_item = mod_item.child(comp_row, 0)
-                if isinstance(comp_item, BaseTreeItem):
-                    selected_comp = comp_item.get_selected_component()
-                    if selected_comp:
-                        components.append(selected_comp)
-
-            if components:
-                selected[mod.id] = components
-
+        selected = [item.reference for item in self._selection_manager.get_selected_items()]
         return selected
 
     def has_selection(self) -> bool:
         """Check if at least one component is selected."""
         return len(self.get_selected_items()) > 0
 
-    def restore_selection(self, selected_items: dict[str, list[Any]]) -> None:
+    def restore_selection(self, selected_items: list[str]) -> None:
         """Restore component selections from saved state.
 
         Signals are blocked during the restore to
@@ -1472,82 +1519,8 @@ class ComponentSelector(QTreeView):
         self._model.blockSignals(True)
 
         try:
-            root = self._model.invisibleRootItem()
-
-            for i in range(root.rowCount()):
-                mod_item = root.child(i, 0)
-                mod = mod_item.data(ROLE_MOD)
-
-                if mod.id not in selected_items:
-                    continue
-                mod_item.setCheckState(Qt.CheckState.Checked)
-
-                # saved_components is a LIST, not a dict
-                saved_components = selected_items[mod.id]
-
-                for j in range(mod_item.rowCount()):
-                    comp_item = mod_item.child(j, 0)
-                    component = comp_item.data(ROLE_COMPONENT)
-
-                    # Find if this component is in the saved selection
-                    matched_selection = self._find_matching_selection(
-                        cast(BaseTreeItem, comp_item), component, saved_components
-                    )
-
-                    if matched_selection is None:
-                        continue
-
-                    # ========== STD COMPONENT ==========
-                    if isinstance(comp_item, StdTreeItem):
-                        comp_item.setCheckState(Qt.CheckState.Checked)
-
-                    # ========== MUC COMPONENT ==========
-                    elif isinstance(comp_item, MucTreeItem):
-                        # Check the MUC component itself
-                        comp_item.setCheckState(Qt.CheckState.Checked)
-
-                        # matched_selection is the option key
-                        selected_option_key = str(matched_selection)
-
-                        for k in range(comp_item.rowCount()):
-                            opt = comp_item.child(k, 0)
-                            option_key = str(opt.data(ROLE_OPTION_KEY))
-
-                            if option_key == selected_option_key:
-                                opt.setCheckState(Qt.CheckState.Checked)
-                            else:
-                                opt.setCheckState(Qt.CheckState.Unchecked)
-
-                    # ========== SUB COMPONENT ==========
-                    elif isinstance(comp_item, SubTreeItem):
-                        # matched_selection is a dict with "key" and "prompts"
-                        comp_item.setCheckState(Qt.CheckState.Checked)
-
-                        saved_prompts = matched_selection.get("prompts", {})
-
-                        for p in range(comp_item.rowCount()):
-                            prompt_item = comp_item.child(p, 0)
-                            prompt = prompt_item.data(ROLE_PROMPT_KEY)
-
-                            if prompt.key not in saved_prompts:
-                                continue
-
-                            # Check the prompt
-                            prompt_item.setCheckState(Qt.CheckState.Checked)
-
-                            selected_option_key = str(saved_prompts[prompt.key])
-
-                            # Select the matching option
-                            for q in range(prompt_item.rowCount()):
-                                opt = prompt_item.child(q, 0)
-                                option_key = str(opt.data(ROLE_OPTION_KEY))
-
-                                if option_key == selected_option_key:
-                                    opt.setCheckState(Qt.CheckState.Checked)
-                                else:
-                                    opt.setCheckState(Qt.CheckState.Unchecked)
-                self._update_mod_status(cast(ModTreeItem, mod_item))
-
+            for reference in selected_items:
+                self._selection_manager.select_item(reference)
         finally:
             self._model.blockSignals(False)
             self._updating = False

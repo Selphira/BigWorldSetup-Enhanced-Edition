@@ -908,19 +908,15 @@ class InstallOrderPage(BasePage):
             )
 
         # Distribute components to sequences
-        for mod_id, comp_list in selected.items():
-            for comp in comp_list:
+        for reference in selected:
+            print(reference)
+            mod_id, _, comp_key = reference.partition(":")
+            if (
+                comp_key is not None
+                and "choice_" not in comp_key
+                and (comp_key.count(".") == 0 or comp_key.count(".") == 2)
+            ):
                 mod = self._mod_manager.get_mod_by_id(mod_id)
-                if not mod:
-                    continue
-                if isinstance(comp, dict):
-                    comp_key = (
-                        comp["key"]
-                        + "."
-                        + ".".join([value for value in comp["prompts"].values()])
-                    )
-                else:
-                    comp_key = comp
                 component = mod.get_component(comp_key)
                 if component and not component.is_dwn():
                     self._place_component_in_sequences(mod_id, comp_key)

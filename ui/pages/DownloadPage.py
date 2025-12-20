@@ -566,7 +566,7 @@ class DownloadPage(BasePage):
             logger.warning("No components selected")
             return
 
-        unique_mods = set(selected.keys())
+        unique_mods = {reference.partition(":")[0] for reference in selected if reference}
 
         # Invalidate cache for removed mods
         self._invalidate_removed_archives(unique_mods)
