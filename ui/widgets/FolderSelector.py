@@ -155,7 +155,7 @@ class FolderSelector(QWidget):
         """
         self._validate_path(path)
 
-    def _on_input_hover(self) -> None:
+    def _on_input_hover(self, event) -> None:
         """Show tooltip on hover if there's a validation error."""
         if not self._is_valid and self._error_message:
             # Calculate tooltip position (slightly above input)
