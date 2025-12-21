@@ -1217,10 +1217,11 @@ class InstallOrderPage(BasePage):
             return
 
         # Ask for save location
+        selected_game = self.state_manager.get_selected_game()
         file_path, _ = QFileDialog.getSaveFileName(
             self,
-            tr("page.order.select_export_file"),
-            "install_order.json",
+            tr("page.order.export_select_file"),
+            f"{selected_game}_order.json",
             "JSON Files (*.json);;All Files (*.*)",
         )
 
