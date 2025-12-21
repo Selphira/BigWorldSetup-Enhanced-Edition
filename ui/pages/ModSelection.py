@@ -589,18 +589,15 @@ class ModSelectionPage(BasePage):
 
     def _deselect_all(self) -> None:
         # Ask for confirmation
-        msg_box = QMessageBox(self)
-        msg_box.setIcon(QMessageBox.Icon.Question)
-        msg_box.setWindowTitle(tr("page.selection.deselect_all_confirm_title"))
-        msg_box.setText(tr("page.selection.deselect_all_confirm_message"))
+        reply = QMessageBox.question(
+            self,
+            tr("page.selection.deselect_all_confirm_title"),
+            tr("page.selection.deselect_all_confirm_message"),
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.Cancel,
+            QMessageBox.StandardButton.Cancel,
+        )
 
-        btn_accept = msg_box.addButton(tr("button.yes"), QMessageBox.ButtonRole.YesRole)
-        btn_cancel = msg_box.addButton(tr("button.cancel"), QMessageBox.ButtonRole.RejectRole)
-
-        msg_box.setDefaultButton(btn_cancel)
-        msg_box.exec()
-
-        if msg_box.clickedButton() != btn_accept:
+        if reply != QMessageBox.StandardButton.Yes:
             return
 
         self._component_selector.clear_selection()
