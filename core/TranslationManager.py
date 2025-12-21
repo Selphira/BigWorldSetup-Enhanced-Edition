@@ -7,7 +7,8 @@ from pathlib import Path
 import threading
 from typing import Any
 
-from PySide6.QtCore import QObject, Signal
+from PySide6.QtCore import QLibraryInfo, QObject, QTranslator, Signal
+from PySide6.QtWidgets import QApplication
 
 logger = logging.getLogger(__name__)
 
@@ -53,9 +54,12 @@ class TranslationManager(QObject):
     FALLBACK_CHAIN = ("en_US", "fr_FR")
     CACHE_SIZE = 1024  # Max cached translations
 
-    def __init__(self) -> None:
+    def __init__(self, app: QApplication | None) -> None:
         """Initialize translation manager."""
         super().__init__()
+        self._app = app
+        self._qt_translator = QTranslator()
+        self._app_translator = QTranslator()
         self._current_language = self.DEFAULT_LANGUAGE
         self._translations: dict[str, dict[str, Any]] = {}
         self._language_names = dict(SUPPORTED_LANGUAGES)
@@ -143,6 +147,8 @@ class TranslationManager(QObject):
             if code not in self._translations:
                 logger.warning(f"Language not available: {code}")
                 return False
+
+            self._set_ui_language(code)
 
             if self._current_language != code:
                 old_language = self._current_language
@@ -260,6 +266,18 @@ class TranslationManager(QObject):
         self._get_cached_translation.cache_clear()
         logger.debug("Translation cache cleared")
 
+    def _set_ui_language(self, code: str) -> None:
+        self._app.removeTranslator(self._qt_translator)
+        self._app.removeTranslator(self._app_translator)
+
+        self._qt_translator.load(
+            f"qt_{code}", QLibraryInfo.path(QLibraryInfo.LibraryPath.TranslationsPath)
+        )
+        self._app_translator.load(f"app_{code}", "translations")
+
+        self._app.installTranslator(self._qt_translator)
+        self._app.installTranslator(self._app_translator)
+
     def get_cache_info(self) -> dict[str, Any]:
         """
         Get information about translation cache.
@@ -281,7 +299,7 @@ _translator_instance: TranslationManager | None = None
 _translator_lock = threading.Lock()
 
 
-def get_translator() -> TranslationManager:
+def get_translator(app: QApplication | None = None) -> TranslationManager:
     """Get or create singleton TranslationManager instance (thread-safe)."""
     global _translator_instance
 
@@ -289,7 +307,7 @@ def get_translator() -> TranslationManager:
         with _translator_lock:
             # Double-check locking pattern
             if _translator_instance is None:
-                _translator_instance = TranslationManager()
+                _translator_instance = TranslationManager(app)
 
     return _translator_instance
 

@@ -251,7 +251,7 @@ def main() -> int:
         state = StateManager()
 
         # Initialize translation
-        translator = get_translator()
+        translator = get_translator(app)
         ui_language = state.get_ui_language()
         translator.set_language(ui_language)
         logger.info(f"UI language: {ui_language}")
