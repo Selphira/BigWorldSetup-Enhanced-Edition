@@ -351,7 +351,7 @@ class GameSequence:
             if blocked_mods
             else None,
             allowed_components={
-                mod_id: tuple(components)
+                mod_id.lower(): tuple(components)
                 for mod_id, components in allowed_components_raw.items()
             },
             order=tuple(InstallStep.from_dict(step) for step in order_raw),
