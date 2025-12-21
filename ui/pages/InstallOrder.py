@@ -1093,7 +1093,7 @@ class InstallOrderPage(BasePage):
             self,
             tr("page.order.select_weidu_log"),
             "",
-            "WeiDU Log (WeiDU.log);;All Files (*.*)",
+            "WeiDU Log (WeiDU.log);;Log Files (*.log)",
         )
 
         if not file_path:
