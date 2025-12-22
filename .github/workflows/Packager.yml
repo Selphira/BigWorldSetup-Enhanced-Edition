@@ -34,7 +34,7 @@ jobs:
 
       - name: Build executable
         run: |
-          pyinstaller BigWorldSetup.spec --clean
+          pyinstaller BigWorldSetup.spec --clean --log-level DEBUG
 
       - name: Copy external files to dist (Linux)
         if: runner.os == 'Linux'

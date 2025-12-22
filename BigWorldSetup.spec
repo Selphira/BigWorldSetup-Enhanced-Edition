@@ -12,7 +12,7 @@ base_path = Path('.').resolve()
 hidden_imports = []
 for root, dirs, files in os.walk(base_path):
     # Ignorer les dossiers spéciaux
-    if any(x in root for x in ['__pycache__', '.git', 'venv', 'env', 'dist', 'build']):
+    if any(x in root for x in ['__pycache__', '.git']):
         continue
 
     for file in files:
@@ -23,16 +23,7 @@ for root, dirs, files in os.walk(base_path):
             hidden_imports.append(module_name)
 
 # Collecter les fichiers de données
-datas = [
-    ('data', 'data'),
-    ('i18n', 'i18n'),
-    ('resources', 'resources'),
-    ('tools', 'tools'),
-]
-
-# Ajouter README et LICENSE
-datas.append(('README.md', '.'))
-datas.append(('LICENSE', '.'))
+datas = []
 
 a = Analysis(
     ['main.py'],
