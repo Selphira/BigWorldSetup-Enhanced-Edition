@@ -78,13 +78,13 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           cd dist
-          tar -czf BigWorldSetup-Linux.tar.gz BigWorldSetup data/ i18n/ resources/ tools/ LICENSE README.md 2>/dev/null
+          tar -czf BigWorldSetup-Linux.tar.gz BigWorldSetup/ 2>/dev/null
 
       - name: Package build output (Windows)
         if: runner.os == 'Windows'
         run: |
           cd dist
-          Compress-Archive -Path BigWorldSetup.exe,data,i18n,resources,tools,LICENSE,README.md -DestinationPath BigWorldSetup-Windows.zip -Force
+          Compress-Archive -Path BigWorldSetup -DestinationPath BigWorldSetup-Windows.zip -Force
         shell: pwsh
 
       - name: Upload packaged artifact
