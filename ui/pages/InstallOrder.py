@@ -10,13 +10,13 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import logging
-from typing import cast
 
-from PySide6.QtCore import QMimeData, QPoint, Qt, QTimer, Signal
-from PySide6.QtGui import QAction, QColor, QDrag, QPainter, QPen
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QAction, QColor
 from PySide6.QtWidgets import (
     QAbstractItemView,
     QCheckBox,
+    QDialog,
     QFileDialog,
     QFrame,
     QHBoxLayout,
@@ -35,7 +35,6 @@ from PySide6.QtWidgets import (
 )
 
 from constants import (
-    COLOR_ACCENT,
     COLOR_BACKGROUND_ERROR,
     COLOR_BACKGROUND_WARNING,
     ICON_ERROR,
@@ -48,11 +47,13 @@ from constants import (
     SPACING_SMALL,
 )
 from core.GameModels import GameDefinition, InstallStep
+from core.models.PauseEntry import PAUSE_PREFIX, PauseEntry
 from core.StateManager import StateManager
 from core.TranslationManager import tr
 from core.WeiDULogParser import WeiDULogParser
 from ui.pages.BasePage import BasePage
-from ui.widgets.HoverTableWidget import HoverTableWidget
+from ui.pages.install_order.DraggableTable import DraggableTableWidget
+from ui.pages.install_order.PauseDescriptionDialog import PauseDescriptionDialog
 
 logger = logging.getLogger(__name__)
 
@@ -69,13 +70,6 @@ ORDERED_COLUMN_COUNT = 2
 COL_UNORDERED_MOD = 0
 COL_UNORDERED_COMPONENT = 1
 UNORDERED_COLUMN_COUNT = 2
-
-# Drag & drop
-MIME_TYPE_COMPONENT = "application/x-bws-component"
-
-# Auto-scroll
-AUTO_SCROLL_MARGIN = 30
-AUTO_SCROLL_SPEED = 5
 
 
 # ============================================================================
@@ -265,318 +259,6 @@ class SequenceData:
 
 
 # ============================================================================
-# Draggable Table Widget
-# ============================================================================
-
-
-class DraggableTableWidget(HoverTableWidget):
-    """Table widget with enhanced drag-and-drop support.
-
-    Features:
-    - Multi-row selection (Ctrl/Shift)
-    - Visual drop indicator
-    - Auto-scroll during drag
-    - Bidirectional drag between tables
-    - Row hover highlighting
-    """
-
-    # Signals
-    orderChanged = Signal()
-
-    def __init__(
-        self,
-        parent=None,
-        column_count: int = 2,
-        accept_from_other: bool = False,
-        table_role: str | None = None,
-    ):
-        """Initialize draggable table widget.
-
-        Args:
-            parent: Parent widget
-            column_count: Number of columns
-            accept_from_other: Accept drops from other tables
-        """
-
-        self._column_count = column_count
-        self._accept_from_other = accept_from_other
-        self._table_role = table_role
-        self._auto_scroll_direction = None
-        self._drop_indicator_row = -1
-        self._dragged_rows: list[int] = []
-        self._hover_row = -1
-
-        super().__init__(parent)
-
-        self._setup_drag_drop()
-        self._setup_auto_scroll()
-
-    def _setup_table(self) -> None:
-        """Configure table settings."""
-        super()._setup_table()
-
-        self.setColumnCount(self._column_count)
-
-        # Hide grid lines for cleaner look
-        self.setShowGrid(False)
-
-    def _setup_drag_drop(self) -> None:
-        """Configure drag and drop settings."""
-        self.setDragEnabled(True)
-        self.setAcceptDrops(True)
-        self.setDropIndicatorShown(False)
-        self.setDefaultDropAction(Qt.DropAction.MoveAction)
-        self.setDragDropMode(QAbstractItemView.DragDropMode.DragDrop)
-
-    def _setup_auto_scroll(self) -> None:
-        """Configure auto-scroll timer."""
-        self._auto_scroll_timer = QTimer()
-        self._auto_scroll_timer.setInterval(50)
-        self._auto_scroll_timer.timeout.connect(self._perform_auto_scroll)
-        self._auto_scroll_direction = 0
-
-    def startDrag(self, supported_actions):
-        """Start drag operation."""
-        self._dragged_rows = [item.row() for item in self.selectedItems() if item.column() == 0]
-        self._dragged_rows = sorted(set(self._dragged_rows))
-
-        if not self._dragged_rows:
-            return
-
-        # Create drag with MIME data
-        drag = QDrag(self)
-        mime_data = self._create_mime_data()
-        drag.setMimeData(mime_data)
-
-        drag.exec(Qt.DropAction.MoveAction)
-
-    def _create_mime_data(self):
-        """Create MIME data for drag operation."""
-        mime = QMimeData()
-
-        # Store component data with metadata
-        components = []
-        for row in self._dragged_rows:
-            # Get data from first column (always contains UserRole data)
-            first_item = self.item(row, 0)
-            if not first_item:
-                continue
-
-            mod_id = first_item.data(ROLE_MOD)
-            comp_key = first_item.data(ROLE_COMPONENT)
-
-            components.append(f"{mod_id}|{comp_key}")
-
-        data = "\n".join(components)
-        mime.setText(data)
-        mime.setData(MIME_TYPE_COMPONENT, data.encode())
-
-        return mime
-
-    def dragEnterEvent(self, event):
-        """Handle drag enter event."""
-        if self._should_accept_drag(event):
-            event.acceptProposedAction()
-        else:
-            event.ignore()
-
-    def dragMoveEvent(self, event):
-        """Handle drag move event with visual feedback."""
-        if not self._should_accept_drag(event):
-            event.ignore()
-            self._drop_indicator_row = -1
-            self._auto_scroll_timer.stop()
-            self.viewport().update()
-            return
-
-        event.acceptProposedAction()
-        self._update_drop_indicator(event.position().toPoint())
-        self._update_auto_scroll(event.position().toPoint())
-        self.viewport().update()
-
-    def dragLeaveEvent(self, event):
-        """Handle drag leave event."""
-        self._drop_indicator_row = -1
-        self._auto_scroll_timer.stop()
-        self._auto_scroll_direction = 0
-        self.viewport().update()
-
-    def dropEvent(self, event):
-        """Handle drop event with multi-item support."""
-        self._auto_scroll_timer.stop()
-        self._auto_scroll_direction = 0
-
-        if not self._should_accept_drag(event):
-            event.ignore()
-            return
-
-        source = cast(DraggableTableWidget, event.source())
-        drop_row = self._drop_indicator_row
-
-        if drop_row < 0:
-            drop_row = self.rowCount()
-
-        # Parse MIME data
-        mime_data = event.mimeData()
-        if not mime_data.hasFormat(MIME_TYPE_COMPONENT):
-            event.ignore()
-            return
-
-        # Decode component data: mod_id|comp_key format
-        components_data = mime_data.data(MIME_TYPE_COMPONENT).data().decode().split("\n")
-
-        # Get the page to rebuild rows properly
-        page = self._get_parent_page()
-        if not page:
-            event.ignore()
-            return
-
-        # Block signals during operation
-        self.blockSignals(True)
-
-        try:
-            # Insert rows at drop position
-            for i, comp_data in enumerate(components_data):
-                parts = comp_data.split("|")
-                if len(parts) != 2:
-                    continue
-
-                mod_id = parts[0]
-                comp_key = parts[1]
-
-                insert_row = drop_row + i
-
-                if self._table_role == "ordered":
-                    page.insert_row_to_ordered_table(self, insert_row, mod_id, comp_key)
-                else:
-                    page.insert_row_to_unordered_table(self, insert_row, mod_id, comp_key)
-
-            # Remove from source if dropping from another table
-            if source and source is not self:
-                if hasattr(source, "_dragged_rows"):
-                    # Remove in reverse order to maintain indices
-                    for row in sorted(source._dragged_rows, reverse=True):
-                        source.removeRow(row)
-                    source._dragged_rows = []
-                    source.orderChanged.emit()
-            elif source is self:
-                # Same table - remove original rows (adjust for inserted rows)
-                adjusted_rows = []
-                for row in self._dragged_rows:
-                    if row < drop_row:
-                        adjusted_rows.append(row)
-                    else:
-                        adjusted_rows.append(row + len(components_data))
-
-                for row in sorted(adjusted_rows, reverse=True):
-                    self.removeRow(row)
-
-        finally:
-            self.blockSignals(False)
-
-        self._drop_indicator_row = -1
-        self._dragged_rows = []
-        self.orderChanged.emit()
-        event.acceptProposedAction()
-
-    def _get_parent_page(self) -> InstallOrderPage | None:
-        """Get parent InstallOrderPage instance."""
-        parent = self.parent()
-        while parent:
-            if parent.__class__.__name__ == "InstallOrderPage":
-                return cast(InstallOrderPage, parent)
-            parent = parent.parent()
-        return None
-
-    def mouseReleaseEvent(self, event):
-        self._auto_scroll_timer.stop()
-        self._auto_scroll_direction = 0
-        super().mouseReleaseEvent(event)
-
-    def paintEvent(self, event):
-        """Custom paint to draw drop indicator."""
-        super().paintEvent(event)
-
-        if self._drop_indicator_row >= 0:
-            self._draw_drop_indicator()
-
-    def _should_accept_drag(self, event) -> bool:
-        """Check if drag should be accepted.
-
-        Args:
-            event: Drag event
-
-        Returns:
-            True if drag should be accepted, False otherwise
-        """
-        return event.source() == self or self._accept_from_other
-
-    def _update_drop_indicator(self, pos: QPoint) -> None:
-        """Update drop indicator position.
-
-        Args:
-            pos: Mouse position
-        """
-        row = self.rowAt(pos.y())
-
-        if row >= 0:
-            rect = self.visualRect(self.model().index(row, 0))
-            if pos.y() < rect.center().y():
-                self._drop_indicator_row = row
-            else:
-                self._drop_indicator_row = row + 1
-        else:
-            self._drop_indicator_row = self.rowCount()
-
-    def _update_auto_scroll(self, pos: QPoint) -> None:
-        """Update auto-scroll based on cursor position.
-
-        Args:
-            pos: Mouse position
-        """
-        viewport_height = self.viewport().height()
-
-        if pos.y() < AUTO_SCROLL_MARGIN:
-            self._auto_scroll_direction = -1
-            if not self._auto_scroll_timer.isActive():
-                self._auto_scroll_timer.start()
-        elif pos.y() > viewport_height - AUTO_SCROLL_MARGIN:
-            self._auto_scroll_direction = 1
-            if not self._auto_scroll_timer.isActive():
-                self._auto_scroll_timer.start()
-        else:
-            self._auto_scroll_direction = 0
-            self._auto_scroll_timer.stop()
-
-    def _perform_auto_scroll(self) -> None:
-        """Perform auto-scroll action."""
-        if self._auto_scroll_direction != 0:
-            scrollbar = self.verticalScrollBar()
-            current = scrollbar.value()
-            new_value = current + (self._auto_scroll_direction * AUTO_SCROLL_SPEED)
-            scrollbar.setValue(new_value)
-
-    def _draw_drop_indicator(self) -> None:
-        """Draw the drop indicator line."""
-        painter = QPainter(self.viewport())
-        pen = QPen(QColor(COLOR_ACCENT), 2)
-        painter.setPen(pen)
-
-        # Calculate y position
-        if self._drop_indicator_row < self.rowCount():
-            rect = self.visualRect(self.model().index(self._drop_indicator_row, 0))
-            y = rect.top()
-        elif self.rowCount() > 0:
-            last_rect = self.visualRect(self.model().index(self.rowCount() - 1, 0))
-            y = last_rect.bottom()
-        else:
-            y = 0
-
-        painter.drawLine(0, y, self.viewport().width(), y)
-        painter.end()
-
-
-# ============================================================================
 # Install Order Page
 # ============================================================================
 
@@ -638,6 +320,7 @@ class InstallOrderPage(BasePage):
         self._action_import_weidu: QAction | None = None
         self._chk_ignore_warnings: QCheckBox | None = None
         self._chk_ignore_errors: QCheckBox | None = None
+        self._btn_add_pause: list[QToolButton] = []
 
         self._create_widgets()
         self._create_additional_buttons()
@@ -755,6 +438,7 @@ class InstallOrderPage(BasePage):
         """Reset all widget reference dictionaries."""
         self._ordered_tables.clear()
         self._unordered_tables.clear()
+        self._btn_add_pause.clear()
         self._phase_tabs = None
 
     def _create_checkboxs_widget(self) -> QWidget:
@@ -828,16 +512,27 @@ class InstallOrderPage(BasePage):
         layout.setSpacing(SPACING_SMALL)
         layout.setContentsMargins(MARGIN_SMALL, MARGIN_SMALL, MARGIN_SMALL, MARGIN_SMALL)
 
+        header_layout = QHBoxLayout()
+
         # Title
         title = self._create_section_title()
-        layout.addWidget(title)
+        header_layout.addWidget(title)
+
+        # Add pause button
+        btn_add_pause = QToolButton()
+        btn_add_pause.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn_add_pause.clicked.connect(lambda: self._add_pause_to_sequence(seq_idx))
+        header_layout.addWidget(btn_add_pause)
+        self._btn_add_pause.append(btn_add_pause)
+
+        layout.addLayout(header_layout)
 
         # Table widget
         table = DraggableTableWidget(
             column_count=ORDERED_COLUMN_COUNT, accept_from_other=True, table_role="ordered"
         )
 
-        # Configure columns
+        table.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
         table.setHorizontalHeaderLabels(
             [tr("page.order.col_mod"), tr("page.order.col_component")]
         )
@@ -850,7 +545,11 @@ class InstallOrderPage(BasePage):
         layout.addWidget(table)
 
         # Store references
-        self._ordered_tables[seq_idx] = {"title": title, "table": table}
+        self._ordered_tables[seq_idx] = {
+            "title": title,
+            "table": table,
+            "btn_pause": btn_add_pause,
+        }
 
         return panel
 
@@ -879,7 +578,7 @@ class InstallOrderPage(BasePage):
             column_count=UNORDERED_COLUMN_COUNT, accept_from_other=True, table_role="unordered"
         )
 
-        # Configure columns
+        table.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
         table.setHorizontalHeaderLabels(
             [tr("page.order.col_mod"), tr("page.order.col_component")]
         )
@@ -899,6 +598,60 @@ class InstallOrderPage(BasePage):
         self._unordered_tables[seq_idx] = {"title": title, "table": table}
 
         return panel
+
+    def _add_pause_to_sequence(self, seq_idx: int):
+        if seq_idx not in self._ordered_tables:
+            return
+
+        dialog = PauseDescriptionDialog(self)
+        if dialog.exec() != QDialog.DialogCode.Accepted:
+            return
+
+        description = dialog.get_description()
+        table = self._ordered_tables[seq_idx]["table"]
+
+        selected = table.selectedItems()
+        if selected:
+            selected_rows = sorted(set(item.row() for item in selected))
+            insert_row = selected_rows[-1] + 1
+        else:
+            insert_row = table.rowCount()
+
+        pause = PauseEntry(description=description)
+
+        table.blockSignals(True)
+        try:
+            self.insert_pause_to_ordered_table(table, insert_row, str(pause), True)
+        finally:
+            table.blockSignals(False)
+
+        self._on_order_changed(seq_idx)
+
+    @staticmethod
+    def insert_pause_to_ordered_table(
+        table: QTableWidget, row: int, pause_string: str, focus: bool = False
+    ) -> None:
+        table.insertRow(row)
+
+        _, description = PauseEntry.parse(pause_string)
+
+        pause_item = QTableWidgetItem(f"⏸ {tr('page.order.pause_label')}")
+        pause_item.setData(ROLE_MOD, PAUSE_PREFIX)
+        pause_item.setData(ROLE_COMPONENT, pause_string)
+
+        table.setItem(row, COL_ORDERED_MOD, pause_item)
+
+        desc_text = description if description else tr("page.order.pause_description")
+        desc_item = QTableWidgetItem(desc_text)
+        table.setItem(row, COL_ORDERED_COMPONENT, desc_item)
+
+        if focus:
+            table.clearSelection()
+            table.selectRow(row)
+            table.scrollTo(
+                table.model().index(row, 0), QAbstractItemView.ScrollHint.PositionAtCenter
+            )
+            table.setFocus()
 
     # ========================================
     # Order Management
@@ -995,15 +748,21 @@ class InstallOrderPage(BasePage):
         if not seq_data:
             return
 
-        # Build component pool
+        PauseEntry.reset_counter()
+
         pool = {
             f"{mod.lower()}:{comp}": (mod, comp)
             for mod, comp in (seq_data.ordered + seq_data.unordered)
+            if mod != PAUSE_PREFIX
         }
 
         # Apply order
         new_ordered = []
         for comp_id in order:
+            if PauseEntry.is_pause(comp_id):
+                new_ordered.append((PAUSE_PREFIX, comp_id))
+                continue
+
             if ":" in comp_id:
                 mod_part, comp_part = comp_id.split(":", 1)
                 simple_comp = comp_part.split(".")[0]
@@ -1025,7 +784,8 @@ class InstallOrderPage(BasePage):
         self._validate_sequence(seq_idx)
 
         logger.info(
-            f"Sequence {seq_idx}: {len(new_ordered)} ordered, {len(new_unordered)} unordered"
+            f"Sequence {seq_idx}: {len(new_ordered)} ordered "
+            f"(including pauses), {len(new_unordered)} unordered"
         )
 
     def _apply_sequence_order(
@@ -1315,7 +1075,12 @@ class InstallOrderPage(BasePage):
 
             # Populate ordered table (3 columns)
             for mod_id, comp_key in seq_data.ordered:
-                self._add_row_to_ordered_table(ordered_table, mod_id, comp_key)
+                if mod_id == PAUSE_PREFIX:
+                    self.insert_pause_to_ordered_table(
+                        ordered_table, ordered_table.rowCount(), comp_key
+                    )
+                else:
+                    self._add_row_to_ordered_table(ordered_table, mod_id, comp_key)
 
             # Populate unordered table (2 columns)
             for mod_id, comp_key in seq_data.unordered:
@@ -1380,8 +1145,13 @@ class InstallOrderPage(BasePage):
         if not seq_data.ordered:
             return
 
-        # Validate order
-        order_violations = self._rule_manager.validate_order(seq_data.ordered)
+        components_only = [
+            (mod_id, comp_key)
+            for mod_id, comp_key in seq_data.ordered
+            if mod_id != PAUSE_PREFIX
+        ]
+
+        order_violations = self._rule_manager.validate_order(components_only)
 
         for violation in order_violations:
             for mod_id, comp_key in violation.affected_components:
@@ -1468,7 +1238,11 @@ class InstallOrderPage(BasePage):
             if mod_item:
                 mod_id = mod_item.data(ROLE_MOD)
                 comp_key = mod_item.data(ROLE_COMPONENT)
-                seq_data.ordered.append((mod_id, comp_key))
+
+                if mod_id == PAUSE_PREFIX:
+                    seq_data.ordered.append((PAUSE_PREFIX, comp_key))
+                else:
+                    seq_data.ordered.append((mod_id, comp_key))
 
         seq_data.unordered = []
         for row in range(unordered_table.rowCount()):
@@ -1532,6 +1306,10 @@ class InstallOrderPage(BasePage):
         self, table: QTableWidget, row: int, mod_id: str, comp_key: str
     ) -> None:
         """Insert a row at specific position in ordered table."""
+        if mod_id == PAUSE_PREFIX:
+            self.insert_pause_to_ordered_table(table, row, comp_key)
+            return
+
         table.insertRow(row)
 
         mod = self._mod_manager.get_mod_by_id(mod_id)
@@ -1660,6 +1438,7 @@ class InstallOrderPage(BasePage):
 
             # Rebuild UI for new game
             self._rebuild_ui_for_game()
+            self.retranslate_ui()
 
         # Load components and default order
         self._load_components()
@@ -1701,6 +1480,10 @@ class InstallOrderPage(BasePage):
         self._action_import_weidu.setText(tr("page.order.action_import_weidu"))
         self._chk_ignore_warnings.setText(tr("page.order.ignore_warnings"))
         self._chk_ignore_errors.setText(tr("page.order.ignore_errors"))
+
+        for btn_add_pause in self._btn_add_pause:
+            btn_add_pause.setText(tr("page.order.btn_add_pause"))
+            btn_add_pause.setToolTip(tr("page.order.pause_tooltip"))
 
         # Update sequence counters
         for seq_idx in self._sequences_data.keys():
@@ -1748,10 +1531,14 @@ class InstallOrderPage(BasePage):
         # Convert sequences data to state format
         install_order = {}
         for seq_idx, seq_data in self._sequences_data.items():
-            install_order[seq_idx] = [
-                f"{mod_id.lower()}:{self._get_full_component_key(seq_idx, mod_id, comp_key)}"
-                for mod_id, comp_key in seq_data.ordered
-            ]
+            install_order[seq_idx] = []
+
+            for mod_id, comp_key in seq_data.ordered:
+                if mod_id == PAUSE_PREFIX:
+                    install_order[seq_idx].append(comp_key)
+                else:
+                    full_key = self._get_full_component_key(seq_idx, mod_id, comp_key)
+                    install_order[seq_idx].append(f"{mod_id.lower()}:{full_key}")
 
         self.state_manager.set_install_order(install_order)
         self.state_manager.set_page_option(

@@ -33,6 +33,7 @@ from constants import (
 )
 from core.GameModels import GameDefinition
 from core.InstallationWorker import InstallationState, InstallationWorker, UserDecision
+from core.models.PauseEntry import PAUSE_PREFIX, PauseEntry
 from core.StateManager import StateManager
 from core.TranslationManager import tr
 from core.weidu_types import ComponentInfo, ComponentStatus, InstallResult
@@ -534,7 +535,7 @@ class InstallationPage(BasePage):
         components = []
 
         for idx, comp_id in enumerate(order_list):
-            parts = comp_id.split(":")
+            parts = comp_id.split(":", 1)
             if len(parts) != 2:
                 logger.warning("Invalid component ID: %s", comp_id)
                 continue
@@ -543,6 +544,19 @@ class InstallationPage(BasePage):
 
             mod = self._mod_manager.get_mod_by_id(mod_id)
             if not mod:
+                if PauseEntry.is_pause(comp_id):
+                    comp_info = ComponentInfo(
+                        mod_id=mod_id,
+                        component_key=comp_key,
+                        tp2_name=PAUSE_PREFIX,
+                        sequence_idx=idx,
+                        requirements=set(),
+                        subcomponent_answers=[],
+                        extra_args=[],
+                    )
+
+                    components.append(comp_info)
+                    continue
                 logger.warning("Mod not found: %s", mod_id)
                 continue
 
@@ -898,7 +912,7 @@ class InstallationPage(BasePage):
 
         logger.info("Installation stopped at %d", last_index)
 
-    def _on_installation_paused(self, last_index: int):
+    def _on_installation_paused(self, last_index: int, description: str):
         """Handle pause."""
         self._is_paused = True
         self._btn_start_pause.setText(tr("page.installation.btn_resume"))
@@ -906,7 +920,14 @@ class InstallationPage(BasePage):
         self._input_text.setEnabled(False)
 
         logger.info("Installation paused at batch %d", last_index)
-        self._append_output(f"\n{tr('page.installation.paused')}\n", color=COLOR_WARNING)
+
+        if description:
+            self._append_output(
+                f"\n{tr('page.installation.paused_with_description', description=description)}\n",
+                color=COLOR_WARNING,
+            )
+        else:
+            self._append_output(f"\n{tr('page.installation.paused')}\n", color=COLOR_WARNING)
 
     def _on_installation_retryed(self, count_components: int):
         """Handle retry."""

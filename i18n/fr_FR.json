@@ -44,7 +44,9 @@
     "cancel": "Annuler",
     "ok": "OK",
     "apply": "Appliquer",
-    "close": "Fermer"
+    "close": "Fermer",
+    "add": "Ajouter",
+    "edit": "Modifier"
   },
   "menu": {
     "language": "Langue d'interface",
@@ -101,6 +103,7 @@
       "btn_import": "Importer un ordre d'installation",
       "btn_export": "Exporter l'ordre d'installation",
       "btn_reset": "Réinitialiser l'ordre d'installation",
+      "btn_add_pause": "Insérer une pause",
       "action_import_file": "Depuis un fichier exporté",
       "action_import_weidu": "Depuis un Weidu.log",
       "col_status": "Statut",
@@ -136,7 +139,15 @@
       "export_success_title": "Exportation réussie",
       "export_success_message": "Ordre d'installation de {count} composant(s) exporté avec succès.",
       "export_error_title": "Erreur d'exportation",
-      "export_error_message": "Échec de l'exportation de l'ordre d'installation : {error}"
+      "export_error_message": "Échec de l'exportation de l'ordre d'installation : {error}",
+      "pause_label": "PAUSE",
+      "pause_tooltip": "Ajouter une pause lors de l'installation",
+      "pause_description": "Installation en pause",
+      "remove_pause": "Supprimer",
+      "edit_pause": "Modifier",
+      "insert_pause_after": "Insérer une pause après ce composant",
+      "pause_dialog_title": "Description de la pause",
+      "pause_dialog_placeholder": "Entrez votre description..."
     },
     "download": {
       "title": "Téléchargement et vérification des archives",
@@ -298,7 +309,8 @@
       "pause_on_warning_tooltip": "Mettre l'installation en pause lorsqu'un avertissement est détecté.",
       "pause_on_error": "Pause lors d'une erreur",
       "pause_on_error_tooltip": "Mettre l'installation en pause lorsqu'une erreur est détectée.",
-      "paused": "Installation en pause"
+      "paused": "Installation en pause",
+      "paused_with_description": "Installation en pause : {description}"
     }
   },
   "validation": {

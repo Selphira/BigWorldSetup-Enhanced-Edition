@@ -7,6 +7,7 @@ import threading
 
 from PySide6.QtCore import QThread, Signal
 
+from core.models.PauseEntry import PauseEntry
 from core.weidu_types import ComponentInfo, ComponentStatus, InstallResult
 from core.WeiDUInstallerEngine import WeiDUInstallerEngine
 
@@ -268,7 +269,7 @@ class InstallationWorker(QThread):
     warning_occurred = Signal(str, list)  # component_id, warnings
     installation_complete = Signal(dict)  # All results
     installation_stopped = Signal(int)  # last_index
-    installation_paused = Signal(int)  # last_index
+    installation_paused = Signal(int, str)  # last_index, pause_description
     installation_retryed = Signal(int)  # count_components
 
     def __init__(
@@ -293,6 +294,7 @@ class InstallationWorker(QThread):
         self.all_results: dict[str, InstallResult] = {}
         self.is_stopped = False
         self.is_paused = False
+        self.pause_description: str = ""
         self.decision_ready = False
         self.user_decision: UserDecision | None = None
         self.current_runner: ProcessRunner | None = None
@@ -311,7 +313,8 @@ class InstallationWorker(QThread):
                 # Check for pause before starting new batch
                 if self.is_paused:
                     logger.info("Installation paused at batch %d", batch_idx + 1)
-                    self.installation_paused.emit(batch_idx + 1)
+                    self.installation_paused.emit(batch_idx + 1, self.pause_description)
+                    self.pause_description = ""
                     # Wait for resume instead of returning
                     while self.is_paused and not self.is_stopped:
                         self.msleep(100)
@@ -325,9 +328,32 @@ class InstallationWorker(QThread):
                     logger.info("Resuming from batch %d", batch_idx)
 
                 batch = self.batches[batch_idx]
-                self.batch_started.emit(batch_idx + 1, total_batches, batch[0].mod_id)
+                first_comp = batch[0]
+                comp_id = f"{first_comp.mod_id}:{first_comp.component_key}"
 
-                # Install batch
+                # Check if this batch is a pause component
+                if PauseEntry.is_pause(comp_id):
+                    logger.info("Pause component encountered: %s", comp_id)
+
+                    # Mark pause as "installed" (skipped)
+                    self.all_results[comp_id] = InstallResult(
+                        status=ComponentStatus.SKIPPED,
+                        return_code=0,
+                        stdout="",
+                        stderr="",
+                        warnings=[],
+                        errors=[],
+                    )
+
+                    _, description = PauseEntry.parse(first_comp.component_key)
+                    self.pause_description = description
+                    self.is_paused = True
+                    batch_idx += 1
+                    continue
+
+                # Normal component installation
+                self.batch_started.emit(batch_idx + 1, total_batches, first_comp.mod_id)
+
                 results = self._install_batch(batch)
                 self.all_results.update(results)
 
