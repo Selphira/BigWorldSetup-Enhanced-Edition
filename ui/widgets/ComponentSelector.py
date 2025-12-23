@@ -796,6 +796,7 @@ class SelectionStateManager:
                 flags = item.flags()
                 if reference in forced_components:
                     flags &= ~Qt.ItemFlag.ItemIsUserCheckable
+                    self.select_item(reference)
                 else:
                     flags |= Qt.ItemFlag.ItemIsUserCheckable
                 item.setFlags(flags)
