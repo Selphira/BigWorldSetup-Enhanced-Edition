@@ -46,7 +46,8 @@
     "apply": "Appliquer",
     "close": "Fermer",
     "add": "Ajouter",
-    "edit": "Modifier"
+    "edit": "Modifier",
+    "finish": "Terminer"
   },
   "menu": {
     "language": "Langue d'interface",
@@ -254,7 +255,8 @@
         "warning": "Installation réussie avec avertissements",
         "error": "Installation échouée",
         "skipped": "Ignoré",
-        "already_installed": "Déjà installé"
+        "already_installed": "Déjà installé",
+        "stopped": "Installation arrêtée"
       },
       "sequence": {
         "started": "SÉQUENCE {current}/{total}",
@@ -263,7 +265,7 @@
       },
       "summary": {
         "title": "Installation terminée",
-        "message": "Installation terminée !\n\nTotal : {total} composants\n✓ Succès : {success}\n⚠ Avertissements : {warnings}\n✗ Erreurs : {errors}\n○ Ignorés : {skipped}",
+        "message": "Installation terminée ! Bon jeu à vous !",
         "no_data": "Aucune donnée d'installation disponible.",
         "new_title": "NOUVELLE INSTALLATION",
         "resume_title": "REPRISE D'INSTALLATION",
@@ -277,7 +279,7 @@
         "installed_components": "Composants installés : {index}/{total}",
         "remaining": "Composants restants : {count}",
         "progress": "Progression globale : {percent}%",
-        "next_component": "Prochain composant : [{comp_key}] {component}",
+        "next_component": "Prochain composant : {mod} -> [{comp_key}] {component}",
         "ready": "Prêt à démarrer l'installation. Cliquez sur 'Démarrer l'installation'.",
         "ready_to_resume": "Prêt à reprendre l'installation. Cliquez sur 'Démarrer l'installation'."
       },
@@ -291,6 +293,8 @@
       "error_already_modded_message": "Un fichier WeiDU.log a été détecté dans le dossier du jeu ({game_folder}).\n\nCela signifie que le jeu a déjà été moddé en dehors de cette application.\n\nPour continuer, vous devez modifier le dossier d'installation du jeu ou effectuer une installation propre du jeu.",
       "warning_title": "Avertissement d'installation",
       "warning_message": "Le composant {component} a généré des avertissements.\n\nQue souhaitez-vous faire ?",
+      "stop_title": "Arrêter l'installation",
+      "stop_message": "Voulez-vous vraiment arrêter l'installation ?",
       "stopped_title": "Installation arrêtée",
       "stopped_message": "L'installation a été arrêtée au lot n°{index}.\n\nVous pourrez reprendre l'installation lors du prochain lancement.",
       "lbl_log": "Logs d'installation",
@@ -299,7 +303,6 @@
       "btn_pause": "Mettre en pause",
       "btn_resume": "Reprendre l'installation",
       "btn_retry": "Réessayer",
-      "btn_logs": "Voir les logs",
       "btn_continue": "Continuer",
       "btn_send_input": "Envoyer",
       "batch_started": "Lot {current}/{total} : {mod}",
@@ -319,7 +322,8 @@
     "folder_not_exist": "Le dossier sélectionné n'existe pas",
     "not_a_folder": "Le chemin sélectionné n'est pas un dossier",
     "folder_not_writable": "Le dossier n'est pas accessible en écriture. Vérifiez les permissions.",
-    "invalid_game_folder": "Le dossier sélectionné n'est pas une installation de jeu valide.\n\nVeuillez vérifier que le bon dossier a été sélectionné."
+    "invalid_game_folder": "Le dossier sélectionné n'est pas une installation de jeu valide.\n\nVeuillez vérifier que le bon dossier a été sélectionné.",
+    "file_group_failed": "Fichiers requis manquants : {description}"
   },
   "widget": {
     "select_folder_placeholder": "Sélectionnez un dossier...",

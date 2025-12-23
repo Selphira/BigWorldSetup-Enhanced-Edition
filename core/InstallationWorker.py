@@ -7,6 +7,7 @@ import threading
 
 from PySide6.QtCore import QThread, Signal
 
+from core.Mod import ComponentType
 from core.models.PauseEntry import PauseEntry
 from core.weidu_types import ComponentInfo, ComponentStatus, InstallResult
 from core.WeiDUInstallerEngine import WeiDUInstallerEngine
@@ -297,7 +298,9 @@ class InstallationWorker(QThread):
         self.pause_description: str = ""
         self.decision_ready = False
         self.user_decision: UserDecision | None = None
-        self.current_runner: ProcessRunner | None = None
+        self._active_runner: ProcessRunner | None = None
+        self._runner_lock = threading.Lock()
+        self._was_stopped = False
 
     def run(self):
         """Execute installation process."""
@@ -329,7 +332,7 @@ class InstallationWorker(QThread):
 
                 batch = self.batches[batch_idx]
                 first_comp = batch[0]
-                comp_id = f"{first_comp.mod_id}:{first_comp.component_key}"
+                comp_id = first_comp.comp_id
 
                 # Check if this batch is a pause component
                 if PauseEntry.is_pause(comp_id):
@@ -345,14 +348,14 @@ class InstallationWorker(QThread):
                         errors=[],
                     )
 
-                    _, description = PauseEntry.parse(first_comp.component_key)
+                    _, description = PauseEntry.parse(comp_id.split(":", 1)[1])
                     self.pause_description = description
                     self.is_paused = True
                     batch_idx += 1
                     continue
 
                 # Normal component installation
-                self.batch_started.emit(batch_idx + 1, total_batches, first_comp.mod_id)
+                self.batch_started.emit(batch_idx + 1, total_batches, first_comp.mod.id)
 
                 results = self._install_batch(batch)
                 self.all_results.update(results)
@@ -416,7 +419,7 @@ class InstallationWorker(QThread):
 
     def _install_batch(self, batch: list[ComponentInfo]) -> dict[str, InstallResult]:
         """Install a batch of components with real-time output."""
-        mod_id = batch[0].mod_id
+        mod_id = batch[0].mod.id
 
         # Get mod name for display
         mod = self.mod_manager.get_mod_by_id(mod_id)
@@ -429,9 +432,9 @@ class InstallationWorker(QThread):
         skipped_results = {}
 
         for comp in batch:
-            comp_id = f"{comp.mod_id}:{comp.component_key}"
+            comp_id = f"{comp.mod.id}:{comp.component.key}"
 
-            if self.engine.is_component_installed(comp.tp2_name, comp.component_key):
+            if self.engine.is_component_installed(comp.mod.tp2, comp.component.key):
                 logger.info("Component %s already installed", comp_id)
                 skipped_results[comp_id] = InstallResult(
                     status=ComponentStatus.ALREADY_INSTALLED,
@@ -450,21 +453,56 @@ class InstallationWorker(QThread):
 
         # Emit start signals
         for comp in components_to_install:
-            comp_id = f"{comp.mod_id}:{comp.component_key}"
+            comp_id = f"{comp.mod.id}:{comp.component.key}"
             extra_args = comp.extra_args
             self.component_started.emit(comp_id, mod_name)
 
         is_single = len(components_to_install) == 1
 
-        results = self.engine.install_components(
-            tp2=batch[0].tp2_name,
-            components=components_to_install,
-            language=language,
-            extra_args=extra_args,
-            input_lines=components_to_install[0].subcomponent_answers if is_single else [],
-            runner_factory=ProcessRunner,
-            output_callback=self.output_received.emit,
-        )
+        # Reset the stop flag before starting
+        self._was_stopped = False
+
+        if batch[0].component.comp_type == ComponentType.DWN:
+            results = self.engine.install_no_weidu_components(
+                mod_id=batch[0].mod.id,
+                components=components_to_install,
+                language=language,
+                runner_factory=ProcessRunner,
+                output_callback=self.output_received.emit,
+                runner_created_callback=self._on_runner_created,
+                runner_finished_callback=self._on_runner_finished,
+            )
+            pass
+        else:
+            results = self.engine.install_components(
+                tp2=batch[0].mod.tp2,
+                components=components_to_install,
+                language=language,
+                extra_args=extra_args,
+                input_lines=components_to_install[0].subcomponent_answers if is_single else [],
+                runner_factory=ProcessRunner,
+                output_callback=self.output_received.emit,
+                runner_created_callback=self._on_runner_created,
+                runner_finished_callback=self._on_runner_finished,
+            )
+
+        # If stopped, override all results to STOPPED status
+        if self._was_stopped:
+            logger.info("Installation was stopped, marking components as STOPPED")
+            for comp_id in results:
+                if results[comp_id].status not in [
+                    ComponentStatus.ALREADY_INSTALLED,
+                    ComponentStatus.SKIPPED,
+                ]:
+                    results[comp_id] = InstallResult(
+                        status=ComponentStatus.STOPPED,
+                        return_code=-1,
+                        stdout=results[comp_id].stdout,
+                        stderr=results[comp_id].stderr + "\n[Installation stopped by user]",
+                        warnings=[],
+                        errors=["Installation stopped by user"],
+                        debug_log=results[comp_id].debug_log,
+                    )
 
         for comp_id, result in results.items():
             self.component_finished.emit(comp_id, result)
@@ -499,10 +537,30 @@ class InstallationWorker(QThread):
     def stop(self):
         """Stop installation."""
         self.is_stopped = True
+        self._was_stopped = True
 
         # Stop current runner if active
-        if self.current_runner:
-            self.current_runner.stop()
+        with self._runner_lock:
+            if self._active_runner:
+                logger.info("Stopping active runner")
+                self._active_runner.stop()
+
+    def send_input(self, text: str) -> bool:
+        """
+        Send input to the currently active runner.
+
+        Args:
+            text: Text to send to stdin
+
+        Returns:
+            True if input was sent successfully, False otherwise
+        """
+        with self._runner_lock:
+            if self._active_runner:
+                return self._active_runner.send_input(text)
+            else:
+                logger.warning("No active runner to send input to")
+                return False
 
     def update_pause_settings(self, pause_on_error: bool, pause_on_warning: bool):
         """Update pause settings during execution."""
@@ -511,3 +569,13 @@ class InstallationWorker(QThread):
         logger.debug(
             f"Updated pause settings: error={pause_on_error}, warning={pause_on_warning}"
         )
+
+    def _on_runner_created(self, runner: ProcessRunner):
+        """Create a callback to capture the runner reference"""
+        with self._runner_lock:
+            self._active_runner = runner
+
+    def _on_runner_finished(self):
+        """Create a callback to clear the runner reference"""
+        with self._runner_lock:
+            self._active_runner = None

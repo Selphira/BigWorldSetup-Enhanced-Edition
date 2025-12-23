@@ -40,7 +40,7 @@ from core.weidu_types import ComponentInfo, ComponentStatus, InstallResult
 from core.WeiDUDebugParser import WeiDUDebugParser
 from core.WeiDUInstallerEngine import WeiDUInstallerEngine
 from core.WeiDULogParser import WeiDULogParser
-from ui.pages.BasePage import BasePage
+from ui.pages.BasePage import BasePage, ButtonConfig
 
 logger = logging.getLogger(__name__)
 
@@ -234,7 +234,6 @@ class InstallationPage(BasePage):
         # Installation data
         self._components: list[ComponentInfo] = []
         self._batches: list[list[ComponentInfo]] = []
-        self._component_results: dict[str, InstallResult] = {}
         self._installation_state: InstallationState | None = None
         self._batch_install: bool = True
         self._pause_on_error: bool = True
@@ -253,7 +252,6 @@ class InstallationPage(BasePage):
         self._stats_widget: InstallationStatsWidget | None = None
         self._btn_start_pause: QPushButton | None = None
         self._btn_stop: QPushButton | None = None
-        self._btn_logs: QPushButton | None = None
 
         self._create_widgets()
         self._create_additional_buttons()
@@ -367,11 +365,6 @@ class InstallationPage(BasePage):
         self._btn_stop.setEnabled(False)
         self._btn_stop.clicked.connect(self._stop_installation)
 
-        self._btn_logs = QPushButton()
-        self._btn_logs.setCursor(Qt.CursorShape.PointingHandCursor)
-        self._btn_logs.setEnabled(False)
-        self._btn_logs.clicked.connect(self._show_detailed_logs)
-
     # ========================================
     # Installation Workflow
     # ========================================
@@ -470,6 +463,9 @@ class InstallationPage(BasePage):
             self._on_installation_stopped(0)
             return
 
+        self._engine.init_weidu_conf(self.state_manager.get_languages_order()[0])
+        self._engine.init_weidu_log()
+
         # Convert order to ComponentInfo
         self._components = self._convert_order_to_component_info(order_list)
         self._batches = self._prepare_batches(self._components)
@@ -478,8 +474,6 @@ class InstallationPage(BasePage):
         self._start_batch_index = 0
         if (
             self._installation_state
-            and self._installation_state.current_sequence
-            == self._installation_state.current_sequence
             and self._installation_state.last_installed_batch_index >= 0
         ):
             self._start_batch_index = self._installation_state.last_installed_batch_index + 1
@@ -546,9 +540,10 @@ class InstallationPage(BasePage):
             if not mod:
                 if PauseEntry.is_pause(comp_id):
                     comp_info = ComponentInfo(
-                        mod_id=mod_id,
-                        component_key=comp_key,
                         tp2_name=PAUSE_PREFIX,
+                        comp_id=comp_id,
+                        mod=None,
+                        component=None,
                         sequence_idx=idx,
                         requirements=set(),
                         subcomponent_answers=[],
@@ -565,10 +560,16 @@ class InstallationPage(BasePage):
                 logger.warning("Component not found: %s:%s", mod_id, comp_key)
                 continue
 
-            parts = comp_key.split(".")
-            simple_key = parts[0]
-            subcomponent_answers = parts[1:]
+            subcomponent_answers = []
             extra_args = []
+
+            if component.is_sub():
+                selected_components = self.state_manager.get_selected_components()
+                subcomponent_answers = [
+                    component.split(".")[2]
+                    for component in selected_components
+                    if component.startswith(f"{mod_id}:") and component.count(".") == 2
+                ]
 
             if mod_id.lower() == "eet":
                 extra_args = [
@@ -578,9 +579,10 @@ class InstallationPage(BasePage):
                 ]
 
             comp_info = ComponentInfo(
-                mod_id=mod_id,
-                component_key=simple_key,
                 tp2_name=mod.tp2,
+                comp_id=comp_id,
+                mod=mod,
+                component=component,
                 sequence_idx=idx,
                 requirements=self.state_manager.get_rule_manager().get_requirements(
                     mod_id, comp_key, True
@@ -606,13 +608,13 @@ class InstallationPage(BasePage):
         for comp in components:
             is_sub = bool(comp.subcomponent_answers)
 
-            if is_sub:
+            if is_sub or comp.component is None:
                 if current_batch:
                     batches.append(current_batch)
                     current_batch = []
                 batches.append([comp])
 
-            elif not current_batch or current_batch[0].mod_id == comp.mod_id:
+            elif not current_batch or current_batch[0].mod.id == comp.mod.id:
                 current_batch.append(comp)
 
             else:
@@ -734,8 +736,8 @@ class InstallationPage(BasePage):
 
         reply = QMessageBox.question(
             self,
-            tr("page.install.stop.title"),
-            tr("page.install.stop.message"),
+            tr("page.installation.stop_title"),
+            tr("page.installation.stop_message"),
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
         )
 
@@ -746,10 +748,9 @@ class InstallationPage(BasePage):
     def _send_input_text(self):
         """Send input text."""
         text = self._input_text.text()
-        if not text or not self._worker or not self._worker.current_runner:
+        if not text or not self._worker:
             return
-        print(f"sending input text : {text}")
-        self._worker.current_runner.send_input(text)
+        self._worker.send_input(text)
 
     # ========================================
     # Worker Signal Handlers
@@ -758,6 +759,8 @@ class InstallationPage(BasePage):
     def _on_batch_started(self, current: int, total: int, mod_id: str):
         """Handle batch start."""
         # Update batch index in state
+        self._btn_send_input.setEnabled(True)
+        self._input_text.setEnabled(True)
         self._installation_state.last_installed_batch_index = current - 1
         mod = self._mod_manager.get_mod_by_id(mod_id)
 
@@ -776,11 +779,8 @@ class InstallationPage(BasePage):
 
     def _on_component_finished(self, component_id: str, result: InstallResult):
         """Handle component completion."""
-        self._component_results[component_id] = result
-
         # Update progress
         current = self._progress_bar.value() + 1
-        self._progress_bar.setValue(current)
 
         # Update stats
         if result.status == ComponentStatus.SUCCESS:
@@ -791,7 +791,12 @@ class InstallationPage(BasePage):
             self._stats["errors"] += 1
         elif result.status in (ComponentStatus.SKIPPED, ComponentStatus.ALREADY_INSTALLED):
             self._stats["skipped"] += 1
+        elif result.status == ComponentStatus.STOPPED:
+            self._installation_state.last_installed_batch_index -= 1
+            self._installation_state.last_installed_component_index -= 1
+            current -= 1
 
+        self._progress_bar.setValue(current)
         self._stats_widget.update_stats(**self._stats)
 
         # Update installation state with global component index
@@ -805,6 +810,7 @@ class InstallationPage(BasePage):
             ComponentStatus.SUCCESS: COLOR_STATUS_COMPLETE,
             ComponentStatus.WARNING: COLOR_WARNING,
             ComponentStatus.ERROR: COLOR_ERROR,
+            ComponentStatus.STOPPED: COLOR_ERROR,
             ComponentStatus.ALREADY_INSTALLED: COLOR_INFO,
         }.get(result.status)
 
@@ -882,12 +888,13 @@ class InstallationPage(BasePage):
         self._btn_stop.setEnabled(False)
         self._btn_send_input.setEnabled(False)
         self._input_text.setEnabled(False)
-        self._btn_logs.setEnabled(True)
         self._cb_batch_install.setEnabled(True)
         self._update_navigation_buttons()
 
         self.clear_installation_state()
         self._show_installation_summary()
+
+        self.state_manager.set_ui_current_page("installation_type")
 
         logger.info("All sequences installation complete")
 
@@ -900,7 +907,6 @@ class InstallationPage(BasePage):
         self._btn_stop.setEnabled(False)
         self._btn_send_input.setEnabled(False)
         self._input_text.setEnabled(False)
-        self._btn_logs.setEnabled(True)
         self._cb_batch_install.setEnabled(True)
         self._update_navigation_buttons()
 
@@ -931,6 +937,8 @@ class InstallationPage(BasePage):
 
     def _on_installation_retryed(self, count_components: int):
         """Handle retry."""
+        self._btn_send_input.setEnabled(True)
+        self._input_text.setEnabled(True)
         self._progress_bar.setValue(self._progress_bar.value() - count_components)
 
     # ========================================
@@ -967,7 +975,7 @@ class InstallationPage(BasePage):
 
         for comp in remaining:
             if self._component_depends_on(comp, failed_id):
-                dependents.append(f"{comp.mod_id}:{comp.component_key}")
+                dependents.append(f"{comp.mod.id}:{comp.component.key}")
 
         return dependents
 
@@ -982,7 +990,7 @@ class InstallationPage(BasePage):
 
         for i in range(current_batch + 1, len(self._batches)):
             self._batches[i] = [
-                c for c in self._batches[i] if f"{c.mod_id}:{c.component_key}" not in ids_set
+                c for c in self._batches[i] if f"{c.mod.id}:{c.component.key}" not in ids_set
             ]
 
         self._batches = [b for b in self._batches if b]
@@ -1011,14 +1019,7 @@ class InstallationPage(BasePage):
 
     def _show_installation_summary(self):
         """Show summary dialog."""
-        summary_text = tr(
-            "page.installation.summary.message",
-            total=len(self._components),
-            success=self._stats["success"],
-            warnings=self._stats["warnings"],
-            errors=self._stats["errors"],
-            skipped=self._stats["skipped"],
-        )
+        summary_text = tr("page.installation.summary.message")
 
         msg_box = QMessageBox(self)
         msg_box.setWindowTitle(tr("page.installation.summary.title"))
@@ -1030,49 +1031,16 @@ class InstallationPage(BasePage):
         )
         msg_box.exec()
 
-    def _show_detailed_logs(self):
-        """Show detailed logs."""
-        dialog = QDialog(self)
-        dialog.setWindowTitle(tr("page.install.logs.title"))
-        dialog.resize(800, 600)
-
-        layout = QVBoxLayout(dialog)
-
-        log_text = QTextEdit()
-        log_text.setReadOnly(True)
-        log_text.setFontFamily("Consolas, Monaco, monospace")
-
-        for comp_id, result in self._component_results.items():
-            log_text.append(f"\n{'=' * 80}\n")
-            log_text.append(f"Component: {comp_id}")
-            log_text.append(f"Status: {result.status.value}")
-            log_text.append(f"Return Code: {result.return_code}\n")
-
-            if result.warnings:
-                log_text.append("Warnings:")
-                for warning in result.warnings:
-                    log_text.append(f"  {warning}")
-
-            if result.errors:
-                log_text.append("Errors:")
-                for error in result.errors:
-                    log_text.append(f"  {error}")
-
-            if result.debug_log:
-                log_text.append("\nDebug Log:")
-                log_text.append(result.debug_log)
-
-        layout.addWidget(log_text)
-
-        btn_close = QPushButton(tr("button.close"))
-        btn_close.clicked.connect(dialog.accept)
-        layout.addWidget(btn_close)
-
-        dialog.exec()
-
     def _update_navigation_buttons(self):
         """Update navigation buttons."""
         self.notify_navigation_changed()
+
+    def is_resume(self) -> bool:
+        is_resume = self._installation_state and (
+            self._installation_state.last_installed_component_index >= 0
+            or self._installation_state.current_sequence > 0
+        )
+        return is_resume
 
     def _display_installation_summary(self):
         """Display installation summary on page load."""
@@ -1086,10 +1054,7 @@ class InstallationPage(BasePage):
             return
 
         # Check if resuming
-        is_resume = (
-            self._installation_state
-            and self._installation_state.last_installed_component_index >= 0
-        )
+        is_resume = self.is_resume()
 
         # Build summary
         self._append_output("=" * 80 + "\n", COLOR_INFO)
@@ -1205,9 +1170,8 @@ class InstallationPage(BasePage):
             if mod:
                 component = mod.get_component(comp_key)
                 if component:
-                    print(component.get_name())
                     self._append_output(
-                        f"  {tr('page.installation.summary.next_component', component=component.get_name(), comp_key=component.key)}\n\n",
+                        f"  {tr('page.installation.summary.next_component', mod=mod.name, component=component.get_name(), comp_key=component.key)}\n\n",
                         COLOR_WARNING,
                     )
 
@@ -1266,19 +1230,20 @@ class InstallationPage(BasePage):
         return tr("page.installation.title")
 
     def get_additional_buttons(self) -> list[QPushButton]:
-        return [self._btn_start_pause, self._btn_stop, self._btn_logs]
+        return [self._btn_start_pause, self._btn_stop]
+
+    def get_next_button_config(self) -> ButtonConfig:
+        return ButtonConfig(
+            visible=False, enabled=self.can_go_to_next_page(), text=tr("button.finish")
+        )
 
     def can_go_to_next_page(self) -> bool:
         """Can proceed if complete with no errors."""
-        return (
-            not self._is_installing
-            and bool(self._component_results)
-            and self._stats["errors"] == 0
-        )
+        return not self._is_installing and self._stats["errors"] == 0
 
     def can_go_to_previous_page(self) -> bool:
         """Cannot go back during installation."""
-        return not self._is_installing
+        return not self._is_installing and not self.is_resume()
 
     def on_page_shown(self):
         """Called when page shown."""
@@ -1287,7 +1252,6 @@ class InstallationPage(BasePage):
         self._output_text.clear()
         self._stats_widget.reset()
         self._progress_bar.setValue(0)
-        self._component_results.clear()
         self._stats = {"success": 0, "warnings": 0, "errors": 0, "skipped": 0}
 
         self._display_installation_summary()
@@ -1311,7 +1275,6 @@ class InstallationPage(BasePage):
             self._btn_start_pause.setText(tr("page.installation.btn_start"))
 
         self._btn_stop.setText(tr("page.installation.btn_stop"))
-        self._btn_logs.setText(tr("page.installation.btn_logs"))
         self._btn_send_input.setText(tr("page.installation.btn_send_input"))
         self._lbl_log.setText(tr("page.installation.lbl_log"))
 
@@ -1352,7 +1315,7 @@ class InstallationPage(BasePage):
         current_seq = self.state_manager.get_page_option(page_id, "current_sequence", 0)
 
         # Only create installation state if there's a valid saved state
-        if last_comp_idx >= 0:
+        if last_comp_idx >= 0 or current_seq > 0:
             self._installation_state = InstallationState(
                 last_installed_component_index=last_comp_idx,
                 last_installed_batch_index=last_batch_idx,

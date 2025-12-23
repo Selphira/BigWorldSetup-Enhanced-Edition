@@ -37,6 +37,7 @@ class ExtractionInfo:
 
     def __init__(
         self,
+        extraction_id: str,
         mod_id: str,
         mod_name: str,
         tp2_name: str,
@@ -46,12 +47,14 @@ class ExtractionInfo:
         """Initialize extraction info.
 
         Args:
+            extraction_id: Extraction identifier
             mod_id: Mod identifier
             mod_name: Display name of the mod
             tp2_name: TP2 filename (without extension)
             archive_path: Path to archive file
             destination_path: Target extraction directory
         """
+        self.extraction_id = extraction_id
         self.mod_id = mod_id
         self.mod_name = mod_name
         self.tp2_name = tp2_name

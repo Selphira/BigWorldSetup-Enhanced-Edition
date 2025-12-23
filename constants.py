@@ -33,6 +33,7 @@ THEMES_DIR = RESOURCES_DIR / "themes"
 LCC_CACHE_DIR = CACHE_DIR / "lcc"
 
 SEVEN_Z_PATH = TOOLS_DIR / "7z.exe"
+EXTRACT_DIR = "bws-ee-extract"
 
 # ============================================================================
 # TIMING & DELAYS (milliseconds)

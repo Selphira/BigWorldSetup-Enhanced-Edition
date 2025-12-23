@@ -5,6 +5,7 @@ from pathlib import Path
 
 from PySide6.QtCore import Qt
 
+from constants import EXTRACT_DIR
 from core.weidu_types import ComponentInfo, ComponentStatus, InstallResult
 from core.WeiDUDebugParser import WeiDUDebugParser
 from core.WeiDULogParser import WeiDULogParser
@@ -49,6 +50,11 @@ class WeiDUInstallerEngine:
         """Get the path to the WeiDU log."""
         return self.game_dir / "WeiDU.log"
 
+    @property
+    def weidu_conf(self) -> Path:
+        """Get the path to the weidu.conf."""
+        return self.game_dir / "weidu.conf"
+
     # ------------------------------------------------------------------
     # Core API
     # ------------------------------------------------------------------
@@ -62,6 +68,8 @@ class WeiDUInstallerEngine:
         input_lines: list[str] | None,
         runner_factory,
         output_callback=None,
+        runner_created_callback=None,
+        runner_finished_callback=None,
     ) -> dict[str, InstallResult]:
         """Install one batch of components."""
         results = {}
@@ -76,7 +84,7 @@ class WeiDUInstallerEngine:
                 errors=[f"Failed to create setup-{tp2}.exe"],
             )
             results = {
-                f"{component.mod_id}:{component.component_key}": error_result
+                f"{component.mod.id}:{component.component.key}": error_result
                 for component in components
             }
 
@@ -87,11 +95,18 @@ class WeiDUInstallerEngine:
         cmd = self._build_command(tp2, components, language, extra_args)
 
         runner = runner_factory(cmd, self.game_dir, input_lines)
+
+        if runner_created_callback:
+            runner_created_callback(runner)
+
         if output_callback:
             runner.output_received.connect(output_callback, Qt.ConnectionType.DirectConnection)
 
         runner.start()
         runner.wait()
+
+        if runner_finished_callback:
+            runner_finished_callback()
 
         stdout = "".join(runner._stdout_lines)
         stderr = "".join(runner._stderr_lines)
@@ -105,20 +120,11 @@ class WeiDUInstallerEngine:
 
         self._restore_debug(tp2)
 
-        print(f"STATUSES: {statuses}")
-        print(f"errors: {errors}")
-        print(f"warnings: {warnings}")
-
         for idx, comp in enumerate(components):
-            comp_id = f"{comp.mod_id}:{comp.component_key}"
+            comp_id = f"{comp.mod.id}:{comp.component.key}"
             status = statuses.get(idx, ComponentStatus.ERROR)
-            print(f"idx: {idx}, comp_id: {comp_id}, status: {status}")
 
-            verified = self.log_parser.is_component_installed(
-                self.weidu_log, comp.tp2_name, comp.component_key
-            )
-
-            if return_code == 0 and verified:
+            if return_code == 0:
                 if errors:
                     status = ComponentStatus.ERROR
                 elif warnings:
@@ -127,8 +133,6 @@ class WeiDUInstallerEngine:
                     status = ComponentStatus.SUCCESS
             elif status != ComponentStatus.SKIPPED:
                 status = ComponentStatus.ERROR
-
-            print(f"APRES idx: {idx}, comp_id: {comp_id}, status: {status}")
 
             results[comp_id] = InstallResult(
                 status=status,
@@ -141,6 +145,81 @@ class WeiDUInstallerEngine:
             )
 
         return results
+
+    def install_no_weidu_components(
+        self,
+        mod_id: str,
+        components: list[ComponentInfo],
+        language: str,
+        runner_factory,
+        output_callback=None,
+        runner_created_callback=None,
+        runner_finished_callback=None,
+    ) -> dict[str, InstallResult]:
+        """
+        Install components that don't have a traditional WeiDU tp2 file.
+
+        This method creates a synthetic tp2 file for mods that use the "dwn" (download-only)
+        component type. These mods only need their files extracted, not processed by WeiDU scripts.
+
+        The generated tp2 creates a log entry so the installation can be tracked in WeiDU.log,
+        but doesn't perform any actual file operations (files are already extracted).
+
+        Args:
+            mod_id: Mod identifier
+            components: List of components to "install"
+            language: Language code
+            runner_factory: Factory function to create ProcessRunner
+            output_callback: Optional callback for output
+            runner_created_callback: Optional callback when runner is created
+            runner_finished_callback: Optional callback when runner finishes
+
+        Returns:
+            Dictionary mapping component_id to InstallResult
+        """
+        component = components[0].component
+        tp2_name = mod_id
+        tp2_path = self.game_dir / f"setup-{tp2_name}.tp2"
+
+        # Generate minimal tp2 content
+        # This creates a valid WeiDU tp2 that does nothing except log the installation
+        content = (
+            f"BACKUP ~weidu_external/backup/{tp2_name}~\n"
+            f"AUTHOR ~bws-ee~\n"
+            f"\n"
+            f"BEGIN ~{component.text}~\n"
+            f"// This is a download-only component, files are already extracted\n"
+            f"PRINT ~Files for {tp2_name} are already in place~\n"
+        )
+
+        try:
+            tp2_path.write_text(content, encoding="utf-8")
+            logger.info("Created synthetic tp2 file: %s", tp2_path.name)
+        except Exception as e:
+            logger.error("Failed to create synthetic tp2 file %s: %s", tp2_path.name, e)
+
+            error_result = InstallResult(
+                status=ComponentStatus.ERROR,
+                return_code=-1,
+                stdout="",
+                stderr=f"Failed to create synthetic tp2 file: {e}",
+                warnings=[],
+                errors=[f"Failed to create synthetic tp2 file: {e}"],
+            )
+
+            return {f"{comp.mod.id}:{comp.component.key}": error_result for comp in components}
+        # TODO: Copier les fichiers extrait dans le override (par défaut)
+        return self.install_components(
+            tp2=tp2_name,
+            components=components,
+            language=language,
+            extra_args=[],
+            input_lines=[],
+            runner_factory=runner_factory,
+            output_callback=output_callback,
+            runner_created_callback=runner_created_callback,
+            runner_finished_callback=runner_finished_callback,
+        )
 
     def locate_weidu(self) -> bool:
         """
@@ -155,18 +234,62 @@ class WeiDUInstallerEngine:
             return True
 
         try:
-            for child in self.game_dir.iterdir():
-                if not child.is_dir():
+            folders = [
+                self.game_dir / EXTRACT_DIR / "weidu64",
+                self.game_dir / EXTRACT_DIR / "weidu",
+                self.game_dir,
+            ]
+            for folder in folders:
+                if not folder.exists():
                     continue
-                candidate = child / "weidu.exe"
+
+                candidate = folder / "weidu.exe"
                 if candidate.exists():
                     self.weidu_exe = candidate
                     return True
+
+                for child in folder.iterdir():
+                    candidate = child / "weidu.exe"
+                    if candidate.exists():
+                        self.weidu_exe = candidate
+                        return True
         except Exception as e:
             logger.warning("WeiDU search failed: %s", e)
 
         self.weidu_exe = None
         return False
+
+    def init_weidu_log(self) -> None:
+        """Initialize WeiDU.log file if it doesn't exist."""
+        if not self.weidu_log.exists():
+            try:
+                self.weidu_log.write_text("", encoding="utf-8")
+                logger.info("Created weidu.log")
+            except Exception as e:
+                logger.error("Failed to create WeiDU.log: %s", e)
+                raise
+        else:
+            logger.debug("WeiDU.log already exists, skipping initialization")
+
+    def init_weidu_conf(self, language: str) -> None:
+        """
+        Initialize weidu.conf file if it doesn't exist.
+
+        The weidu.conf file tells WeiDU which language directory to use for dialogs.
+        This prevents WeiDU from prompting the user to select a language.
+
+        Args:
+            language: Language code to set in the configuration
+        """
+        if not self.weidu_conf.exists():
+            try:
+                self.weidu_conf.write_text(f"lang_dir = {language}\n", encoding="utf-8")
+                logger.info("Created weidu.conf with lang_dir = %s", language)
+            except Exception as e:
+                logger.error("Failed to create weidu.conf: %s", e)
+                raise
+        else:
+            logger.debug("weidu.conf already exists, skipping initialization")
 
     def is_component_installed(self, mod_id: str, comp_key: str) -> bool:
         """
@@ -235,7 +358,7 @@ class WeiDUInstallerEngine:
             str(language),
             "--skip-at-view",
             "--force-install-list",
-            *[component.component_key for component in components],
+            *[component.component.key for component in components],
             "--logapp",
         ]
 

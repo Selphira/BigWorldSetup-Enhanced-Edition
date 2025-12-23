@@ -363,7 +363,7 @@ class ModTreeItem(BaseTreeItem):
 
     @property
     def reference(self) -> str:
-        return self.data(ROLE_MOD).tp2
+        return self.data(ROLE_MOD).id
 
     def get_selected_items(self) -> list[BaseTreeItem]:
         """Get selected items. Override in subclasses."""
@@ -387,7 +387,7 @@ class StdTreeItem(BaseTreeItem):
 
     @property
     def reference(self) -> str:
-        return f"{self.data(ROLE_MOD).tp2}:{self.data(ROLE_COMPONENT).key}"
+        return f"{self.data(ROLE_MOD).id}:{self.data(ROLE_COMPONENT).key}"
 
     def get_selected_component(self) -> str | None:
         """Return component key if checked."""
@@ -414,7 +414,7 @@ class MucTreeItem(BaseTreeItem):
 
     @property
     def reference(self) -> str:
-        return f"{self.data(ROLE_MOD).tp2}:{self.data(ROLE_COMPONENT).key}"
+        return f"{self.data(ROLE_MOD).id}:{self.data(ROLE_COMPONENT).key}"
 
     def get_selected_component(self) -> str | None:
         """Return selected option key."""
@@ -442,7 +442,7 @@ class SubTreeItem(BaseTreeItem):
 
     @property
     def reference(self) -> str:
-        return f"{self.data(ROLE_MOD).tp2}:{self.data(ROLE_COMPONENT).key}"
+        return f"{self.data(ROLE_MOD).id}:{self.data(ROLE_COMPONENT).key}"
 
     def get_selected_component(self) -> dict[str, Any] | None:
         """Return selected prompts dictionary."""
@@ -488,7 +488,7 @@ class MucOptionTreeItem(BaseTreeItem):
 
     @property
     def reference(self) -> str:
-        return f"{self.data(ROLE_MOD).tp2}:{self.data(ROLE_OPTION_KEY)}"
+        return f"{self.data(ROLE_MOD).id}:{self.data(ROLE_OPTION_KEY)}"
 
 
 class PromptTreeItem(BaseTreeItem):
@@ -509,7 +509,7 @@ class PromptTreeItem(BaseTreeItem):
 
     @property
     def reference(self) -> str:
-        return f"{self.data(ROLE_MOD).tp2}:{self.data(ROLE_COMPONENT).key}.{self.data(ROLE_PROMPT_KEY).key}"
+        return f"{self.data(ROLE_MOD).id}:{self.data(ROLE_COMPONENT).key}.{self.data(ROLE_PROMPT_KEY).key}"
 
 
 class PromptOptionTreeItem(BaseTreeItem):
@@ -532,7 +532,7 @@ class PromptOptionTreeItem(BaseTreeItem):
 
     @property
     def reference(self) -> str:
-        return f"{self.data(ROLE_MOD).tp2}:{self.data(ROLE_COMPONENT).key}.{self.data(ROLE_PROMPT_KEY).key}.{self.data(ROLE_OPTION_KEY)}"
+        return f"{self.data(ROLE_MOD).id}:{self.data(ROLE_COMPONENT).key}.{self.data(ROLE_PROMPT_KEY).key}.{self.data(ROLE_OPTION_KEY)}"
 
 
 # ============================================================================
@@ -941,7 +941,7 @@ class SelectionStateManager:
             child = mod_item.child(row, 0)
             component = child.data(ROLE_COMPONENT)
 
-            if component and not self._game.is_component_forced(mod.tp2, component.key):
+            if component and not self._game.is_component_forced(mod.id, component.key):
                 self._uncheck_component(child)
 
     def _handle_std_component(self, item: StdTreeItem) -> ModTreeItem | None:
@@ -1042,7 +1042,7 @@ class SelectionStateManager:
             child = mod_item.child(row, 0)
             component = child.data(ROLE_COMPONENT)
 
-            if component and self._game.is_component_forced(mod.tp2, component.key):
+            if component and self._game.is_component_forced(mod.id, component.key):
                 return True
 
         return False
@@ -1058,7 +1058,7 @@ class SelectionStateManager:
         if not mod or not comp:
             return False
 
-        return self._game.is_component_forced(mod.tp2, comp.key)
+        return self._game.is_component_forced(mod.id, comp.key)
 
     def _ensure_one_child_checked(self, parent: QStandardItem) -> None:
         """Ensure at least one child is checked."""

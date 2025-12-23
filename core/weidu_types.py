@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from enum import Enum
 
+from core.Mod import Component, Mod
+
 
 class ComponentStatus(Enum):
     """Status of a component installation."""
@@ -11,6 +13,7 @@ class ComponentStatus(Enum):
     ERROR = "error"
     SKIPPED = "skipped"
     ALREADY_INSTALLED = "already_installed"
+    STOPPED = "stopped"
 
 
 @dataclass
@@ -30,8 +33,9 @@ class InstallResult:
 class ComponentInfo:
     """Information about a component to install."""
 
-    mod_id: str
-    component_key: str
+    comp_id: str
+    mod: Mod | None
+    component: Component | None
     tp2_name: str
     sequence_idx: int
     requirements: set[tuple[str, str]] = ()

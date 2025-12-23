@@ -682,12 +682,13 @@ class InstallOrderPage(BasePage):
             mod_id, _, comp_key = reference.partition(":")
             if (
                 comp_key is not None
+                and mod_id not in ["weidu64", "weidu"]
                 and "choice_" not in comp_key
                 and (comp_key.count(".") == 0 or comp_key.count(".") == 2)
             ):
                 mod = self._mod_manager.get_mod_by_id(mod_id)
                 component = mod.get_component(comp_key)
-                if component and not component.is_dwn():
+                if component:
                     self._place_component_in_sequences(mod_id, comp_key)
 
         self._refresh_all_tables()
@@ -1317,7 +1318,7 @@ class InstallOrderPage(BasePage):
         comp_text = mod.get_component(comp_key).get_name()
 
         # Column 0: Mod name
-        mod_item = QTableWidgetItem(f"[{mod.tp2}] {mod_name}")
+        mod_item = QTableWidgetItem(f"[{mod.id}] {mod_name}")
         mod_item.setData(ROLE_MOD, mod_id)
         mod_item.setData(ROLE_COMPONENT, comp_key)
         table.setItem(row, COL_ORDERED_MOD, mod_item)
@@ -1337,7 +1338,7 @@ class InstallOrderPage(BasePage):
         comp_text = mod.get_component(comp_key).get_name()
 
         # Column 0: Mod name
-        mod_item = QTableWidgetItem(f"[{mod.tp2}] {mod_name}")
+        mod_item = QTableWidgetItem(f"[{mod.id}] {mod_name}")
         mod_item.setData(ROLE_MOD, mod_id)
         mod_item.setData(ROLE_COMPONENT, comp_key)
         table.setItem(row, COL_UNORDERED_MOD, mod_item)

@@ -313,9 +313,7 @@ class GameFolderValidator(ExistingFolderValidator):
             logger.debug(
                 "File group validation failed: {group.description} (found {found_count}/{total_count}: {found_files})"
             )
-            return False, tr(
-                "validation.file_group_failed : {description}", description=group.description
-            )
+            return False, tr("validation.file_group_failed", description=group.description)
 
     def _check_lua_conditions(self, folder: Path) -> bool:
         """

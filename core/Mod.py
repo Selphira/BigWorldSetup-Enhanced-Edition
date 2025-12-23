@@ -215,9 +215,9 @@ class Mod:
             data: Dictionary containing mod data from cache
         """
         # Core data (required)
-        self.id: str = data.get("id", "")
+        self.id: str = data.get("id", "").lower()
         self.name: str = data.get("name", "")
-        self.tp2: str = data.get("id", "").lower()
+        self.tp2: str = data.get("tp2", "").lower()
         self.version: str = data.get("version", "")
 
         # Lists (convert to tuples for immutability where appropriate)

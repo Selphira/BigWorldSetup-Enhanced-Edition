@@ -21,6 +21,7 @@ from constants import (
     COLOR_STATUS_COMPLETE,
     COLOR_STATUS_NONE,
     COLOR_WARNING,
+    EXTRACT_DIR,
     MARGIN_STANDARD,
     SPACING_LARGE,
     SPACING_SMALL,
@@ -80,27 +81,32 @@ class StructureValidator:
         return False, None
 
     @staticmethod
-    def fix_structure(game_dir: Path, tp2_name: str) -> bool:
+    def fix_structure(destination_dir: Path, tp2_name: str) -> bool:
         """Attempt to fix invalid extraction structure.
 
         Moves files up from nested directories if needed.
 
         Args:
-            game_dir: Game directory
+            destination_dir: Destination directory
             tp2_name: TP2 name
 
         Returns:
             True if structure fixed successfully
         """
+
+        if not tp2_name:
+            StructureValidator.flatten_directory(destination_dir)
+            return True
+
         # Find TP2 file anywhere in the tree
-        tp2_location = StructureValidator._find_tp2_deep(game_dir, tp2_name)
+        tp2_location = StructureValidator._find_tp2_deep(destination_dir, tp2_name)
 
         if not tp2_location:
             logger.error(f"Could not find TP2 file for {tp2_name}")
             return False
 
         # Check if already valid
-        valid, _ = StructureValidator.validate_structure(game_dir, tp2_name)
+        valid, _ = StructureValidator.validate_structure(destination_dir, tp2_name)
         if valid:
             return True
 
@@ -108,9 +114,9 @@ class StructureValidator:
         current_parent = tp2_location.parent
 
         # If TP2 is in a subdirectory, check if we should move to game_dir or tp2_name folder
-        if current_parent != game_dir:
+        if current_parent != destination_dir:
             # Check if there's a mod folder that should exist
-            expected_mod_folder = game_dir / tp2_name
+            expected_mod_folder = destination_dir / tp2_name
 
             # Move all content from current location up to correct location
             try:
@@ -180,6 +186,39 @@ class StructureValidator:
         if source_dir != target_dir and not any(source_dir.iterdir()):
             source_dir.rmdir()
 
+    @staticmethod
+    def flatten_directory(path: Path):
+        """
+        Recursively flatten a directory structure by removing intermediate single-child directories.
+
+        This method "unwraps" nested directories that contain only one subdirectory and no files,
+        moving all contents up to the parent level until a directory with multiple items or files is found.
+
+        Example:
+            Before: root/only_subdir/another_single_dir/files/
+            After:  root/files/
+
+        Args:
+            path: Directory path to flatten
+        """
+        path = Path(path)
+
+        while True:
+            entries = list(path.iterdir())
+
+            dirs = [e for e in entries if e.is_dir()]
+            files = [e for e in entries if e.is_file()]
+
+            if files or len(dirs) != 1:
+                break
+
+            subdir = dirs[0]
+
+            for item in subdir.iterdir():
+                shutil.move(str(item), str(path))
+
+            subdir.rmdir()
+
 
 # ============================================================================
 # Extraction Worker Thread
@@ -213,17 +252,17 @@ class ExtractionWorker(QThread):
                 if self._is_cancelled:
                     break
 
-                mod_id = extraction_info.mod_id
+                extraction_id = extraction_info.extraction_id
 
                 try:
-                    self.extraction_started.emit(mod_id)
+                    self.extraction_started.emit(extraction_id)
                     success = self._extractor.extract_archive(
                         extraction_info.archive_path, extraction_info.destination_path
                     )
 
                     if not success:
                         self.extraction_error.emit(
-                            mod_id, tr("page.extraction.error_extraction_failed")
+                            extraction_id, tr("page.extraction.error_extraction_failed")
                         )
                         continue
 
@@ -240,15 +279,15 @@ class ExtractionWorker(QThread):
 
                         if not fixed:
                             self.extraction_error.emit(
-                                mod_id, tr("page.extraction.error_structure_invalid")
+                                extraction_id, tr("page.extraction.error_structure_invalid")
                             )
                             continue
 
-                    self.extraction_completed.emit(mod_id)
+                    self.extraction_completed.emit(extraction_id)
 
                 except Exception as e:
-                    logger.error(f"Error extracting {mod_id}: {e}")
-                    self.extraction_error.emit(mod_id, str(e))
+                    logger.error(f"Error extracting {extraction_id}: {e}")
+                    self.extraction_error.emit(extraction_id, str(e))
 
             self.all_completed.emit()
 
@@ -427,12 +466,17 @@ class ExtractionPage(BasePage):
                 else:
                     display_name = mod.name
 
+                destination_path = folder_path
+                if not mod.tp2:
+                    destination_path = Path(f"{destination_path}/{EXTRACT_DIR}/{mod.id}")
+
                 extraction_info = ExtractionInfo(
-                    mod_id=extraction_id,
+                    extraction_id=extraction_id,
+                    mod_id=mod.id,
                     mod_name=display_name,
                     tp2_name=mod.tp2,
                     archive_path=archive_path,
-                    destination_path=folder_path,
+                    destination_path=destination_path,
                 )
 
                 self._extractions[extraction_id] = extraction_info
@@ -506,9 +550,12 @@ class ExtractionPage(BasePage):
         validator = StructureValidator()
 
         for extraction_id, extraction_info in self._extractions.items():
-            valid, tp2_path = validator.validate_structure(
-                extraction_info.destination_path, extraction_info.tp2_name
-            )
+            if not extraction_info.tp2_name:
+                valid = extraction_info.destination_path.exists()
+            else:
+                valid, _ = validator.validate_structure(
+                    extraction_info.destination_path, extraction_info.tp2_name
+                )
 
             if valid:
                 self._update_extraction_status(extraction_id, ExtractionStatus.EXTRACTED)
