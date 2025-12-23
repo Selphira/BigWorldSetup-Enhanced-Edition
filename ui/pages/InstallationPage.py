@@ -655,7 +655,7 @@ class InstallationPage(BasePage):
             for seq_install in self._sequence_installations:
                 game_folder = seq_install["game_folder"]
                 weidu_log = game_folder / "WeiDU.log"
-                if weidu_log.exists():
+                if weidu_log.exists() and weidu_log.stat().st_size > 0:
                     QMessageBox.critical(
                         self,
                         tr("page.installation.error_already_modded_title"),
