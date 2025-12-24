@@ -1,9 +1,9 @@
 [project]
-name = "BigWorldSetup Enhanced Edition"
-version = "0.5.0"
+name = "Big World Setup - Enhanced Edition"
+version = "0.8.0-alpha"
 description = "Installation automatisée de mods des jeux Infinity Engine"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.13.3"
 dependencies = [
     "jsonschema>=4.25.1",
     "pyside6>=6.10.1",

@@ -2,11 +2,11 @@
 ![Langues](https://img.shields.io/static/v1?label=Langues&message=Français%20%7C%20English&color=limegreen)
 ![Jeux supportés](https://img.shields.io/static/v1?label=Jeux%20supportés&message=EET%20%7C%20BG2EE%20%7C%20BGEE%20%7C%20SOD%20%7C%20IWDEE%20%7C%20PSTEE&color=dodgerblue)
 
-# Big World Setup Enhanced Edition (BWS-EE)
+# Big World Setup - Enhanced Edition (BWS-EE)
 
 ## Présentation
 
-**Big World Setup Enhanced Edition** est une application graphique dédiée à l’installation, la configuration et la
+**Big World Setup - Enhanced Edition** est une application graphique dédiée à l’installation, la configuration et la
 gestion
 de mods pour les jeux Infinity Engine.
 
@@ -17,7 +17,7 @@ complexes de mods, tout en restant fidèle aux principes et à l’esprit du pro
 
 ## Héritage de Big World Setup FR
 
-**Big World Setup Enhanced Edition** est l’évolution directe
+**Big World Setup - Enhanced Edition** est l’évolution directe
 de [Big World Setup FR](<https://github.com/Selphira/BigWorldSetupFR>).
 
 Le projet original a rendu de grands services à la communauté pendant de plusieurs années, mais il présentait
@@ -51,7 +51,7 @@ problèmes de fond, sans renier les acquis fonctionnels du projet d’origine.
 
 ## État du projet
 
-**Big World Setup Enhanced Edition** est en cours de développement actif.
+**Big World Setup - Enhanced Edition** est en cours de développement actif.
 
 Toutes les fonctionnalités du **Big World Setup FR** ne sont pas encore adaptées, et les nouvelles fonctionnalités ne
 sont pas encore toutes développées.
