@@ -41,7 +41,7 @@ problèmes de fond, sans renier les acquis fonctionnels du projet d’origine.
 * Compatibilité Linux
 * Interface fluide
 * Synchronisation des données avec
-  la [Liste des mods de l'Infinity Engine](<https://lacouronnedecuivre.github.io/lcc-docs/>)
+  la [Liste des mods de l'Infinity Engine](<https://riwspy.github.io/lcc-docs/>)
 * Support de multiples langues pour l'interface et les mods
 * Divers filtre sur les mods et les composants
 * Possibilité d'ajouter des mods non supportés
