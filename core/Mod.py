@@ -322,7 +322,7 @@ class Mod:
         parent_comp = cast(SubComponent, parent_comp)
 
         # Get all prompts in order
-        prompt_keys = parent_comp.prompts.keys()
+        prompt_keys = list(parent_comp.prompts.keys())
 
         # Verify we have the right number of values for the number of prompts
         if len(option_values) != len(prompt_keys):
