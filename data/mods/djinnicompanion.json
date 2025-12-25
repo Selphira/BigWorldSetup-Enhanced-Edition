@@ -14,11 +14,11 @@
   "categories": ["npc"],
   "components": {
     "choice_0": {"type": "muc", "components": ["0", "1"]},
-    "2": {"type": "std"},
+    "2": {"type": "std", "games": ["iwdee"]},
     "choice_1": {"type": "muc", "components": ["101", "102", "103", "104", "105"]},
     "200": {"type": "std"},
     "300": {"type": "std"},
-    "400": {"type": "std"},
+    "400": {"type": "std", "games": ["iwdee"]},
     "900": {"type": "std"}
   },
   "languages": {
