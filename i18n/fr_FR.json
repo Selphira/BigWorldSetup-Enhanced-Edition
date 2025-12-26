@@ -121,8 +121,6 @@
       "load_error_title": "Erreur de chargement",
       "load_error_message": "Échec du chargement du fichier d'ordre : {error}",
       "select_weidu_log": "Sélectionner le fichier WeiDU.log",
-      "parse_error_title": "Erreur d'analyse",
-      "parse_error_message": "Échec de l'analyse de WeiDU.log : {error}",
       "reset_order_confirm_title": "Confirmer la réinitialisation",
       "reset_order_confirm_message": "Voulez-vous réinitialiser l'ordre d'installation ?",
       "import_title": "Importer un ordre d'installation",

@@ -49,6 +49,7 @@ from core.ComponentReference import ComponentReference
 from core.GameModels import GameDefinition
 from core.models.PauseEntry import PAUSE_PREFIX, PauseEntry
 from core.OrderGenerator import OrderGenerator
+from core.OrderImportExportManager import OrderImportError, OrderImportExportManager
 from core.StateManager import StateManager
 from core.TranslationManager import tr
 from core.WeiDULogParser import WeiDULogParser
@@ -272,8 +273,8 @@ class InstallOrderPage(BasePage):
         self._mod_manager = self.state_manager.get_mod_manager()
         self._game_manager = self.state_manager.get_game_manager()
         self._rule_manager = self.state_manager.get_rule_manager()
+        self._import_export_manager = OrderImportExportManager(WeiDULogParser())
         self._order_generator = OrderGenerator(self._rule_manager)
-        self._weidu_parser = WeiDULogParser()
 
         # Game state
         self._current_game: str | None = None
@@ -716,7 +717,7 @@ class InstallOrderPage(BasePage):
         # Apply order
         new_ordered = []
         for reference in order:
-            if PauseEntry.is_pause(reference.comp_key):
+            if PauseEntry.is_pause(str(reference)):
                 new_ordered.append(reference)
                 continue
 
@@ -818,9 +819,8 @@ class InstallOrderPage(BasePage):
             return
 
         try:
-            order = self._weidu_parser.parse_file(file_path).get_component_ids()
-            order = ComponentReference.from_string_list(order)
-            self._apply_order_from_list(self._current_sequence_idx, order)
+            imported_order_list = self._import_export_manager.import_from_weidu_log(file_path)
+            self._apply_order_from_list(self._current_sequence_idx, imported_order_list)
 
             seq_data = self._sequences_data[self._current_sequence_idx]
             QMessageBox.information(
@@ -832,12 +832,12 @@ class InstallOrderPage(BasePage):
                     unordered=len(seq_data.unordered),
                 ),
             )
-        except Exception as e:
+        except OrderImportError as e:
             logger.error(f"Error parsing WeiDU.log: {e}", exc_info=True)
             QMessageBox.critical(
                 self,
-                tr("page.order.parse_error_title"),
-                tr("page.order.parse_error_message", error=str(e)),
+                tr("page.order.import_error_title"),
+                tr("page.order.import_error_message", error=str(e)),
             )
 
     def _import_order_file(self) -> None:
@@ -855,56 +855,33 @@ class InstallOrderPage(BasePage):
         if not file_path:
             return
 
-        import json
-
         try:
-            with open(file_path, "r", encoding="utf-8") as f:
-                imported_data = json.load(f)
+            imported_order = self._import_export_manager.import_from_json(file_path)
 
-            # Validate structure
-            if not isinstance(imported_data, dict):
-                raise ValueError("Invalid file format: root must be an object")
-
-            # Convert string keys to integers
-            install_order = {}
-            for key, value in imported_data.items():
-                try:
-                    seq_idx = int(key)
-                    if not isinstance(value, list):
-                        raise ValueError("Sequence %d must be a list", seq_idx)
-                    install_order[seq_idx] = value
-                except ValueError as e:
-                    raise ValueError("Invalid sequence key '%s': %s", key, e)
-
-            for seq_idx, order_list in install_order.items():
+            for seq_idx, order_list in imported_order.items():
                 if seq_idx in self._sequences_data:
-                    order_list = ComponentReference.from_string_list(order_list)
                     self._apply_order_from_list(seq_idx, order_list)
 
-            total_ordered = sum(len(seq.ordered) for seq in self._sequences_data.values())
-            total_unordered = sum(len(seq.unordered) for seq in self._sequences_data.values())
+            stats = self._import_export_manager.get_order_statistics(imported_order)
 
             QMessageBox.information(
                 self,
                 tr("page.order.import_success_title"),
                 tr(
                     "page.order.import_success_message",
-                    ordered=total_ordered,
-                    unordered=total_unordered,
+                    ordered=stats["total_components"],
+                    unordered=sum(len(seq.unordered) for seq in self._sequences_data.values()),
                 ),
             )
 
-            logger.info("Imported order from %s: %d components", file_path, total_ordered)
-
-        except json.JSONDecodeError as e:
-            logger.error("Invalid JSON file: %s", e)
-            QMessageBox.critical(
-                self,
-                tr("page.order.import_error_title"),
-                tr("page.order.import_error_invalid_json", error=str(e)),
+            logger.info(
+                "Imported %d components and %d pauses from %s",
+                stats["component_count"],
+                stats["pause_count"],
+                file_path,
             )
-        except Exception as e:
-            logger.error("Error importing order: %s", e)
+        except OrderImportError as e:
+            logger.error(f"Import failed: {e}")
             QMessageBox.critical(
                 self,
                 tr("page.order.import_error_title"),
@@ -915,11 +892,14 @@ class InstallOrderPage(BasePage):
         """Export current order to JSON file."""
         self.save_state()
 
-        install_order = self.state_manager.get_install_order()
+        install_order_strings = self.state_manager.get_install_order()
+        install_order = {
+            seq_idx: ComponentReference.from_string_list(order_strings)
+            for seq_idx, order_strings in install_order_strings.items()
+        }
+        stats = self._import_export_manager.get_order_statistics(install_order)
 
-        # Check if there's any ordered components
-        total_ordered = sum(len(order) for order in install_order.values())
-        if total_ordered == 0:
+        if stats["total_components"] == 0:
             QMessageBox.warning(
                 self,
                 tr("page.order.export_empty_title"),
@@ -943,21 +923,19 @@ class InstallOrderPage(BasePage):
             file_path += ".json"
 
         try:
-            import json
-
-            with open(file_path, "w", encoding="utf-8") as f:
-                json.dump(install_order, f, indent=2, ensure_ascii=False)
+            self._import_export_manager.export_to_json(install_order, file_path)
 
             QMessageBox.information(
                 self,
                 tr("page.order.export_success_title"),
-                tr("page.order.export_success_message", count=total_ordered, path=file_path),
+                tr(
+                    "page.order.export_success_message",
+                    count=stats["total_components"],
+                    path=file_path,
+                ),
             )
-
-            logger.info(f"Exported order to {file_path}: {total_ordered} components")
-
-        except Exception as e:
-            logger.error(f"Error exporting order: {e}", exc_info=True)
+        except OrderImportError as e:
+            logger.error(f"Export failed: {e}")
             QMessageBox.critical(
                 self,
                 tr("page.order.export_error_title"),
