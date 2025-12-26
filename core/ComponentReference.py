@@ -177,6 +177,42 @@ class ComponentReference:
         base_key = self.get_base_component_key()
         return ComponentReference(self.mod_id, base_key)
 
+    # ========================================
+    # Conversion Utilities
+    # ========================================
+
+    @classmethod
+    def from_string_list(cls, string_list: list[str]) -> list[ComponentReference]:
+        """Convert a list of string references to ComponentReference list.
+
+        Invalid references are logged and skipped.
+
+        Args:
+            string_list: List of strings in "mod_id:comp_key" format
+
+        Returns:
+            List of ComponentReference objects (may be shorter if some were invalid)
+        """
+        references = []
+        for ref_str in string_list:
+            try:
+                references.append(cls.from_string(ref_str))
+            except ValueError as e:
+                logger.warning(f"Invalid component reference '{ref_str}': {e}")
+        return references
+
+    @staticmethod
+    def to_string_list(references: list[ComponentReference]) -> list[str]:
+        """Convert a list of ComponentReference to string list.
+
+        Args:
+            references: List of ComponentReference objects
+
+        Returns:
+            List of strings in "mod_id:comp_key" format
+        """
+        return [str(ref) for ref in references]
+
 
 # ============================================================================
 # Reference Indexes
