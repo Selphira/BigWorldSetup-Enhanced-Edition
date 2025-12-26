@@ -46,8 +46,9 @@ from constants import (
     SPACING_SMALL,
 )
 from core.ComponentReference import ComponentReference
-from core.GameModels import GameDefinition, InstallStep
+from core.GameModels import GameDefinition
 from core.models.PauseEntry import PAUSE_PREFIX, PauseEntry
+from core.OrderGenerator import OrderGenerator
 from core.StateManager import StateManager
 from core.TranslationManager import tr
 from core.WeiDULogParser import WeiDULogParser
@@ -271,6 +272,7 @@ class InstallOrderPage(BasePage):
         self._mod_manager = self.state_manager.get_mod_manager()
         self._game_manager = self.state_manager.get_game_manager()
         self._rule_manager = self.state_manager.get_rule_manager()
+        self._order_generator = OrderGenerator(self._rule_manager)
         self._weidu_parser = WeiDULogParser()
 
         # Game state
@@ -736,46 +738,23 @@ class InstallOrderPage(BasePage):
             f"(including pauses), {len(new_unordered)} unordered"
         )
 
-    def _apply_sequence_order(
-        self, seq_idx: int, install_steps: tuple[InstallStep, ...]
-    ) -> None:
-        """Apply installation order from InstallStep sequence.
-
-        Args:
-            seq_idx: Sequence index
-            install_steps: Tuple of installation steps
-        """
-        base_order = [
-            ComponentReference.from_string(f"{step.mod.lower()}:{step.comp}")
-            for step in install_steps
-            if not step.is_annotation and step.is_install
-        ]
-        selected = ComponentReference.from_string_list(
-            self.state_manager.get_selected_components()
-        )
-        order = self._rule_manager.generate_order(selected, base_order)
-
-        self._apply_order_from_list(seq_idx, order)
-
-    def _load_default_order_current_tab(self) -> None:
-        """Load default order for current tab."""
-        if not self._game_def:
-            return
-
-        index = self._current_sequence_idx
-        sequence = self._game_def.get_sequence(index)
-        if sequence:
-            self._apply_sequence_order(index, sequence.order)
-            logger.info(f"Loaded default order for sequence {index}")
-
     def _load_default_order(self) -> None:
         """Load default order from game definition."""
         if not self._game_def:
             return
 
+        selected_components = ComponentReference.from_string_list(
+            self.state_manager.get_selected_components()
+        )
         for seq_idx, sequence in enumerate(self._game_def.sequences):
             if seq_idx in self._sequences_data:
-                self._apply_sequence_order(seq_idx, sequence.order)
+                base_order = [
+                    ComponentReference.from_string(f"{step.mod.lower()}:{step.comp}")
+                    for step in sequence.order
+                    if not step.is_annotation and step.is_install
+                ]
+                order = self._order_generator.generate(selected_components, base_order)
+                self._apply_order_from_list(seq_idx, order)
 
         logger.info("Loaded default order for all sequences")
 
